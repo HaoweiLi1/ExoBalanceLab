@@ -50,6 +50,8 @@ MATLAB `h5read` to inspect Python-produced files. `--projection-only` saves the 
 three-dimensional field and its torque projection, without a feedback history.
 Each run records its prepared-input SHA-256, package versions, device, compiled temporary
 memory and progress. Existing output directories are never overwritten.
+The history is named `policy.partial.mat` during integration and becomes `policy.mat`
+only after it is complete and closed. Interrupted runs retain their partial data.
 
 ## Numerical correspondence
 

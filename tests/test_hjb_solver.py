@@ -30,7 +30,8 @@ def test_eno3_matches_independent_matlab_stencils_including_ties():
 
 
 @pytest.mark.parametrize("method", ["none", "minVWithV0"])
-def test_solver_matches_exact_advection_and_streams_a_readable_policy(tmp_path, method):
+def test_solver_matches_exact_advection_and_streams_a_readable_policy(tmp_path, monkeypatch, method):
+    from exobalancelab import hjb_solver
     from exobalancelab.hjb_solver import solve
 
     axes = [np.linspace(1.2, 1.9, 7), np.linspace(-1, 1, 5), np.linspace(-2, 2, 7), [0, 0.05, 0.1]]
@@ -55,6 +56,7 @@ def test_solver_matches_exact_advection_and_streams_a_readable_policy(tmp_path, 
     summary = solve(problem, destination)
     assert summary["stage"] == "solved"
     assert summary["backend"] == "JAX/ENO3"
+    assert not (destination / "policy.partial.mat").exists()
     with h5py.File(destination / "policy.mat") as policy:
         for i, time in enumerate(axes[3]):
             expected = initial + (time if method == "none" else 0)
@@ -64,3 +66,15 @@ def test_solver_matches_exact_advection_and_streams_a_readable_policy(tmp_path, 
     assert policy.rate(0.05, 0, 0, 0, PROFILES["OF"]) == PROFILES["OF"].rate_min_nm_s
     with pytest.raises(FileExistsError):
         solve(problem, destination)
+    if method == "none":
+
+        def failed_export(*args, **kwargs):
+            raise OSError("Injected final export failure")
+
+        monkeypatch.setattr(hjb_solver, "savemat", failed_export)
+        interrupted = tmp_path / "interrupted"
+        with pytest.raises(OSError, match="export failure"):
+            solve(problem, interrupted)
+        assert (interrupted / "policy.partial.mat").exists()
+        assert not (interrupted / "policy.mat").exists()
+        assert json.loads((interrupted / "summary.json").read_text())["stage"] == "running"

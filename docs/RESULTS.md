@@ -337,7 +337,9 @@ at 101 nodes. [51-node outcomes](results/hjb_gpu/nominal51/outcomes.json) ·
 Grid sensitivity remains substantial: with the GPU backend, increasing angle nodes
 from 101 to 201 changes the sampled forward area from 0.343706 to 0.410191 rad²/s.
 At 201 angle nodes, increasing torque nodes from 51 to 101 changes it to 0.419714 rad²/s.
-Velocity refinement and the paper-sized grid remain in progress. These observations
+Increasing velocity nodes from 269 to 537 then changes it to 0.433604 rad²/s, another
+3.31%. The [velocity-refined projection and configuration](results/hjb_gpu/201_537_101/)
+are retained. The paper-sized grid remains in progress. These observations
 do not establish spatial convergence or reproduce Table II.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region

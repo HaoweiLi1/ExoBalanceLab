@@ -157,7 +157,8 @@ def solve(problem: Path, output: Path, save_history: bool = True, platform: str 
             versions={name: version(name) for name in ["jax", "jaxlib", "hj_reachability", "numpy", "h5py"]},
         )
         (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
-        policy = h5py.File(output / "policy.mat", "w") if save_history else None
+        partial_policy = output / "policy.partial.mat"
+        policy = h5py.File(partial_policy, "w") if save_history else None
         try:
             if policy is not None:
                 for name, axis in zip(AXIS_NAMES, axes, strict=True):
@@ -213,10 +214,12 @@ def solve(problem: Path, output: Path, save_history: bool = True, platform: str 
                 },
             )
             np.save(output / "final_value.npy", actual)
-            (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
         finally:
             if policy is not None:
                 policy.close()
+        if policy is not None:
+            partial_policy.rename(output / "policy.mat")
+        (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
         return summary
 
 
