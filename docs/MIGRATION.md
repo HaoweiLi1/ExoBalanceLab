@@ -29,8 +29,8 @@ These snapshots are historical source, not the maintained launch interface. The 
 README incorrectly implied several removed directories still existed; the new README
 points to their actual historical location.
 
-The published independent repository is [HaoweiLi1/ExoBalanceLab](https://github.com/HaoweiLi1/ExoBalanceLab),
-with only `main`. GitHub API verification confirmed `fork=false` and remote commit
+The maintained independent repository is [HaoweiLi1/ExoBalanceLab](https://github.com/HaoweiLi1/ExoBalanceLab),
+kept private with only `main`. GitHub API verification confirmed `fork=false` and remote commit
 `d0ed547783ae81e4a681309ceed376f1bbc7dabc` for the implementation release.
 Pushing the preserved history to a normally created repository yields an independent
 GitHub repository without a parent/fork network. The original fork is preserved as an

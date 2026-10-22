@@ -111,6 +111,7 @@ forward validation; the other profiles save final fields and projections. Allow 
 
 ```bash
 python - <<'PY'
+import hashlib
 import json
 import subprocess
 import sys
@@ -118,8 +119,17 @@ from pathlib import Path
 
 protocol = json.loads(Path('docs/results/hjb_paper225/protocol.json').read_text())
 for case in protocol['cases']:
+    problem = Path(case['prepared']) / 'problem.mat'
+    output = Path(case['solved'])
+    if output.exists():
+        summary = json.loads((output / 'summary.json').read_text())
+        assert summary['stage'] == 'solved', f'Incomplete run retained: {output}'
+        with problem.open('rb') as file:
+            assert summary['problem_sha256'] == hashlib.file_digest(file, 'sha256').hexdigest()
+        assert not case['save_history'] or (output / 'policy.mat').exists()
+        continue
     command = [sys.executable, '-m', 'exobalancelab.hjb_solver',
-               '--problem', str(Path(case['prepared']) / 'problem.mat'),
+               '--problem', str(problem),
                '--out', case['solved']]
     if not case['save_history']:
         command.append('--projection-only')
@@ -145,8 +155,12 @@ and MuJoCo forward validation remain separate experiments.
 The [OF protocol](results/hjb_grid_study/protocol.json) fixes three requested grids,
 151³, 225³ and 301³, for every assistance/direction pair. Prepare each case with its
 own `requested_resolution`; the horizon, target construction, method and zero alignment
-remain unchanged. The six 225³ runs are reused from the population campaign. Save only
-final fields for the additional cases.
+remain unchanged. Five 225³ runs are reused from the population campaign. The first
+nominal forward run predates the atomic-output fix; it is repeated with identical inputs
+under the common solver revision, with the original retained for an equality check.
+[Source diff and revision record](results/hjb_grid_study/baseline_revision_audit.json).
+Save only final fields for additional runs. Use the serial Python loop above with this
+grid-study protocol; it reuses completed runs only when their prepared-input hashes match.
 
 Once all 18 recorded cases are solved:
 

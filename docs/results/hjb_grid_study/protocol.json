@@ -92,13 +92,14 @@
       "exo": "none",
       "direction": "forward",
       "prepared": "logs/hjb_prepared_OF_225_paper",
-      "solved": "logs/hjb_gpu_OF_225_paper",
-      "save_history": true,
+      "solved": "logs/hjb_grid_study/solved/OF_none_forward_225",
+      "save_history": false,
       "requested_resolution": [
         225,
         225,
         225
-      ]
+      ],
+      "original_solved": "logs/hjb_gpu_OF_225_paper"
     },
     {
       "profile": "OF",
@@ -261,5 +262,9 @@
       301,
       301
     ]
-  ]
+  ],
+  "baseline_revision": {
+    "recorded": "2026-10-23T03:05:31+08:00",
+    "reason": "Repeat the original 225-grid nominal forward solve under the common solver file revision. Original policy and outcomes remain preserved; all numerical inputs and study resolutions unchanged."
+  }
 }
