@@ -31,6 +31,7 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path, timestep_s, control_period_s, gradient_cache)` | Matching nominal/assisted HJB → new or frozen-cohort rollouts with explicit timing |
 | `hjb_comparison` | `compare(runs, output)` | Matching cohort/plant/targets → complete per-case CSV, JSON, PNG and PDF |
 | `hjb_regions` | `report(protocol_path, output)` | Complete 30-case campaign → projected areas, Table II comparison and figures |
+| `hjb_regions` | `compare_grids(protocol_path, output)` | Complete one-profile grid study → native/common-grid area and boundary comparisons |
 
 `cli`, `sweep`, `validation`, `hjb_validation`, `hjb_comparison` and `hjb_regions` expose
 executable `main()` functions.

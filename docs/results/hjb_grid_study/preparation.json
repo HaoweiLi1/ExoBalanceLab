@@ -145,5 +145,6 @@
       "stage": "prepared",
       "problem_sha256": "8ad4c878e85f6e273c03fdaf29240d876cbdc2ed71da5b22ce002579b0317a8a"
     }
-  ]
+  ],
+  "target_parameter_max_abs_difference_across_grids": 0.0
 }

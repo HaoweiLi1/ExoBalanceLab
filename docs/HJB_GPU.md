@@ -139,3 +139,25 @@ physical parameters and common solver settings. It refuses an incomplete campaig
 Outputs include absolute areas, relative changes against each profile's no-assistance
 baseline, differences from Table II, hashes, and PNG/PDF/SVG figures. Grid convergence
 and MuJoCo forward validation remain separate experiments.
+
+## Spatial-resolution study
+
+The [OF protocol](results/hjb_grid_study/protocol.json) fixes three requested grids,
+151³, 225³ and 301³, for every assistance/direction pair. Prepare each case with its
+own `requested_resolution`; the horizon, target construction, method and zero alignment
+remain unchanged. The six 225³ runs are reused from the population campaign. Save only
+final fields for the additional cases.
+
+Once all 18 recorded cases are solved:
+
+```bash
+python -m exobalancelab.hjb_regions --grid-study \
+  --protocol docs/results/hjb_grid_study/protocol.json --out logs/of_grid_report
+```
+
+This checks the declared resolutions, all six pairs, identical targets and solver code.
+It reports each native-grid area, then interpolates coarse projected values onto finer
+nodes inside their common domain. Common-grid sign agreement and area estimates separate
+value-field changes from quadrature/domain differences. No extrapolation is used.
+CSV/JSON and PNG/PDF/SVG outputs retain actual axis extents and projection hashes.
+The report measures spatial sensitivity; it does not automatically certify convergence.

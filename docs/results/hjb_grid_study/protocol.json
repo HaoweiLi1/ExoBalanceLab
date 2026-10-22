@@ -244,5 +244,22 @@
       ]
     }
   ],
-  "scope": "Three-grid spatial sensitivity study for all six OF mode/direction pairs. Compare sampled projected areas and common-domain boundary signs; report differences without assuming convergence. Actual zero-aligned grid extents are retained for each run."
+  "scope": "Three-grid spatial sensitivity study for all six OF mode/direction pairs. Compare sampled projected areas and common-domain boundary signs; report differences without assuming convergence. Actual zero-aligned grid extents are retained for each run.",
+  "requested_resolutions": [
+    [
+      151,
+      151,
+      151
+    ],
+    [
+      225,
+      225,
+      225
+    ],
+    [
+      301,
+      301,
+      301
+    ]
+  ]
 }
