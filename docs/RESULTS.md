@@ -19,8 +19,9 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **54 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
-  The other 51 tests need no MATLAB license.
+- **57 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
+  The other 54 tests need no MATLAB license. The added plot checks expose 14
+  third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
   Both printed Table I and original-source parameter sets are checked against MuJoCo;

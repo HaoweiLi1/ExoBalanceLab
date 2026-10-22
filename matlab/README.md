@@ -149,9 +149,12 @@ solve_nominal_hjb('/path/to/AnkleExoBRS', 'logs/hjb_dependencies', 'logs/hjb_OF_
 
 Options are `profile` (five paper labels), `direction` (`forward` or `backward`),
 `resolution` (three grid sizes), `duration_s` (default 1.4), `output_step_s` (default 0.1),
+`velocity_buffer_rad_s` (default 0.02), `quiet` (default false),
 and `method` (`none` or `minVWithV0`, default `none`). This coarse default is for bringing
 up the solver, not demonstrating spatial convergence. MATLAB's `-singleCompThread`
-startup option limits CPU use for these array-based experiments.
+startup option limits CPU use but was substantially slower on the development machine.
+Use default computational threads for the measured run. Progress is printed unless
+`quiet=true`; a MATLAB `-logfile` preserves it without requiring an interactive window.
 
 The runner stages the original class files into an `@LiftedInvPendExo` directory inside
 the new run directory so MATLAB can find its external methods. Original checkouts and
@@ -190,5 +193,10 @@ The protocol records the policy hash and all selected states. Outcomes distingui
 target reach, contact validity and explicit rollout errors; an out-of-grid policy query
 is retained as an error. The final target test uses the actual end-of-horizon lifted
 state. Completed episodes and the projected region plot are saved alongside the report.
+Use `--protocol path/to/earlier/protocol.json` to retain exactly the same initial states
+and selection groups when comparing grids or time histories. Values and inside/outside
+predictions are recomputed for the new policy; `selection_value` retains the earlier value.
+The original selection seed, policy hash and protocol hash identify the frozen cohort.
+Coverage failures record the query, axis bounds and elapsed simulation time in SI units.
 The published 1.4 s coarse-grid run includes prediction/rollout disagreements and
 out-of-grid failures; see [all outcomes](../docs/RESULTS.md#longer-horizon-coarse-grid-prediction-is-not-sufficient).

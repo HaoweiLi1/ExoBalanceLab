@@ -10,7 +10,7 @@ import pytest
 from scipy.integrate import solve_ivp
 
 from exobalancelab.paper import PROFILES
-from exobalancelab.reachability import HJBPolicy, policy_contract
+from exobalancelab.reachability import HJBPolicy, PolicyCoverageError, policy_contract
 from exobalancelab.simulation import RunConfig, run
 
 
@@ -117,3 +117,12 @@ def test_hjb_requires_parameter_provenance_for_rollout(tmp_path):
     policy.contract = None
     with pytest.raises(ValueError, match="contract_json"):
         run(RunConfig(duration_s=0.01), hjb=policy)
+
+
+def test_policy_coverage_error_retains_physical_query_and_bounds(tmp_path):
+    policy = _policy(tmp_path, 1)
+    with pytest.raises(PolicyCoverageError, match="velocity_rad_s") as caught:
+        policy.rate(0.5, 0, -1.001, 0, PROFILES["OF"])
+    assert caught.value.query["remaining_s"] == 0.5
+    assert caught.value.query["velocity_rad_s"] == -1.001
+    assert caught.value.bounds["velocity_rad_s"] == [-1, 1]

@@ -23,6 +23,7 @@ reachability result and a physical experiment. Specify subject/model parameters,
 states, action limits, sample rates and selection criteria before comparing outcomes.
 An additional human geometry must have explicit mass/inertia and a stated modeling role.
 
-Good next contributions include licensed MATLAB end-to-end validation, reconciled HJB
-reproduction, subject-specific inertial parameters, muscle-based actuation and 3D balance.
+Good next contributions include converged HJB reproduction, subject-specific inertial
+parameters, muscle-based actuation and 3D balance. Licensed MATLAB integration is already
+tested; preserve its optional runtime checks and frozen-cohort policy comparisons.
 Each needs evidence beyond adding an interface or increasing model complexity.

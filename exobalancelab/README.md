@@ -24,10 +24,11 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `simulation` | `Episode.save(directory)` | records → new evidence directory |
 | `reachability` | `HJBPolicy(path)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s |
 | `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
+| `reachability` | `PolicyCoverageError.query`, `.bounds` | Failed query and exported bounds in SI units |
 | `rendering` | `comparison_video(episodes, output, fps, width, height)` | synchronized records → MP4/GIF/poster |
 | `rendering` | `plot_comparison(episodes, output)` | records → PNG time series |
 | `validation` | `validate_dynamics(seed)`, `benchmark_bridge(seed)` | deterministic protocol → metrics |
-| `hjb_validation` | `validate(run_dir, output, count, seed)` | MATLAB nominal solve → preselected MuJoCo rollouts and outcomes |
+| `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path)` | MATLAB nominal solve → new or frozen-cohort MuJoCo rollouts and outcomes |
 
 `cli`, `sweep`, `validation` and `hjb_validation` expose executable `main()` functions.
 

@@ -12,6 +12,8 @@ arguments
     options.resolution (3,1) double {mustBeInteger,mustBePositive} = [51;225;51]
     options.duration_s (1,1) double {mustBePositive,mustBeFinite} = 1.4
     options.output_step_s (1,1) double {mustBePositive,mustBeFinite} = 0.1
+    options.velocity_buffer_rad_s (1,1) double {mustBePositive,mustBeFinite} = 0.02
+    options.quiet (1,1) logical = false
     options.method (1,1) string {mustBeMember(options.method,["none","minVWithV0"])} = "none"
 end
 assert(~isfolder(output_dir) && ~isfile(output_dir), 'Refusing to overwrite an HJB run.');
@@ -37,11 +39,11 @@ copyfile(model_file, fullfile(output_dir,'source_model.mat'));
 copyfile(target_file, fullfile(output_dir,'source_target.mat'));
 pendulum = LiftedInvPendExo([pi/2;0;0], model_data.model, target_data.problemParams);
 if options.direction == "forward"
-    lower = [0.65;-0.02*pendulum.vscale;pendulum.torqueMin*pendulum.tauscale];
+    lower = [0.65;-options.velocity_buffer_rad_s*pendulum.vscale;pendulum.torqueMin*pendulum.tauscale];
     upper = [1.8;2.85*pendulum.vscale;pendulum.torqueMax*pendulum.tauscale];
 else
     lower = [1.51;-2.85*pendulum.vscale;pendulum.torqueMin*pendulum.tauscale];
-    upper = [2.56;0.02*pendulum.vscale;pendulum.torqueMax*pendulum.tauscale];
+    upper = [2.56;options.velocity_buffer_rad_s*pendulum.vscale;pendulum.torqueMax*pendulum.tauscale];
 end
 grid = createGrid(lower, upper, options.resolution);
 target = target_data.problemParams.targetSets;
@@ -66,7 +68,7 @@ scheme.dynSys = pendulum;
 scheme.accuracy = 'high';
 scheme.uMode = 'min';
 extra.obstacleFunction = margin;
-extra.quiet = true;
+extra.quiet = options.quiet;
 extra.keepLast = false;
 started = tic;
 [value,tau] = HJIPDE_solve(initial,time_s/pendulum.omega,scheme,char(options.method),extra);
@@ -79,6 +81,7 @@ save(fullfile(output_dir,'projection.mat'),'theta_rad','velocity_rad_s','project
 summary = struct('profile',options.profile,'exo','none','direction',options.direction, ...
     'resolution',options.resolution,'duration_s',tau(end)*pendulum.omega, ...
     'output_step_s',options.output_step_s,'method',options.method,'wall_s',elapsed, ...
+    'velocity_buffer_rad_s',options.velocity_buffer_rad_s, ...
     'matlab_release',version('-release'),'gravity_m_s2',pendulum.g, ...
     'source_model',model_data.model,'target',target, ...
     'initial_target_nodes',nnz(initial<0),'final_reachable_nodes',nnz(value(:,:,:,end)<=0), ...

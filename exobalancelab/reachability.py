@@ -19,6 +19,23 @@ from exobalancelab.paper import Profile
 TIME_TOLERANCE_S = 1e-12
 
 
+class PolicyCoverageError(ValueError):
+    """A query outside the exported domain, retaining SI coordinates and bounds."""
+
+    def __init__(self, point: list[float], axes: tuple[np.ndarray, ...]) -> None:
+        names = ["theta_rad", "velocity_rad_s", "human_torque_nm", "remaining_s"]
+        self.query = dict(zip(names, map(float, point), strict=True))
+        self.bounds = {
+            name: [float(axis[0]), float(axis[-1])] for name, axis in zip(names, axes, strict=True)
+        }
+        violations = [
+            f"{name}={value:.12g} outside [{self.bounds[name][0]:.12g}, {self.bounds[name][1]:.12g}]"
+            for name, value in self.query.items()
+            if not self.bounds[name][0] <= value <= self.bounds[name][1]
+        ]
+        super().__init__("HJB query out of bounds: " + "; ".join(violations))
+
+
 def policy_contract(profile: Profile, exo: str) -> dict:
     """Describe the paper plant for a policy, including effective MT/MRTD limits."""
     parameters = asdict(profile)
@@ -108,7 +125,10 @@ class HJBPolicy:
                 remaining_s = endpoint
                 break
         point = [np.pi / 2 + lean_rad, velocity_rad_s, human_torque_nm, remaining_s]
-        derivative = float(self.gradient(point).item())
+        try:
+            derivative = float(self.gradient(point).item())
+        except ValueError as error:
+            raise PolicyCoverageError(point, self.gradient.grid) from error
         if derivative > 0:
             return profile.rate_min_nm_s
         if derivative < 0:
