@@ -54,7 +54,7 @@ MUJOCO_GL=egl exobalance compare --model human --lean 0 --velocity 0 \
   --push 80 --duration 6 --video --out logs/human_demo
 ```
 
-Numerical experiments run without MATLAB or a display. For desktop rendering, omit
+The quick-start comparisons run without MATLAB or a display. For desktop rendering, omit
 `MUJOCO_GL=egl`; headless EGL needs a working graphics driver. Use a new output directory
 for each run. [MATLAB setup and examples](matlab/README.md) cover replay, feedback and HJB solves.
 

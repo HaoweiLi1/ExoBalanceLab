@@ -14,7 +14,7 @@
       "exo": "none",
       "direction": "forward",
       "prepared": "logs/hjb_om_gc_followup/prepared/OM_none_forward_151",
-      "solved": "logs/hjb_om_gc_followup/solved/OM_none_forward_151",
+      "solved": "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform",
       "save_history": false,
       "requested_resolution": [
         151,
@@ -27,7 +27,7 @@
       "exo": "gc",
       "direction": "forward",
       "prepared": "logs/hjb_om_gc_followup/prepared/OM_gc_forward_151",
-      "solved": "logs/hjb_om_gc_followup/solved/OM_gc_forward_151",
+      "solved": "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform",
       "save_history": false,
       "requested_resolution": [
         151,
@@ -66,7 +66,7 @@
       "exo": "none",
       "direction": "forward",
       "prepared": "logs/hjb_om_gc_followup/prepared/OM_none_forward_301",
-      "solved": "logs/hjb_om_gc_followup/solved/OM_none_forward_301",
+      "solved": "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -79,7 +79,7 @@
       "exo": "gc",
       "direction": "forward",
       "prepared": "logs/hjb_om_gc_followup/prepared/OM_gc_forward_301",
-      "solved": "logs/hjb_om_gc_followup/solved/OM_gc_forward_301",
+      "solved": "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -125,5 +125,29 @@
       "none": "188cd77434b5624c7852f210b729520141f08ab178714d4bf9b9c37daac53ab1",
       "gc": "c64d34032439ea41c2b825f7f9f666720f25894d113592c030b58cfaf669aa09"
     }
+  },
+  "runtime_revision": {
+    "recorded_utc": "2026-10-22T20:45:25.049060+00:00",
+    "reason": "OF 301 BFC allocation failure; validated platform allocator used for remaining integrations.",
+    "prior_protocol": "docs/results/hjb_om_gc_followup/protocol_before_allocator_repair.json",
+    "prior_protocol_sha256": "3280418ca28e544a3180eb5817d9687fdd9ef1376f19126f636d737527f95f46",
+    "failure_record": "docs/results/hjb_grid_study/allocator_repair/failure.json",
+    "validation_record": "docs/results/hjb_grid_study/allocator_repair/platform_validation.json",
+    "new_solve_environment": {
+      "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+      "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
+      "XLA_CLIENT_MEM_FRACTION": null,
+      "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+      "TF_GPU_ALLOCATOR": null,
+      "XLA_FLAGS": null,
+      "LD_LIBRARY_PATH": null
+    },
+    "new_solve_outputs": [
+      "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform",
+      "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform",
+      "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform",
+      "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform"
+    ],
+    "scope": "Runtime allocator and new output paths only. Numerical solver, prepared inputs, float64 precision, resolution, horizon and target definitions are unchanged. Existing completed integrations retain their original allocator configuration."
   }
 }

@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-22T20:40:04.168480+00:00",
+  "reason": "Validate allocator-only change after OF 301 BFC allocation failure.",
+  "environment": {
+    "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+    "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
+    "XLA_CLIENT_MEM_FRACTION": null,
+    "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+    "TF_GPU_ALLOCATOR": null,
+    "XLA_FLAGS": null,
+    "LD_LIBRARY_PATH": null
+  },
+  "reference": "logs/hjb_grid_study/solved/OF_none_forward_225",
+  "candidate": "logs/hjb_allocator_repair/OF_none_forward_225_platform",
+  "problem": "logs/hjb_prepared_OF_225_paper/problem.mat",
+  "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "precision": "float64",
+  "scope": "Same complete 1.4 s integration and final-field comparison; allocator configuration only.",
+  "returncode": 0,
+  "wall_s": 309.22562761895824,
+  "sampled_peak_gpu_mib": 2104,
+  "every_final_value_equal": true,
+  "max_absolute_final_value_difference": 0.0,
+  "reference_final_value_sha256": "d86cd6c98681d6612a3173af65fa448e2ff29d6571f124bdf9f6863a50856e9e",
+  "candidate_final_value_sha256": "d86cd6c98681d6612a3173af65fa448e2ff29d6571f124bdf9f6863a50856e9e"
+}

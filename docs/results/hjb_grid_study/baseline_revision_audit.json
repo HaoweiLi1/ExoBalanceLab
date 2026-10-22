@@ -3,7 +3,10 @@
   "current_solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
   "difference": "Only partial-file publication and summary-write order change; numerical integration code is unchanged.",
   "verification": "Replay identical prepared fields with current revision, projection-only; compare complete final value arrays.",
-  "status": "queued",
+  "status": "verified",
   "original_run": "logs/hjb_gpu_OF_225_paper",
-  "matched_run": "logs/hjb_grid_study/solved/OF_none_forward_225"
+  "matched_run": "logs/hjb_grid_study/solved/OF_none_forward_225",
+  "verification_record": "baseline_replay_identity.json",
+  "every_final_value_equal": true,
+  "identical_final_value_file_sha256": true
 }

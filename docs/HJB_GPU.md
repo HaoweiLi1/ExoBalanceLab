@@ -11,6 +11,7 @@ agreement and spatial convergence are measured separately.
 conda env create -f environment-hjb.yml
 conda activate exobalancelab-hjb
 export XLA_PYTHON_CLIENT_PREALLOCATE=false
+export XLA_PYTHON_CLIENT_ALLOCATOR=platform
 ```
 
 The separate environment uses Python 3.12, pinned JAX/CUDA 13 and pinned
@@ -18,6 +19,15 @@ The separate environment uses Python 3.12, pinned JAX/CUDA 13 and pinned
 The standard MuJoCo environment remains on Python 3.11. CUDA 13 requires a compatible
 NVIDIA GPU and Linux driver 580 or newer; see [JAX installation](https://docs.jax.dev/en/latest/installation.html).
 CPU execution is an explicit `--platform cpu` choice, useful for small verification cases.
+
+The recorded 301-grid run exhausted the default BFC allocator on an 8 GB GPU before its
+first saved interval. The [JAX platform allocator](https://docs.jax.dev/en/latest/gpu_memory_allocation.html)
+releases unused allocations. A complete 225-grid replay with this setting produced an
+identical final field and file hash, with a sampled peak of 2,104 MiB. Its integration took
+301.05 s versus 301.37 s for the original allocation setting on this workstation;
+performance on other workloads may differ. The remaining grid studies use this explicit
+configuration. [Failure and equality records](results/hjb_grid_study/allocator_repair/).
+The compiled-memory check is an estimate, not a guarantee against runtime allocation failure.
 
 ## Prepare, solve, validate
 

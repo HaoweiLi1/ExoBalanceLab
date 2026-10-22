@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-10-22T20:40:49.848905+00:00",
+  "status": "failed_before_first_saved_interval",
+  "run": "logs/hjb_grid_study/solved/OF_none_forward_301",
+  "log": "logs/hjb_grid_study/OF_none_forward_301.log",
+  "log_sha256": "5cb6eb79978e109b4883fa915daa0d4a24ce4085ab6bbc5d82c05e870f7afe68",
+  "failure": "CUDA BFC allocator could not allocate 2274928640 bytes for jit_advance.",
+  "completed_saved_intervals": 0,
+  "compiled_temporary_bytes": 2274928472,
+  "allocator": "default (BFC)",
+  "environment": {
+    "XLA_PYTHON_CLIENT_PREALLOCATE": "false"
+  },
+  "device": "NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB total)",
+  "consequence": "The serial grid campaign stopped. Dependent reports and OM solves did not proceed.",
+  "preservation": "Original log and partial run retained unchanged. No final field was produced.",
+  "diagnosis": "The allocation failure is observed. Fragmentation is a candidate explanation; the compiled-memory estimate did not predict this runtime failure.",
+  "planned_correction": "Use the documented platform allocator to release unused allocations; first compare a full 225-grid integration with the existing final field. Keep the solver, prepared inputs, float64 precision and grid sizes unchanged.",
+  "reference": "https://docs.jax.dev/en/latest/gpu_memory_allocation.html",
+  "included_log": {
+    "file": "failed_301.log",
+    "sha256": "7382615f8df8d810979fdb54efd3ab1a8abdb5a46d5547103af8c32ef372e998",
+    "formatting": "Trailing line whitespace removed for repository formatting; original raw log and its hash above remain unchanged."
+  }
+}

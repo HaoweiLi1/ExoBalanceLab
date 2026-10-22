@@ -170,7 +170,7 @@
       "exo": "none",
       "direction": "forward",
       "prepared": "logs/hjb_grid_study/prepared/OF_none_forward_301",
-      "solved": "logs/hjb_grid_study/solved/OF_none_forward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_none_forward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -183,7 +183,7 @@
       "exo": "none",
       "direction": "backward",
       "prepared": "logs/hjb_grid_study/prepared/OF_none_backward_301",
-      "solved": "logs/hjb_grid_study/solved/OF_none_backward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_none_backward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -196,7 +196,7 @@
       "exo": "gc",
       "direction": "forward",
       "prepared": "logs/hjb_grid_study/prepared/OF_gc_forward_301",
-      "solved": "logs/hjb_grid_study/solved/OF_gc_forward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_gc_forward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -209,7 +209,7 @@
       "exo": "gc",
       "direction": "backward",
       "prepared": "logs/hjb_grid_study/prepared/OF_gc_backward_301",
-      "solved": "logs/hjb_grid_study/solved/OF_gc_backward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_gc_backward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -222,7 +222,7 @@
       "exo": "pd",
       "direction": "forward",
       "prepared": "logs/hjb_grid_study/prepared/OF_pd_forward_301",
-      "solved": "logs/hjb_grid_study/solved/OF_pd_forward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_pd_forward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -235,7 +235,7 @@
       "exo": "pd",
       "direction": "backward",
       "prepared": "logs/hjb_grid_study/prepared/OF_pd_backward_301",
-      "solved": "logs/hjb_grid_study/solved/OF_pd_backward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_pd_backward_301_platform",
       "save_history": false,
       "requested_resolution": [
         301,
@@ -267,5 +267,31 @@
     "reason": "Repeat the original 225-grid nominal forward solve under the common solver file revision. Original policy and outcomes remain preserved; all numerical inputs and study resolutions unchanged.",
     "original_run": "logs/hjb_gpu_OF_225_paper",
     "matched_run": "logs/hjb_grid_study/solved/OF_none_forward_225"
+  },
+  "runtime_revision": {
+    "recorded_utc": "2026-10-22T20:45:25.048265+00:00",
+    "reason": "OF 301 BFC allocation failure; validated platform allocator used for remaining integrations.",
+    "prior_protocol": "docs/results/hjb_grid_study/protocol_before_allocator_repair.json",
+    "prior_protocol_sha256": "b972a372a15636f54c9a23feb7415e220df5328215d392f583a7a31dfcef486d",
+    "failure_record": "docs/results/hjb_grid_study/allocator_repair/failure.json",
+    "validation_record": "docs/results/hjb_grid_study/allocator_repair/platform_validation.json",
+    "new_solve_environment": {
+      "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+      "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
+      "XLA_CLIENT_MEM_FRACTION": null,
+      "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+      "TF_GPU_ALLOCATOR": null,
+      "XLA_FLAGS": null,
+      "LD_LIBRARY_PATH": null
+    },
+    "new_solve_outputs": [
+      "logs/hjb_grid_study/solved/OF_none_forward_301_platform",
+      "logs/hjb_grid_study/solved/OF_none_backward_301_platform",
+      "logs/hjb_grid_study/solved/OF_gc_forward_301_platform",
+      "logs/hjb_grid_study/solved/OF_gc_backward_301_platform",
+      "logs/hjb_grid_study/solved/OF_pd_forward_301_platform",
+      "logs/hjb_grid_study/solved/OF_pd_backward_301_platform"
+    ],
+    "scope": "Runtime allocator and new output paths only. Numerical solver, prepared inputs, float64 precision, resolution, horizon and target definitions are unchanged. Existing completed integrations retain their original allocator configuration."
   }
 }

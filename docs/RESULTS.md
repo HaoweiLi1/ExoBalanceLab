@@ -1,7 +1,8 @@
 # Measured results — October 22–23, 2026
 
-All results below were obtained with Python 3.11, MuJoCo 3.3.7 and the committed model
-configuration files. Complete numerical/video run snapshots are in [results](results/).
+MuJoCo experiments use Python 3.11 and MuJoCo 3.3.7; the optional HJB backend uses
+Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions and
+complete numerical/video snapshots are in [results](results/).
 All 30 population-region solves and 180 preselected OF forward rollouts are complete.
 The reconciled finite-grid model differs from the paper's Table II, including one change
 of sign. Spatial refinement is still running; exact published-region reproduction remains
@@ -362,7 +363,18 @@ are retained. These observations do not establish spatial convergence. The compl
 population comparison below uses the separate, recorded 225³ protocol.
 The prospective [three-grid OF protocol](results/hjb_grid_study/protocol.json) compares
 requested 151³, 225³ and 301³ grids for all six assistance/direction pairs. Its twelve
-additional inputs are prepared and integration is running after the population campaign.
+additional inputs are prepared. All 151- and 225-grid cases have completed; the 301-grid
+integrations are running. Replaying the original 225-grid baseline under the common
+solver revision produced an [identical complete final field](results/hjb_grid_study/baseline_replay_identity.json).
+
+The first 301-grid attempt failed before its first saved interval when the CUDA BFC
+allocator could not allocate 2.12 GiB. The [failure record](results/hjb_grid_study/allocator_repair/failure.json)
+and original output remain preserved. Changing only to JAX's `platform` allocator passed
+a full 225-grid replay: every final value and the NPY hash match, maximum difference is
+zero, and sampled peak GPU allocation is 2,104 MiB.
+[Allocator verification](results/hjb_grid_study/allocator_repair/platform_validation.json).
+The revised protocols record the runtime change and new output paths; grid sizes,
+float64 precision, prepared fields and numerical solver are unchanged.
 
 ### Complete 225-grid population comparison
 
