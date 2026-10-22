@@ -374,7 +374,10 @@ convergence test. [Configuration and projection](results/hjb_paper225/OF_none_fo
 
 At 1 ms physics/control, the frozen cohort retains six valid target reaches and three
 outside-group coverage errors. A broader, separately preselected cohort uses the same
-seed and ten states per group, with physical torque and contact limits checked:
+seed and ten states per group, with physical torque and contact limits checked.
+
+Here, forward/backward identifies the solved grid. Rollout selection uses its full domain,
+including the opposite-velocity buffer; the area comparison uses only the named velocity sign.
 
 | Preselected group | Valid terminal-target reach | Left policy grid |
 |---|---:|---:|

@@ -96,9 +96,17 @@ addpath('matlab');
 protocol = jsondecode(fileread('docs/results/hjb_paper225/protocol.json'));
 for k = 1:numel(protocol.cases)
     c = protocol.cases(k);
+    if isfield(c, 'requested_resolution')
+        resolution = c.requested_resolution;
+    else
+        resolution = protocol.requested_resolution;
+    end
+    if isfile(fullfile(c.prepared, 'problem.mat'))
+        continue; % Reuse this protocol's previously prepared input.
+    end
     solve_paper_hjb('/path/to/AnkleExoBRS', 'logs/hjb_dependencies', c.prepared, ...
         profile=c.profile, exo=c.exo, direction=c.direction, ...
-        resolution=protocol.requested_resolution, duration_s=protocol.horizon_s, ...
+        resolution=resolution, duration_s=protocol.horizon_s, ...
         output_step_s=protocol.output_step_s, ...
         velocity_buffer_rad_s=protocol.velocity_buffer_rad_s, ...
         method=protocol.method, align_zero=protocol.align_zero, prepare_only=true);
@@ -153,8 +161,9 @@ and MuJoCo forward validation remain separate experiments.
 ## Spatial-resolution study
 
 The [OF protocol](results/hjb_grid_study/protocol.json) fixes three requested grids,
-151³, 225³ and 301³, for every assistance/direction pair. Prepare each case with its
-own `requested_resolution`; the horizon, target construction, method and zero alignment
+151³, 225³ and 301³, for every assistance/direction pair. The MATLAB loop above selects
+each case's `requested_resolution`; use this protocol path to prepare the additional inputs.
+The horizon, target construction, method and zero alignment
 remain unchanged. Five 225³ runs are reused from the population campaign. The first
 nominal forward run predates the atomic-output fix; it is repeated with identical inputs
 under the common solver revision, with the original retained for an equality check.

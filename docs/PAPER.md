@@ -108,7 +108,7 @@ Source inspection at the pinned authors' commit found:
    but Appendix II-B explicitly replaces them with circumscribed axis-aligned boxes
    for the numerical solve. The source's box construction follows that approximation;
    it is not a paper/source discrepancy. Separately, our invariance check finds that
-   A box containing positive velocity at its upper angle boundary is not controlled
+   a box containing positive velocity at its upper angle boundary is not controlled
    invariant: `theta_dot>0` immediately leaves that boundary regardless of the torque-rate
    input. The separated toe box does not remove this counterexample at the ankle box.
    Numerical reproduction should retain and disclose the published box approximation.
