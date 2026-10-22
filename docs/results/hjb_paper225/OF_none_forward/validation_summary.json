@@ -28,19 +28,22 @@
         "selected": 10,
         "predicted_inside": 10,
         "valid_target_reach": 10,
-        "policy_coverage_errors": 0
+        "policy_coverage_errors": 0,
+        "other_rollout_errors": 0
       },
       "outside": {
         "selected": 10,
         "predicted_inside": 0,
         "valid_target_reach": 0,
-        "policy_coverage_errors": 10
+        "policy_coverage_errors": 9,
+        "other_rollout_errors": 1
       },
       "boundary": {
         "selected": 10,
         "predicted_inside": 5,
         "valid_target_reach": 10,
-        "policy_coverage_errors": 0
+        "policy_coverage_errors": 0,
+        "other_rollout_errors": 0
       }
     },
     "positive_value_target_reaches": [
@@ -64,9 +67,125 @@
         "case_index": 29,
         "initial_value": 1.4747239516160216e-05
       }
+    ],
+    "selection_issue": [
+      {
+        "case_index": 13,
+        "initial_torque_nm": 22.09821428571429,
+        "error": "Initial human torque exceeds strength-scaled Table I limits"
+      }
     ]
   },
   "area_rad2_per_s": 0.43438135263871175,
-  "scope": "OF/no-assistance forward-velocity solve, requested 225 cubed with zero-aligned velocity/torque. These are finite-grid predictions and diagnostic cohorts; convergence and complete Table II comparison remain separate.",
-  "retained": "Every protocol, outcome and completed episode; local full value history is bound by protocol policy_sha256."
+  "scope": "OF/no-assistance forward-velocity solve, requested 225 cubed with zero-aligned velocity/torque. These are finite-grid predictions and diagnostic cohorts; convergence and complete Table II comparison remain separate. The original broad cohort predates the human-torque preselection filter; its invalid initial state and rejection remain recorded.",
+  "retained": "Every protocol, outcome and completed episode; local full value history is bound by protocol policy_sha256.",
+  "admissible": {
+    "groups": {
+      "inside": {
+        "selected": 10,
+        "predicted_inside": 10,
+        "valid_target_reach": 10,
+        "policy_coverage_errors": 0,
+        "other_rollout_errors": 0
+      },
+      "outside": {
+        "selected": 10,
+        "predicted_inside": 0,
+        "valid_target_reach": 0,
+        "policy_coverage_errors": 10,
+        "other_rollout_errors": 0
+      },
+      "boundary": {
+        "selected": 10,
+        "predicted_inside": 5,
+        "valid_target_reach": 10,
+        "policy_coverage_errors": 0,
+        "other_rollout_errors": 0
+      }
+    },
+    "all_initial_torques_valid": true,
+    "completed_episodes_identical_to_original_cohort": [
+      {
+        "new_index": 0,
+        "original_index": 0
+      },
+      {
+        "new_index": 1,
+        "original_index": 1
+      },
+      {
+        "new_index": 2,
+        "original_index": 2
+      },
+      {
+        "new_index": 3,
+        "original_index": 3
+      },
+      {
+        "new_index": 4,
+        "original_index": 4
+      },
+      {
+        "new_index": 5,
+        "original_index": 5
+      },
+      {
+        "new_index": 6,
+        "original_index": 6
+      },
+      {
+        "new_index": 7,
+        "original_index": 7
+      },
+      {
+        "new_index": 8,
+        "original_index": 8
+      },
+      {
+        "new_index": 9,
+        "original_index": 9
+      },
+      {
+        "new_index": 20,
+        "original_index": 20
+      },
+      {
+        "new_index": 21,
+        "original_index": 21
+      },
+      {
+        "new_index": 22,
+        "original_index": 22
+      },
+      {
+        "new_index": 23,
+        "original_index": 23
+      },
+      {
+        "new_index": 24,
+        "original_index": 24
+      },
+      {
+        "new_index": 25,
+        "original_index": 25
+      },
+      {
+        "new_index": 26,
+        "original_index": 26
+      },
+      {
+        "new_index": 27,
+        "original_index": 27
+      },
+      {
+        "new_index": 28,
+        "original_index": 28
+      },
+      {
+        "new_index": 29,
+        "original_index": 29
+      }
+    ],
+    "scope": "New selection with the original seed and physical torque/contact limits; original rejected states remain in the broad cohort records."
+  }
 }

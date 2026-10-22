@@ -56,6 +56,8 @@ def validate(
                     continue
                 indices = np.unravel_index(index, value.shape)
                 theta, speed, torque = [float(axis[i]) for axis, i in zip(axes, indices, strict=True)]
+                if not profile.torque_min_nm <= torque <= profile.torque_max_nm:
+                    continue
                 lean = theta - np.pi / 2
                 reaction = ground_reaction(
                     lean, speed, torque + exo_torque(lean, speed, profile, assistance), profile
@@ -92,6 +94,11 @@ def validate(
         protocol["selection_policy_sha256"] = selection["policy_sha256"]
         protocol["seed"] = selection["seed"]
         protocol["requested_per_group"] = selection["requested_per_group"]
+    else:
+        protocol["selection_constraints"] = {
+            "human_torque_nm": [profile.torque_min_nm, profile.torque_max_nm],
+            "positive_contact_margins": True,
+        }
     if gradient_cache is not None:
         protocol["gradient_cache"] = json.loads((gradient_cache / "metadata.json").read_text())
     (output / "protocol.json").write_text(json.dumps(protocol, indent=2) + "\n")

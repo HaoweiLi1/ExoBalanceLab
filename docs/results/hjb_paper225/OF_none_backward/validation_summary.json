@@ -1,0 +1,176 @@
+{
+  "groups": {
+    "inside": {
+      "selected": 10,
+      "predicted_inside": 10,
+      "valid_target_reach": 10,
+      "policy_coverage_errors": 0,
+      "other_rollout_errors": 0
+    },
+    "outside": {
+      "selected": 10,
+      "predicted_inside": 0,
+      "valid_target_reach": 1,
+      "policy_coverage_errors": 8,
+      "other_rollout_errors": 1
+    },
+    "boundary": {
+      "selected": 10,
+      "predicted_inside": 4,
+      "valid_target_reach": 10,
+      "policy_coverage_errors": 0,
+      "other_rollout_errors": 0
+    }
+  },
+  "positive_value_target_reaches": [
+    {
+      "case_index": 19,
+      "initial_value": 0.0014887437360786705
+    },
+    {
+      "case_index": 21,
+      "initial_value": 1.9904901789019656e-05
+    },
+    {
+      "case_index": 22,
+      "initial_value": 3.13466573027836e-05
+    },
+    {
+      "case_index": 25,
+      "initial_value": 3.24226217297311e-05
+    },
+    {
+      "case_index": 27,
+      "initial_value": 3.429402320852865e-05
+    },
+    {
+      "case_index": 28,
+      "initial_value": 2.3236928943984858e-05
+    },
+    {
+      "case_index": 29,
+      "initial_value": 4.072814733985483e-05
+    }
+  ],
+  "scope": "OF/no-assistance backward-velocity policy; 1.4 s horizon, 1 ms simulated physics/control. All preselected outcomes and completed episodes are retained. The original broad cohort predates the human-torque preselection filter; its invalid initial state and rejection remain recorded.",
+  "selection_issue": [
+    {
+      "case_index": 17,
+      "initial_torque_nm": -88.39285714285715,
+      "error": "Initial human torque exceeds strength-scaled Table I limits"
+    }
+  ],
+  "admissible": {
+    "groups": {
+      "inside": {
+        "selected": 10,
+        "predicted_inside": 10,
+        "valid_target_reach": 10,
+        "policy_coverage_errors": 0,
+        "other_rollout_errors": 0
+      },
+      "outside": {
+        "selected": 10,
+        "predicted_inside": 0,
+        "valid_target_reach": 1,
+        "policy_coverage_errors": 9,
+        "other_rollout_errors": 0
+      },
+      "boundary": {
+        "selected": 10,
+        "predicted_inside": 4,
+        "valid_target_reach": 10,
+        "policy_coverage_errors": 0,
+        "other_rollout_errors": 0
+      }
+    },
+    "all_initial_torques_valid": true,
+    "completed_episodes_identical_to_original_cohort": [
+      {
+        "new_index": 0,
+        "original_index": 0
+      },
+      {
+        "new_index": 1,
+        "original_index": 1
+      },
+      {
+        "new_index": 2,
+        "original_index": 2
+      },
+      {
+        "new_index": 3,
+        "original_index": 3
+      },
+      {
+        "new_index": 4,
+        "original_index": 4
+      },
+      {
+        "new_index": 5,
+        "original_index": 5
+      },
+      {
+        "new_index": 6,
+        "original_index": 6
+      },
+      {
+        "new_index": 7,
+        "original_index": 7
+      },
+      {
+        "new_index": 8,
+        "original_index": 8
+      },
+      {
+        "new_index": 9,
+        "original_index": 9
+      },
+      {
+        "new_index": 18,
+        "original_index": 19
+      },
+      {
+        "new_index": 20,
+        "original_index": 20
+      },
+      {
+        "new_index": 21,
+        "original_index": 21
+      },
+      {
+        "new_index": 22,
+        "original_index": 22
+      },
+      {
+        "new_index": 23,
+        "original_index": 23
+      },
+      {
+        "new_index": 24,
+        "original_index": 24
+      },
+      {
+        "new_index": 25,
+        "original_index": 25
+      },
+      {
+        "new_index": 26,
+        "original_index": 26
+      },
+      {
+        "new_index": 27,
+        "original_index": 27
+      },
+      {
+        "new_index": 28,
+        "original_index": 28
+      },
+      {
+        "new_index": 29,
+        "original_index": 29
+      }
+    ],
+    "scope": "New selection with the original seed and physical torque/contact limits; original rejected states remain in the broad cohort records."
+  }
+}

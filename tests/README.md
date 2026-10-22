@@ -40,3 +40,7 @@ These checks are distinct from full numerical convergence and MuJoCo forward val
 relative changes and rejection of different physical parameters using explicit synthetic
 rectangular fields. The HJB reader tests also compare cached/uncached derivatives exactly
 and reject a mismatched or damaged disk cache.
+
+The HJB validation sampler excludes physically invalid torque nodes introduced by grid
+alignment. Frozen-protocol tests retain invalid historical states and their recorded
+rejections rather than silently replacing them.

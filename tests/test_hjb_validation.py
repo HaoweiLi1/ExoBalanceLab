@@ -93,3 +93,40 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
         if assistance != "none":
             with np.load(output / "episode_00" / "episode.npz") as episode:
                 assert np.all(episode["exo_torque_nm"] < 0)
+
+
+def test_new_cohorts_respect_strength_limits_but_frozen_invalid_states_remain_recorded(tmp_path, monkeypatch):
+    monkeypatch.setenv("MPLCONFIGDIR", str(tmp_path / "mpl"))
+    source = tmp_path / "solve"
+    source.mkdir()
+    profile = AUTHORS_PROFILES["OF"]
+    with h5py.File(source / "policy.mat", "w") as file:
+        for key, values in {
+            "theta_rad": [np.pi / 2, 1.819375],
+            "velocity_rad_s": [0, 0.01],
+            "human_torque_nm": [-90, -88, 0, 22, 24],
+            "time_to_go_s": [0, 0.01],
+        }.items():
+            file[key] = np.array(values)[:, None]
+        file["value"] = np.ones((2, 5, 2, 2))
+        contract = json.dumps(policy_contract(profile, "none"))
+        file["contract_json"] = np.array([ord(c) for c in contract], dtype=np.uint16)[:, None]
+    target = {"ankleEq": [np.pi / 2, 0, 0], "toeEq": [np.pi / 2, 0, 0]}
+    for label in ["Ank", "Toe"]:
+        target.update({f"theta{label}Range": 0.1, f"thetaDot{label}Range": 0.1, f"torque{label}Range": 30})
+    (source / "summary.json").write_text(json.dumps({"profile": "OF", "exo": "none", "target": target}))
+    output = tmp_path / "automatic"
+    result = validate(source, output, count=100)
+    torques = {case["state"][2] for case in result["outcomes"]}
+    assert torques == {-88, 0, 22}
+    protocol = json.loads((output / "protocol.json").read_text())
+    assert protocol["selection_constraints"]["human_torque_nm"] == [-88, 22]
+
+    # Reusing an old protocol must preserve its invalid initial state and failure.
+    protocol["states"] = [{"group": "outside", "state": [np.pi / 2, 0, 24], "value": 1}]
+    frozen = tmp_path / "frozen.json"
+    frozen.write_text(json.dumps(protocol))
+    result = validate(source, tmp_path / "replay", protocol_path=frozen)
+    assert result["outcomes"][0]["state"][2] == 24
+    assert result["outcomes"][0]["status"] == "rollout_error"
+    assert "Initial human torque exceeds" in result["outcomes"][0]["error"]

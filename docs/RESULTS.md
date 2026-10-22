@@ -19,8 +19,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **69 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
-  Three additional JAX tests pass in the separate GPU environment. The other 64 tests
+- **70 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
+  Three additional JAX tests pass in the separate GPU environment. The other 65 tests
   need neither MATLAB nor JAX. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
@@ -359,7 +359,7 @@ convergence test. [Configuration and projection](results/hjb_paper225/OF_none_fo
 
 At 1 ms physics/control, the frozen cohort retains six valid target reaches and three
 outside-group coverage errors. A broader, separately preselected cohort uses the same
-seed and ten admissible states per group:
+seed and ten states per group, with physical torque and contact limits checked:
 
 | Preselected group | Valid terminal-target reach | Left policy grid |
 |---|---:|---:|
@@ -372,8 +372,35 @@ Five boundary-group successes have slightly positive initial values, from 1.47e-
 errors are unresolved rollouts, not proofs of physical failure. Every completed episode
 retains valid contact. [All outcomes and summary](results/hjb_paper225/OF_none_forward/validation_summary.json) ·
 [Frozen cohort](results/hjb_paper225/OF_none_forward/frozen/) ·
-[Broader cohort and full trajectories](results/hjb_paper225/OF_none_forward/broad/).
+[Broader cohort and full trajectories](results/hjb_paper225/OF_none_forward/admissible/).
 These samples do not establish a population success rate or a maximal stabilizable region.
+
+The original broad runs exposed a sampling bug: zero-aligned grid extension allowed
+the sampler to select 22.0982 Nm or −88.3929 Nm, outside OF's [−88, 22] Nm bounds.
+Both were rejected before integration. Corrected selection now checks torque bounds as
+well as contact, and both directions were rerun with the original seed. Every completed
+episode shared with the earlier cohorts has exactly equal recorded arrays. Frozen replay
+preserves the original invalid states and their failures; both behaviors have regression
+coverage. [Original forward cohort](results/hjb_paper225/OF_none_forward/broad/).
+
+The corrected backward cohort has ten inside and ten boundary successes, plus one
+outside success and nine coverage errors. Six successful boundary states have positive
+initial values. All completed episodes maintain valid contact.
+[Backward outcomes and full trajectories](results/hjb_paper225/OF_none_backward/admissible/) ·
+[Original failure and equality checks](results/hjb_paper225/OF_none_backward/validation_summary.json).
+
+The full-horizon GC forward policy was separately tested at **50 μs simulated physics
+and control steps**. All ten inside states and all ten boundary states reached the
+unchanged targets with valid contact. One positive-value outside state also reached a
+target (initial value 0.004553); the other nine outside states left the policy grid.
+Six boundary successes also had positive initial values. This discrepancy remains part
+of the numerical evidence, alongside the successful inside predictions.
+[GC protocol, all outcomes and episode hashes](results/hjb_paper225/OF_gc_forward/50us/) ·
+[GC summary](results/hjb_paper225/OF_gc_forward/validation_summary.json).
+Episode 00 is included in full; the remaining raw trajectories are retained locally and
+can be regenerated from the recorded protocol. GC and nominal cohorts contain different
+states, so their counts are not a paired comparison of assistance. The 50 μs step is a
+simulation accuracy setting, not measured 20 kHz controller throughput.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 
