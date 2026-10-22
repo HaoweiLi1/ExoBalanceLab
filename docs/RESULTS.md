@@ -1,4 +1,4 @@
-# Measured results — October 22, 2026
+# Measured results — October 22–23, 2026
 
 All results below were obtained with Python 3.11, MuJoCo 3.3.7 and the committed model
 configuration files. Complete numerical/video run snapshots are in [results](results/).
@@ -19,8 +19,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **62 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
-  The other 59 tests need no MATLAB license. The added plot checks expose 14
+- **65 tests passed with MATLAB R2026b**, including four opt-in runtime/source tests.
+  The other 61 tests need no MATLAB license. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
@@ -201,6 +201,10 @@ as a stabilizable-region predictor. No target was enlarged and no state was repl
 [100 ms protocol and episodes](results/hjb_refinement/buffer05_dt01/) ·
 [Vector figure](results/hjb_refinement/comparison/outcomes.pdf)
 
+[Synchronized MuJoCo video](media/hjb_time_history.mp4) compares the same case 01 with
+100 ms and 10 ms histories. Labels report the measured terminal target outcome; both
+episodes retain valid contact. The preview and video are rendered from the saved states.
+
 Reproduce the solve using `resolution=[51;269;51]`, `velocity_buffer_rad_s=0.5`,
 and `output_step_s=0.01` in `solve_nominal_hjb`. The retained
 [decimation script](results/hjb_refinement/decimate_hjb.m) produces the 100 ms export
@@ -215,6 +219,75 @@ python -m exobalancelab.hjb_comparison \
   --run 'Wider domain / 10 ms=docs/results/hjb_refinement/buffer05_dt001' \
   --out logs/hjb_time_comparison
 ```
+
+### Angle refinement resolves the remaining nominal target miss
+
+Holding the velocity/torque axes, 10 ms history, 1 kHz rollout timing and original
+states fixed, increasing angle nodes from 51 to 101 resolves case 00. Its terminal
+state is `(1.579498 rad, 0.000808 rad/s, −4.638 Nm)`, inside the original ankle box.
+All **six predicted-inside states** now reach a target with valid contact; the same
+three outside-group states leave the grid. The solve took **2,552.523 s** wall time.
+
+![Paired angle refinement](results/hjb_refinement/angle_comparison/outcomes.png)
+
+This closes the specific forward-rollout discrepancy in the frozen cohort, but does
+not establish regional convergence. The sampled forward-velocity projected area changes
+from **0.315244 to 0.344281 rad²/s**, a **9.21% increase**. These estimates integrate
+the nonpositive projected-value indicator by the trapezoidal rule on each grid;
+they are not the paper's Table II percentages.
+
+[All refined outcomes and episodes](results/hjb_refinement/theta101/) ·
+[Area definition, values and projection hashes](results/hjb_refinement/angle_refinement.json) ·
+[Paired CSV](results/hjb_refinement/angle_comparison/cases.csv).
+Regenerate with `resolution=[101;269;51]`, `velocity_buffer_rad_s=0.5`,
+`output_step_s=0.01`, and the original `hjb_nominal_1p4/protocol.json`.
+Further angle, torque and velocity refinement and broader state sampling remain needed.
+
+### Reconciled GC/PD pipeline and control-step precision
+
+On October 23, the assisted HJB path was executed with a shared SI assistance law for
+dynamics, contact constraints and policy binding. It uses the paper's exact GC torque
+and the source's restoring PD signs, saturating the bilateral device at ±50 Nm before
+nondimensionalization. Appendix II targets are recomputed with equilibrium-relative
+constraint distances and checked at every box corner. These are explicit, versioned
+reconciliations; they are not labelled the authors' unchanged numerical experiment.
+
+The real MATLAB check covers **1,500 random states** across five native-source profiles
+and all three assistance modes. Maximum derivative disagreement with MuJoCo is
+**1.40e-9**; scaled/SI dynamics and reconstructed reactions agree. All **20 assisted
+target boxes** pass their linear constraints and corner-contact checks.
+[Validation record](results/assisted_hjb/validation.json) ·
+[Computed target parameters](results/assisted_hjb/targets/targets.json).
+
+Short 0.1 s OF solves exercise the complete export and forward-feedback path:
+
+| Mode / physics and control step | Inside-group valid targets | Other six states reaching a valid target |
+|---|---:|---:|
+| GC / 1 ms | 3 / 3 | 0 / 6 |
+| PD / 1 ms | 2 / 3 | 0 / 6 |
+| Same PD policy and states / 50 μs | 3 / 3 | 0 / 6 |
+| Same PD policy and states / 25 μs | 3 / 3 | 0 / 6 |
+
+All 36 rollouts complete. GC retains valid contact in all nine states; each PD cohort
+has one contact-invalid outside-group case, which remains a failed outcome. GC and PD
+use separately preselected cohorts; only the three PD rows form a paired comparison.
+These short solves test the integration and numerical execution, not region convergence.
+
+The PD miss is explained by the sampled extremal-rate feedback. Case 00 starts at
+17.6 Nm. With 100 nonzero rate commands over 0.1 s, the endpoint has the form
+`32.4 - 0.537*n` Nm, where `n` is the number of negative-rate steps. Its smallest
+possible magnitude is **0.18 Nm**, outside the unchanged ±0.009169 Nm ankle target.
+At 100 μs it still misses (0.0189 Nm). At 50 and 25 μs it reaches **−0.00795 Nm**
+with valid contact. This quantization statement applies to the recorded bang-bang
+policy without clipping or zero-rate ticks, not to every bounded controller.
+
+[Frozen-cohort comparison](results/assisted_hjb/precision_comparison/outcomes.png) ·
+[Every outcome](results/assisted_hjb/precision_comparison/cases.csv) ·
+[Case 00 step study](results/assisted_hjb/precision_case00.json).
+The 1 ms cohorts retain every completed episode; the finer cohorts retain full case 00
+trajectories and all nine outcomes. Full local runs and the regeneration commands in
+[MATLAB integration](../matlab/README.md#reconciled-assisted-hjb) preserve the remaining arrays.
+These are simulated-time computations, not evidence of 20–40 kHz wall-clock control.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 

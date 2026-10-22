@@ -1,0 +1,156 @@
+{
+  "source": {
+    "profile": "OF",
+    "exo": "pd",
+    "direction": "forward",
+    "resolution": [
+      51,
+      269,
+      51
+    ],
+    "requested_resolution": [
+      51,
+      269,
+      51
+    ],
+    "duration_s": 0.10000000000000002,
+    "output_step_s": 0.01,
+    "method": "none",
+    "wall_s": 110.908931,
+    "velocity_buffer_rad_s": 0.5,
+    "matlab_release": "2026b",
+    "gravity_m_s2": 9.8,
+    "source_model": {
+      "m": 60,
+      "h": 1.58,
+      "tauMin": -88,
+      "tauMax": 22,
+      "uMin": -389,
+      "uMax": 148
+    },
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -45.81831308077206
+      ],
+      "thetaAnkRange": 0.016555015279240783,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.009168629752093295,
+      "thetaToeRange": 0.014471675279422828,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.665529973479257
+    },
+    "ankle_target_nodes": 1,
+    "toe_target_nodes": 10,
+    "initial_target_nodes": 11,
+    "final_reachable_nodes": 102,
+    "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified."
+  },
+  "policy_sha256": "0a3edd32d2687057010270afdd6d10e7f5b16f2d9fe52f623e5be1bb23456f74",
+  "seed": 240805418,
+  "requested_per_group": 3,
+  "states": [
+    {
+      "group": "inside",
+      "state": [
+        1.57,
+        -0.01250000000000003,
+        17.6
+      ],
+      "value": -0.00018632172048218266,
+      "selection_value": -0.00018632172048218266
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.754,
+        -0.02500000000000006,
+        -37.4
+      ],
+      "value": -0.0010860447501213396,
+      "selection_value": -0.0010860447501213396
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.754,
+        0.024999999999999967,
+        -59.400000000000006
+      ],
+      "value": -0.0011393773616112284,
+      "selection_value": -0.0011393773616112284
+    },
+    {
+      "group": "outside",
+      "state": [
+        0.857,
+        0.625,
+        -37.4
+      ],
+      "value": 0.6676012748006617,
+      "selection_value": 0.6676012748006617
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.432,
+        2.225,
+        2.2000000000000006
+      ],
+      "value": 0.6227040511560878,
+      "selection_value": 0.6227040511560878
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.064,
+        0.32500000000000007,
+        -33.0
+      ],
+      "value": 0.4813156299923309,
+      "selection_value": 0.4813156299923309
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.593,
+        -0.07500000000000008,
+        4.400000000000001
+      ],
+      "value": 0.011159667300088322,
+      "selection_value": 0.011159667300088322
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.593,
+        -0.06250000000000006,
+        2.2000000000000006
+      ],
+      "value": 0.008833259232606992,
+      "selection_value": 0.008833259232606992
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.731,
+        0.08749999999999994,
+        -55.00000000000001
+      ],
+      "value": 0.01106947154946584,
+      "selection_value": 0.01106947154946584
+    }
+  ],
+  "rollout": {
+    "timestep_s": 5e-05,
+    "control_period_s": 5e-05
+  },
+  "selection_protocol_sha256": "217be201ed529d1e1b0f381b2b2b240138a9679a5c3d23914894c72e782f2737",
+  "selection_policy_sha256": "0a3edd32d2687057010270afdd6d10e7f5b16f2d9fe52f623e5be1bb23456f74"
+}

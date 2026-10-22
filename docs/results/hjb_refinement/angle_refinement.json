@@ -1,0 +1,17 @@
+{
+  "method": "Double trapezoidal integral of the sampled indicator min_tau(V)<=0 over theta and nonnegative velocity; no contour interpolation.",
+  "areas": [
+    {
+      "run": "buffer05_dt001",
+      "area_rad2_per_s": 0.31524375000000004,
+      "projection_sha256": "d41b44e6a577b744c4247bd82791f90ba2bf3ef87a593c4b808b95405136d6fe"
+    },
+    {
+      "run": "theta101",
+      "area_rad2_per_s": 0.34428125000000004,
+      "projection_sha256": "ca43120ecfc057c21a7014b908f53710a505be3e5f62fd0b2ee57648f3b19e2e"
+    }
+  ],
+  "relative_change": 0.09211126310989504,
+  "scope": "Angle-resolution sensitivity only; not a convergence certificate or Table II reproduction."
+}

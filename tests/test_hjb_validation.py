@@ -12,9 +12,17 @@ from exobalancelab.paper import AUTHORS_PROFILES
 from exobalancelab.reachability import policy_contract
 
 
-@pytest.mark.parametrize("speed,torque,expected", [(0, 0, "completed"), (0.099, 22, "rollout_error")])
+@pytest.mark.parametrize(
+    "speed,torque,expected,assistance",
+    [
+        (0, 0, "completed", "none"),
+        (0.099, 22, "rollout_error", "none"),
+        (0, 0, "completed", "gc"),
+        (0, 0, "completed", "pd"),
+    ],
+)
 def test_frozen_states_are_reused_and_failures_retain_the_query(
-    tmp_path, monkeypatch, speed, torque, expected
+    tmp_path, monkeypatch, speed, torque, expected, assistance
 ):
     monkeypatch.setenv("MPLCONFIGDIR", str(tmp_path / "mpl"))
     source = tmp_path / "solve"
@@ -29,14 +37,14 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
             f[key] = np.array(values)[:, None]
         # Constant synthetic cost: zero optimal rate; not a solved HJB field.
         f["value"] = np.ones((2, 2, 2, 2))
-        contract = json.dumps(policy_contract(AUTHORS_PROFILES["OF"], "none"))
+        contract = json.dumps(policy_contract(AUTHORS_PROFILES["OF"], assistance))
         f["contract_json"] = np.array([ord(c) for c in contract], dtype=np.uint16)[:, None]
     target = {}
     for label in ["Ank", "Toe"]:
         target.update({f"theta{label}Range": 0.1, f"thetaDot{label}Range": 0.1, f"torque{label}Range": 30})
     target.update(ankleEq=[np.pi / 2, 0, 0], toeEq=[np.pi / 2, 0, 0])
-    (source / "summary.json").write_text(json.dumps({"profile": "OF", "target": target}))
-    state = [np.pi / 2, speed, torque]
+    (source / "summary.json").write_text(json.dumps({"profile": "OF", "target": target, "exo": assistance}))
+    state = [np.pi / 2 + (0.01 if assistance != "none" else 0), speed, torque]
     original = tmp_path / "selection.json"
     original.write_text(
         json.dumps(
@@ -49,18 +57,22 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
         )
     )
     output = tmp_path / "validation"
-    result = validate(source, output, seed=999, protocol_path=original)
+    timestep = 0.0005 if assistance == "pd" else 0.001
+    result = validate(
+        source, output, seed=999, protocol_path=original, timestep_s=timestep, control_period_s=timestep
+    )
     assert result["selected"] == 1
     case = result["outcomes"][0]
     assert case["state"] == state
     assert case["group"] == "inside"
     assert case["selection_value"] == -5
-    assert case["value"] == 1
+    assert case["value"] == pytest.approx(1, rel=0, abs=1e-14)
     assert not case["predicted_inside"]
     assert case["status"] == expected
     protocol = json.loads((output / "protocol.json").read_text())
     assert protocol["seed"] == 123
     assert protocol["requested_per_group"] == 1
+    assert protocol["rollout"] == {"timestep_s": timestep, "control_period_s": timestep}
     assert protocol["selection_protocol_sha256"] == hashlib.sha256(original.read_bytes()).hexdigest()
     if expected == "rollout_error":
         assert 0 < case["elapsed_s"] < 0.01
@@ -68,3 +80,8 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
     else:
         assert case["valid_target_reach"]
         assert (output / "episode_00" / "episode.npz").exists()
+        metrics = json.loads((output / "episode_00" / "metrics.json").read_text())
+        assert metrics["physics_hz"] == metrics["control_hz"] == 1 / timestep
+        if assistance != "none":
+            with np.load(output / "episode_00" / "episode.npz") as episode:
+                assert np.all(episode["exo_torque_nm"] < 0)

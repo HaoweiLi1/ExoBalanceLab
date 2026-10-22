@@ -138,7 +138,8 @@ directory and helperOC's documented setup paths. SeDuMi's source checkout needs
 
 `solve_nominal_hjb(author_root, dependency_root, output_dir, ...)` provides an executable
 no-exoskeleton baseline using the authors' stored model/target MAT files and unchanged
-dynamics. Download the pinned authors' repository and dependencies above first; unpack
+dynamics. It retains the original defaults through the shared `solve_paper_hjb` implementation.
+Download the pinned authors' repository and dependencies above first; unpack
 ToolboxLS as `dependency_root/ToolboxLS/ToolboxLS/Kernel`.
 
 ```matlab
@@ -160,7 +161,8 @@ The runner stages the original class files into an `@LiftedInvPendExo` directory
 the new run directory so MATLAB can find its external methods. Original checkouts and
 previous runs are preserved. Empty sampled targets raise an error rather than being enlarged.
 Outputs include `policy.mat`, final `projection.mat`, input MAT snapshots, staged class
-source and `summary.json`. Exports retain the complete sampled value history in SI units.
+source, maintained MATLAB source snapshots and `summary.json`. Exports retain the complete
+sampled value history in SI units. Both ankle and toe targets must have sampled interiors.
 
 `nominal_contact_constraints(x,pendulum)` reconstructs force/moment constraints directly
 from the nominal dynamics, filling the missing upstream friction implementation. It uses
@@ -198,6 +200,8 @@ and selection groups when comparing grids or time histories. Values and inside/o
 predictions are recomputed for the new policy; `selection_value` retains the earlier value.
 The original selection seed, policy hash and protocol hash identify the frozen cohort.
 Coverage failures record the query, axis bounds and elapsed simulation time in SI units.
+`--dt` and `--control-period` set physics and feedback periods independently (seconds,
+both default 0.001); the protocol records them alongside the frozen initial states.
 The published 1.4 s coarse-grid run includes prediction/rollout disagreements and
 out-of-grid failures; see [all outcomes](../docs/RESULTS.md#longer-horizon-coarse-grid-prediction-is-not-sufficient).
 
@@ -207,3 +211,44 @@ time slice changes five of the same nine rollout outcomes from valid target reac
 to misses, even though the final value field is identical. Keep the dense history for
 forward feedback. This result isolates saved-time resolution; spatial convergence is
 still required. [Configurations, records and comparison command](../docs/RESULTS.md#controlled-refinement-time-history-sampling-changes-the-outcome).
+
+## Reconciled assisted HJB
+
+`solve_paper_hjb` supports `exo="none"`, `"gc"` and `"pd"`. Its defaults use a
+51×269×51 grid, a 0.5 rad/s reverse-velocity buffer and a 10 ms saved history.
+No-assistance mode retains the original source model and stored targets. Assisted modes
+use `PaperExoPendulum`, with SI GC/restoring-PD torque and ±50 Nm saturation, then scale
+the complete dynamics. Exported assistance contracts must match the MuJoCo run.
+
+`paper_contact_constraints(x,pendulum,exo_torque_nm)` applies C1/C3–C5 to the total
+torque while retaining human-only torque limits. `paper_target_boxes(pendulum)` solves
+the Appendix II SDP using YALMIP/SeDuMi, applies Eq. (48) relative to each equilibrium,
+and enforces linear box constraints and nonlinear corner-contact checks. It records
+the ellipsoid, feedback gain, box widths and residuals in `computed_target.mat`.
+The bounding boxes do not inherit a nonlinear invariance proof from the linear CLF.
+
+Assisted grids include zero speed and human torque: uniform spacing is preserved while
+extending these axis bounds by less than one cell per side where needed. Physical
+constraints remain unchanged. `summary.json` records requested and actual grid sizes;
+source snapshots preserve the numerical implementation used for each solve.
+
+```matlab
+addpath('matlab');
+solve_paper_hjb('/path/to/AnkleExoBRS','logs/hjb_dependencies','logs/pd_short', ...
+    exo="pd", duration_s=0.1);
+```
+
+```bash
+python -m exobalancelab.hjb_validation --run-dir logs/pd_short \
+  --out logs/pd_short_1ms --count 3 --seed 240805418
+python -m exobalancelab.hjb_validation --run-dir logs/pd_short \
+  --protocol logs/pd_short_1ms/protocol.json --dt .00005 --control-period .00005 \
+  --out logs/pd_short_50us
+```
+
+The recomputed PD ankle target can be narrower in torque than the change caused by one
+1 ms extremal-rate command. The recorded OF case needs a finer control step to meet that
+unchanged target; 50 and 25 μs checks agree on acceptance. These are numerical resolutions
+for simulated time. [Measured assisted results](../docs/RESULTS.md#reconciled-gcpd-pipeline-and-control-step-precision)
+retain the original miss and all subsequent outcomes. Long-horizon regional convergence
+and the paper's Table II remain separate acceptance work.

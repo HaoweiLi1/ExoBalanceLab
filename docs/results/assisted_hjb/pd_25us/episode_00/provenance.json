@@ -1,0 +1,22 @@
+{
+  "mujoco": "3.3.7",
+  "numpy": "2.2.6",
+  "source_sha256": {
+    "__init__.py": "66cc1b610cb899f78098078717a852225219d4e9a05cb171601be883025ab56b",
+    "hjb_validation.py": "7fd3770ca6c9deb42995067122f917a1d5c1cc6784b528bf554fcafb53a3e145",
+    "reachability.py": "c81e18e91394894331427da763dd5120551861d53c8ccaa56a8c514e4dd6e0da",
+    "hjb_comparison.py": "c6b80531b182fbe46177fc197d64eb46b20628d9ed91353c6d1e6c271bfcae8c",
+    "rendering.py": "9f7cf613048ac5d06f13d1d273a124e08bf3e9aa4d4692d5d9eb706b5685e93b",
+    "models.py": "e4ba5c881eeca53df21412f74566eb291c3b682d9c5ec5ea7d00be32c3fad377",
+    "bridge.py": "e3c4705193d22ec710a85f8643ec12952bb6d5185d3092e9448c5a6abda3c162",
+    "paper.py": "da44d063e8409a4453641f50a701e36befa7e435c58de23f4be85c59bde446b3",
+    "cli.py": "d5b5f5db90c7e3527bbdeb5a3dc58e8218f722110e1000b3fe4d21fdbe7c0c53",
+    "validation.py": "f93c155ecfe878a0f2feb9a60b508b2a633d8c6f0fc61b7b2d2360802b95ba21",
+    "__main__.py": "7df609d3fdd959b5c5c046ca0b1bf8d904b4909fb89d21f828847482ec5872d9",
+    "simulation.py": "e69e6aa489a90b88b18d5dcc8f090fd499b5b56ff0c885be96f6cbf489d1164f",
+    "sweep.py": "0396288db7c275af8d109e456c924563d9392ac3e01b65f2b7a0d04569503f43"
+  },
+  "model_sha256": "224362b113bb8a997902ff3ba8de46d18cec4cc3f46bdbea78c966766f43537c",
+  "git_commit": "65f2a400c66470bfdb562c9466425d5c7dc4cc34",
+  "working_tree_dirty": true
+}

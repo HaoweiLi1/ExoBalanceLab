@@ -122,6 +122,22 @@ Source inspection at the pinned authors' commit found:
     51×269×51 solve uses the paper's 0.5 rad/s buffer and zero-aligned velocity nodes.
     A controlled 10/100 ms export comparison isolates temporal sampling error; it
     does not establish spatial or domain convergence. See [refinement results](RESULTS.md#controlled-refinement-time-history-sampling-changes-the-outcome).
+11. **Assisted gain units:** `generateExoTargetSets.m` stores physical Kp/Kd and motor
+    limits. The scaled `dynamics.m` applies those fields to scaled states without
+    explicitly converting PD gains and saturation. The reconciled implementation
+    evaluates assistance in SI and only then scales derivatives; all three modes
+    pass independent MATLAB/MuJoCo comparisons.
+
+The maintained `solve_paper_hjb` path resolves the executable GC/PD consistency and
+missing-target issues through `PaperExoPendulum`, shared force/moment constraints,
+and a new Appendix II SDP/box implementation. The latter uses equilibrium-relative
+constraint distances from Eq. (48), includes damping in the linearization, and computes
+box containment without relying on vertex ordering. Both target interiors must be sampled.
+The assisted grids align zero speed/torque and record any resulting domain extension.
+These are documented numerical choices for a reconciled model, not evidence that the
+authors used these same choices to produce Table II. The nominal source baseline remains
+available with its stored targets. [Execution and precision results](RESULTS.md#reconciled-gcpd-pipeline-and-control-step-precision)
+include a resolved sampled-rate target miss and all remaining failures.
 
 These findings distinguish implementation differences from limits of the numerical
 approximation. An exact reproduction needs a reconciled parameter/controller version,
@@ -132,8 +148,9 @@ the reported figures. Record any patch separately from the authors' unchanged so
 
 1. MATLAB runtime access and numerical dependencies are verified; retain the
    [pinned dependency versions](../matlab/README.md#prepared-hjb-dependencies) and vendor licenses.
-2. Validate the reconstructed nominal baseline against the source formulation and resolve
-   the missing GC/PD target/controller details, including controlled invariance.
+2. The nominal source and reconciled GC/PD dynamics/target construction are executable
+   and checked. Quantify how the documented source/target differences affect full regions;
+   retain the published box approximation separately from stronger invariance claims.
 3. Resolve the source differences above with versioned patches and independent unit checks.
 4. Recompute target sets and all five population profiles for no-exo/GC/PD, at documented
    grid resolutions and horizons; check numerical convergence.

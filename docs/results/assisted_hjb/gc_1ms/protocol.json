@@ -1,0 +1,141 @@
+{
+  "source": {
+    "profile": "OF",
+    "exo": "gc",
+    "direction": "forward",
+    "resolution": [
+      51,
+      269,
+      51
+    ],
+    "requested_resolution": [
+      51,
+      269,
+      51
+    ],
+    "duration_s": 0.10000000000000002,
+    "output_step_s": 0.01,
+    "method": "none",
+    "wall_s": 102.431461,
+    "velocity_buffer_rad_s": 0.5,
+    "matlab_release": "2026b",
+    "gravity_m_s2": 9.8,
+    "source_model": {
+      "m": 60,
+      "h": 1.58,
+      "tauMin": -88,
+      "tauMax": 22,
+      "uMin": -389,
+      "uMax": 148
+    },
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -45.81831308077206
+      ],
+      "thetaAnkRange": 0.05024722818662286,
+      "thetaDotAnkRange": 0.007172155601083794,
+      "torqueAnkRange": 0.05024411972568244,
+      "thetaToeRange": 0.014471675279422828,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.665529973479257
+    },
+    "ankle_target_nodes": 5,
+    "toe_target_nodes": 10,
+    "initial_target_nodes": 15,
+    "final_reachable_nodes": 173,
+    "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified."
+  },
+  "policy_sha256": "476053bdf75983e3b199dedf257ac7e79a6b25da328980c81920ae2026a6cbb5",
+  "seed": 240805418,
+  "requested_per_group": 3,
+  "states": [
+    {
+      "group": "inside",
+      "state": [
+        1.754,
+        -0.01250000000000003,
+        -48.400000000000006
+      ],
+      "value": -0.000697040015427944
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.754,
+        -0.01250000000000003,
+        -39.6
+      ],
+      "value": -0.0025504034041368166
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.754,
+        -0.01250000000000003,
+        -26.400000000000002
+      ],
+      "value": -0.002592341505419124
+    },
+    {
+      "group": "outside",
+      "state": [
+        0.857,
+        0.625,
+        -37.4
+      ],
+      "value": 0.6339090618931269
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.064,
+        0.32500000000000007,
+        -33.0
+      ],
+      "value": 0.44762341708461906
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.3170000000000002,
+        0.33749999999999997,
+        -85.80000000000001
+      ],
+      "value": 0.18615017163860365
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.731,
+        0.024999999999999967,
+        -46.2
+      ],
+      "value": 0.009919788710832789
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.57,
+        -0.05000000000000003,
+        6.600000000000001
+      ],
+      "value": 0.007152499275508399
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.616,
+        -0.06250000000000006,
+        8.800000000000002
+      ],
+      "value": 0.009869557501427798
+    }
+  ]
+}

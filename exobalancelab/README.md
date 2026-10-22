@@ -25,10 +25,10 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `reachability` | `HJBPolicy(path)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s |
 | `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
 | `reachability` | `PolicyCoverageError.query`, `.bounds` | Failed query and exported bounds in SI units |
-| `rendering` | `comparison_video(episodes, output, fps, width, height)` | synchronized records → MP4/GIF/poster |
+| `rendering` | `comparison_video(episodes, output, fps, width, height, titles)` | synchronized records and optional panel labels → MP4/GIF/poster |
 | `rendering` | `plot_comparison(episodes, output)` | records → PNG time series |
 | `validation` | `validate_dynamics(seed)`, `benchmark_bridge(seed)` | deterministic protocol → metrics |
-| `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path)` | MATLAB nominal solve → new or frozen-cohort MuJoCo rollouts and outcomes |
+| `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path, timestep_s, control_period_s)` | Matching nominal/assisted HJB → new or frozen-cohort rollouts with explicit timing |
 | `hjb_comparison` | `compare(runs, output)` | Matching cohort/plant/targets → complete per-case CSV, JSON, PNG and PDF |
 
 `cli`, `sweep`, `validation`, `hjb_validation` and `hjb_comparison` expose executable `main()` functions.

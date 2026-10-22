@@ -1,0 +1,173 @@
+[
+  {
+    "group": "inside",
+    "state": [
+      1.57,
+      -0.01250000000000003,
+      17.6
+    ],
+    "value": -0.00018632172048218266,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.5696475257229234,
+      0.00016310538663383533,
+      0.18000000000000532
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "inside",
+    "state": [
+      1.754,
+      -0.02500000000000006,
+      -37.4
+    ],
+    "value": -0.0010860447501213396,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.7525536009602978,
+      -0.005746991611460309,
+      -40.32099999999991
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "inside",
+    "state": [
+      1.754,
+      0.024999999999999967,
+      -59.400000000000006
+    ],
+    "value": -0.0011393773616112284,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.755415750661001,
+      0.006970296761587652,
+      -49.96999999999974
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "outside",
+    "state": [
+      0.857,
+      0.625,
+      -37.4
+    ],
+    "value": 0.6676012748006617,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      0.8862951810808508,
+      -0.023409786829555485,
+      -22.599999999999902
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.432,
+      2.225,
+      2.2000000000000006
+    ],
+    "value": 0.6227040511560878,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.644758088678459,
+      2.053957599989247,
+      -36.7
+    ],
+    "target_reached": false,
+    "contact_valid": false,
+    "valid_target_reach": false
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.064,
+      0.32500000000000007,
+      -33.0
+    ],
+    "value": 0.4813156299923309,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.072677609243524,
+      -0.14027055692072196,
+      -18.20000000000001
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.593,
+      -0.07500000000000008,
+      4.400000000000001
+    ],
+    "value": 0.011159667300088322,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.586725729857314,
+      -0.05100996976025291,
+      2.0159999999999876
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.593,
+      -0.06250000000000006,
+      2.2000000000000006
+    ],
+    "value": 0.008833259232606992,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.5877062250762164,
+      -0.043207194947991474,
+      1.426999999999988
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.731,
+      0.08749999999999994,
+      -55.00000000000001
+    ],
+    "value": 0.01106947154946584,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.737297349641403,
+      0.039878590598683546,
+      -57.38399999999988
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  }
+]

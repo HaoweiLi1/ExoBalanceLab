@@ -1,4 +1,4 @@
-"""Compare a nominal MATLAB HJB prediction with matching MuJoCo forward rollouts.
+"""Compare a MATLAB paper-model HJB prediction with matching MuJoCo forward rollouts.
 
 Select inside/outside/boundary grid states before observing rollout results. Retain
 the protocol, every outcome and successful episode records; errors are not recovery.
@@ -14,21 +14,28 @@ import h5py
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 
-from exobalancelab.paper import AUTHORS_PROFILES, ground_reaction
+from exobalancelab.paper import AUTHORS_PROFILES, exo_torque, ground_reaction
 from exobalancelab.reachability import HJBPolicy, PolicyCoverageError
 from exobalancelab.simulation import RunConfig, run
 
 
 def validate(
-    run_dir: Path, output: Path, count: int = 3, seed: int = 240805418, protocol_path: Path | None = None
+    run_dir: Path,
+    output: Path,
+    count: int = 3,
+    seed: int = 240805418,
+    protocol_path: Path | None = None,
+    timestep_s: float = 0.001,
+    control_period_s: float = 0.001,
 ) -> dict:
     """Run stratified states, or reuse an earlier protocol without selecting new states."""
     if count < 1:
         raise ValueError("Count must be positive")
     source = json.loads((run_dir / "summary.json").read_text())
     profile = AUTHORS_PROFILES[source["profile"]]
+    assistance = source.get("exo", "none")
     policy = HJBPolicy(run_dir / "policy.mat")
-    policy.validate_plant(profile, "none")
+    policy.validate_plant(profile, assistance)
     with h5py.File(policy.path) as f:
         axes = [np.asarray(f[key]).ravel() for key in ["theta_rad", "velocity_rad_s", "human_torque_nm"]]
         value = np.asarray(f["value"][-1]).T
@@ -48,7 +55,10 @@ def validate(
                     continue
                 indices = np.unravel_index(index, value.shape)
                 theta, speed, torque = [float(axis[i]) for axis, i in zip(axes, indices, strict=True)]
-                reaction = ground_reaction(theta - np.pi / 2, speed, torque, profile)
+                lean = theta - np.pi / 2
+                reaction = ground_reaction(
+                    lean, speed, torque + exo_torque(lean, speed, profile, assistance), profile
+                )
                 if min(reaction["normal_n"], reaction["cop_margin_m"], reaction["friction_margin_n"]) <= 0:
                     continue
                 selected.append(
@@ -74,6 +84,7 @@ def validate(
         "seed": seed,
         "requested_per_group": count,
         "states": selected,
+        "rollout": {"timestep_s": timestep_s, "control_period_s": control_period_s},
     }
     if selection is not None:
         protocol["selection_protocol_sha256"] = hashlib.sha256(protocol_path.read_bytes()).hexdigest()
@@ -87,6 +98,9 @@ def validate(
         config = RunConfig(
             profile=profile.name,
             parameters="authors",
+            exo=assistance,
+            timestep_s=timestep_s,
+            control_period_s=control_period_s,
             duration_s=round(policy.horizon_s, 12),
             lean_rad=theta - np.pi / 2,
             velocity_rad_s=speed,
@@ -122,7 +136,10 @@ def validate(
                 reached |= bool(
                     np.all(abs(final - np.asarray(target[center])) <= [target[k] for k in widths])
                 )
-            reaction = ground_reaction(final[0] - np.pi / 2, final[1], final[2], profile)
+            lean = final[0] - np.pi / 2
+            reaction = ground_reaction(
+                lean, final[1], final[2] + exo_torque(lean, final[1], profile, assistance), profile
+            )
             final_valid = (
                 min(reaction["normal_n"], reaction["cop_margin_m"], reaction["friction_margin_n"]) >= 0
             )
@@ -158,7 +175,7 @@ def validate(
         xlabel="Forward lean q (rad)",
         ylabel="Angular velocity (rad/s)",
         title=(
-            f"{profile.name}: nominal HJB projection and preselected states\n"
+            f"{profile.name} / {assistance}: HJB projection and preselected states\n"
             f"Grid {' x '.join(map(str, value.shape))}; no convergence claim"
         ),
     )
@@ -170,15 +187,24 @@ def validate(
 
 
 def main() -> None:
-    """Validate one solve_nominal_hjb output directory."""
+    """Validate one solve_paper_hjb or solve_nominal_hjb output directory."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--count", type=int, default=3)
     parser.add_argument("--seed", type=int, default=240805418)
     parser.add_argument("--protocol", type=Path, help="Reuse this protocol's states and groups")
+    parser.add_argument("--dt", type=float, default=0.001, help="MuJoCo physics timestep in seconds")
+    parser.add_argument("--control-period", type=float, default=0.001, help="Feedback period in seconds")
     args = parser.parse_args()
-    print(json.dumps(validate(args.run_dir, args.out, args.count, args.seed, args.protocol), indent=2))
+    print(
+        json.dumps(
+            validate(
+                args.run_dir, args.out, args.count, args.seed, args.protocol, args.dt, args.control_period
+            ),
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

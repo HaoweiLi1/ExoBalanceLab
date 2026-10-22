@@ -25,3 +25,7 @@ that drop failed cases or change initial states, targets or plant parameters.
 `test_matlab_runtime.py` is opt-in: set `EXOBALANCE_MATLAB_TEST=1` after activation to
 verify a real MATLAB CSV/MAT export and compare Engine feedback against the same Python
 controller. Its default skip is visible in the test summary, not counted as a pass.
+
+With `EXOBALANCE_HJB_SOURCE` and `EXOBALANCE_HJB_DEPS` set to the pinned dependency
+checkouts, `test_matlab_assistance.py` compares 1,500 reconciled none/GC/PD states
+against MuJoCo, checks SI/scaled equivalence, and verifies all 20 GC/PD target boxes.

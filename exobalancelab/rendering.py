@@ -24,7 +24,7 @@ def _font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
         return ImageFont.load_default(size=size)
 
 
-def _overlay(frame: np.ndarray, episode: Episode, index: int) -> Image.Image:
+def _overlay(frame: np.ndarray, episode: Episode, index: int, title: str) -> Image.Image:
     scene = Image.fromarray(frame)
     canvas = Image.new("RGB", (scene.width, scene.height + 244), "#0c1723")
     canvas.paste(scene, (0, 88))
@@ -32,7 +32,7 @@ def _overlay(frame: np.ndarray, episode: Episode, index: int) -> Image.Image:
     width, height = canvas.size
     a, mode = episode.arrays, episode.config.exo
     draw.rectangle((0, 0, width, 88), fill="#0c1723")
-    draw.text((20, 12), MODES[mode], font=_font(21), fill=COLORS[mode])
+    draw.text((20, 12), title, font=_font(21), fill=COLORS[mode])
     draw.text(
         (20, 44),
         f"{episode.config.profile}  |  t = {a['time_s'][index]:.2f} s",
@@ -50,7 +50,10 @@ def _overlay(frame: np.ndarray, episode: Episode, index: int) -> Image.Image:
     draw.text((20, y + 10), f"Human ankle {human:+6.1f} Nm", font=_font(18), fill="#9fc9db")
     draw.text((20, y + 38), f"Device ankle {exo:+6.1f} Nm", font=_font(18), fill="#ffad70")
     draw.text(
-        (20, y + 67), f"Lean {np.degrees(a['lean_rad'][index]):+5.1f} deg", font=_font(17), fill="white"
+        (20, y + 67),
+        f"Lean {np.degrees(a['lean_rad'][index]):+5.1f} deg | speed {a['velocity_rad_s'][index]:+.3f} rad/s",
+        font=_font(15),
+        fill="white",
     )
     valid = (
         a["normal_n"][index] > 0
@@ -69,11 +72,20 @@ def _overlay(frame: np.ndarray, episode: Episode, index: int) -> Image.Image:
 
 
 def comparison_video(
-    episodes: list[Episode], output: str | Path, fps: int = 30, width: int = 480, height: int = 640
+    episodes: list[Episode],
+    output: str | Path,
+    fps: int = 30,
+    width: int = 480,
+    height: int = 640,
+    titles: list[str] | None = None,
 ) -> Path:
     """Render synchronized panels, an MP4, a poster and a compact animated preview."""
     if not episodes or fps <= 0:
         raise ValueError("At least one episode and positive fps are required")
+    if titles is None:
+        titles = [MODES[episode.config.exo] for episode in episodes]
+    if len(titles) != len(episodes):
+        raise ValueError("Provide one title per episode")
     durations = [episode.config.duration_s for episode in episodes]
     if not np.allclose(durations, durations[0]):
         raise ValueError("Paired videos require matching episode durations")
@@ -98,14 +110,16 @@ def comparison_video(
             for frame_i in range(frame_count):
                 time_s = frame_i / fps
                 panels = []
-                for episode, model, data, renderer in zip(episodes, models, data_objects, renderers):
+                for episode, model, data, renderer, title in zip(
+                    episodes, models, data_objects, renderers, titles, strict=True
+                ):
                     a = episode.arrays
                     index = min(np.searchsorted(a["time_s"], time_s), len(a["time_s"]) - 1)
                     data.qpos[:], data.qvel[:] = a["qpos"][index], a["qvel"][index]
                     data.ctrl[:] = np.r_[a["human_applied_nm"][index], a["exo_applied_nm"][index]]
                     mujoco.mj_forward(model, data)
                     renderer.update_scene(data, camera=camera)
-                    panels.append(np.asarray(_overlay(renderer.render(), episode, index)))
+                    panels.append(np.asarray(_overlay(renderer.render(), episode, index, title)))
                 combined = np.concatenate(panels, axis=1)
                 writer.append_data(combined)
                 if frame_i == 0:

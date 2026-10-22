@@ -1,0 +1,123 @@
+[
+  {
+    "label": "51 angle nodes",
+    "source": {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": [
+        51,
+        269,
+        51
+      ],
+      "duration_s": 1.3999999999999997,
+      "output_step_s": 0.01,
+      "method": "none",
+      "wall_s": 1314.537379,
+      "velocity_buffer_rad_s": 0.5,
+      "matlab_release": "2026b",
+      "gravity_m_s2": 9.8,
+      "source_model": {
+        "m": 60,
+        "h": 1.58,
+        "tauMin": -88,
+        "tauMax": 22,
+        "uMin": -389,
+        "uMax": 148
+      },
+      "target": {
+        "ankleEq": [
+          1.5707963267948966,
+          0,
+          0
+        ],
+        "toeEq": [
+          1.7112737387029464,
+          0,
+          -72.62709223620656
+        ],
+        "thetaAnkRange": 0.014466168793943728,
+        "thetaToeRange": 0.014469327824432499,
+        "thetaDotAnkRange": 0.01,
+        "thetaDotToeRange": 0.01,
+        "torqueAnkRange": 10.844324499535924,
+        "torqueToeRange": 10.742001927119986
+      },
+      "initial_target_nodes": 18,
+      "final_reachable_nodes": 24878,
+      "scope": "Reconstructed nominal HJB baseline; convergence and published-area agreement unverified."
+    },
+    "rollout": null,
+    "policy_sha256": "be53b9cd2b00202a7a80962072a3a9932272e0832e7b524a9319a5b5040eef6e",
+    "protocol_sha256": "ff9a292d9ae2ea245110c0f4dd14e1b1e9d4d8779011d26b0bafc0becf8d66e1",
+    "outcomes_sha256": "61ef2407bb70b2d7ea15d5805dae8e35cd0f7d66ed028ce96e6d351b6401f84d",
+    "total": 9,
+    "predicted_inside": 6,
+    "predicted_inside_reached": 5,
+    "valid_target": 5,
+    "completed_miss": 1,
+    "policy_error": 3
+  },
+  {
+    "label": "101 angle nodes",
+    "source": {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": [
+        101,
+        269,
+        51
+      ],
+      "duration_s": 1.3999999999999997,
+      "output_step_s": 0.01,
+      "method": "none",
+      "wall_s": 2552.52338,
+      "velocity_buffer_rad_s": 0.5,
+      "matlab_release": "2026b",
+      "gravity_m_s2": 9.8,
+      "source_model": {
+        "m": 60,
+        "h": 1.58,
+        "tauMin": -88,
+        "tauMax": 22,
+        "uMin": -389,
+        "uMax": 148
+      },
+      "target": {
+        "ankleEq": [
+          1.5707963267948966,
+          0,
+          0
+        ],
+        "toeEq": [
+          1.7112737387029464,
+          0,
+          -72.62709223620656
+        ],
+        "thetaAnkRange": 0.014466168793943728,
+        "thetaToeRange": 0.014469327824432499,
+        "thetaDotAnkRange": 0.01,
+        "thetaDotToeRange": 0.01,
+        "torqueAnkRange": 10.844324499535924,
+        "torqueToeRange": 10.742001927119986
+      },
+      "initial_target_nodes": 45,
+      "final_reachable_nodes": 64259,
+      "scope": "Reconstructed nominal HJB baseline; convergence and published-area agreement unverified."
+    },
+    "rollout": {
+      "timestep_s": 0.001,
+      "control_period_s": 0.001
+    },
+    "policy_sha256": "b4a1cba111d55436fabc5b20c8fb3ff673ced76b55ebc6eeb368266dfbccf4d2",
+    "protocol_sha256": "e881646e4ea12356615d39241d281b763d01999600d634eaba14ee95b0fcfdce",
+    "outcomes_sha256": "0c851ea81d783ac11418617b4cf371db298b696a37bb9f01b4ce697175941622",
+    "total": 9,
+    "predicted_inside": 6,
+    "predicted_inside_reached": 6,
+    "valid_target": 6,
+    "completed_miss": 0,
+    "policy_error": 3
+  }
+]

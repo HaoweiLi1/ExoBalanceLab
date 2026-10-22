@@ -72,6 +72,7 @@ def compare(runs: dict[str, Path], output: Path) -> list[dict]:
             {
                 "label": label,
                 "source": source,
+                "rollout": protocol.get("rollout"),
                 "policy_sha256": protocol["policy_sha256"],
                 "protocol_sha256": hashlib.sha256(protocol_path.read_bytes()).hexdigest(),
                 "outcomes_sha256": hashlib.sha256(outcomes_path.read_bytes()).hexdigest(),

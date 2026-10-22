@@ -89,3 +89,23 @@ The articulated extension is a model study, not physical or clinical validation.
 - The paired comparison exports all outcomes to CSV/JSON and PNG/PDF. It rejects
   changed cohorts, plants or targets and omitted failures. All 62 tests pass,
   including three real MATLAB/source checks; spatial convergence remains open.
+
+## Assisted HJB implementation, October 23, 2026
+
+- Shared nominal/GC/PD solve/export path added. Assisted dynamics evaluate physical
+  controller gains and ±50 Nm saturation before nondimensionalization; the original
+  nominal entry point retains its source defaults and stored targets.
+- Recomputed 20 assisted target boxes with the Appendix II SDP, equilibrium-relative
+  constraint distances, linear box containment and nonlinear corner-contact checks.
+- Real MATLAB/MuJoCo comparison passes 1,500 states across five profiles/three modes
+  with maximum derivative error 1.40e-9. Full suite: 65 passed, four native MATLAB checks.
+- GC and PD short solves and all preselected outcomes are retained. A PD ankle-target
+  miss is traced to extremal-rate sampling: 1 ms and 100 μs miss, while 50/25 μs reach
+  the unchanged target. All three inside-group PD states pass in both finer cohorts.
+- Added explicit physics/control periods to frozen-cohort validation and a synchronized
+  video of the earlier 100/10 ms value-history comparison. Full regional reproduction
+  and spatial convergence are still required.
+- The nominal 101×269×51 solve finishes in 2,552.523 s. All six predicted-inside
+  frozen states now reach the original targets with valid contact. The three outside
+  failures are unchanged; the sampled projected area changes by 9.21%, so a larger
+  201-angle-node run is started for the next convergence check.

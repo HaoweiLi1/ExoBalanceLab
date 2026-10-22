@@ -1,0 +1,37 @@
+{
+  "seed": 240805418,
+  "profiles": [
+    "YF",
+    "OF",
+    "YM",
+    "OM",
+    "wOF"
+  ],
+  "modes": [
+    "none",
+    "gc",
+    "pd"
+  ],
+  "state_comparisons": 1500,
+  "max_derivative_error": 1.39981182201e-09,
+  "target_boxes_checked": 20,
+  "target_checks": [
+    "SDP solution stability",
+    "linear box constraints",
+    "nonlinear corner contact"
+  ],
+  "source_sha256": {
+    "paper_target_boxes.m": "363675e363ac4779060aba6f1b140eae9ca5be6ad350e5241ef1dce9da62c034",
+    "export_hjb_policy.m": "9e4e22f4d1ce6770c4680d83a11d3f28db6fc4d37e536a5a2d327fc7963114b8",
+    "paper_contact_constraints.m": "f7747f51308d6a1b84241255b2f525f1dc22b664a724c1b6c541ed0ea7be1dec",
+    "example_export.m": "77ec13f00e3c9fcc6925f5a7adff87fbe484eb4bb68609a881e972f4d710ba79",
+    "standing_pd.m": "f8a68d67b6d900ac80853a21f0bbfc36a803e49416c5f85024bf09cf27973a16",
+    "export_controller.m": "01a6760826f8929a6a57de8bed165dba40e6335af5ab6462160b60fe616c1538",
+    "PaperExoPendulum.m": "42548e6427456dc3d5949eed37f437ae0b3ff9f59609297fee623da2f0eda2e7",
+    "nominal_contact_constraints.m": "0215766f9f9eb9e240860a12d297dcc5f554c0333609b30760e589e636bd5d99",
+    "solve_paper_hjb.m": "8f6940b7ef29d161df658e998aea1c04434d427fe71051a021a517b450a9e42a",
+    "solve_nominal_hjb.m": "fe76a3ec178ba3011ca987be04ae43ec7c8d38b2c951130752f41f9013895e46"
+  },
+  "test": "tests/test_matlab_assistance.py",
+  "scope": "Reconciled dynamics and target construction, not published-region reproduction."
+}
