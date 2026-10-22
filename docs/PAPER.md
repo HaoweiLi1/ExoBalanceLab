@@ -128,6 +128,13 @@ Source inspection at the pinned authors' commit found:
     evaluates assistance in SI and only then scales derivatives; all three modes
     pass independent MATLAB/MuJoCo comparisons.
 
+The [history audit](results/source_history_audit.json) also examined all 16 reachable
+commits and 34 distinct MATLAB/autosave source versions. The missing friction function
+appears only as a call throughout that history. At inspection, the public repository
+had one branch and no tags or releases offering another version. The inspected history
+therefore does not supply the missing implementation or establish which exact code
+produced Table II.
+
 The maintained `solve_paper_hjb` path resolves the executable GC/PD consistency and
 missing-target issues through `PaperExoPendulum`, shared force/moment constraints,
 and a new Appendix II SDP/box implementation. The latter uses equilibrium-relative
