@@ -33,11 +33,21 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 
 `mj_forward` computes the observation at time t after setting the current command;
 `mj_step` advances to t+dt. Recorded states/commands share the pre-step timestamp.
-Human torque commands update every `control_period_s`, with zero-order hold between
-updates. Exoskeleton commands use that same period. Physics dt must divide the control
-period and duration exactly. MRTD bounds apply per **control interval**, not per wall-clock call.
-The initial rate-limited command uses one control interval of allowed change at t=0.
-No artificial future-time lookup compensates for a nonexistent transport delay.
+Desired human torque controllers (replay, MATLAB and local feedback) update every
+`control_period_s`, with zero-order hold between updates. Their MRTD limiter permits
+one control interval of change at t=0. Exoskeleton commands use that same period.
+Physics dt must divide the control period and duration exactly; timing uses simulated
+time, not wall-clock call latency. No future-time lookup compensates for transport delay.
+
+HJB controls **torque rate**, so its lifted torque state starts exactly at
+`initial_torque_nm`. The selected rate is held between controller ticks, while torque
+is integrated every physics step and clipped to the strength-scaled MT limits. The
+physics step uses the current torque before advancing this state. This first-order
+discretization converges to the continuous lifted dynamics as physics dt decreases.
+HJB records additionally contain `human_rate_command_nm_s` and
+`human_rate_applied_nm_s`; the latter is the torque change over the following physics
+interval divided by dt, including saturation. All initial torques must satisfy the
+configured strength-scaled limits.
 
 For `paper`/`contact`, positive ankle angle is forward lean; positive motor torque is DF.
 A body hinge about world +y produces positive forward lean. In `human`, the ankle joint

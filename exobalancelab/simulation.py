@@ -55,8 +55,12 @@ class RunConfig:
         if self.control_period_s < self.timestep_s or not 0 < self.human_strength <= 1:
             raise ValueError("Control period must cover a physics step; human_strength must be in (0,1]")
         p = PROFILES[self.profile]
-        if not p.torque_min_nm <= self.initial_torque_nm <= p.torque_max_nm:
-            raise ValueError("Initial human torque exceeds Table I limits")
+        if not (
+            p.torque_min_nm * self.human_strength
+            <= self.initial_torque_nm
+            <= p.torque_max_nm * self.human_strength
+        ):
+            raise ValueError("Initial human torque exceeds strength-scaled Table I limits")
         if min(self.device_mass_kg, self.push_duration_s, self.push_start_s) < 0:
             raise ValueError("Device mass and push timing must be nonnegative")
         if self.model != "human" and self.push_n != 0:
@@ -163,6 +167,7 @@ def run(
     Replay and MATLAB outputs specify desired HUMAN ankle torque, not total torque.
     For the human model they require six channels: L hip/knee/ankle, R hip/knee/ankle.
     Human C1/C2 limits are applied after the external controller and logged separately.
+    HJB instead specifies a held torque rate, integrated once per physics step.
     """
     config.validate()
     if sum(item is not None for item in [trajectory, matlab, hjb]) > 1:
@@ -218,13 +223,14 @@ def run(
         ankle = model.joint("ankle").id
         qi, vi = model.jnt_qposadr[ankle], model.jnt_dofadr[ankle]
         data.qpos[qi], data.qvel[vi] = config.lean_rad, config.velocity_rad_s
-        previous = np.array([config.initial_torque_nm])
+        previous = np.array([config.initial_torque_nm], dtype=float)
     mujoco.mj_forward(model, data)
     foot_names = ["left_sole", "right_sole"] if human else ["foot_-1", "foot_1"]
     initial_foot_x = np.array([data.geom_xpos[model.geom(name).id, 0] for name in foot_names])
     steps = round(config.duration_s / config.timestep_s)
     stride = round(config.control_period_s / config.timestep_s)
     raw, applied_exo = previous.copy(), np.zeros(2 if human else 1)
+    held_rate = 0.0
     records: dict[str, list] = {
         name: []
         for name in [
@@ -250,6 +256,9 @@ def run(
             "foot_slide_m",
         ]
     }
+    if hjb is not None:
+        records["human_rate_command_nm_s"] = []
+        records["human_rate_applied_nm_s"] = []
     latencies = []
     start = perf_counter()
     for step in range(steps):
@@ -258,8 +267,7 @@ def run(
         if step % stride == 0:
             tick = perf_counter()
             if hjb is not None:
-                rate = hjb.rate(config.duration_s - time_s, q, velocity, previous[0], p)
-                raw = np.array([previous[0] + rate * config.control_period_s])
+                held_rate = hjb.rate(config.duration_s - time_s, q, velocity, previous[0], p)
             elif trajectory is not None:
                 raw = trajectory.sample(time_s)
             elif matlab is not None:
@@ -285,10 +293,16 @@ def run(
                     applied_exo[i] = 0.5 * exo_torque(aq, av, p, config.exo)
                 data.ctrl[:6], data.ctrl[6:] = previous, applied_exo
             else:
-                previous[0] = limit_human(float(raw[0]), previous[0], config.control_period_s, p)
+                if hjb is None:
+                    previous[0] = limit_human(float(raw[0]), previous[0], config.control_period_s, p)
                 applied_exo[0] = exo_torque(q, velocity, p, config.exo)
                 data.ctrl[:] = [previous[0], applied_exo[0]]
             latencies.append(perf_counter() - tick)
+        if hjb is not None:
+            # Torque is a state: apply tau(t), then advance it with the held rate.
+            data.ctrl[0] = previous[0]
+            next_raw = previous[0] + held_rate * config.timestep_s
+            next_torque = limit_human(next_raw, previous[0], config.timestep_s, p)
         data.xfrc_applied[:] = 0
         push = 0.0
         if human and config.push_start_s <= time_s < config.push_start_s + config.push_duration_s:
@@ -339,11 +353,16 @@ def run(
             push_n=push,
             **grf,
         )
+        if hjb is not None:
+            row["human_rate_command_nm_s"] = held_rate
+            row["human_rate_applied_nm_s"] = (next_torque - previous[0]) / config.timestep_s
         for name in records:
             records[name].append(row[name])
         mujoco.mj_step(model, data)
         if not np.isfinite(data.qpos).all() or np.any(data.warning.number):
             raise RuntimeError(f"MuJoCo numerical failure at step {step}")
+        if hjb is not None:
+            raw[0], previous[0] = next_raw, next_torque
     elapsed = perf_counter() - start
     arrays = {key: np.asarray(value) for key, value in records.items()}
     contact_valid = (

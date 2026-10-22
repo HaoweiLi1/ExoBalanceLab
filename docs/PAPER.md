@@ -16,7 +16,7 @@ arXiv v3, October 2, 2024. Authors' code:
 | Table I, five profiles | `PROFILES` | Explicit bilateral MT/MRTD and anthropometry |
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
-| Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy` and MATLAB exporter | Synthetic grid/interface tests; original HJB policy pending |
+| Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Synthetic policy execution and lifted-ODE convergence tests; original HJB policy pending |
 | Published HJB regions, Figs. 4–6 / Table II | Not yet reproduced | Requires working MATLAB runtime, matching source/dependencies and convergence study |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 

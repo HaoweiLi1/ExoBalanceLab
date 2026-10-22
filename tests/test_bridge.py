@@ -103,7 +103,8 @@ def test_hjb_torque_rate_sign_and_grid_coverage(tmp_path):
     with pytest.raises(ValueError):
         policy.rate(0.5, 0, 2, 0, p)
     episode = run(RunConfig(duration_s=0.01, velocity_rad_s=0.1, lean_rad=0), hjb=policy)
-    assert episode.arrays["human_applied_nm"][0, 0] < 0
+    assert episode.arrays["human_applied_nm"][0, 0] == 0
+    assert episode.arrays["human_applied_nm"][1, 0] < 0
     assert episode.metrics["controller"] == "hjb"
 
 

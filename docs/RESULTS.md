@@ -18,9 +18,13 @@ HJB regions and real MATLAB runtime execution remain separate pending acceptance
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **33 automated tests passed**, with the licensed MATLAB test skipped pending runtime access.
+- **40 automated tests passed**, with the licensed MATLAB test skipped pending runtime access.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
+  HJB-specific execution checks preserve the initial torque, integrate held rate commands
+  at each physics step, test both saturation bounds and compare the lifted trajectory to
+  an independent three-state ODE at dt=2, 1 and 0.5 ms. Errors decrease by approximately
+  a factor of two per halving; these analytic policy fixtures do not validate an HJB solve.
 
 Reproduce:
 

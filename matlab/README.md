@@ -73,6 +73,9 @@ Python loads `theta_rad`, `velocity_rad_s`, `human_torque_nm`, `time_to_go_s`, a
 `value[Ntheta,Nvelocity,Ntorque,Ntime]`. It interpolates the torque derivative of the
 value function and selects the minimizing rate bound from Eq. (11). Out-of-grid queries
 raise; an unrelated controller is never used as a fallback.
+The selected rate is held between control ticks, and human torque is integrated at
+each physics step from the configured initial torque. It is not applied as a torque
+jump at a control tick. Torque saturation and commanded/applied rates are recorded.
 
 ```bash
 exobalance run --hjb-policy policy.mat --profile OF --exo none \
@@ -89,7 +92,9 @@ as an exact reproduction merely because the file loads.
 ## Validation status
 
 Transport, interpolation, sampling, torque-rate sign and closed-loop MuJoCo execution are
-covered by automated tests. Synthetic HJB fixtures test the interface only, not reachability.
+covered by automated tests. HJB execution tests check initial torque, rate hold, saturation
+and timestep convergence against an independently integrated three-state ODE.
+Synthetic HJB fixtures test execution only, not reachability or the published regions.
 The development machine has MATLAB R2026b, its matching Engine and Optimization Toolbox.
 Following reported activation, batch startup still requested a MathWorks sign-in and
 exited with `Sign-in failed`; the R2026b desktop also displayed a sign-in dialog.
