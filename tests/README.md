@@ -35,3 +35,8 @@ In the separate [GPU environment](../docs/HJB_GPU.md), `EXOBALANCE_JAX_TEST=1 py
 tests/test_hjb_solver.py` checks independent MATLAB ENO stencils (including tied
 differences), exact linear advection, set/tube semantics and streamed policy interchange.
 These checks are distinct from full numerical convergence and MuJoCo forward validation.
+
+`test_hjb_regions.py` checks complete 30-case accounting, signed-velocity area integrals,
+relative changes and rejection of different physical parameters using explicit synthetic
+rectangular fields. The HJB reader tests also compare cached/uncached derivatives exactly
+and reject a mismatched or damaged disk cache.

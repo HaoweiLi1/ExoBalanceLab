@@ -1,0 +1,14 @@
+{
+  "uncached_wall_s": 187.91,
+  "cached_wall_s": 42.94,
+  "cached_includes_creation": true,
+  "peak_resident_kib": 311356,
+  "gradient_cache_bytes": 1562978360,
+  "outcomes_equal": 9,
+  "completed_episodes_with_all_arrays_equal": 6,
+  "uncached_reference": "docs/results/hjb_streaming",
+  "tests_passed": 69,
+  "licensed_matlab_tests": 5,
+  "jax_tests_separately": 3,
+  "scope": "Observed single-workstation timings with concurrent solver jobs; no hard real-time claim. Default uncached reader remains available."
+}

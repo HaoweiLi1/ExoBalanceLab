@@ -53,6 +53,13 @@ memory and progress. Existing output directories are never overwritten.
 The history is named `policy.partial.mat` during integration and becomes `policy.mat`
 only after it is complete and closed. Interrupted runs retain their partial data.
 
+For many forward rollouts, add `--gradient-cache logs/OF_gradient_cache` to
+`hjb_validation`. The first invocation writes an uncompressed float64 derivative;
+later queries read only the required pages through a memory map. The cache is bound
+to the policy's SHA-256, and its own checksum is checked before reuse. It uses the same
+two-slice interpolation as the default reader. Allow disk space equal to the uncompressed
+value history (about 13 GB for a 225³ grid with 141 saved times).
+
 ## Numerical correspondence
 
 - Float64, ENO3 with right-biased exact ties, global Lax–Friedrichs dissipation,
@@ -76,3 +83,18 @@ reporting every saved time's value error and sign disagreement, final projected 
 policy hashes and an overlaid figure. Floating-point stencil choices can produce local
 differences; agreement of projected areas is not bitwise equivalence or a convergence proof.
 Recorded experiments are reported in [Results](RESULTS.md).
+
+## Complete population comparison
+
+After all 30 runs in a recorded campaign are complete:
+
+```bash
+python -m exobalancelab.hjb_regions \
+  --protocol logs/hjb_paper225/protocol.json --out logs/paper_region_report
+```
+
+The report checks the five profiles, three assistance modes, both velocity directions,
+physical parameters and common solver settings. It refuses an incomplete campaign.
+Outputs include absolute areas, relative changes against each profile's no-assistance
+baseline, differences from Table II, hashes, and PNG/PDF/SVG figures. Grid convergence
+and MuJoCo forward validation remain separate experiments.

@@ -5,6 +5,7 @@ Value grids below are analytic interface fixtures, not solved stabilizable regio
 
 import hashlib
 import json
+import shutil
 from pathlib import Path
 
 import h5py
@@ -156,17 +157,35 @@ def test_hdf5_policy_matches_full_interpolation_without_loading_the_history(tmp_
     monkeypatch.setattr(h5py.Dataset, "__array__", bounded_array)
     monkeypatch.setattr(Path, "read_bytes", no_read_bytes)
     policy = HJBPolicy(path)
+    cache = tmp_path / "gradient_cache"
+    cached = HJBPolicy(path, gradient_cache=cache)
+    reused = HJBPolicy(path, gradient_cache=cache)
     reference = RegularGridInterpolator(axes, np.gradient(value, axes[2], axis=2, edge_order=1))
     # Reverse and revisit time slices, including endpoints and nonuniform knots.
     for time in [0.1, 0.08, 0.04, 0.015, 0.01, 0, 0.1, 0.005]:
         for _ in range(10):
             point = [rng.uniform(axis[0], axis[-1]) for axis in axes[:3]] + [time]
             np.testing.assert_allclose(policy.gradient(point), reference(point), rtol=1e-13, atol=1e-14)
+            np.testing.assert_array_equal(cached.gradient(point), policy.gradient(point))
+            np.testing.assert_array_equal(reused.gradient(point), policy.gradient(point))
             assert len(policy.gradient._slices) <= 2
     assert policy.sha256 == expected_hash
     assert policy.sha256 == expected_hash
     with pytest.raises(PolicyCoverageError):
         policy.rate(0.101, 0, 0, 0, PROFILES["OF"])
+    different = tmp_path / "different.mat"
+    shutil.copyfile(path, different)
+    with h5py.File(different, "a") as target:
+        target["value"][0, 0, 0, 0] += 1
+    with pytest.raises(ValueError, match="different HJB policy"):
+        HJBPolicy(different, gradient_cache=cache)
+    with (cache / "gradient.npy").open("r+b") as target:
+        target.seek(-1, 2)
+        previous = target.read(1)[0]
+        target.seek(-1, 2)
+        target.write(bytes([previous ^ 1]))
+    with pytest.raises(ValueError, match="checksum"):
+        HJBPolicy(path, gradient_cache=cache)
     # Invalid values must still be rejected before a rollout, even in the final slice.
     with h5py.File(path, "a") as target:
         target["value"][-1, 0, 0, 0] = np.nan

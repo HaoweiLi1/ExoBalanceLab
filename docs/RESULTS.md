@@ -19,8 +19,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **68 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
-  Three additional JAX tests pass in the separate GPU environment. The other 63 tests
+- **69 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
+  Three additional JAX tests pass in the separate GPU environment. The other 64 tests
   need neither MATLAB nor JAX. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
@@ -95,6 +95,12 @@ frozen nine-state validation used **242 MiB peak resident memory**. All nine out
 and every array in the six completed episodes are exactly equal to the previous reader's
 results. Nonuniform-axis interpolation and rejection of nonfinite values remain tested.
 [Resource measurements and equality checks](results/hjb_streaming/summary.json).
+
+An optional disk gradient cache preserves those same nine outcomes and every recorded
+array exactly. Including cache creation, the repeated validation took **42.94 s** versus
+187.91 s without it, with **304 MiB peak resident memory** and a 1.56 GB cache file.
+These are observed workstation timings with concurrent solver jobs. The default reader
+still works without a cache. [Measurements and test record](results/hjb_gradient_cache/summary.json).
 
 A real MATLAB/helperOC solve used the unchanged authors' OF/no-exoskeleton dynamics,
 native parameters (height 1.58 m, g=9.8), reconstructed C1/C3–C5 constraints and the

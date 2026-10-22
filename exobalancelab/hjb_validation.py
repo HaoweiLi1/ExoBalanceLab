@@ -27,6 +27,7 @@ def validate(
     protocol_path: Path | None = None,
     timestep_s: float = 0.001,
     control_period_s: float = 0.001,
+    gradient_cache: Path | None = None,
 ) -> dict:
     """Run stratified states, or reuse an earlier protocol without selecting new states."""
     if count < 1:
@@ -34,7 +35,7 @@ def validate(
     source = json.loads((run_dir / "summary.json").read_text())
     profile = AUTHORS_PROFILES[source["profile"]]
     assistance = source.get("exo", "none")
-    policy = HJBPolicy(run_dir / "policy.mat")
+    policy = HJBPolicy(run_dir / "policy.mat", gradient_cache=gradient_cache)
     policy.validate_plant(profile, assistance)
     with h5py.File(policy.path) as f:
         axes = [np.asarray(f[key]).ravel() for key in ["theta_rad", "velocity_rad_s", "human_torque_nm"]]
@@ -91,6 +92,8 @@ def validate(
         protocol["selection_policy_sha256"] = selection["policy_sha256"]
         protocol["seed"] = selection["seed"]
         protocol["requested_per_group"] = selection["requested_per_group"]
+    if gradient_cache is not None:
+        protocol["gradient_cache"] = json.loads((gradient_cache / "metadata.json").read_text())
     (output / "protocol.json").write_text(json.dumps(protocol, indent=2) + "\n")
     outcomes = []
     for index, case in enumerate(selected):
@@ -196,11 +199,21 @@ def main() -> None:
     parser.add_argument("--protocol", type=Path, help="Reuse this protocol's states and groups")
     parser.add_argument("--dt", type=float, default=0.001, help="MuJoCo physics timestep in seconds")
     parser.add_argument("--control-period", type=float, default=0.001, help="Feedback period in seconds")
+    parser.add_argument(
+        "--gradient-cache", type=Path, help="Create/reuse a disk gradient cache for repeated rollouts"
+    )
     args = parser.parse_args()
     print(
         json.dumps(
             validate(
-                args.run_dir, args.out, args.count, args.seed, args.protocol, args.dt, args.control_period
+                args.run_dir,
+                args.out,
+                args.count,
+                args.seed,
+                args.protocol,
+                args.dt,
+                args.control_period,
+                args.gradient_cache,
             ),
             indent=2,
         )

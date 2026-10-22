@@ -22,16 +22,18 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `simulation` | `RunConfig`, `RunConfig.validate()` | explicit SI episode configuration |
 | `simulation` | `run(config, trajectory, matlab, hjb)` | at most one external policy → `Episode` |
 | `simulation` | `Episode.save(directory)` | records → new evidence directory |
-| `reachability` | `HJBPolicy(path)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s |
+| `reachability` | `HJBPolicy(path, gradient_cache=None)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s; optional disk derivative cache |
 | `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
 | `reachability` | `PolicyCoverageError.query`, `.bounds` | Failed query and exported bounds in SI units |
 | `rendering` | `comparison_video(episodes, output, fps, width, height, titles)` | synchronized records and optional panel labels → MP4/GIF/poster |
 | `rendering` | `plot_comparison(episodes, output)` | records → PNG time series |
 | `validation` | `validate_dynamics(seed)`, `benchmark_bridge(seed)` | deterministic protocol → metrics |
-| `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path, timestep_s, control_period_s)` | Matching nominal/assisted HJB → new or frozen-cohort rollouts with explicit timing |
+| `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path, timestep_s, control_period_s, gradient_cache)` | Matching nominal/assisted HJB → new or frozen-cohort rollouts with explicit timing |
 | `hjb_comparison` | `compare(runs, output)` | Matching cohort/plant/targets → complete per-case CSV, JSON, PNG and PDF |
+| `hjb_regions` | `report(protocol_path, output)` | Complete 30-case campaign → projected areas, Table II comparison and figures |
 
-`cli`, `sweep`, `validation`, `hjb_validation` and `hjb_comparison` expose executable `main()` functions.
+`cli`, `sweep`, `validation`, `hjb_validation`, `hjb_comparison` and `hjb_regions` expose
+executable `main()` functions.
 
 ## Timing and signs
 
@@ -65,6 +67,9 @@ mismatches, but does not prove that a value function solves the declared HJB equ
 MAT v7.3 policies use two cached gradient slices; validation and SHA-256 hashing also
 stream from disk. This preserves four-dimensional linear interpolation without holding
 the full value history and its derivative in memory.
+For repeated rollouts, `HJBPolicy(path, gradient_cache=directory)` optionally stores an
+uncompressed derivative on disk and reads it through a memory map. Source and cache
+checksums prevent reuse with another policy; the interpolation arithmetic is unchanged.
 
 For `paper`/`contact`, positive ankle angle is forward lean; positive motor torque is DF.
 A body hinge about world +y produces positive forward lean. In `human`, the ankle joint

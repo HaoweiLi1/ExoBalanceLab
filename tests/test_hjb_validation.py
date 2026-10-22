@@ -59,7 +59,13 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
     output = tmp_path / "validation"
     timestep = 0.0005 if assistance == "pd" else 0.001
     result = validate(
-        source, output, seed=999, protocol_path=original, timestep_s=timestep, control_period_s=timestep
+        source,
+        output,
+        seed=999,
+        protocol_path=original,
+        timestep_s=timestep,
+        control_period_s=timestep,
+        gradient_cache=tmp_path / "cache" if assistance == "pd" else None,
     )
     assert result["selected"] == 1
     case = result["outcomes"][0]
@@ -73,6 +79,8 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
     assert protocol["seed"] == 123
     assert protocol["requested_per_group"] == 1
     assert protocol["rollout"] == {"timestep_s": timestep, "control_period_s": timestep}
+    if assistance == "pd":
+        assert protocol["gradient_cache"]["policy_sha256"] == protocol["policy_sha256"]
     assert protocol["selection_protocol_sha256"] == hashlib.sha256(original.read_bytes()).hexdigest()
     if expected == "rollout_error":
         assert 0 < case["elapsed_s"] < 0.01

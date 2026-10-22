@@ -49,18 +49,24 @@ def policy_contract(profile: Profile, exo: str) -> dict:
 class _HDF5Gradient:
     """Interpolate two adjacent time slices without loading a full 4D policy."""
 
-    def __init__(self, path: Path, axes: tuple[np.ndarray, ...]) -> None:
+    def __init__(
+        self, path: Path, axes: tuple[np.ndarray, ...], derivatives: np.ndarray | None = None
+    ) -> None:
         self.path = path
         self.grid = axes
+        self._derivatives = derivatives
         self._slices: OrderedDict[int, RegularGridInterpolator] = OrderedDict()
 
     def _slice(self, index: int) -> RegularGridInterpolator:
         import h5py
 
         if index not in self._slices:
-            with h5py.File(self.path, "r") as source:
-                value = np.asarray(source["value"][index], dtype=float).T
-            derivative = np.gradient(value, self.grid[2], axis=2, edge_order=1)
+            if self._derivatives is None:
+                with h5py.File(self.path, "r") as source:
+                    value = np.asarray(source["value"][index], dtype=float).T
+                derivative = np.gradient(value, self.grid[2], axis=2, edge_order=1)
+            else:
+                derivative = self._derivatives[index].T
             self._slices[index] = RegularGridInterpolator(self.grid[:3], derivative, bounds_error=True)
             if len(self._slices) > 2:
                 self._slices.popitem(last=False)
@@ -79,6 +85,59 @@ class _HDF5Gradient:
         return (1 - weight) * self._slice(lower)(point[:3]) + weight * self._slice(upper)(point[:3])
 
 
+def _disk_gradient(
+    path: Path, directory: Path, axes: tuple[np.ndarray, ...], source_sha256: str
+) -> np.ndarray:
+    """Create or verify an uncompressed, memory-mapped derivative for repeated rollouts."""
+    import h5py
+
+    array_path = directory / "gradient.npy"
+    metadata_path = directory / "metadata.json"
+    shape = tuple(len(axis) for axis in axes)[::-1]
+    if directory.exists():
+        if not (metadata_path.exists() and array_path.exists()):
+            raise ValueError("Incomplete gradient cache; retain it and choose a new cache directory")
+        metadata = json.loads(metadata_path.read_text())
+        if metadata["policy_sha256"] != source_sha256:
+            raise ValueError("Gradient cache belongs to a different HJB policy")
+        with array_path.open("rb") as file:
+            digest = hashlib.file_digest(file, "sha256").hexdigest()
+        if digest != metadata["gradient_sha256"]:
+            raise ValueError("Gradient cache checksum does not match")
+    else:
+        directory.mkdir(parents=True)
+        partial = directory / "gradient.partial.npy"
+        with h5py.File(path) as source, partial.open("wb") as target:
+            np.lib.format.write_array_header_2_0(
+                target,
+                {
+                    "descr": np.lib.format.dtype_to_descr(np.dtype(float)),
+                    "fortran_order": False,
+                    "shape": shape,
+                },
+            )
+            for index in range(shape[0]):
+                value = np.asarray(source["value"][index], dtype=float).T
+                derivative = np.gradient(value, axes[2], axis=2, edge_order=1)
+                derivative.T.tofile(target)
+        partial.rename(array_path)
+        with array_path.open("rb") as file:
+            digest = hashlib.file_digest(file, "sha256").hexdigest()
+        metadata = {
+            "policy_sha256": source_sha256,
+            "gradient_sha256": digest,
+            "shape": list(shape),
+            "dtype": "float64",
+            "numpy_version": np.__version__,
+            "method": "numpy.gradient along human torque, edge_order=1",
+        }
+        metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
+    derivatives = np.load(array_path, mmap_mode="r")
+    if derivatives.shape != shape or derivatives.dtype != np.dtype(float):
+        raise ValueError("Gradient cache dimensions or dtype do not match the HJB policy")
+    return derivatives
+
+
 class HJBPolicy:
     """Time-dependent trilinear HJB policy with explicit SI axes and strict coverage.
 
@@ -88,7 +147,7 @@ class HJBPolicy:
     MAT v7.3 validates slices sequentially and caches only two gradient slices.
     """
 
-    def __init__(self, path: str | Path) -> None:
+    def __init__(self, path: str | Path, gradient_cache: str | Path | None = None) -> None:
         path = Path(path)
         hdf5 = False
         if path.suffix == ".npz":
@@ -135,6 +194,11 @@ class HJBPolicy:
         self.contract = (
             json.loads(str(np.asarray(arrays["contract_json"]).item())) if "contract_json" in arrays else None
         )
+        if gradient_cache is not None:
+            if not hdf5:
+                raise ValueError("Disk gradient caching requires a v7.3/HDF5 policy")
+            derivatives = _disk_gradient(self.path, Path(gradient_cache), tuple(axes), self.sha256)
+            self.gradient = _HDF5Gradient(self.path, tuple(axes), derivatives)
 
     @cached_property
     def sha256(self) -> str:
