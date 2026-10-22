@@ -29,3 +29,9 @@ controller. Its default skip is visible in the test summary, not counted as a pa
 With `EXOBALANCE_HJB_SOURCE` and `EXOBALANCE_HJB_DEPS` set to the pinned dependency
 checkouts, `test_matlab_assistance.py` compares 1,500 reconciled none/GC/PD states
 against MuJoCo, checks SI/scaled equivalence, and verifies all 20 GC/PD target boxes.
+It also checks that prepared GPU inputs exactly preserve a native solve's initial field.
+
+In the separate [GPU environment](../docs/HJB_GPU.md), `EXOBALANCE_JAX_TEST=1 pytest -q
+tests/test_hjb_solver.py` checks independent MATLAB ENO stencils (including tied
+differences), exact linear advection, set/tube semantics and streamed policy interchange.
+These checks are distinct from full numerical convergence and MuJoCo forward validation.

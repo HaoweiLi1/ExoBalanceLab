@@ -20,5 +20,10 @@ rights holders' permission for inherited components.
 
 MuJoCo, NumPy, SciPy and other installed dependencies retain their respective licenses.
 MATLAB and its toolboxes require the user's applicable MathWorks license and are not
-redistributed. No MyoSuite models, third-party meshes, paper PDF or external HJB source
+redistributed. No MyoSuite models, third-party meshes, paper PDF or the authors' HJB source
 are bundled into this repository.
+
+The optional JAX solver uses StanfordASL's `hj_reachability`. Its ENO stencil routine
+adapts that project's MIT-licensed implementation; the copyright notice and license are
+preserved in [third_party/hj_reachability_LICENSE](third_party/hj_reachability_LICENSE).
+MATLAB-prepared numerical fields keep the original physics separate from this solver.

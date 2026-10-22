@@ -16,6 +16,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest==8.4.1", "ruff==0.12.0"]
+hjb = [
+  "jax[cuda13]==0.12.0.1", "flax==0.12.10",
+  "hj-reachability @ git+https://github.com/StanfordASL/hj_reachability.git@9aebaf97440672e18b6e205cbf1d947a44f41079",
+]
 
 [project.scripts]
 exobalance = "exobalancelab.cli:main"

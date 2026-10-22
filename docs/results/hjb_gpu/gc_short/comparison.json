@@ -1,0 +1,27 @@
+{
+  "reference": "logs/hjb_reconciled_gc_0p1",
+  "candidate": "logs/hjb_gpu_OF_gc_short",
+  "reference_wall_s": 102.431461,
+  "candidate_wall_s": 1.8275246659759432,
+  "final": {
+    "time_s": 0.10000000000000002,
+    "max_absolute_error": 1.0785361446608022e-05,
+    "rmse": 3.5582907364859656e-08,
+    "sign_disagreement_nodes": 0,
+    "negative_set_jaccard": 1.0,
+    "reference_nonpositive_nodes": 173,
+    "candidate_nonpositive_nodes": 173
+  },
+  "area_rad2_per_s": {
+    "reference": 0.0017249999999999965,
+    "candidate": 0.0017249999999999965
+  },
+  "relative_area_difference": 0.0,
+  "projected_sign_disagreement_nodes": 0,
+  "area_method": "Trapezoidal integral of sampled min_torque(V)<=0 over the selected velocity sign.",
+  "scope": "Backend comparison on one grid; no spatial convergence or bitwise-equivalence claim.",
+  "policy_sha256": {
+    "reference": "476053bdf75983e3b199dedf257ac7e79a6b25da328980c81920ae2026a6cbb5",
+    "candidate": "4cf6b8b3f12be6567775c0e586dfc4b1e5f43ec3331ac943fea21df76e327c58"
+  }
+}

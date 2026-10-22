@@ -14,6 +14,8 @@ arguments
     options.output_step_s (1,1) double {mustBePositive,mustBeFinite} = 0.01
     options.velocity_buffer_rad_s (1,1) double {mustBePositive,mustBeFinite} = 0.5
     options.quiet (1,1) logical = false
+    options.prepare_only (1,1) logical = false
+    options.align_zero (1,1) logical = false
     options.method (1,1) string {mustBeMember(options.method,["none","minVWithV0"])} = "none"
 end
 assert(~isfolder(output_dir) && ~isfile(output_dir), 'Refusing to overwrite an HJB run.');
@@ -61,7 +63,7 @@ else
     upper = [2.56;options.velocity_buffer_rad_s*pendulum.vscale;pendulum.torqueMax*pendulum.tauscale];
 end
 resolution = options.resolution;
-if options.exo ~= "none"
+if options.exo ~= "none" || options.align_zero
     % Small quiet-standing targets require zero speed/torque to be sampled.
     % Keep uniform spacing, extending each domain by at most one cell per side.
     % C1/contact obstacles still enforce the original physical bounds.
@@ -105,30 +107,55 @@ scheme.uMode = 'min';
 extra.obstacleFunction = margin;
 extra.quiet = options.quiet;
 extra.keepLast = false;
-started = tic;
-[value,tau] = HJIPDE_solve(initial,time_s/pendulum.omega,scheme,char(options.method),extra);
-elapsed = toc(started);
 contract.model = 'paper';
 contract.exo = options.exo;
 contract.profile = struct('mass_kg',pendulum.m+pendulum.mf,'height_m',pendulum.l/0.575, ...
     'torque_min_nm',pendulum.torqueMin,'torque_max_nm',pendulum.torqueMax, ...
     'rate_min_nm_s',pendulum.uMin,'rate_max_nm_s',pendulum.uMax, ...
     'damping_nm_s',pendulum.bFric,'friction',1,'gravity_m_s2',pendulum.g);
-export_hjb_policy(fullfile(output_dir,'policy.mat'),grid,value,tau,pendulum,contract);
 theta_rad = grid.vs{1};
 velocity_rad_s = grid.vs{2}/pendulum.vscale;
-projected_value = min(value(:,:,:,end),[],3);
-save(fullfile(output_dir,'projection.mat'),'theta_rad','velocity_rad_s','projected_value','-v7');
 summary = struct('profile',options.profile,'exo',options.exo,'direction',options.direction, ...
     'resolution',resolution,'requested_resolution',options.resolution, ...
-    'duration_s',tau(end)*pendulum.omega, ...
-    'output_step_s',options.output_step_s,'method',options.method,'wall_s',elapsed, ...
+    'duration_s',time_s(end), ...
+    'output_step_s',options.output_step_s,'method',options.method, ...
     'velocity_buffer_rad_s',options.velocity_buffer_rad_s, ...
+    'aligned_zero',options.exo ~= "none" || options.align_zero, ...
     'matlab_release',version('-release'),'gravity_m_s2',pendulum.g, ...
     'source_model',model_data.model,'target',target, ...
     'ankle_target_nodes',ankle_nodes,'toe_target_nodes',toe_nodes, ...
-    'initial_target_nodes',nnz(initial<0),'final_reachable_nodes',nnz(value(:,:,:,end)<=0), ...
+    'initial_target_nodes',nnz(initial<0), ...
     'scope','Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.');
+if options.prepare_only
+    % Export the actual MATLAB fields for an independently checked GPU integrator.
+    % No HJB equation is solved by this preparation step.
+    summary.stage = 'prepared';
+    human_torque_nm = grid.vs{3}/pendulum.tauscale;
+    time_to_go_s = time_s(:);
+    state_scale = [1;pendulum.vscale;pendulum.tauscale];
+    time_scale_s = pendulum.omega;
+    rate_bounds = [pendulum.uMin;pendulum.uMax]*pendulum.rtdscale;
+    dx = pendulum.dynamics(0,grid.xs,0,[]);
+    drift_theta = dx{1};
+    drift_velocity = dx{2};
+    initial_value = initial;
+    obstacle_value = -margin;
+    problem_json = jsonencode(struct('summary',summary,'contract',contract));
+    save(fullfile(output_dir,'problem.mat'),'theta_rad','velocity_rad_s','human_torque_nm', ...
+        'time_to_go_s','state_scale','time_scale_s','rate_bounds','drift_theta', ...
+        'drift_velocity','initial_value','obstacle_value','problem_json','-v7.3');
+else
+    started = tic;
+    [value,tau] = HJIPDE_solve(initial,time_s/pendulum.omega,scheme,char(options.method),extra);
+    summary.wall_s = toc(started);
+    summary.duration_s = tau(end)*pendulum.omega;
+    summary.final_reachable_nodes = nnz(value(:,:,:,end)<=0);
+    summary.backend = 'MATLAB/helperOC';
+    summary.stage = 'solved';
+    export_hjb_policy(fullfile(output_dir,'policy.mat'),grid,value,tau,pendulum,contract);
+    projected_value = min(value(:,:,:,end),[],3);
+    save(fullfile(output_dir,'projection.mat'),'theta_rad','velocity_rad_s','projected_value','-v7');
+end
 file = fopen(fullfile(output_dir,'summary.json'),'w');
 cleanup = onCleanup(@() fclose(file));
 fprintf(file,'%s\n',jsonencode(summary,PrettyPrint=true));

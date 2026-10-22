@@ -218,6 +218,10 @@ still required. [Configurations, records and comparison command](../docs/RESULTS
 
 ## Reconciled assisted HJB
 
+For larger grids, [the optional GPU workflow](../docs/HJB_GPU.md) consumes the same
+MATLAB-prepared fields. `prepare_only=true` exports those fields without solving;
+the default continues to execute the original helperOC integrator.
+
 `solve_paper_hjb` supports `exo="none"`, `"gc"` and `"pd"`. Its defaults use a
 51×269×51 grid, a 0.5 rad/s reverse-velocity buffer and a 10 ms saved history.
 No-assistance mode retains the original source model and stored targets. Assisted modes

@@ -4,6 +4,7 @@ import os
 import shutil
 from pathlib import Path
 
+import h5py
 import mujoco
 import numpy as np
 import pytest
@@ -11,6 +12,40 @@ import pytest
 from exobalancelab.bridge import MatlabController
 from exobalancelab.models import compile_model, paper_xml
 from exobalancelab.paper import AUTHORS_PROFILES, exo_torque, ground_reaction
+
+
+@pytest.mark.skipif(
+    not (os.environ.get("EXOBALANCE_HJB_SOURCE") and os.environ.get("EXOBALANCE_HJB_DEPS")),
+    reason="Licensed MATLAB and pinned HJB dependencies are opt-in",
+)
+def test_prepared_hjb_fields_equal_the_native_solver_inputs(tmp_path):
+    directory = Path(__file__).resolve().parents[1] / "matlab"
+    with MatlabController("standing_pd", directory) as controller:
+        for prepared, name in [(True, "prepared"), (False, "native")]:
+            controller.engine.feval(
+                "solve_paper_hjb",
+                os.environ["EXOBALANCE_HJB_SOURCE"],
+                os.environ["EXOBALANCE_HJB_DEPS"],
+                str(tmp_path / name),
+                "prepare_only",
+                prepared,
+                "duration_s",
+                0.001,
+                "output_step_s",
+                0.001,
+                "quiet",
+                True,
+                nargout=0,
+            )
+    with (
+        h5py.File(tmp_path / "prepared/problem.mat") as prepared,
+        h5py.File(tmp_path / "native/policy.mat") as native,
+    ):
+        for key in ["theta_rad", "velocity_rad_s", "human_torque_nm", "time_to_go_s"]:
+            np.testing.assert_allclose(prepared[key], native[key], atol=1e-15, rtol=0)
+        np.testing.assert_array_equal(prepared["initial_value"], native["value"][0])
+        assert np.count_nonzero(np.asarray(prepared["initial_value"]) < 0) > 0
+        assert not (tmp_path / "prepared/policy.mat").exists()
 
 
 @pytest.mark.skipif(

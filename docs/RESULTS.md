@@ -19,8 +19,9 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **66 tests passed with MATLAB R2026b**, including four opt-in runtime/source tests.
-  The other 62 tests need no MATLAB license. The added plot checks expose 14
+- **68 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
+  Three additional JAX tests pass in the separate GPU environment. The other 63 tests
+  need neither MATLAB nor JAX. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
@@ -296,6 +297,48 @@ The 1 ms cohorts retain every completed episode; the finer cohorts retain full c
 trajectories and all nine outcomes. Full local runs and the regeneration commands in
 [MATLAB integration](../matlab/README.md#reconciled-assisted-hjb) preserve the remaining arrays.
 These are simulated-time computations, not evidence of 20–40 kHz wall-clock control.
+
+## Independent GPU integration of the prepared MATLAB fields
+
+The [optional GPU workflow](HJB_GPU.md) uses the actual MATLAB-prepared target,
+constraint and drift arrays. It preserves float64, ENO3/GLF/RK3, CFL 0.8 and the
+source integrator's internal stopping tolerance. A separate real-MATLAB test checks
+that preparation and a native solve have identical initial fields. Independent ENO
+stencil and analytical-advection tests check the GPU integration.
+
+On the RTX 5060 Laptop GPU, same-grid comparisons gave:
+
+| OF forward case | MATLAB / JAX wall time | Projected-area difference | Final 3D negative-set Jaccard |
+|---|---:|---:|---:|
+| None, 51×269×51, 1.4 s | 1,314.54 / 26.76 s | +0.274% | 0.99112 |
+| None, 101×269×51, 1.4 s | 2,552.52 / 59.19 s | −0.167% | 0.99684 |
+| GC, 51×269×51, 0.1 s | 102.43 / 1.83 s | 0% | 1.00000 |
+| PD, 51×269×51, 0.1 s | 110.91 / 1.82 s | 0% | 1.00000 |
+
+JAX timings include history writing but exclude compilation; MATLAB timings measure
+the native solver. Other workstation jobs were active, so these are observed run times,
+not a controlled hardware benchmark. Floating-point stencil choices do produce different
+values: the final maximum absolute field errors are 0.0151 and 0.1479 for the two nominal
+cases, and 1.08e-5 / 4.95e-6 for GC/PD. Similar areas do not imply identical value fields.
+Every saved time's error, sign disagreement, hashes and comparison figures are retained:
+[51 nodes](results/hjb_gpu/nominal51/comparison.json),
+[101 nodes](results/hjb_gpu/theta101/comparison.json),
+[GC](results/hjb_gpu/gc_short/comparison.json), [PD](results/hjb_gpu/pd_short/comparison.json).
+
+![MATLAB and JAX projected boundaries](results/hjb_gpu/theta101/projection.png)
+
+The original nine MuJoCo states were also replayed with both nominal GPU histories.
+The 51-node policy has five valid target reaches, one miss and three coverage errors;
+the 101-node policy has six valid reaches and the same three coverage errors. These
+match the native policies' outcome counts, with all six predicted-inside states passing
+at 101 nodes. [51-node outcomes](results/hjb_gpu/nominal51/outcomes.json) ·
+[101-node outcomes](results/hjb_gpu/theta101/outcomes.json).
+
+Grid sensitivity remains substantial: with the GPU backend, increasing angle nodes
+from 101 to 201 changes the sampled forward area from 0.343706 to 0.410191 rad²/s.
+At 201 angle nodes, increasing torque nodes from 51 to 101 changes it to 0.419714 rad²/s.
+Velocity refinement and the paper-sized grid remain in progress. These observations
+do not establish spatial convergence or reproduce Table II.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 

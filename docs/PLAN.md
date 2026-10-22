@@ -109,3 +109,18 @@ The articulated extension is a model study, not physical or clinical validation.
   frozen states now reach the original targets with valid contact. The three outside
   failures are unchanged; the sampled projected area changes by 9.21%, so a larger
   201-angle-node run is started for the next convergence check.
+
+## Memory-bounded replay and independent GPU integration
+
+- v7.3 policy validation, two-slice gradient caching and streaming SHA-256 reduce the
+  101×269×51×141 replay to 242 MiB peak resident memory. All previous outcomes and
+  completed episode arrays remain exactly equal; 68 tests pass with licensed MATLAB.
+- MATLAB preparation exports the actual fields used by the native solver. A pinned,
+  separate Python 3.12/JAX environment integrates them using checked ENO3/GLF/RK3.
+  Three GPU tests pass against MATLAB stencils and analytical advection.
+- Two nominal backend comparisons differ in projected area by less than 0.3%; the
+  short GC/PD negative sets match. Frozen MuJoCo outcome counts also match at 51 and
+  101 angle nodes. Full value-field differences remain explicitly reported.
+- GPU angle/torque refinements expose substantial remaining spatial sensitivity.
+  Continue velocity refinement, the paper-sized grids and native 201-node comparison
+  before interpreting population-level area changes as reproduced paper results.

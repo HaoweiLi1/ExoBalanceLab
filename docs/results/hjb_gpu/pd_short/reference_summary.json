@@ -1,0 +1,53 @@
+{
+  "profile": "OF",
+  "exo": "pd",
+  "direction": "forward",
+  "resolution": [
+    51,
+    269,
+    51
+  ],
+  "requested_resolution": [
+    51,
+    269,
+    51
+  ],
+  "duration_s": 0.10000000000000002,
+  "output_step_s": 0.01,
+  "method": "none",
+  "wall_s": 110.908931,
+  "velocity_buffer_rad_s": 0.5,
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 60,
+    "h": 1.58,
+    "tauMin": -88,
+    "tauMax": 22,
+    "uMin": -389,
+    "uMax": 148
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -45.818313080772057
+    ],
+    "thetaAnkRange": 0.016555015279240783,
+    "thetaDotAnkRange": 0.01,
+    "torqueAnkRange": 0.0091686297520932949,
+    "thetaToeRange": 0.014471675279422828,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 10.665529973479257
+  },
+  "ankle_target_nodes": 1,
+  "toe_target_nodes": 10,
+  "initial_target_nodes": 11,
+  "final_reachable_nodes": 102,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified."
+}
