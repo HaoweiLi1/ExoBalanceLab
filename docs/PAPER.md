@@ -17,7 +17,7 @@ arXiv v3, October 2, 2024. Authors' code:
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
 | Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Native/GPU comparisons and 180 preselected OF rollouts across all assistance/direction pairs |
-| Published HJB regions, Figs. 4–6 / Table II | Complete reconciled 30-case comparison and OF spatial study | Quantitative differences, one sign disagreement and remaining spatial sensitivity; OM follow-up running |
+| Published HJB regions, Figs. 4–6 / Table II | Complete reconciled 30-case comparison, spatial studies and target diagnostic | Primary sign disagreement, spatial sensitivity and target dependence quantified |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
@@ -96,8 +96,9 @@ Source inspection at the pinned authors' commit found:
    reading all computed widths. Reconciled assisted runs use their recorded, corner-checked
    Appendix II box widths; this target choice is another difference from the released entry.
    A separate [OM/GC diagnostic](results/hjb_om_target_override/protocol.json) changes
-   only those two bounds at fixed 225-grid settings; its prepared inputs are verified
-   and its solve is queued after the spatial studies.
+   only those two bounds at fixed 225-grid settings: the area change reverses from −2.86%
+   to +2.88%, versus Table II's +3.7%. Its [complete results](RESULTS.md#source-entry-target-diagnostic)
+   quantify this terminal-task sensitivity without identifying the authors' complete configuration.
 6. **Target-set dependencies:** the target generators use YALMIP (`sdpvar`, `sdpsettings`),
    SeDuMi and `lcon2vert`; all are now available and their numerical operations were
    verified in MATLAB, in addition to the helperOC/ToolboxLS nominal solve.
@@ -157,33 +158,36 @@ approximation. An exact reproduction needs a reconciled parameter/controller ver
 all target and friction functions, solver resolution/time settings and a comparison against
 the reported figures. Record any patch separately from the authors' unchanged source.
 
-## Acceptance for the remaining HJB reproduction
+## HJB reproduction status
 
 1. **Runtime verified.** MATLAB and numerical dependencies execute on the workstation;
    retain the
    [pinned dependency versions](../matlab/README.md#prepared-hjb-dependencies) and vendor licenses.
 2. **Targets and dynamics executable.** The unchanged nominal source and reconciled GC/PD
-   construction are checked. Full-region sensitivity to these choices remains to be
-   quantified. The published box approximation is retained; box invariance is not assumed.
+   construction are checked. The fixed-grid OM diagnostic quantifies the source-entry
+   ankle-target intervention. The published box approximation is retained; box invariance
+   is not assumed.
 3. **Source differences recorded.** Reconciled force/moment constraints, gain units and
    target construction have independent checks. The released source does not establish
    that these choices generated the published Table II; exact-version equivalence remains open.
-4. **Population and OF spatial study complete; OM follow-up running.** All five profiles
+4. **Population and recorded spatial studies complete.** All five profiles
    and three modes have solved forward/backward regions at requested 225³ and 1.4 s.
    The [18-case OF study](RESULTS.md#complete-of-spatial-study) retains 5.04%–7.52%
    native-area changes from 225³ to 301³; spatial convergence is unestablished.
-   The [targeted OM study](results/hjb_om_gc_followup/protocol.json) follows up the GC
-   forward sign disagreement and remains in progress.
+   The [six-case OM follow-up](RESULTS.md#targeted-om-spatial-follow-up) retains the GC
+   forward sign disagreement at all three grids (−1.35% at 301³ versus Table II's +3.7%).
 5. **Published-area comparison complete, reproduction unaccepted.** All
-   [20 comparisons](results/hjb_paper225/population/table_ii.csv) retain the discrepancies:
+   [20 primary comparisons](results/hjb_paper225/population/table_ii.csv) retain the discrepancies:
    one differs in sign and absolute differences reach 8.11 percentage points. Rebuilding
    the included projection data reproduces the reported numbers exactly, which checks
-   reporting consistency rather than mathematical accuracy.
+   reporting consistency rather than mathematical accuracy. The separate OM target variant
+   matches the paper's sign and differs by 0.82 points, but changes the terminal task.
 6. **OF forward validation complete.** All six matching policies have ten preselected
    states in each inside/outside/boundary group, totalling 180 MuJoCo rollouts. The
    [complete records](results/hjb_paper225/forward_validation.json) include target/contact
    failures, policy-coverage errors and successful positive-value states. Other profiles
    currently save projections only; their forward trajectories have not been validated.
 
-[The results page](RESULTS.md) lists what has actually been run. Synthetic policy tests,
-a point-mass acceleration match or attractive animation do not satisfy these six steps.
+[The results page](RESULTS.md) records every completed protocol and its outcomes. Exact
+reproduction still requires the authors' complete experiment configuration and adequate
+numerical accuracy; interface tests or demonstration videos do not establish those.

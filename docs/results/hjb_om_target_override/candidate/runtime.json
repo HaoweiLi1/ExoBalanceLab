@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-10-22T22:46:13.128903+00:00",
+  "protocol_sha256": "bcc9db9225c53098a7313fde25659e96e91a9f321cf60c3280ad263b06c85448",
+  "prepared_problem_sha256": "ab948620b4316fdc004ef962b1cfcb603cfe0c318c716f809b3668096c86a34f",
+  "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "environment": {
+    "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+    "XLA_PYTHON_CLIENT_ALLOCATOR": null,
+    "LD_LIBRARY_PATH": null,
+    "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+    "TF_GPU_ALLOCATOR": null,
+    "XLA_FLAGS": null
+  },
+  "command": [
+    "/home/kaidi-2/Documents/standing_balance_sim/.conda-hjb-jax/bin/python",
+    "-m",
+    "exobalancelab.hjb_solver",
+    "--problem",
+    "logs/hjb_om_target_override/prepared/OM_gc_forward_225_source_bounds/problem.mat",
+    "--out",
+    "logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds",
+    "--projection-only"
+  ],
+  "returncode": 0,
+  "wall_s": 311.8076100400649,
+  "sampled_peak_gpu_mib": 4232
+}

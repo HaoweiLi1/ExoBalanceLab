@@ -3,11 +3,11 @@
 MuJoCo experiments use Python 3.11 and MuJoCo 3.3.7; the optional HJB backend uses
 Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions and
 complete numerical/video snapshots are in [results](results/).
-All 30 population-region solves and 180 preselected OF forward rollouts are complete.
-The reconciled finite-grid model differs from the paper's Table II, including one change
-of sign. The OF spatial study is complete and remains sensitive to refinement; the OM
-follow-up and target diagnostic are still running. Exact published-region reproduction
-remains unaccepted. Real MATLAB, backend comparisons and complete outcomes are below.
+All 30 population-region solves, 180 preselected OF forward-validation cases, both spatial
+studies and the OM target diagnostic are complete. The primary finite-grid comparison
+differs from Table II, including one change of sign. The source-entry target diagnostic
+reverses that sign at fixed grid; the spatial studies retain substantial sensitivity.
+Exact published-region reproduction remains unaccepted. Complete outcomes are below.
 
 ## Mechanics and MATLAB-file transport
 
@@ -445,21 +445,6 @@ this finite-grid comparison. These results do not establish the cause of the dis
 [Full numerical report](results/hjb_paper225/population/summary.json) ·
 [Vector figure](results/hjb_paper225/population/table_ii.pdf).
 
-The [targeted OM follow-up](results/hjb_om_gc_followup/protocol.json) was specified after
-observing the sign disagreement. It holds the model, targets and solver settings fixed
-and compares no assistance with GC at 151³, 225³ and 301³. The additional integrations
-are running, with identical target parameters across grids. This follow-up is distinct
-from the originally recorded population campaign.
-
-A separate [target diagnostic](results/hjb_om_target_override/protocol.json) is queued
-after these studies. At fixed OM/GC/forward 225-grid settings, it substitutes the public
-entry's ankle bounds (±0.01 rad/s, ±1 Nm) for the computed widths. MATLAB preparation
-preserves all ten other numerical arrays exactly; the initial target grows from 248 to
-288 strictly negative grid nodes. This post-result diagnostic measures the effect of a
-changed terminal task, rather than assistance with identical targets.
-[Preparation evidence](results/hjb_om_target_override/preparation_check.json) ·
-[Reproduction steps](HJB_GPU.md#source-entry-target-diagnostic).
-
 All 60 summary/projection files match their recorded SHA-256 values. A report-only
 protocol points to these included files: rebuilding it reproduces every area record
 (apart from its local path) and all 20 Table II comparisons exactly.
@@ -473,6 +458,76 @@ Rebuild the table and figures without MATLAB or a GPU:
 python -m exobalancelab.hjb_regions \
   --protocol docs/results/hjb_paper225/population/curated_protocol.json \
   --out logs/population_report_rebuilt
+```
+
+### Targeted OM spatial follow-up
+
+All six cases in the [OM protocol](results/hjb_om_gc_followup/protocol.json) completed.
+This follow-up was selected after the 225-grid sign disagreement and holds the model,
+targets and solver settings fixed. It compares no assistance with GC for forward velocity.
+
+![OM forward-region sensitivity to grid spacing](results/hjb_om_gc_followup/comparison/grid_study.png)
+
+| Requested grid | No-assistance area (rad²/s) | GC area (rad²/s) | GC change (%) |
+|---|---:|---:|---:|
+| 151³ | 0.435161 | 0.402629 | −7.48 |
+| 225³ | 0.482945 | 0.469124 | −2.86 |
+| 301³ | 0.514544 | 0.507588 | −1.35 |
+
+The GC decrease becomes smaller but **remains opposite in sign to Table II's +3.7%**.
+From 225 to 301, native areas increase by 6.54% without assistance and 8.20% with GC;
+common-domain comparisons give 6.34% and 8.37%. Refinement has not resolved the sign
+disagreement on the recorded grids and does not establish either area's convergence.
+
+[Numerical report](results/hjb_om_gc_followup/comparison/summary.json) ·
+[Areas](results/hjb_om_gc_followup/comparison/areas.csv) ·
+[Four grid comparisons](results/hjb_om_gc_followup/comparison/comparisons.csv) ·
+[Vector figure](results/hjb_om_gc_followup/comparison/grid_study.pdf).
+
+All 16 included files match their [recorded hashes](results/hjb_om_gc_followup/comparison/files.json).
+The included projections [rebuild all six area records and four comparisons exactly](results/hjb_om_gc_followup/comparison/reconstruction_check.json),
+apart from run paths:
+
+```bash
+python -m exobalancelab.hjb_regions --grid-study \
+  --protocol docs/results/hjb_om_gc_followup/comparison/curated_protocol.json \
+  --out logs/om_grid_report_rebuilt
+```
+
+### Source-entry target diagnostic
+
+A separate [target diagnostic](results/hjb_om_target_override/protocol.json) completed
+at fixed OM/GC/forward 225-grid settings. It was selected after the sign disagreement
+and source audit. The public entry's ankle bounds (±0.01 rad/s, ±1 Nm) replace the computed
+widths (±0.005864663 rad/s, ±0.050244659 Nm). The ankle angle and toe target are unchanged.
+MATLAB preparation preserves all ten other numerical arrays and the physical parameters
+exactly; the initial target grows from 248 to 288 strictly negative grid nodes.
+[Preparation evidence](results/hjb_om_target_override/preparation_check.json) ·
+[Reproduction steps](HJB_GPU.md#source-entry-target-diagnostic).
+
+| OM / forward, requested 225³ | Area (rad²/s) | Change from no assistance (%) |
+|---|---:|---:|
+| No assistance / stored nominal target | 0.482945 | — |
+| GC / computed target | 0.469124 | −2.86 |
+| GC / source-entry ankle bounds | 0.496842 | +2.88 |
+
+The target intervention increases the GC area by **5.91%** and shifts its relative effect
+by **5.74 percentage points**, reversing the sign. The resulting +2.88% is 0.82 points
+below Table II's +3.7%. Thus the released entry's target override can reverse the OM
+sign on this reconciled finite-grid model. This changes the terminal task; it does not
+establish assistance efficacy with identical targets or identify the authors' full
+experimental configuration. The primary 30-case comparison remains unchanged.
+
+[Numerical report](results/hjb_om_target_override/summary.json) ·
+[Three area records](results/hjb_om_target_override/areas.csv) ·
+[Candidate files and full-field hash](results/hjb_om_target_override/files.json).
+Rebuilding from included candidate/reference projections reproduces all three area records
+and every metric exactly, apart from run paths.
+[Reconstruction check](results/hjb_om_target_override/reconstruction_check.json).
+
+```bash
+python docs/results/hjb_om_target_override/report_target_override.py \
+  docs/results/hjb_om_target_override/curated_protocol.json logs/om_target_report_rebuilt
 ```
 
 ### Paper-sized nominal grid and broader forward validation
@@ -654,7 +709,8 @@ Model XML and full arrays make the rendered evidence directly inspectable.
 Earlier development runs used a superseded forward/backward convention and are retained
 only under ignored local `logs/`. They are not included in the published results above.
 
-The targeted OM follow-up and target diagnostic remain in progress. Exact source/target
-equivalence and the causes of the Table II discrepancies remain unresolved; see
-[paper acceptance](PAPER.md). The articulated model also remains unvalidated against
+All recorded protocols above are complete. The target diagnostic identifies sensitivity
+within this implementation; it does not determine the complete code and parameters that
+generated Table II. Exact published-region reproduction and spatial convergence remain
+unestablished; see [paper correspondence](PAPER.md). The articulated model remains unvalidated against
 subject-specific mechanics or physical human experiments.

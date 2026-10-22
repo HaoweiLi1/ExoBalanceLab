@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-10-22T21:34:47.805006+00:00",
+  "scope": "Post-result diagnostic selected after the OM/GC forward sign disagreement and the audit of the released entry. Isolate its hard-coded ankle target bounds at fixed grid and reconciled plant; do not replace the primary population or spatial studies.",
+  "parameter_set": "authors",
+  "target_sets": "Reconciled toe box and ankle angle width; source-entry ankle velocity/torque bounds.",
+  "requested_resolution": [
+    225,
+    225,
+    225
+  ],
+  "horizon_s": 1.4,
+  "output_step_s": 0.01,
+  "velocity_buffer_rad_s": 0.5,
+  "method": "none",
+  "align_zero": true,
+  "reference_prepared": "logs/hjb_paper225/prepared/OM_gc_forward",
+  "reference_problem_sha256": "5d0a2723570053f0ea490e73b16e56d20d9cc124d1fb0bbb594bd61640071521",
+  "reference_gc_solved": "docs/results/hjb_paper225/OM_gc_forward",
+  "reference_nominal_solved": "docs/results/hjb_paper225/OM_none_forward",
+  "cases": [
+    {
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_om_target_override/prepared/OM_gc_forward_225_source_bounds",
+      "solved": "docs/results/hjb_om_target_override/candidate",
+      "save_history": false,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    }
+  ],
+  "intervention": {
+    "thetaDotAnkRange_rad_s": 0.01,
+    "torqueAnkRange_nm": 1.0,
+    "source_url": "https://github.com/Raquelometer/AnkleExoBRS/blob/517ab41b7767c5ab0e856a8885b118bd739a5011/computeAnkleExoBRS.m#L45"
+  },
+  "unchanged_numerical_fields": [
+    "theta_rad",
+    "velocity_rad_s",
+    "human_torque_nm",
+    "time_to_go_s",
+    "state_scale",
+    "time_scale_s",
+    "rate_bounds",
+    "drift_theta",
+    "drift_velocity",
+    "obstacle_value"
+  ],
+  "changed_numerical_field": "initial_value",
+  "validation": "Require exact equality of every other stored numerical array and physical contract; preserve the toe target. Record the expanded initial target and all outcomes.",
+  "trigger": {
+    "profile": "OM",
+    "exo": "gc",
+    "direction": "forward",
+    "observed_change_percent": -2.861685214626375,
+    "paper_change_percent": 3.7,
+    "difference_percentage_points": -6.561685214626375
+  },
+  "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "environment": {
+    "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+    "XLA_PYTHON_CLIENT_ALLOCATOR": null,
+    "LD_LIBRARY_PATH": null
+  },
+  "interpretation": "This changes the terminal task. Any area difference measures the source target override on this reconciled finite-grid model, not assistance efficacy with identical targets and not a complete reproduction of the author experiment.",
+  "runtime_selection": {
+    "recorded_utc": "2026-10-22T21:38:45.895047+00:00",
+    "reason": "Use the primary 225-grid campaign allocation configuration (default allocator, PREALLOCATE=false) for this controlled comparison. The observed default-allocator failure was on301, not on the completed225 baseline. No solver execution for this diagnostic has started.",
+    "reference_driver": "logs/hjb_paper225/run_campaign.py"
+  },
+  "preparation_check": "docs/results/hjb_om_target_override/preparation_check.json",
+  "corner_check": "docs/results/hjb_om_target_override/corner_check.json",
+  "source_protocol": "docs/results/hjb_om_target_override/protocol.json",
+  "source_protocol_sha256": "bcc9db9225c53098a7313fde25659e96e91a9f321cf60c3280ad263b06c85448"
+}

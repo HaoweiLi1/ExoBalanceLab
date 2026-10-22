@@ -1,0 +1,64 @@
+{
+  "protocol_sha256": "bcc9db9225c53098a7313fde25659e96e91a9f321cf60c3280ad263b06c85448",
+  "area_method": "Trapezoidal integral of sampled min_torque(V)<=0 at nonnegative velocity.",
+  "areas": [
+    {
+      "variant": "No assistance",
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "area_rad2_per_s": 0.48294453523596936,
+      "theta_min_rad": 0.65,
+      "theta_max_rad": 1.8,
+      "velocity_min_rad_s": -0.5084821428571429,
+      "velocity_max_rad_s": 2.8564732142857143,
+      "requested_resolution": "225x225x225",
+      "resolution": "225x226x226",
+      "wall_s": 301.4167148760753,
+      "run": "logs/hjb_paper225/solved/OM_none_forward",
+      "projection_sha256": "188cd77434b5624c7852f210b729520141f08ab178714d4bf9b9c37daac53ab1"
+    },
+    {
+      "variant": "GC / computed target",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "area_rad2_per_s": 0.46912418287627555,
+      "theta_min_rad": 0.65,
+      "theta_max_rad": 1.8,
+      "velocity_min_rad_s": -0.5084821428571429,
+      "velocity_max_rad_s": 2.8564732142857143,
+      "requested_resolution": "225x225x225",
+      "resolution": "225x226x226",
+      "wall_s": 301.3568230350502,
+      "run": "logs/hjb_paper225/solved/OM_gc_forward",
+      "projection_sha256": "c64d34032439ea41c2b825f7f9f666720f25894d113592c030b58cfaf669aa09"
+    },
+    {
+      "variant": "GC / source-entry ankle bounds",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "area_rad2_per_s": 0.496841667330995,
+      "theta_min_rad": 0.65,
+      "theta_max_rad": 1.8,
+      "velocity_min_rad_s": -0.5084821428571429,
+      "velocity_max_rad_s": 2.8564732142857143,
+      "requested_resolution": "225x225x225",
+      "resolution": "225x226x226",
+      "wall_s": 301.3138111550361,
+      "run": "logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds",
+      "projection_sha256": "b60777d1c6b593db325c042041492638c4a494aabde0001132abbc1bbd3edefb"
+    }
+  ],
+  "metrics": {
+    "computed_target_gc_change_percent": -2.861685214626375,
+    "source_bounds_gc_change_percent": 2.8775834658187893,
+    "target_intervention_area_change_percent": 5.90834697217677,
+    "target_intervention_effect_percentage_points": 5.739268680445164,
+    "paper_gc_change_percent": 3.7,
+    "computed_target_minus_paper_percentage_points": -6.561685214626375,
+    "source_bounds_minus_paper_percentage_points": -0.8224165341812109
+  },
+  "scope": "This changes the terminal task. Any area difference measures the source target override on this reconciled finite-grid model, not assistance efficacy with identical targets and not a complete reproduction of the author experiment."
+}

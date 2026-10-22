@@ -71,9 +71,9 @@ The paper model agrees with the analytical acceleration to **1.16e-9 rad/s²** a
 commands in the six-second reference run. HJB forward validation and discretization
 experiments are recorded in [Results](docs/RESULTS.md).
 
-Full reproduction of the paper's stabilizable regions remains under validation. The
-articulated model is a sagittal engineering extension; the videos demonstrate simulated
-behavior. [Paper correspondence](docs/PAPER.md) defines the assumptions and acceptance criteria.
+The completed spatial and target studies retain differences from the paper's stabilizable
+regions; full reproduction is not established. The articulated model is a sagittal
+engineering extension. [Paper correspondence](docs/PAPER.md) explains the assumptions and measured limits.
 
 ## Documentation
 

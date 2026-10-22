@@ -1,0 +1,155 @@
+{
+  "created": "2026-10-23T04:21:02.517300+08:00",
+  "parameter_set": "authors",
+  "target_sets": "Stored author nominal boxes; reconciled GC/PD boxes from paper_target_boxes.m",
+  "align_zero": true,
+  "horizon_s": 1.4,
+  "output_step_s": 0.01,
+  "velocity_buffer_rad_s": 0.5,
+  "backend": "JAX/ENO3 float64; matched against native MATLAB on smaller grids",
+  "method": "none",
+  "cases": [
+    {
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_om_gc_followup/prepared/OM_none_forward_151",
+      "solved": "docs/results/hjb_om_gc_followup/OM_none_forward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_om_gc_followup/prepared/OM_gc_forward_151",
+      "solved": "docs/results/hjb_om_gc_followup/OM_gc_forward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OM_none_forward",
+      "solved": "docs/results/hjb_om_gc_followup/OM_none_forward_225",
+      "save_history": false,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OM_gc_forward",
+      "solved": "docs/results/hjb_om_gc_followup/OM_gc_forward_225",
+      "save_history": false,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_om_gc_followup/prepared/OM_none_forward_301",
+      "solved": "docs/results/hjb_om_gc_followup/OM_none_forward_301",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    },
+    {
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_om_gc_followup/prepared/OM_gc_forward_301",
+      "solved": "docs/results/hjb_om_gc_followup/OM_gc_forward_301",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    }
+  ],
+  "scope": "Report-only paths to the included projections. Use the source protocol to regenerate solves.",
+  "requested_resolutions": [
+    [
+      151,
+      151,
+      151
+    ],
+    [
+      225,
+      225,
+      225
+    ],
+    [
+      301,
+      301,
+      301
+    ]
+  ],
+  "mode_direction_pairs": [
+    [
+      "none",
+      "forward"
+    ],
+    [
+      "gc",
+      "forward"
+    ]
+  ],
+  "trigger": {
+    "observed_gc_change_percent": -2.861685214626375,
+    "paper_gc_change_percent": 3.7,
+    "paper_reference": "https://arxiv.org/abs/2408.05418v3 (Table II)",
+    "source_protocol": "docs/results/hjb_paper225/protocol.json",
+    "source_projection_sha256": {
+      "none": "188cd77434b5624c7852f210b729520141f08ab178714d4bf9b9c37daac53ab1",
+      "gc": "c64d34032439ea41c2b825f7f9f666720f25894d113592c030b58cfaf669aa09"
+    }
+  },
+  "runtime_revision": {
+    "recorded_utc": "2026-10-22T20:45:25.049060+00:00",
+    "reason": "OF 301 BFC allocation failure; validated platform allocator used for remaining integrations.",
+    "prior_protocol": "docs/results/hjb_om_gc_followup/protocol_before_allocator_repair.json",
+    "prior_protocol_sha256": "3280418ca28e544a3180eb5817d9687fdd9ef1376f19126f636d737527f95f46",
+    "failure_record": "docs/results/hjb_grid_study/allocator_repair/failure.json",
+    "validation_record": "docs/results/hjb_grid_study/allocator_repair/platform_validation.json",
+    "new_solve_environment": {
+      "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+      "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
+      "XLA_CLIENT_MEM_FRACTION": null,
+      "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+      "TF_GPU_ALLOCATOR": null,
+      "XLA_FLAGS": null,
+      "LD_LIBRARY_PATH": null
+    },
+    "new_solve_outputs": [
+      "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform",
+      "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform",
+      "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform",
+      "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform"
+    ],
+    "scope": "Runtime allocator and new output paths only. Numerical solver, prepared inputs, float64 precision, resolution, horizon and target definitions are unchanged. Existing completed integrations retain their original allocator configuration."
+  },
+  "source_protocol": "docs/results/hjb_om_gc_followup/protocol.json",
+  "source_protocol_sha256": "25be91155885eee2b409d3c7d0bfc7102dfe361e378c53d650769aeaaa60f758"
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "file": "logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds/summary.json",
+    "bytes": 2222,
+    "sha256": "d3448b30fb14339c41eab4de758f05378e4d2a498fa968fa2a2c115cb0164b8b",
+    "included": true,
+    "curated_file": "docs/results/hjb_om_target_override/candidate/summary.json"
+  },
+  {
+    "file": "logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds/projection.mat",
+    "bytes": 410752,
+    "sha256": "b60777d1c6b593db325c042041492638c4a494aabde0001132abbc1bbd3edefb",
+    "included": true,
+    "curated_file": "docs/results/hjb_om_target_override/candidate/projection.mat"
+  },
+  {
+    "file": "logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds/runtime.json",
+    "bytes": 1003,
+    "sha256": "0b52edb0fb48e25012cbcac193134b7e3d039267a51c7e6d9d5acab8fdc6ee0f",
+    "included": true,
+    "curated_file": "docs/results/hjb_om_target_override/candidate/runtime.json"
+  },
+  {
+    "file": "logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds/final_value.npy",
+    "bytes": 91936928,
+    "sha256": "d6d33470c69c5fa74b278629b9fe189c998f9311748860273d50a2534bf5339a",
+    "included": false
+  }
+]

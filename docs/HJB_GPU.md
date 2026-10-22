@@ -205,6 +205,8 @@ requires all six pairs. The [OM GC follow-up](results/hjb_om_gc_followup/protoco
 uses `[["none", "forward"], ["gc", "forward"]]` to investigate its 225-grid sign
 disagreement with Table II. The same preparation, solve and `--grid-study` commands
 apply with that protocol path. This is a follow-up selected after observing that result.
+Its [completed six-case report](RESULTS.md#targeted-om-spatial-follow-up) also includes
+projections and a report-only reconstruction command.
 
 ## Source-entry target diagnostic
 
@@ -243,6 +245,15 @@ Conda environment:
 ```bash
 python docs/results/hjb_om_target_override/report_target_override.py \
   docs/results/hjb_om_target_override/protocol.json logs/om_target_report
+```
+
+The [completed diagnostic](RESULTS.md#source-entry-target-diagnostic) includes the candidate
+projection and a protocol pointing to all three retained projections. Rebuild its report
+without MATLAB or a GPU:
+
+```bash
+python docs/results/hjb_om_target_override/report_target_override.py \
+  docs/results/hjb_om_target_override/curated_protocol.json logs/om_target_report_rebuilt
 ```
 
 The complete population report can also be regenerated from its included projections,
