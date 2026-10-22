@@ -95,6 +95,9 @@ Source inspection at the pinned authors' commit found:
    The assisted entry also fixes the ankle target to ±1 Nm and ±0.01 rad/s instead of
    reading all computed widths. Reconciled assisted runs use their recorded, corner-checked
    Appendix II box widths; this target choice is another difference from the released entry.
+   A separate [OM/GC diagnostic](results/hjb_om_target_override/protocol.json) changes
+   only those two bounds at fixed 225-grid settings; its prepared inputs are verified
+   and its solve is queued after the spatial studies.
 6. **Target-set dependencies:** the target generators use YALMIP (`sdpvar`, `sdpsettings`),
    SeDuMi and `lcon2vert`; all are now available and their numerical operations were
    verified in MATLAB, in addition to the helperOC/ToolboxLS nominal solve.

@@ -411,6 +411,15 @@ and compares no assistance with GC at 151³, 225³ and 301³. Its four additiona
 are prepared, with identical target parameters across grids; integration follows the OF
 study. This follow-up is distinct from the originally recorded population campaign.
 
+A separate [target diagnostic](results/hjb_om_target_override/protocol.json) is queued
+after these studies. At fixed OM/GC/forward 225-grid settings, it substitutes the public
+entry's ankle bounds (±0.01 rad/s, ±1 Nm) for the computed widths. MATLAB preparation
+preserves all ten other numerical arrays exactly; the initial target grows from 248 to
+288 strictly negative grid nodes. This post-result diagnostic measures the effect of a
+changed terminal task, rather than assistance with identical targets.
+[Preparation evidence](results/hjb_om_target_override/preparation_check.json) ·
+[Reproduction steps](HJB_GPU.md#source-entry-target-diagnostic).
+
 All 60 summary/projection files match their recorded SHA-256 values. A report-only
 protocol points to these included files: rebuilding it reproduces every area record
 (apart from its local path) and all 20 Table II comparisons exactly.

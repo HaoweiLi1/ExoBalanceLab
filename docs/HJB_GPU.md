@@ -204,5 +204,44 @@ uses `[["none", "forward"], ["gc", "forward"]]` to investigate its 225-grid sign
 disagreement with Table II. The same preparation, solve and `--grid-study` commands
 apply with that protocol path. This is a follow-up selected after observing that result.
 
+## Source-entry target diagnostic
+
+The [OM target protocol](results/hjb_om_target_override/protocol.json) separately tests
+the released assisted entry's fixed ankle bounds, ±0.01 rad/s and ±1 Nm. It was selected
+after the OM/GC sign disagreement and source audit. Only these bounds and the initial
+target field change; the computed ankle angle, toe target, physical model, constraints
+and 225-grid solver settings stay fixed. This changes the terminal task, so its area
+difference is a target sensitivity measurement.
+
+After preparing the primary OM/GC/forward input, run in MATLAB:
+
+```matlab
+addpath('docs/results/hjb_om_target_override');
+prepare_source_target_override('logs/hjb_paper225/prepared/OM_gc_forward', ...
+    'logs/hjb_om_target_override/prepared/OM_gc_forward_225_source_bounds');
+```
+
+The [preparation check](results/hjb_om_target_override/preparation_check.json) confirms
+exact equality of all ten other numerical arrays. The expanded ankle box passes the
+[eight-corner check](results/hjb_om_target_override/corner_check.json); this does not
+certify its controlled invariance. Use the primary 225-grid allocator settings for
+this comparison, with one GPU worker at a time:
+
+```bash
+env -u LD_LIBRARY_PATH -u XLA_PYTHON_CLIENT_ALLOCATOR \
+  -u XLA_PYTHON_CLIENT_MEM_FRACTION -u TF_GPU_ALLOCATOR -u XLA_FLAGS \
+  XLA_PYTHON_CLIENT_PREALLOCATE=false python -m exobalancelab.hjb_solver \
+  --problem logs/hjb_om_target_override/prepared/OM_gc_forward_225_source_bounds/problem.mat \
+  --out logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds --projection-only
+```
+
+With both primary OM reference runs complete, generate the comparison in the main
+Conda environment:
+
+```bash
+python docs/results/hjb_om_target_override/report_target_override.py \
+  docs/results/hjb_om_target_override/protocol.json logs/om_target_report
+```
+
 The complete population report can also be regenerated from its included projections,
 without MATLAB or a GPU; see the [results and reconstruction command](RESULTS.md#complete-225-grid-population-comparison).
