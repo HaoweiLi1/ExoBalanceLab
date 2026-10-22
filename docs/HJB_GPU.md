@@ -25,8 +25,10 @@ first saved interval. The [JAX platform allocator](https://docs.jax.dev/en/lates
 releases unused allocations. A complete 225-grid replay with this setting produced an
 identical final field and file hash, with a sampled peak of 2,104 MiB. Its integration took
 301.05 s versus 301.37 s for the original allocation setting on this workstation;
-performance on other workloads may differ. The remaining grid studies use this explicit
-configuration. [Failure and equality records](results/hjb_grid_study/allocator_repair/).
+performance on other workloads may differ. The first complete 301-grid solve then took
+878.35 s of integration with a sampled peak of 4,424 MiB. The remaining grid studies use
+this explicit configuration. [Failure and equality records](results/hjb_grid_study/allocator_repair/) ·
+[Successful 301-grid run](results/hjb_grid_study/OF_none_forward_301/).
 The compiled-memory check is an estimate, not a guarantee against runtime allocation failure.
 
 ## Prepare, solve, validate

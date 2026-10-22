@@ -363,9 +363,16 @@ are retained. These observations do not establish spatial convergence. The compl
 population comparison below uses the separate, recorded 225³ protocol.
 The prospective [three-grid OF protocol](results/hjb_grid_study/protocol.json) compares
 requested 151³, 225³ and 301³ grids for all six assistance/direction pairs. Its twelve
-additional inputs are prepared. All 151- and 225-grid cases have completed; the 301-grid
-integrations are running. Replaying the original 225-grid baseline under the common
-solver revision produced an [identical complete final field](results/hjb_grid_study/baseline_replay_identity.json).
+additional inputs are prepared. All 151- and 225-grid cases and the first 301-grid case
+have completed; the remaining integrations are running. Replaying the original 225-grid
+baseline under the common solver revision produced an
+[identical complete final field](results/hjb_grid_study/baseline_replay_identity.json).
+
+The completed [301-grid nominal forward result](results/hjb_grid_study/OF_none_forward_301/)
+has projected area 0.465274986 rad²/s, versus 0.434381353 at 225 and 0.377202556 at 151.
+The latest increase is **7.11%**, following 15.16% from 151 to 225. These are native-grid
+area differences, including quadrature/domain effects; this single pair does not establish
+spatial convergence or the final assisted comparisons.
 
 The first 301-grid attempt failed before its first saved interval when the CUDA BFC
 allocator could not allocate 2.12 GiB. The [failure record](results/hjb_grid_study/allocator_repair/failure.json)
