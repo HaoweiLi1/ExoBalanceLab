@@ -19,7 +19,7 @@ from scipy.linalg import solve_discrete_are
 from exobalancelab.bridge import MatlabController, Trajectory
 from exobalancelab.models import compile_model, human_xml, paper_xml
 from exobalancelab.paper import PROFILE_SETS, PROFILES, exo_torque, ground_reaction, limit_human
-from exobalancelab.reachability import HJBPolicy
+from exobalancelab.reachability import TIME_TOLERANCE_S, HJBPolicy
 
 
 @dataclass
@@ -176,7 +176,11 @@ def run(
     if sum(item is not None for item in [trajectory, matlab, hjb]) > 1:
         raise ValueError("Choose one external human controller")
     if hjb is not None:
-        if config.model != "paper" or config.duration_s > hjb.horizon_s or hjb.minimum_horizon_s > 0:
+        if (
+            config.model != "paper"
+            or config.duration_s - hjb.horizon_s > TIME_TOLERANCE_S
+            or hjb.minimum_horizon_s > TIME_TOLERANCE_S
+        ):
             raise ValueError("HJB requires the paper model and complete [0,duration] time coverage")
     p = PROFILE_SETS[config.parameters][config.profile]
     p = replace(

@@ -73,6 +73,8 @@ Python loads `theta_rad`, `velocity_rad_s`, `human_torque_nm`, `time_to_go_s`, a
 `value[Ntheta,Nvelocity,Ntorque,Ntime]`. It interpolates the torque derivative of the
 value function and selects the minimizing rate bound from Eq. (11). Out-of-grid queries
 raise; an unrelated controller is never used as a fallback.
+Time endpoints allow at most 1e-12 s of SI-conversion roundoff; physical grid bounds
+remain strict. This handles an exported 1.3999999999999997 s endpoint for a 1.4 s run.
 The selected rate is held between control ticks, and human torque is integrated at
 each physics step from the configured initial torque. It is not applied as a torque
 jump at a control tick. Torque saturation and commanded/applied rates are recorded.
@@ -188,3 +190,5 @@ The protocol records the policy hash and all selected states. Outcomes distingui
 target reach, contact validity and explicit rollout errors; an out-of-grid policy query
 is retained as an error. The final target test uses the actual end-of-horizon lifted
 state. Completed episodes and the projected region plot are saved alongside the report.
+The published 1.4 s coarse-grid run includes prediction/rollout disagreements and
+out-of-grid failures; see [all outcomes](../docs/RESULTS.md#longer-horizon-coarse-grid-prediction-is-not-sufficient).

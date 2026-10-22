@@ -19,8 +19,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **53 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
-  The other 50 tests need no MATLAB license.
+- **54 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
+  The other 51 tests need no MATLAB license.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
   Both printed Table I and original-source parameter sets are checked against MuJoCo;
@@ -120,6 +120,46 @@ The box targets follow the numerical approximation in Appendix II-B, but are not
 themselves controlled invariant. This coarse, short-horizon result does not establish
 the paper's full regions or an infinite-horizon invariance guarantee; see the
 [target-set audit](PAPER.md#source-discrepancies-to-resolve-before-claiming-exact-reproduction).
+
+### Longer horizon: coarse-grid prediction is not sufficient
+
+The same nominal configuration at **1.4 s** completed in **1,003.732 s** using MATLAB's
+default computational threads. It produced 19,534 nonpositive final-grid values.
+This is a count of three-dimensional nodes, not a projected area or a convergence test.
+The [solver summary](results/hjb_nominal_1p4/summary.json) and
+[provenance](results/hjb_nominal_1p4/provenance.json) retain the configuration and hashes.
+
+![Nominal HJB projection and preselected states](results/hjb_nominal_1p4/projection.png)
+
+With the same selection seed and three states per group, actual MuJoCo feedback gave:
+
+| Preselected group | Valid terminal-target reach | Completed but missed target | Policy left grid |
+|---|---:|---:|---:|
+| Inside | 0 | 2 | 1 |
+| Outside | 0 | 0 | 3 |
+| Near zero value | 1 | 2 | 0 |
+
+All five completed episodes maintained valid contact. The four missed targets ended
+with speed 0.01098–0.01236 rad/s, above the target's 0.01 rad/s limit. The successful
+near-zero case had a slightly positive predicted value. These disagreements show that
+this coarse value grid, sampled time history and policy execution are **not an accepted
+stable-region predictor**. Spatial/time refinement and domain-buffer checks remain needed;
+this experiment does not isolate which approximation causes each disagreement.
+
+[Preselection protocol](results/hjb_nominal_1p4/protocol.json) ·
+[All outcomes and final states](results/hjb_nominal_1p4/outcomes.json) ·
+[Recorded episodes](results/hjb_nominal_1p4/) · [MuJoCo video](media/hjb_nominal.mp4)
+
+The video shows `episode_01`, the first completed inside-group case. It maintains
+contact but misses the terminal speed requirement; it is not labelled a recovery.
+
+The initial forward attempt exposed a floating-point interface error: SI conversion
+stored the horizon as 1.3999999999999997 s, which a strict comparison rejected against
+1.4 s. A 1e-12 s time-endpoint tolerance fixes this without extrapolating physical states.
+The [initial errors](results/hjb_nominal_1p4/pre_fix_outcomes.json) are retained, and the
+same nine states were rerun after the fix. A regression test rejects genuinely missing
+time coverage. The identical-parameter single-thread solve was stopped after the
+default-thread solve completed; no unfinished result is used in this report.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 

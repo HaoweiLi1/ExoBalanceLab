@@ -14,9 +14,9 @@ from exobalancelab.reachability import HJBPolicy, policy_contract
 from exobalancelab.simulation import RunConfig, run
 
 
-def _policy(tmp_path, gradient):
+def _policy(tmp_path, gradient, horizon_s=1.0):
     torque = np.array([-88.0, 22.0])
-    times = np.array([0.0, 1.0])
+    times = np.array([0.0, horizon_s])
     value = np.broadcast_to(torque[None, None, :, None] * np.asarray(gradient), (2, 2, 2, 2))
     path = tmp_path / "linear_value.npz"
     np.savez(
@@ -29,6 +29,16 @@ def _policy(tmp_path, gradient):
         contract_json=json.dumps(policy_contract(PROFILES["OF"], "none")),
     )
     return HJBPolicy(path)
+
+
+def test_hjb_accepts_time_conversion_roundoff_but_rejects_missing_coverage(tmp_path):
+    policy = _policy(tmp_path, 0, horizon_s=np.nextafter(0.03, 0))
+    episode = run(RunConfig(duration_s=0.03, lean_rad=0, velocity_rad_s=0), hjb=policy)
+    assert episode.metrics["control_calls"] == 30
+    with pytest.raises(ValueError, match="time coverage"):
+        run(RunConfig(duration_s=0.031), hjb=policy)
+    with pytest.raises(ValueError, match="out of bounds"):
+        policy.rate(0.03 + 1e-9, 0, 0, 0, PROFILES["OF"])
 
 
 @pytest.mark.parametrize("gradient,initial_torque", [(1, 0), (-1, 0), (1, -87.5), (-1, 21.8)])

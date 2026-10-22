@@ -70,3 +70,8 @@ The articulated extension is a model study, not physical or clinical validation.
   failure, are retained. The source box targets are not controlled invariant.
 - Full five-profile no-exo/GC/PD regions, target/controller reconciliation, convergence
   and broader MuJoCo forward validation remain required.
+- A 1.4 s OF nominal solve completed in 1,003.732 s. Nine preselected matching MuJoCo
+  rollouts yielded one valid target reach, four terminal misses and four grid-coverage
+  errors. This coarse-grid prediction fails forward acceptance; all outcomes are retained.
+- Fixed SI time-endpoint roundoff and reran the identical selected states. The full
+  regression suite passes 54 tests, including all three real MATLAB/source tests.

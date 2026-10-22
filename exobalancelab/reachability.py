@@ -15,6 +15,9 @@ from scipy.io import loadmat
 
 from exobalancelab.paper import Profile
 
+# SI conversion can place an exported time endpoint a few floating-point ulps below it.
+TIME_TOLERANCE_S = 1e-12
+
 
 def policy_contract(profile: Profile, exo: str) -> dict:
     """Describe the paper plant for a policy, including effective MT/MRTD limits."""
@@ -100,6 +103,10 @@ class HJBPolicy:
         At zero gradient all controls minimize the Hamiltonian; choose zero rate.
         Out-of-grid states and horizons raise rather than fabricate a policy.
         """
+        for endpoint in [self.minimum_horizon_s, self.horizon_s]:
+            if abs(remaining_s - endpoint) <= TIME_TOLERANCE_S:
+                remaining_s = endpoint
+                break
         point = [np.pi / 2 + lean_rad, velocity_rad_s, human_torque_nm, remaining_s]
         derivative = float(self.gradient(point).item())
         if derivative > 0:
