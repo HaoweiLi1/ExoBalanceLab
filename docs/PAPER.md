@@ -17,7 +17,7 @@ arXiv v3, October 2, 2024. Authors' code:
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
 | Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Native/GPU comparisons and 180 preselected OF rollouts across all assistance/direction pairs |
-| Published HJB regions, Figs. 4–6 / Table II | Complete reconciled 30-case comparison | Quantitative differences and one sign disagreement; spatial studies still running |
+| Published HJB regions, Figs. 4–6 / Table II | Complete reconciled 30-case comparison and OF spatial study | Quantitative differences, one sign disagreement and remaining spatial sensitivity; OM follow-up running |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
@@ -168,12 +168,12 @@ the reported figures. Record any patch separately from the authors' unchanged so
 3. **Source differences recorded.** Reconciled force/moment constraints, gain units and
    target construction have independent checks. The released source does not establish
    that these choices generated the published Table II; exact-version equivalence remains open.
-4. **Population solves complete; spatial studies running.** All five profiles and three
-   modes have solved forward/backward regions at requested 225³ and 1.4 s. The
-   [OF study](results/hjb_grid_study/protocol.json) adds 151³ and 301³ grids. A
-   [targeted OM study](results/hjb_om_gc_followup/protocol.json) follows up the GC forward
-   sign disagreement. These studies do not establish convergence for every profile;
-   their actual results must be inspected before making any convergence claim.
+4. **Population and OF spatial study complete; OM follow-up running.** All five profiles
+   and three modes have solved forward/backward regions at requested 225³ and 1.4 s.
+   The [18-case OF study](RESULTS.md#complete-of-spatial-study) retains 5.04%–7.52%
+   native-area changes from 225³ to 301³; spatial convergence is unestablished.
+   The [targeted OM study](results/hjb_om_gc_followup/protocol.json) follows up the GC
+   forward sign disagreement and remains in progress.
 5. **Published-area comparison complete, reproduction unaccepted.** All
    [20 comparisons](results/hjb_paper225/population/table_ii.csv) retain the discrepancies:
    one differs in sign and absolute differences reach 8.11 percentage points. Rebuilding

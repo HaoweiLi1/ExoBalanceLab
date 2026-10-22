@@ -5,8 +5,9 @@ Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions a
 complete numerical/video snapshots are in [results](results/).
 All 30 population-region solves and 180 preselected OF forward rollouts are complete.
 The reconciled finite-grid model differs from the paper's Table II, including one change
-of sign. Spatial refinement is still running; exact published-region reproduction remains
-unaccepted. Real MATLAB, backend comparisons and complete outcomes are reported below.
+of sign. The OF spatial study is complete and remains sensitive to refinement; the OM
+follow-up and target diagnostic are still running. Exact published-region reproduction
+remains unaccepted. Real MATLAB, backend comparisons and complete outcomes are below.
 
 ## Mechanics and MATLAB-file transport
 
@@ -361,18 +362,50 @@ Increasing velocity nodes from 269 to 537 then changes it to 0.433604 rad²/s, a
 3.31%. The [velocity-refined projection and configuration](results/hjb_gpu/201_537_101/)
 are retained. These observations do not establish spatial convergence. The complete
 population comparison below uses the separate, recorded 225³ protocol.
-The prospective [three-grid OF protocol](results/hjb_grid_study/protocol.json) compares
-requested 151³, 225³ and 301³ grids for all six assistance/direction pairs. Its twelve
-additional inputs are prepared. All 151- and 225-grid cases have completed; the 301-grid
-integrations are running. Replaying the original 225-grid
-baseline under the common solver revision produced an
-[identical complete final field](results/hjb_grid_study/baseline_replay_identity.json).
 
-The completed [301-grid nominal forward result](results/hjb_grid_study/OF_none_forward_301/)
-has projected area 0.465274986 rad²/s, versus 0.434381353 at 225 and 0.377202556 at 151.
-The latest increase is **7.11%**, following 15.16% from 151 to 225. These are native-grid
-area differences, including quadrature/domain effects; this single pair does not establish
-spatial convergence or the final assisted comparisons.
+### Complete OF spatial study
+
+All **18 cases** in the [recorded protocol](results/hjb_grid_study/protocol.json) completed:
+requested 151³, 225³ and 301³ grids for all six assistance/direction pairs, with unchanged
+physical parameters, targets and 1.4 s horizon. Actual zero-aligned dimensions and axis
+extents are recorded per run.
+
+![OF area sensitivity across three spatial grids](results/hjb_grid_study/comparison/grid_study.png)
+
+From 225 to 301, every native-grid area increases by **5.04%–7.52%**. Interpolating
+coarse values onto finer nodes within the common domain gives increases of 5.87%–8.91%,
+with negative-set Jaccard overlap 0.918–0.944. The differences therefore persist when
+quadrature and domain are matched. These grids do **not establish spatial convergence**.
+
+Relative to each grid's no-assistance baseline, the four assistance comparisons change
+by 0.13–0.68 percentage points over the last refinement. Their signs agree with the
+paper for OF at all three grids; the 301-grid magnitudes still differ by 1.28–5.10 points.
+
+| OF area change (%) | 151³ | 225³ | 301³ | Paper Table II |
+|---|---:|---:|---:|---:|
+| GC / forward | +0.66 | +3.20 | +3.59 | +8.40 |
+| GC / backward | −23.78 | −24.58 | −24.70 | −19.60 |
+| PD / forward | +15.93 | +15.26 | +14.58 | +9.60 |
+| PD / backward | −18.32 | −19.73 | −20.18 | −18.90 |
+
+[All absolute areas](results/hjb_grid_study/comparison/areas.csv) ·
+[All 12 grid comparisons](results/hjb_grid_study/comparison/comparisons.csv) ·
+[Numerical report](results/hjb_grid_study/comparison/summary.json) ·
+[Vector figure](results/hjb_grid_study/comparison/grid_study.pdf).
+
+All 42 included summaries, projections and runtime records match their
+[recorded hashes](results/hjb_grid_study/comparison/files.json). Rebuilding from the
+included projections reproduces all 18 area records (apart from run paths) and all
+12 comparisons exactly. [Reconstruction check](results/hjb_grid_study/comparison/reconstruction_check.json).
+
+```bash
+python -m exobalancelab.hjb_regions --grid-study \
+  --protocol docs/results/hjb_grid_study/comparison/curated_protocol.json \
+  --out logs/of_grid_report_rebuilt
+```
+
+Replaying the original 225-grid baseline under the common solver revision also produced
+an [identical complete final field](results/hjb_grid_study/baseline_replay_identity.json).
 
 The [prepared target sampling](results/hjb_grid_study/target_sampling.json) shows that
 the OF GC/PD and OM GC forward ankle boxes contain only one interior velocity node and
@@ -414,9 +447,9 @@ this finite-grid comparison. These results do not establish the cause of the dis
 
 The [targeted OM follow-up](results/hjb_om_gc_followup/protocol.json) was specified after
 observing the sign disagreement. It holds the model, targets and solver settings fixed
-and compares no assistance with GC at 151³, 225³ and 301³. Its four additional inputs
-are prepared, with identical target parameters across grids; integration follows the OF
-study. This follow-up is distinct from the originally recorded population campaign.
+and compares no assistance with GC at 151³, 225³ and 301³. The additional integrations
+are running, with identical target parameters across grids. This follow-up is distinct
+from the originally recorded population campaign.
 
 A separate [target diagnostic](results/hjb_om_target_override/protocol.json) is queued
 after these studies. At fixed OM/GC/forward 225-grid settings, it substitutes the public
@@ -617,7 +650,7 @@ Model XML and full arrays make the rendered evidence directly inspectable.
 Earlier development runs used a superseded forward/backward convention and are retained
 only under ignored local `logs/`. They are not included in the published results above.
 
-The OF spatial study and targeted OM follow-up remain in progress. Exact source/target
+The targeted OM follow-up and target diagnostic remain in progress. Exact source/target
 equivalence and the causes of the Table II discrepancies remain unresolved; see
 [paper acceptance](PAPER.md). The articulated model also remains unvalidated against
 subject-specific mechanics or physical human experiments.

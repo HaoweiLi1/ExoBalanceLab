@@ -196,6 +196,8 @@ nodes inside their common domain. Common-grid sign agreement and area estimates 
 value-field changes from quadrature/domain differences. No extrapolation is used.
 CSV/JSON and PNG/PDF/SVG outputs retain actual axis extents and projection hashes.
 The report measures spatial sensitivity; it does not automatically certify convergence.
+The completed OF study includes every projection and a report-only protocol, so its
+[figures and all 12 comparisons can be rebuilt without a GPU](RESULTS.md#complete-of-spatial-study).
 
 For a targeted study, explicitly declare `mode_direction_pairs` in the protocol; every
 listed pair must appear at every declared resolution. Without this field the report
