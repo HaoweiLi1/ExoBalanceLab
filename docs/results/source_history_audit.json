@@ -47,5 +47,14 @@
     }
   ],
   "inspection": "Inspected all reachable file histories, MATLAB and autosave source blobs, the two solver entries and their earlier revisions. The named friction function occurs only as a call, never as an implementation. Remote refs contain main only; the public releases query returned an empty list.",
-  "scope": "The published reachable history and refs at the recorded time. This does not identify unpublished code or establish which source generated Table II. No upstream files or numerical study settings were changed."
+  "scope": "The published reachable history and refs at the recorded time. This does not identify unpublished code or establish which source generated Table II. No upstream files or numerical study settings were changed.",
+  "assisted_ankle_target_override": {
+    "source_file": "computeAnkleExoBRS.m",
+    "source_line": 45,
+    "source_url": "https://github.com/Raquelometer/AnkleExoBRS/blob/517ab41b7767c5ab0e856a8885b118bd739a5011/computeAnkleExoBRS.m#L45",
+    "human_torque_half_width_nm": 1.0,
+    "velocity_half_width_rad_s": 0.01,
+    "reconciled_choice": "matlab/solve_paper_hjb.m uses every width computed by paper_target_boxes for the reconciled assisted plant, including thetaDotAnkRange and torqueAnkRange.",
+    "scope": "A documented source/reconciled target difference; its isolated contribution to Table II discrepancies has not been measured. No active protocol or target was changed."
+  }
 }
