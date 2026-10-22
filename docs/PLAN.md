@@ -75,3 +75,17 @@ The articulated extension is a model study, not physical or clinical validation.
   errors. This coarse-grid prediction fails forward acceptance; all outcomes are retained.
 - Fixed SI time-endpoint roundoff and reran the identical selected states. The full
   regression suite passes 54 tests, including all three real MATLAB/source tests.
+
+## Publication preparation and temporal refinement
+
+- Repository visibility is private at the user's request. Subsequent commits retain
+  the maintainer identity; inherited authorship is preserved without adding contributors.
+- README follows the maintainer's CrashFactory/End2Race presentation: one main video,
+  concise setup and documentation links, with Daphna Raz's theory stated as the origin.
+- The original nine HJB states remain frozen. A 0.5 rad/s velocity buffer with
+  51×269×51 nodes and 10 ms history yields five valid target reaches, one angular
+  target miss and three coverage errors. Decimating the same value history to
+  100 ms yields zero valid reaches; shared slices are bit-for-bit equal.
+- The paired comparison exports all outcomes to CSV/JSON and PNG/PDF. It rejects
+  changed cohorts, plants or targets and omitted failures. All 62 tests pass,
+  including three real MATLAB/source checks; spatial convergence remains open.

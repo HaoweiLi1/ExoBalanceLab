@@ -1,0 +1,17 @@
+input_dir='logs/hjb_OF_buffer05_dt001';
+output_dir='logs/hjb_OF_buffer05_dt01';
+assert(~isfolder(output_dir));
+s=load(fullfile(input_dir,'policy.mat'));
+indices=1:10:numel(s.time_to_go_s);
+assert(indices(end)==numel(s.time_to_go_s));
+s.time_to_go_s=s.time_to_go_s(indices);
+s.value=s.value(:,:,:,indices);
+mkdir(output_dir);
+save(fullfile(output_dir,'policy.mat'),'-struct','s','-v7.3');
+summary=jsondecode(fileread(fullfile(input_dir,'summary.json')));
+summary.output_step_s=0.1;
+summary.derivation='Every tenth saved slice of the same 10 ms HJB solve; no PDE recomputation.';
+fid=fopen(fullfile(output_dir,'summary.json'),'w');
+fprintf(fid,'%s\n',jsonencode(summary,PrettyPrint=true));
+fclose(fid);
+fprintf('DECIMATION_DONE\n');

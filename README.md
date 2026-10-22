@@ -1,51 +1,44 @@
+<div align="center">
+
 # ExoBalanceLab
 
-**MATLAB controllers. MuJoCo contact dynamics. Human–exoskeleton balance you can inspect.**
+<p><strong>From standing-balance theory to human–exoskeleton simulation</strong></p>
 
-[![Tests](https://github.com/HaoweiLi1/ExoBalanceLab/actions/workflows/tests.yml/badge.svg)](https://github.com/HaoweiLi1/ExoBalanceLab/actions/workflows/tests.yml)
-[![Python 3.11](https://img.shields.io/badge/python-3.11-blue)](environment.yml)
-[![MuJoCo 3.3.7](https://img.shields.io/badge/MuJoCo-3.3.7-orange)](pyproject.toml)
-[Paper](https://arxiv.org/abs/2408.05418) · [MATLAB integration](matlab/README.md) ·
-[Model and paper correspondence](docs/PAPER.md) · [Measured results](docs/RESULTS.md)
+[![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB)](environment.yml)
+[![MuJoCo 3.3.7](https://img.shields.io/badge/MuJoCo-3.3.7-F28C28)](pyproject.toml)
 
-ExoBalanceLab connects MATLAB control research to reproducible MuJoCo experiments on
-ankle-exoskeleton standing balance. It extends the original
-[standing_balance_sim](https://github.com/celwell20/standing_balance_sim) work with one
-installable Python package, explicit controller contracts, physics checks and an
-articulated human model.
+[Source paper](https://arxiv.org/abs/2408.05418) · [Results](docs/RESULTS.md) ·
+[MATLAB integration](matlab/README.md) · [Model correspondence](docs/PAPER.md)
 
-The research question comes from **Raz et al., “Ankle Exoskeletons May Hinder Standing
-Balance in Simple Models of Older and Younger Adults” (2024)**: assistance can help in
-some states and reduce the ability to recover in others. This project makes both
-outcomes visible and keeps the data behind them.
+</div>
 
-![Synchronized human and exoskeleton simulation](docs/media/human.gif)
+![Human–exoskeleton standing balance in MuJoCo](docs/media/human.gif)
 
-[Watch the full human comparison](docs/media/human.mp4) ·
-[Inspect assistance-induced contact-constraint violations](docs/media/paper_constraints.mp4)
+<p align="center">
+The same 80 N chest perturbation, with assistance off, gravity compensation, and PD assistance.<br>
+<a href="docs/media/human.mp4">Full simulation video</a> ·
+<a href="docs/media/paper_constraints.mp4">Contact-constraint comparison</a>
+</p>
 
-## Three contributions
+## Overview
 
-1. **A practical MATLAB → MuJoCo bridge.** Validated CSV/MAT v7/v7.3 trajectories,
-   logarithmic-time interpolation, explicit sample-and-hold timing, separate physics/control
-   rates, and a persistent MATLAB Engine adapter. The original one- and two-joint entry
-   points now use the same replay implementation. HJB value-function exports provide
-   torque-rate feedback on the lifted state.
-2. **A paper-linked validation workbench.** Five Table I profiles, independently checked
-   Eq. (3) dynamics, human MT/MRTD limits, GC/PD exoskeletons, foot constraints, full
-   recovery-grid records and an unconstrained-foot MuJoCo comparison. The scope of each
-   result is stated alongside it.
-3. **An articulated human–device extension.** Bilateral hip, knee and ankle joints,
-   distributed body mass, device mass/inertia, actual ground contact, chest perturbations,
-   and synchronized videos with human/device torque and contact information.
+ExoBalanceLab began with the need to **test Daphna Raz's standing-balance theory in
+simulation**. Its scientific foundation is Raz et al.,
+[*Ankle Exoskeletons May Hinder Standing Balance in Simple Models of Older and Younger
+Adults*](https://arxiv.org/abs/2408.05418). The central question is when ankle assistance
+helps recovery—and when it reduces the ability to balance.
 
-**Current evidence:** numerical dynamics agreement, real MATLAB/Python closed-loop parity,
-measured Engine latency, an executed nominal HJB/MuJoCo pipeline and controller-specific
-recovery experiments. The published Hamilton–Jacobi stabilizable
-regions and Table II are a separate reproduction milestone; this repository does not
-label a PD recovery grid as a maximal reachable set. See [paper correspondence](docs/PAPER.md).
+The project connects the paper's MATLAB reachability formulation to MuJoCo, then extends
+the experiment to ground contact and an articulated human–exoskeleton model.
 
-## Run in five minutes
+- **Theory to simulation:** lifted dynamics, five population profiles, human torque/rate
+  limits, GC/PD assistance, and HJB torque-rate feedback.
+- **MATLAB to MuJoCo:** CSV/MAT replay and persistent Engine feedback, with explicit units,
+  control timing, and recorded raw/applied commands.
+- **Inspect every experiment:** synchronized videos, state trajectories, contact margins,
+  model snapshots, and reproducible comparisons.
+
+## Quick start
 
 ```bash
 git clone https://github.com/HaoweiLi1/ExoBalanceLab.git
@@ -53,119 +46,51 @@ cd ExoBalanceLab
 conda env create -f environment.yml
 conda activate exobalancelab
 
-# Headless numerical comparison; no MATLAB license or display required.
+# Compare no assistance, gravity compensation, and PD on the paper model.
 exobalance compare --model paper --profile OF --out logs/first_run
 
-# Full bilateral human, identical 80 N chest pulse for each assistance mode.
-# Linux headless rendering: EGL requires a working graphics driver.
+# Render the articulated human comparison shown above.
 MUJOCO_GL=egl exobalance compare --model human --lean 0 --velocity 0 \
   --push 80 --duration 6 --video --out logs/human_demo
 ```
 
-With a desktop display, omit `MUJOCO_GL=egl`. On machines without EGL, use
-`MUJOCO_GL=osmesa` after installing the operating system's OSMesa library. Rendering is
-optional: numerical runs do not create a GUI. Reusing an output directory is rejected
-so a failed experiment cannot overwrite an earlier recording.
+Numerical experiments run without MATLAB or a display. For desktop rendering, omit
+`MUJOCO_GL=egl`; headless EGL needs a working graphics driver. Use a new output directory
+for each run. [MATLAB setup and examples](matlab/README.md) cover replay, feedback and HJB solves.
 
-## Bring your MATLAB controller
+## Models and validation
 
-Export desired **human** torques, with time in seconds and torque in Nm:
+| Model | Experiment |
+|---|---|
+| `paper` · 1 DoF | Match the paper's dynamics and evaluate foot-contact constraints |
+| `contact` · 4 DoF | Release the foot to study slipping, lifting and rotation |
+| `human` · 9 DoF | Bilateral hips, knees and ankles, device inertia, and chest perturbations |
 
-```matlab
-addpath('matlab');
-time_s = (0:0.001:6)';
-torque_nm = 8*sin(2*pi*0.5*time_s).*exp(-time_s);
-export_controller('controller.mat', time_s, torque_nm);
-```
+The paper model agrees with the analytical acceleration to **1.16e-9 rad/s²** across
+1,500 states. Real MATLAB and Python feedback produce identical recorded positions and
+commands in the six-second reference run. HJB forward validation and discretization
+experiments are recorded in [Results](docs/RESULTS.md).
 
-```bash
-exobalance run --trajectory controller.mat --lean 0 --velocity 0 \
-  --control-period .005 --out logs/replay
-```
+Full reproduction of the paper's stabilizable regions remains under validation. The
+articulated model is a sagittal engineering extension; the videos demonstrate simulated
+behavior. [Paper correspondence](docs/PAPER.md) defines the assumptions and acceptance criteria.
 
-For feedback, install the Engine package from **your MATLAB release**, then run:
+## Documentation
 
-```bash
-python -m pip install /path/to/MATLAB/extern/engines/python
-exobalance run --matlab-function standing_pd --matlab-directory matlab \
-  --control-period .01 --out logs/matlab_feedback
-```
+| Guide | Contents |
+|---|---|
+| [MATLAB integration](matlab/README.md) | Controller export, Engine setup, HJB generation and replay |
+| [Models and API](exobalancelab/README.md) | Coordinates, units, model parameters and public interfaces |
+| [Paper correspondence](docs/PAPER.md) | Equations, source audit and reproduction requirements |
+| [Measured results](docs/RESULTS.md) | Experiments, failures, figures, videos and reproduction commands |
+| [Validation](tests/README.md) · [History](docs/MIGRATION.md) | Tests and integration of the original branches |
 
-The simulation clock does not wait for wall-clock deadlines. MATLAB feedback latency is
-measured; this interface does not promise hard real-time operation. Offline replay works
-without MATLAB installed. The example `standing_pd.m` assumes no assistance; external
-controllers must account for the configured exoskeleton themselves.
+## Source and citation
 
-See [MATLAB integration](matlab/README.md) for channel ordering, timing, format validation,
-HJB export, saturation, and runtime validation status.
+The theory and reachability method come from [Daphna Raz et al.](https://arxiv.org/abs/2408.05418)
+and [AnkleExoBRS](https://github.com/Raquelometer/AnkleExoBRS). The simulation builds on
+[standing_balance_sim](https://github.com/celwell20/standing_balance_sim), with its history
+preserved. MuJoCo supplies the physics and rendering.
 
-## Choose the model you need
-
-| Model | Degrees of freedom | Contact | Purpose |
-|---|---:|---|---|
-| `paper` | 1 | Fixed foot; analytically required ground reactions | Match Eq. (3) and evaluate C1–C5 |
-| `contact` | 4 | Foot slides, lifts and rotates under MuJoCo contact | Test failure of the fixed-foot assumption |
-| `human` | 9 | Independent feet; sagittal floating pelvis | Explore joint coordination and device loading |
-
-All models use SI units, world **x forward, y left, z up**. Paper lean is
-`q = theta - pi/2`: **positive q is forward toward the toes**; positive ankle torque is
-dorsiflexion, negative is plantarflexion. Human joint channels and frame conventions are
-specified in [the API guide](exobalancelab/README.md).
-
-`--parameters table_i` is the default. Use `--parameters authors` to match the
-original HJB source's anthropometry and g=9.8. HJB rollouts verify the policy's
-embedded physical parameters against the selected plant before simulation.
-
-The human model is a torque-driven sagittal anthropometric approximation. It has no
-muscle recruitment, neural delay, lateral balance or subject-specific identification.
-The extra geometry is not evidence of physiological validation. The same physical device
-mass remains attached in all human comparison modes; `none` means its motor is off.
-
-## Reproduce the evidence
-
-```bash
-pytest -q
-ruff check exobalancelab tests
-python -m exobalancelab.validation --out logs/numerical_validation
-python -m exobalancelab.sweep --points 13 --out logs/recovery_grid
-```
-
-Each run includes a standalone `model.xml`, `config.json`, `metrics.json`, full `episode.npz`,
-a scalar `signals.csv`, and source/model hashes in `provenance.json`. Replay additionally
-stores the actual input samples. Optional videos are streamed to FFmpeg without buffering
-all full-resolution frames. [Published results](docs/RESULTS.md) explain the experiment
-selection, pass criteria, observed failures and timing scope.
-
-## Repository map
-
-```text
-exobalancelab/        Unified models, controllers, simulation, rendering and CLI
-matlab/               Export helpers and persistent-feedback example
-tests/                Transport, timing, mechanics, contact and model contract tests
-docs/                 Paper correspondence, results and branch provenance
-joint1_humanoid/      Historical ankle workflow and original MATLAB optimization scripts
-joint2_humanoid/      Historical ankle–hip workflow and recordings
-logs/                 Local generated runs (ignored by Git)
-```
-
-`main`, `backup` and `origin` have one integrated history. The latter two were already
-ancestors of `main`; [migration notes](docs/MIGRATION.md) identify exactly what is retained
-and how to recover older muscle/control examples. The maintained entry point is
-`exobalance`; historical recordings keep their original provenance.
-
-## Research context and attribution
-
-- [Raz et al. (2024)](https://arxiv.org/abs/2408.05418) and the authors'
-  [AnkleExoBRS](https://github.com/Raquelometer/AnkleExoBRS) provide the central question,
-  lifted dynamics and reachability method.
-- [MuJoCo](https://github.com/google-deepmind/mujoco) provides contact dynamics and rendering.
-- [MyoSuite](https://github.com/MyoHub/myosuite) is a relevant musculoskeletal comparison
-  and a future validation target. This project's articulated model is independently built;
-  it does not include MyoSuite meshes or muscles.
-- Original simulation work: [celwell20/standing_balance_sim](https://github.com/celwell20/standing_balance_sim).
-  Haowei Li's ankle/exoskeleton and ankle–hip extensions are retained in Git history.
-
-See [NOTICE](NOTICE.md) for provenance and licensing scope. Cite the paper for its
-scientific method and [CITATION.cff](CITATION.cff) when referring to this software.
-Contributions that add measured controller comparisons, physiological parameters, or
-reproducible MATLAB/HJB evidence are welcome; see [contributing](CONTRIBUTING.md).
+Cite the source paper for the scientific method and [CITATION.cff](CITATION.cff) for this
+software. Attribution and inherited licensing scope are recorded in [NOTICE](NOTICE.md).

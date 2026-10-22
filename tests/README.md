@@ -19,6 +19,9 @@ verify interchange semantics and are explicitly not MATLAB execution or original
 reachability evidence. Numerical campaigns and demonstration videos use separate commands
 listed in the root README. They are not rerun as part of every unit test.
 
+`test_hjb_comparison.py` verifies complete outcome accounting and rejects comparisons
+that drop failed cases or change initial states, targets or plant parameters.
+
 `test_matlab_runtime.py` is opt-in: set `EXOBALANCE_MATLAB_TEST=1` after activation to
 verify a real MATLAB CSV/MAT export and compare Engine feedback against the same Python
 controller. Its default skip is visible in the test summary, not counted as a pass.

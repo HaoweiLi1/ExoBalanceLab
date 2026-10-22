@@ -6,7 +6,8 @@ ExoBalanceLab builds on the standing-balance simulation history from
 The inherited project described its origins in the Ozay Lab at the University of Michigan;
 this independent extension does not imply institutional endorsement.
 
-The scientific reference is Raz, Joshi, Umberger and Ozay (2024), arXiv:2408.05418.
+The project originated from the need to validate Daphna Raz's standing-balance theory
+in simulation. Its scientific source is Raz, Joshi, Umberger and Ozay (2024), arXiv:2408.05418.
 The paper's authors maintain <https://github.com/Raquelometer/AnkleExoBRS>.
 ExoBalanceLab independently implements the documented mathematical model and preserves
 explicit differences between the manuscript, released source and this simulator.

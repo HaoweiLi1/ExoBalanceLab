@@ -1,0 +1,10 @@
+{
+  "same_value_slices_bitwise": true,
+  "same_axes_and_contract": true,
+  "same_retained_times": true,
+  "dense_policy_sha256": "be53b9cd2b00202a7a80962072a3a9932272e0832e7b524a9319a5b5040eef6e",
+  "coarse_policy_sha256": "2e4c4adaff7e052c0aace8a71d55ec3de545deef2f370aea6840763d9b73bca4",
+  "stride": 10,
+  "dense_frames": 141,
+  "coarse_frames": 15
+}

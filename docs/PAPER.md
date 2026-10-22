@@ -118,8 +118,10 @@ Source inspection at the pinned authors' commit found:
     0.5 rad/s opposite-direction velocity buffer. The pinned nominal script instead
     uses 225×225×275 nodes and a 0.02 rad/s buffer; the exoskeleton script uses
     225×225×225 nodes with the same 0.02 rad/s buffer. Our nominal baseline follows
-    the source domain with a deliberately coarse 51×225×51 grid. Grid and domain
-    convergence must be measured separately before comparing published areas.
+    the source domain with a deliberately coarse 51×225×51 grid. A subsequent
+    51×269×51 solve uses the paper's 0.5 rad/s buffer and zero-aligned velocity nodes.
+    A controlled 10/100 ms export comparison isolates temporal sampling error; it
+    does not establish spatial or domain convergence. See [refinement results](RESULTS.md#controlled-refinement-time-history-sampling-changes-the-outcome).
 
 These findings distinguish implementation differences from limits of the numerical
 approximation. An exact reproduction needs a reconciled parameter/controller version,

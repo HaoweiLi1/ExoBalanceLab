@@ -29,8 +29,9 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `rendering` | `plot_comparison(episodes, output)` | records → PNG time series |
 | `validation` | `validate_dynamics(seed)`, `benchmark_bridge(seed)` | deterministic protocol → metrics |
 | `hjb_validation` | `validate(run_dir, output, count, seed, protocol_path)` | MATLAB nominal solve → new or frozen-cohort MuJoCo rollouts and outcomes |
+| `hjb_comparison` | `compare(runs, output)` | Matching cohort/plant/targets → complete per-case CSV, JSON, PNG and PDF |
 
-`cli`, `sweep`, `validation` and `hjb_validation` expose executable `main()` functions.
+`cli`, `sweep`, `validation`, `hjb_validation` and `hjb_comparison` expose executable `main()` functions.
 
 ## Timing and signs
 

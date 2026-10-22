@@ -19,8 +19,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **57 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
-  The other 54 tests need no MATLAB license. The added plot checks expose 14
+- **62 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
+  The other 59 tests need no MATLAB license. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
@@ -161,6 +161,60 @@ The [initial errors](results/hjb_nominal_1p4/pre_fix_outcomes.json) are retained
 same nine states were rerun after the fix. A regression test rejects genuinely missing
 time coverage. The identical-parameter single-thread solve was stopped after the
 default-thread solve completed; no unfinished result is used in this report.
+
+### Controlled refinement: time-history sampling changes the outcome
+
+The original nine states and target boxes were frozen before these comparisons. A
+second solve uses Appendix III's 0.5 rad/s reverse-velocity buffer, a 51×269×51 grid,
+and a 10 ms saved time history. It took **1,314.537 s** and produced 24,878 nonpositive
+final-grid values. The velocity grid now includes zero; both its spacing and domain
+changed relative to the baseline, so this is not an isolated buffer experiment.
+
+To isolate **exported time resolution**, every tenth slice of that same solved value
+history was retained to form a 100 ms policy. All 15 retained value arrays, spatial axes,
+model parameters and time coordinates are bit-for-bit identical to their counterparts
+in the 10 ms export. [Identity check and hashes](results/hjb_refinement/time_ablation_identity.json).
+Physics and feedback remain at 1 kHz in all three runs.
+
+| Policy | Valid target reach | Completed miss | Left policy grid |
+|---|---:|---:|---:|
+| Source domain, 51×225×51, 100 ms export | 1 / 9 | 4 / 9 | 4 / 9 |
+| Wider domain, 51×269×51, 100 ms export | 0 / 9 | 6 / 9 | 3 / 9 |
+| Same wider-domain solve, 10 ms export | 5 / 9 | 1 / 9 | 3 / 9 |
+
+![Frozen-cohort HJB refinement outcomes](results/hjb_refinement/comparison/outcomes.png)
+
+The denser time history resolves the terminal-speed misses in cases 01, 02 and 06–08.
+All six completed wider-domain episodes retain valid contact. Case 00 now stays inside
+the computational domain but ends at theta=1.591628 rad, outside the ankle target's
+upper angle of 1.585262 rad. Its terminal speed, 0.004004 rad/s, is within the target.
+The three outside-group cases still leave the grid and remain recorded errors.
+
+The new value field predicts six of the frozen states inside; five meet the forward
+acceptance test. This is a diagnostic cohort, not an estimated population success rate.
+The unresolved inside case and spatial convergence still prevent accepting this policy
+as a stabilizable-region predictor. No target was enlarged and no state was replaced.
+
+[Per-case CSV](results/hjb_refinement/comparison/cases.csv) ·
+[Aggregate results](results/hjb_refinement/comparison/summary.json) ·
+[10 ms protocol and episodes](results/hjb_refinement/buffer05_dt001/) ·
+[100 ms protocol and episodes](results/hjb_refinement/buffer05_dt01/) ·
+[Vector figure](results/hjb_refinement/comparison/outcomes.pdf)
+
+Reproduce the solve using `resolution=[51;269;51]`, `velocity_buffer_rad_s=0.5`,
+and `output_step_s=0.01` in `solve_nominal_hjb`. The retained
+[decimation script](results/hjb_refinement/decimate_hjb.m) produces the 100 ms export
+without rerunning the PDE. Validate both with
+`--protocol docs/results/hjb_nominal_1p4/protocol.json`. The comparison can also be
+regenerated directly from the checked-in outcomes:
+
+```bash
+python -m exobalancelab.hjb_comparison \
+  --run 'Source domain / 100 ms=docs/results/hjb_refinement/baseline' \
+  --run 'Wider domain / 100 ms=docs/results/hjb_refinement/buffer05_dt01' \
+  --run 'Wider domain / 10 ms=docs/results/hjb_refinement/buffer05_dt001' \
+  --out logs/hjb_time_comparison
+```
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 

@@ -200,3 +200,10 @@ The original selection seed, policy hash and protocol hash identify the frozen c
 Coverage failures record the query, axis bounds and elapsed simulation time in SI units.
 The published 1.4 s coarse-grid run includes prediction/rollout disagreements and
 out-of-grid failures; see [all outcomes](../docs/RESULTS.md#longer-horizon-coarse-grid-prediction-is-not-sufficient).
+
+A subsequent controlled experiment retains a 10 ms history with
+`resolution=[51;269;51]` and `velocity_buffer_rad_s=0.5`. Saving only every tenth
+time slice changes five of the same nine rollout outcomes from valid target reaches
+to misses, even though the final value field is identical. Keep the dense history for
+forward feedback. This result isolates saved-time resolution; spatial convergence is
+still required. [Configurations, records and comparison command](../docs/RESULTS.md#controlled-refinement-time-history-sampling-changes-the-outcome).

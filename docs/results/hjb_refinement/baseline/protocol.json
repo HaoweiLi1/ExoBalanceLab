@@ -1,0 +1,144 @@
+{
+  "source": {
+    "profile": "OF",
+    "exo": "none",
+    "direction": "forward",
+    "resolution": [
+      51,
+      225,
+      51
+    ],
+    "duration_s": 1.3999999999999997,
+    "output_step_s": 0.1,
+    "method": "none",
+    "wall_s": 1003.732006,
+    "matlab_release": "2026b",
+    "gravity_m_s2": 9.8,
+    "source_model": {
+      "m": 60,
+      "h": 1.58,
+      "tauMin": -88,
+      "tauMax": 22,
+      "uMin": -389,
+      "uMax": 148
+    },
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7112737387029464,
+        0,
+        -72.62709223620656
+      ],
+      "thetaAnkRange": 0.014466168793943728,
+      "thetaToeRange": 0.014469327824432499,
+      "thetaDotAnkRange": 0.01,
+      "thetaDotToeRange": 0.01,
+      "torqueAnkRange": 10.844324499535924,
+      "torqueToeRange": 10.742001927119986
+    },
+    "initial_target_nodes": 36,
+    "final_reachable_nodes": 19534,
+    "scope": "Reconstructed nominal HJB baseline; convergence and published-area agreement unverified."
+  },
+  "policy_sha256": "cc99db4b3880cc2ad5c300ab80e4ddf0b92202de96cfce48f068d6c60a06387a",
+  "seed": 240805418,
+  "requested_per_group": 3,
+  "states": [
+    {
+      "group": "inside",
+      "state": [
+        0.995,
+        2.0812500000000003,
+        -10.999999999999998
+      ],
+      "value": -0.02933843166724852,
+      "selection_value": -0.02933843166724852
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.432,
+        0.7871874999999999,
+        -66.0
+      ],
+      "value": -0.03664697125716158,
+      "selection_value": -0.03664697125716158
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.524,
+        0.37718749999999995,
+        -24.200000000000003
+      ],
+      "value": -0.014455754385604563,
+      "selection_value": -0.014455754385604563
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.3860000000000001,
+        0.723125,
+        -74.8
+      ],
+      "value": 1.6243336571704496,
+      "selection_value": 1.6243336571704496
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.225,
+        0.8640625000000001,
+        -44.0
+      ],
+      "value": 4.56272291228702,
+      "selection_value": 4.56272291228702
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.5470000000000002,
+        1.9659375000000001,
+        -33.0
+      ],
+      "value": 20.112385660772162,
+      "selection_value": 20.112385660772162
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.685,
+        -0.02,
+        -39.6
+      ],
+      "value": 0.00020690144120400075,
+      "selection_value": 0.00020690144120400075
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.524,
+        0.569375,
+        -57.2
+      ],
+      "value": -0.0002255543940770384,
+      "selection_value": -0.0002255543940770384
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.616,
+        0.24906249999999996,
+        -88.0
+      ],
+      "value": 0.0,
+      "selection_value": -0.0
+    }
+  ],
+  "selection_protocol_sha256": "69b6b68b72a16d4237cb03b88906b0ff19d781478002face52f92b6165c67651",
+  "selection_policy_sha256": "cc99db4b3880cc2ad5c300ab80e4ddf0b92202de96cfce48f068d6c60a06387a"
+}
