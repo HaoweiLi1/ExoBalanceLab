@@ -104,16 +104,25 @@ Source inspection at the pinned authors' commit found:
    both choices and records the selected method; its default `none` follows the actual
    original call. Their equivalence requires controlled-invariant targets and adequate
    discretization; it is not assumed from the target filenames.
-9. **Box target versus invariant ellipsoid:** the supplied solver seeds axis-aligned
-   boxes from stored widths, whereas the paper motivates invariant CLF ellipsoids.
+9. **Box target and invariance:** Section IV-B motivates invariant CLF ellipsoids,
+   but Appendix II-B explicitly replaces them with circumscribed axis-aligned boxes
+   for the numerical solve. The source's box construction follows that approximation;
+   it is not a paper/source discrepancy. Separately, our invariance check finds that
    A box containing positive velocity at its upper angle boundary is not controlled
    invariant: `theta_dot>0` immediately leaves that boundary regardless of the torque-rate
    input. The separated toe box does not remove this counterexample at the ankle box.
-   Reconstructing the actual ellipsoidal targets is necessary before identifying these
-   source-seeded reachable sets with the paper's controlled-invariant stabilizable regions.
+   Numerical reproduction should retain and disclose the published box approximation.
+   A stronger invariance claim needs a separate justification or certified target,
+   rather than assuming that an enclosing box inherits its ellipsoid's invariance.
+10. **Grid and velocity buffer:** Appendix III reports a 225×225×225 grid and a
+    0.5 rad/s opposite-direction velocity buffer. The pinned nominal script instead
+    uses 225×225×275 nodes and a 0.02 rad/s buffer; the exoskeleton script uses
+    225×225×225 nodes with the same 0.02 rad/s buffer. Our nominal baseline follows
+    the source domain with a deliberately coarse 51×225×51 grid. Grid and domain
+    convergence must be measured separately before comparing published areas.
 
-These findings are implementation differences, not a claim that the paper's mathematical
-results are wrong. An exact reproduction needs a reconciled parameter/controller version,
+These findings distinguish implementation differences from limits of the numerical
+approximation. An exact reproduction needs a reconciled parameter/controller version,
 all target and friction functions, solver resolution/time settings and a comparison against
 the reported figures. Record any patch separately from the authors' unchanged source.
 

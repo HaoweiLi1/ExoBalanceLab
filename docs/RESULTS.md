@@ -116,8 +116,9 @@ Full local value histories remain under ignored `logs/`; use the
 [nominal solver and validation commands](../matlab/README.md#nominal-hjb-baseline)
 to regenerate them (`duration_s=0.1` for this check).
 
-The source's box targets are not controlled invariant. This result therefore does not
-establish the paper's infinite-horizon stabilizable regions; see the
+The box targets follow the numerical approximation in Appendix II-B, but are not
+themselves controlled invariant. This coarse, short-horizon result does not establish
+the paper's full regions or an infinite-horizon invariance guarantee; see the
 [target-set audit](PAPER.md#source-discrepancies-to-resolve-before-claiming-exact-reproduction).
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region

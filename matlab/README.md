@@ -168,9 +168,13 @@ The actual solver uses the **authors' parameters**, including g=9.8 and OF heigh
 select `--parameters authors` for matching MuJoCo experiments. The default `table_i`
 parameter set retains the printed anthropometry and g=9.81. Embedded contracts prevent
 mixing these plants. GC/PD consistency, target-set invariance, convergence, matching
-forward rollouts and published-area comparison remain
+forward rollouts over the full regions and published-area comparison remain
 open. The [source audit](../docs/PAPER.md) describes the differences, including the solver
 method argument; a successful nominal solve does not reproduce all published regions.
+The box targets follow the numerical approximation explicitly described in Appendix II-B;
+they do not inherit a proof of invariance from their enclosed CLF ellipsoids. The default
+opposite-direction velocity buffer is the source's 0.02 rad/s, whereas Appendix III
+reports 0.5 rad/s. Keep this domain difference explicit when comparing published results.
 
 After a solve, select and record inside/outside/boundary states before viewing any
 forward outcomes, then test the exported policy in the matching MuJoCo plant:
