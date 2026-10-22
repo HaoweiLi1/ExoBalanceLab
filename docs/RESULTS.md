@@ -607,6 +607,10 @@ human LQR, unchanged across modes, controls the six hip/knee/ankle actuators.
 - GC and PD: both return to standing with valid contact throughout the episode.
 - These outcomes concern this model and controller, not clinical fall prevention.
 
+Replaying these three fixed cases from committed implementation `0b623a5` reproduces
+all **60 recorded arrays bit for bit**, including undefined CoP entries, and all three
+model XML files byte for byte. [Replay configuration, source hashes and per-array checks](results/human/replay_check.json).
+
 The 80 N demonstration was selected after exploratory runs. A broader fixed force list
 is reported in full in [the 33-run force sweep](results/human_force_sweep/summary.json),
 with its [protocol](results/human_force_sweep/protocol.json). Do not interpret a selected
