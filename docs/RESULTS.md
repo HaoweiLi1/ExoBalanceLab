@@ -2,9 +2,10 @@
 
 All results below were obtained with Python 3.11, MuJoCo 3.3.7 and the committed model
 configuration files. Complete numerical/video run snapshots are in [results](results/).
-The research statement is deliberately narrower than “complete reproduction”:
-complete published HJB regions remain pending acceptance; real MATLAB runtime results
-are now reported below.
+All 30 population-region solves and 180 preselected OF forward rollouts are complete.
+The reconciled finite-grid model differs from the paper's Table II, including one change
+of sign. Spatial refinement is still running; exact published-region reproduction remains
+unaccepted. Real MATLAB, backend comparisons and complete outcomes are reported below.
 
 ## Mechanics and MATLAB-file transport
 
@@ -19,8 +20,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **71 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
-  Three additional JAX tests pass in the separate GPU environment. The other 66 tests
+- **72 tests passed with MATLAB R2026b**, including five opt-in runtime/source tests.
+  Three additional JAX tests pass in the separate GPU environment. The other 67 tests
   need neither MATLAB nor JAX. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
@@ -357,11 +358,54 @@ from 101 to 201 changes the sampled forward area from 0.343706 to 0.410191 rad²
 At 201 angle nodes, increasing torque nodes from 51 to 101 changes it to 0.419714 rad²/s.
 Increasing velocity nodes from 269 to 537 then changes it to 0.433604 rad²/s, another
 3.31%. The [velocity-refined projection and configuration](results/hjb_gpu/201_537_101/)
-are retained. These observations do not establish spatial convergence or reproduce
-Table II; the complete population comparison is still running.
+are retained. These observations do not establish spatial convergence. The complete
+population comparison below uses the separate, recorded 225³ protocol.
 The prospective [three-grid OF protocol](results/hjb_grid_study/protocol.json) compares
 requested 151³, 225³ and 301³ grids for all six assistance/direction pairs. Its twelve
-additional inputs are prepared; integration follows the primary population campaign.
+additional inputs are prepared and integration is running after the population campaign.
+
+### Complete 225-grid population comparison
+
+All five profiles, three assistance modes and two velocity directions completed at the
+paper's requested 225³ resolution, 1.4 s horizon and 0.5 rad/s reverse-velocity buffer.
+Actual zero-aligned dimensions and domain endpoints are retained per case. This uses the
+authors' parameters and stored nominal targets, with the documented reconciled GC/PD
+laws and target boxes; it is not an unchanged replay of the authors' complete experiment.
+
+![Complete finite-grid comparison with Table II](results/hjb_paper225/population/table_ii.png)
+
+Across the 20 assistance comparisons, absolute differences from Table II range from
+0.15 to 8.11 percentage points. Nineteen have the same sign; **OM / GC / forward differs
+in direction**, with −2.86% here versus +3.7% in the paper. The largest magnitude
+differences are wOF forward: GC gives +7.80% versus +15.9%, and PD gives +25.61% versus
++17.5%. Both assistance laws reduce the backward-velocity area for every profile in
+this finite-grid comparison. These results do not establish the cause of the discrepancies.
+
+[All 30 absolute areas](results/hjb_paper225/population/areas.csv) ·
+[All 20 Table II comparisons](results/hjb_paper225/population/table_ii.csv) ·
+[Full numerical report](results/hjb_paper225/population/summary.json) ·
+[Vector figure](results/hjb_paper225/population/table_ii.pdf).
+
+The [targeted OM follow-up](results/hjb_om_gc_followup/protocol.json) was specified after
+observing the sign disagreement. It holds the model, targets and solver settings fixed
+and compares no assistance with GC at 151³, 225³ and 301³. Its four additional inputs
+are prepared, with identical target parameters across grids; integration follows the OF
+study. This follow-up is distinct from the originally recorded population campaign.
+
+All 60 summary/projection files match their recorded SHA-256 values. A report-only
+protocol points to these included files: rebuilding it reproduces every area record
+(apart from its local path) and all 20 Table II comparisons exactly.
+[Reconstruction check](results/hjb_paper225/population/reconstruction_check.json) ·
+[Included files and local full-field hashes](results/hjb_paper225/population/files.json).
+This check verifies result transport and reporting, not HJB convergence.
+
+Rebuild the table and figures without MATLAB or a GPU:
+
+```bash
+python -m exobalancelab.hjb_regions \
+  --protocol docs/results/hjb_paper225/population/curated_protocol.json \
+  --out logs/population_report_rebuilt
+```
 
 ### Paper-sized nominal grid and broader forward validation
 
@@ -538,6 +582,7 @@ Model XML and full arrays make the rendered evidence directly inspectable.
 Earlier development runs used a superseded forward/backward convention and are retained
 only under ignored local `logs/`. They are not included in the published results above.
 
-Pending: reconcile the upstream source discrepancies and reproduce the original HJB regions
-with convergence/area comparisons. See [paper acceptance](PAPER.md). The articulated model
-also remains unvalidated against subject-specific mechanics or physical human experiments.
+The OF spatial study and targeted OM follow-up remain in progress. Exact source/target
+equivalence and the causes of the Table II discrepancies remain unresolved; see
+[paper acceptance](PAPER.md). The articulated model also remains unvalidated against
+subject-specific mechanics or physical human experiments.

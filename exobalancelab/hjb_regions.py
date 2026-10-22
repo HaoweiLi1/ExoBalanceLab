@@ -201,10 +201,11 @@ def _plot(comparisons: list[dict], output: Path) -> None:
 
 
 def compare_grids(protocol_path: Path, output: Path) -> dict:
-    """Compare all six mode/direction pairs for one profile across recorded grids.
+    """Compare declared mode/direction pairs for one profile across recorded grids.
 
     Coarse values are linearly interpolated onto finer nodes in the common domain.
     Native-grid and common-grid area differences remain separate measurements.
+    All six pairs are required unless the protocol explicitly declares a subset.
     """
     protocol = json.loads(protocol_path.read_text())
     if protocol["parameter_set"] != "authors":
@@ -217,64 +218,67 @@ def compare_grids(protocol_path: Path, output: Path) -> dict:
     for lower, upper in zip(resolutions, resolutions[1:]):
         if len(lower) != 3 or len(upper) != 3 or np.any(np.array(upper) < lower):
             raise ValueError("Requested grids must refine each axis without coarsening another")
+    all_pairs = [(mode, direction) for mode in MODES for direction in DIRECTIONS]
+    pairs = [tuple(pair) for pair in protocol.get("mode_direction_pairs", all_pairs)]
+    if not pairs or len(set(pairs)) != len(pairs) or not set(pairs).issubset(all_pairs):
+        raise ValueError("Grid study requires distinct, valid mode/direction pairs")
     keys = [(c["exo"], c["direction"], tuple(c["requested_resolution"])) for c in cases]
-    expected = {(mode, direction, size) for mode in MODES for direction in DIRECTIONS for size in resolutions}
+    expected = {(mode, direction, size) for mode, direction in pairs for size in resolutions}
     if len(keys) != len(expected) or set(keys) != expected:
-        raise ValueError("Grid study requires all six mode/direction pairs at every resolution")
+        raise ValueError("Grid study requires every declared mode/direction pair at every resolution")
     _require_solved(cases)
     loaded = {key: _case_data(case, protocol) for key, case in zip(keys, cases, strict=True)}
     comparisons = []
-    for mode in MODES:
-        for direction in DIRECTIONS:
-            for lower, upper in zip(resolutions, resolutions[1:]):
-                a, sa, (xa, va, fa) = loaded[mode, direction, lower]
-                b, sb, (xb, vb, fb) = loaded[mode, direction, upper]
-                if set(sa["target"]) != set(sb["target"]) or any(
-                    not np.allclose(sa["target"][key], sb["target"][key], rtol=1e-12, atol=1e-12)
-                    for key in sa["target"]
-                ):
-                    raise ValueError(f"Different target sets for {mode}/{direction}")
-                if any(sa[key] != sb[key] for key in ["solver_sha256", "precision"]):
-                    raise ValueError(f"Different solver or precision for {mode}/{direction}")
-                theta_mask = (xb >= xa[0]) & (xb <= xa[-1])
-                velocity_mask = (vb >= va[0]) & (vb <= va[-1])
-                velocity_mask &= vb >= 0 if direction == "forward" else vb <= 0
-                theta, velocity = xb[theta_mask], vb[velocity_mask]
-                if len(theta) < 2 or len(velocity) < 2:
-                    raise ValueError(f"Insufficient common domain for {mode}/{direction}")
-                points = np.stack(np.meshgrid(theta, velocity, indexing="ij"), axis=-1)
-                coarse = RegularGridInterpolator((xa, va), fa)(points) <= 0
-                fine = fb[np.ix_(theta_mask, velocity_mask)] <= 0
-                union = np.count_nonzero(coarse | fine)
-                comparisons.append(
-                    {
-                        "profile": a["profile"],
-                        "exo": mode,
-                        "direction": direction,
-                        "coarse_requested_resolution": a["requested_resolution"],
-                        "fine_requested_resolution": b["requested_resolution"],
-                        "native_grid_area_change_percent": 100
-                        * (b["area_rad2_per_s"] / a["area_rad2_per_s"] - 1)
-                        if a["area_rad2_per_s"]
-                        else None,
-                        "common_coarse_area_rad2_per_s": _area(theta, velocity, coarse),
-                        "common_fine_area_rad2_per_s": _area(theta, velocity, fine),
-                        "common_sign_disagreement_nodes": int(np.count_nonzero(coarse != fine)),
-                        "common_negative_set_jaccard": float(np.count_nonzero(coarse & fine) / union)
-                        if union
-                        else 1.0,
-                        "common_grid_nodes": int(coarse.size),
-                        "common_theta_min_rad": float(theta[0]),
-                        "common_theta_max_rad": float(theta[-1]),
-                        "common_velocity_min_rad_s": float(velocity[0]),
-                        "common_velocity_max_rad_s": float(velocity[-1]),
-                    }
-                )
+    for mode, direction in pairs:
+        for lower, upper in zip(resolutions, resolutions[1:]):
+            a, sa, (xa, va, fa) = loaded[mode, direction, lower]
+            b, sb, (xb, vb, fb) = loaded[mode, direction, upper]
+            if set(sa["target"]) != set(sb["target"]) or any(
+                not np.allclose(sa["target"][key], sb["target"][key], rtol=1e-12, atol=1e-12)
+                for key in sa["target"]
+            ):
+                raise ValueError(f"Different target sets for {mode}/{direction}")
+            if any(sa[key] != sb[key] for key in ["solver_sha256", "precision"]):
+                raise ValueError(f"Different solver or precision for {mode}/{direction}")
+            theta_mask = (xb >= xa[0]) & (xb <= xa[-1])
+            velocity_mask = (vb >= va[0]) & (vb <= va[-1])
+            velocity_mask &= vb >= 0 if direction == "forward" else vb <= 0
+            theta, velocity = xb[theta_mask], vb[velocity_mask]
+            if len(theta) < 2 or len(velocity) < 2:
+                raise ValueError(f"Insufficient common domain for {mode}/{direction}")
+            points = np.stack(np.meshgrid(theta, velocity, indexing="ij"), axis=-1)
+            coarse = RegularGridInterpolator((xa, va), fa)(points) <= 0
+            fine = fb[np.ix_(theta_mask, velocity_mask)] <= 0
+            union = np.count_nonzero(coarse | fine)
+            comparisons.append(
+                {
+                    "profile": a["profile"],
+                    "exo": mode,
+                    "direction": direction,
+                    "coarse_requested_resolution": a["requested_resolution"],
+                    "fine_requested_resolution": b["requested_resolution"],
+                    "native_grid_area_change_percent": 100 * (b["area_rad2_per_s"] / a["area_rad2_per_s"] - 1)
+                    if a["area_rad2_per_s"]
+                    else None,
+                    "common_coarse_area_rad2_per_s": _area(theta, velocity, coarse),
+                    "common_fine_area_rad2_per_s": _area(theta, velocity, fine),
+                    "common_sign_disagreement_nodes": int(np.count_nonzero(coarse != fine)),
+                    "common_negative_set_jaccard": float(np.count_nonzero(coarse & fine) / union)
+                    if union
+                    else 1.0,
+                    "common_grid_nodes": int(coarse.size),
+                    "common_theta_min_rad": float(theta[0]),
+                    "common_theta_max_rad": float(theta[-1]),
+                    "common_velocity_min_rad_s": float(velocity[0]),
+                    "common_velocity_max_rad_s": float(velocity[-1]),
+                }
+            )
     rows = [loaded[key][0] for key in keys]
     result = {
         "protocol_sha256": hashlib.sha256(protocol_path.read_bytes()).hexdigest(),
         "parameter_set": protocol["parameter_set"],
         "target_sets": protocol["target_sets"],
+        "mode_direction_pairs": pairs,
         "scope": "Spatial sensitivity on recorded grids; no automatic convergence certificate.",
         "comparison_method": (
             "Linear interpolation of coarse projected values onto finer common-domain nodes, "
@@ -298,15 +302,20 @@ def compare_grids(protocol_path: Path, output: Path) -> dict:
 def _plot_grid_study(rows: list[dict], resolutions: list[tuple], output: Path) -> None:
     import matplotlib.pyplot as plt
 
-    figure, axes = plt.subplots(1, 2, figsize=(10, 4.5), sharex=True)
+    directions = [direction for direction in DIRECTIONS if any(r["direction"] == direction for r in rows)]
+    figure, axes = plt.subplots(
+        1, len(directions), figsize=(5 * len(directions), 4.5), sharex=True, squeeze=False
+    )
     labels = ["x".join(map(str, size)) for size in resolutions]
-    for axis, direction in zip(axes, DIRECTIONS, strict=True):
+    for axis, direction in zip(axes[0], directions, strict=True):
         for mode, color in zip(MODES, ["#24486d", "#238f83", "#d58d32"], strict=True):
             lookup = {
                 r["requested_resolution"]: r["area_rad2_per_s"]
                 for r in rows
                 if r["exo"] == mode and r["direction"] == direction
             }
+            if not lookup:
+                continue
             axis.plot(
                 range(len(labels)),
                 [lookup[label] for label in labels],
@@ -321,7 +330,7 @@ def _plot_grid_study(rows: list[dict], resolutions: list[tuple], output: Path) -
             ylabel="Projected area (rad²/s)",
         )
         axis.spines[["top", "right"]].set_visible(False)
-    axes[0].legend(frameon=False)
+    axes[0, 0].legend(frameon=False)
     figure.suptitle(f"{rows[0]['profile']}: projected-area sensitivity to grid spacing")
     figure.tight_layout()
     for extension in ["png", "pdf", "svg"]:

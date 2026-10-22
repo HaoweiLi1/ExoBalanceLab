@@ -93,8 +93,7 @@ def test_campaign_report_integrates_both_directions_and_rejects_missing_or_chang
     assert not (tmp_path / "unfinished").exists()
 
 
-def test_grid_report_separates_indicator_quadrature_from_identical_value_boundaries(tmp_path, monkeypatch):
-    monkeypatch.setenv("MPLCONFIGDIR", str(tmp_path / "mpl"))
+def _grid_fixture(tmp_path):
     profile = AUTHORS_PROFILES["OF"]
     sizes = [3, 5, 9]
     cases = []
@@ -159,6 +158,12 @@ def test_grid_report_separates_indicator_quadrature_from_identical_value_boundar
     }
     path = tmp_path / "protocol.json"
     path.write_text(json.dumps(protocol))
+    return cases, protocol, path
+
+
+def test_grid_report_separates_indicator_quadrature_from_identical_value_boundaries(tmp_path, monkeypatch):
+    monkeypatch.setenv("MPLCONFIGDIR", str(tmp_path / "mpl"))
+    cases, protocol, path = _grid_fixture(tmp_path)
     actual = compare_grids(path, tmp_path / "report")
     assert len(actual["areas"]) == 18 and len(actual["comparisons"]) == 12
     for row in actual["areas"]:
@@ -203,3 +208,32 @@ def test_grid_report_separates_indicator_quadrature_from_identical_value_boundar
     with pytest.raises(ValueError, match="every resolution"):
         compare_grids(path, tmp_path / "incomplete")
     assert not (tmp_path / "incomplete").exists()
+
+
+def test_targeted_grid_study_requires_explicit_pairs_and_all_their_resolutions(tmp_path, monkeypatch):
+    monkeypatch.setenv("MPLCONFIGDIR", str(tmp_path / "mpl"))
+    cases, protocol, path = _grid_fixture(tmp_path)
+    selected = [c for c in cases if c["exo"] in {"none", "gc"} and c["direction"] == "forward"]
+    protocol["cases"] = selected
+    path.write_text(json.dumps(protocol))
+    with pytest.raises(ValueError, match="every declared"):
+        compare_grids(path, tmp_path / "undeclared_subset")
+    protocol["mode_direction_pairs"] = [["none", "forward"], ["gc", "forward"]]
+    path.write_text(json.dumps(protocol))
+    actual = compare_grids(path, tmp_path / "targeted")
+    assert len(actual["areas"]) == 6 and len(actual["comparisons"]) == 4
+    assert {r["exo"] for r in actual["areas"]} == {"none", "gc"}
+    assert {r["direction"] for r in actual["areas"]} == {"forward"}
+    assert all(r["common_negative_set_jaccard"] == 1 for r in actual["comparisons"])
+    assert (tmp_path / "targeted/grid_study.png").is_file()
+    for name, incomplete in [("missing_pair", selected[:-1]), ("extra_pair", selected + [cases[1]])]:
+        protocol["cases"] = incomplete
+        path.write_text(json.dumps(protocol))
+        with pytest.raises(ValueError, match="every declared"):
+            compare_grids(path, tmp_path / name)
+        assert not (tmp_path / name).exists()
+    protocol["cases"] = selected
+    protocol["mode_direction_pairs"] = [["none", "forward"], ["none", "forward"]]
+    path.write_text(json.dumps(protocol))
+    with pytest.raises(ValueError, match="distinct"):
+        compare_grids(path, tmp_path / "duplicate_pairs")

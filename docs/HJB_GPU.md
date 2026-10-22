@@ -184,3 +184,13 @@ nodes inside their common domain. Common-grid sign agreement and area estimates 
 value-field changes from quadrature/domain differences. No extrapolation is used.
 CSV/JSON and PNG/PDF/SVG outputs retain actual axis extents and projection hashes.
 The report measures spatial sensitivity; it does not automatically certify convergence.
+
+For a targeted study, explicitly declare `mode_direction_pairs` in the protocol; every
+listed pair must appear at every declared resolution. Without this field the report
+requires all six pairs. The [OM GC follow-up](results/hjb_om_gc_followup/protocol.json)
+uses `[["none", "forward"], ["gc", "forward"]]` to investigate its 225-grid sign
+disagreement with Table II. The same preparation, solve and `--grid-study` commands
+apply with that protocol path. This is a follow-up selected after observing that result.
+
+The complete population report can also be regenerated from its included projections,
+without MATLAB or a GPU; see the [results and reconstruction command](RESULTS.md#complete-225-grid-population-comparison).

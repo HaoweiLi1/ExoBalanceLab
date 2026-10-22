@@ -42,7 +42,8 @@ rectangular fields. The HJB reader tests also compare cached/uncached derivative
 and reject a mismatched or damaged disk cache.
 The grid-study test samples one exact linear field at three resolutions: its native
 indicator quadrature changes while common-grid boundaries agree exactly. It also rejects
-changed targets, changed solver code and an omitted declared resolution.
+changed targets, changed solver code and an omitted declared resolution. Targeted studies
+must explicitly declare their pairs; omitted, extra or duplicated pairs are rejected.
 
 The HJB validation sampler excludes physically invalid torque nodes introduced by grid
 alignment. Frozen-protocol tests retain invalid historical states and their recorded
