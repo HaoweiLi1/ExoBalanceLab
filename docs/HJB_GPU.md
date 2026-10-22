@@ -86,11 +86,52 @@ Recorded experiments are reported in [Results](RESULTS.md).
 
 ## Complete population comparison
 
-After all 30 runs in a recorded campaign are complete:
+The [recorded protocol](results/hjb_paper225/protocol.json) fixes all 30 combinations,
+solver settings, saved-history choices and the Table II reference values. From the
+repository root, prepare its inputs in MATLAB with the source/dependency paths adjusted
+for your machine. Use empty output paths; existing experiment files are preserved.
+
+```matlab
+addpath('matlab');
+protocol = jsondecode(fileread('docs/results/hjb_paper225/protocol.json'));
+for k = 1:numel(protocol.cases)
+    c = protocol.cases(k);
+    solve_paper_hjb('/path/to/AnkleExoBRS', 'logs/hjb_dependencies', c.prepared, ...
+        profile=c.profile, exo=c.exo, direction=c.direction, ...
+        resolution=protocol.requested_resolution, duration_s=protocol.horizon_s, ...
+        output_step_s=protocol.output_step_s, ...
+        velocity_buffer_rad_s=protocol.velocity_buffer_rad_s, ...
+        method=protocol.method, align_zero=protocol.align_zero, prepare_only=true);
+end
+```
+
+In the GPU environment, run one case at a time. OF saves all six policy histories for
+forward validation; the other profiles save final fields and projections. Allow about
+100 GB of free disk for prepared inputs, outputs and a few optional derivative caches.
+
+```bash
+python - <<'PY'
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+protocol = json.loads(Path('docs/results/hjb_paper225/protocol.json').read_text())
+for case in protocol['cases']:
+    command = [sys.executable, '-m', 'exobalancelab.hjb_solver',
+               '--problem', str(Path(case['prepared']) / 'problem.mat'),
+               '--out', case['solved']]
+    if not case['save_history']:
+        command.append('--projection-only')
+    subprocess.run(command, check=True)
+PY
+```
+
+After every run is complete, aggregate the same protocol:
 
 ```bash
 python -m exobalancelab.hjb_regions \
-  --protocol logs/hjb_paper225/protocol.json --out logs/paper_region_report
+  --protocol docs/results/hjb_paper225/protocol.json --out logs/paper_region_report
 ```
 
 The report checks the five profiles, three assistance modes, both velocity directions,

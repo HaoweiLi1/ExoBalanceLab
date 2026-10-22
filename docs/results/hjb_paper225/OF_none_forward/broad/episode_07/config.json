@@ -1,0 +1,17 @@
+{
+  "model": "paper",
+  "profile": "OF",
+  "parameters": "authors",
+  "exo": "none",
+  "duration_s": 1.4,
+  "timestep_s": 0.001,
+  "control_period_s": 0.001,
+  "lean_rad": -0.3098588267948965,
+  "velocity_rad_s": 1.4058035714285715,
+  "initial_torque_nm": -57.94642857142858,
+  "device_mass_kg": 2.0,
+  "push_n": 0.0,
+  "push_start_s": 1.0,
+  "push_duration_s": 0.15,
+  "human_strength": 1.0
+}

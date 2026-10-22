@@ -345,8 +345,35 @@ from 101 to 201 changes the sampled forward area from 0.343706 to 0.410191 rad²
 At 201 angle nodes, increasing torque nodes from 51 to 101 changes it to 0.419714 rad²/s.
 Increasing velocity nodes from 269 to 537 then changes it to 0.433604 rad²/s, another
 3.31%. The [velocity-refined projection and configuration](results/hjb_gpu/201_537_101/)
-are retained. The paper-sized grid remains in progress. These observations
-do not establish spatial convergence or reproduce Table II.
+are retained. These observations do not establish spatial convergence or reproduce
+Table II; the complete population comparison is still running.
+
+### Paper-sized nominal grid and broader forward validation
+
+The OF/no-assistance forward solve at the paper's requested 225³ resolution is complete.
+Aligning zero velocity and torque gives **225×226×226 actual nodes**, with a 0.5 rad/s
+reverse-velocity buffer, 1.4 s horizon and 10 ms saved history. Its sampled projected
+area is **0.434381 rad²/s**; solver wall time was **687.10 s**. All three spatial axes
+differ from the previous 201×537×101 grid, so their similar areas are not a nested
+convergence test. [Configuration and projection](results/hjb_paper225/OF_none_forward/).
+
+At 1 ms physics/control, the frozen cohort retains six valid target reaches and three
+outside-group coverage errors. A broader, separately preselected cohort uses the same
+seed and ten admissible states per group:
+
+| Preselected group | Valid terminal-target reach | Left policy grid |
+|---|---:|---:|
+| Inside | 10 / 10 | 0 / 10 |
+| Outside | 0 / 10 | 10 / 10 |
+| Near zero value | 10 / 10 | 0 / 10 |
+
+Five boundary-group successes have slightly positive initial values, from 1.47e-5 to
+4.92e-5. Thus the sampled sign boundary still differs from forward behavior; coverage
+errors are unresolved rollouts, not proofs of physical failure. Every completed episode
+retains valid contact. [All outcomes and summary](results/hjb_paper225/OF_none_forward/validation_summary.json) ·
+[Frozen cohort](results/hjb_paper225/OF_none_forward/frozen/) ·
+[Broader cohort and full trajectories](results/hjb_paper225/OF_none_forward/broad/).
+These samples do not establish a population success rate or a maximal stabilizable region.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 

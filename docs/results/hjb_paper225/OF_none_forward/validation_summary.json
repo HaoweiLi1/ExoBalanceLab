@@ -1,0 +1,72 @@
+{
+  "frozen": {
+    "groups": {
+      "inside": {
+        "selected": 3,
+        "predicted_inside": 3,
+        "valid_target_reach": 3,
+        "policy_coverage_errors": 0
+      },
+      "outside": {
+        "selected": 3,
+        "predicted_inside": 0,
+        "valid_target_reach": 0,
+        "policy_coverage_errors": 3
+      },
+      "boundary": {
+        "selected": 3,
+        "predicted_inside": 3,
+        "valid_target_reach": 3,
+        "policy_coverage_errors": 0
+      }
+    },
+    "positive_value_target_reaches": []
+  },
+  "broad": {
+    "groups": {
+      "inside": {
+        "selected": 10,
+        "predicted_inside": 10,
+        "valid_target_reach": 10,
+        "policy_coverage_errors": 0
+      },
+      "outside": {
+        "selected": 10,
+        "predicted_inside": 0,
+        "valid_target_reach": 0,
+        "policy_coverage_errors": 10
+      },
+      "boundary": {
+        "selected": 10,
+        "predicted_inside": 5,
+        "valid_target_reach": 10,
+        "policy_coverage_errors": 0
+      }
+    },
+    "positive_value_target_reaches": [
+      {
+        "case_index": 20,
+        "initial_value": 2.782813238006466e-05
+      },
+      {
+        "case_index": 25,
+        "initial_value": 3.68386547568181e-05
+      },
+      {
+        "case_index": 27,
+        "initial_value": 4.9226418484697754e-05
+      },
+      {
+        "case_index": 28,
+        "initial_value": 1.949272482258869e-05
+      },
+      {
+        "case_index": 29,
+        "initial_value": 1.4747239516160216e-05
+      }
+    ]
+  },
+  "area_rad2_per_s": 0.43438135263871175,
+  "scope": "OF/no-assistance forward-velocity solve, requested 225 cubed with zero-aligned velocity/torque. These are finite-grid predictions and diagnostic cohorts; convergence and complete Table II comparison remain separate.",
+  "retained": "Every protocol, outcome and completed episode; local full value history is bound by protocol policy_sha256."
+}
