@@ -1,0 +1,259 @@
+{
+  "profile": "OF",
+  "total_states": 180,
+  "scope": "Six separately preselected cohorts on the full solved domains, including reverse-velocity buffers. Counts are neither paired assistance effects nor population success rates. The original PD forward 25-us miss remains included; its finer-step one-case check is separate.",
+  "cohorts": [
+    {
+      "exo": "none",
+      "direction": "forward",
+      "timestep_s": 0.001,
+      "control_period_s": 0.001,
+      "groups": {
+        "inside": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        },
+        "boundary": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 5
+        },
+        "outside": {
+          "selected": 10,
+          "valid_target_reach": 0,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 10,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        }
+      },
+      "source": "OF_none_forward/admissible",
+      "policy_sha256": "eeaefd627ee8afba6065c80df946327fcda5227664c19f69117c44ad8c71bdf3",
+      "protocol_sha256": "e262adc6b91dda2644e3e754523c33be8a192dd3baae14502ff079159b87074c",
+      "outcomes_sha256": "c407bfd9f904f543dc5e2f9673edd3d7bd408addf2886bfdc3062832bcde5b2e",
+      "all_initial_states_satisfy_torque_and_contact_bounds": true,
+      "minimum_initial_contact_margins": {
+        "normal_n": 244.9666460303422,
+        "cop_margin_m": 0.0026518103175155877,
+        "friction_margin_n": 76.98813167760929
+      }
+    },
+    {
+      "exo": "none",
+      "direction": "backward",
+      "timestep_s": 0.001,
+      "control_period_s": 0.001,
+      "groups": {
+        "inside": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        },
+        "boundary": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 6
+        },
+        "outside": {
+          "selected": 10,
+          "valid_target_reach": 1,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 9,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 1
+        }
+      },
+      "source": "OF_none_backward/admissible",
+      "policy_sha256": "8d9253df770a5ab9d2833c9abeb0259d35013034d189d593ff6556002e4c5e94",
+      "protocol_sha256": "b2abd51bb43fe4c382548f30e79c584817f5e3f9e3558eca9fe2006f5f2f6b4f",
+      "outcomes_sha256": "4c03898fd69091febd0ee5489637db123ca18672a361a056a24acf953db2e6d4",
+      "all_initial_states_satisfy_torque_and_contact_bounds": true,
+      "minimum_initial_contact_margins": {
+        "normal_n": 104.11348617815662,
+        "cop_margin_m": 0.011455931807327187,
+        "friction_margin_n": 23.636791310673246
+      }
+    },
+    {
+      "exo": "gc",
+      "direction": "forward",
+      "timestep_s": 5e-05,
+      "control_period_s": 5e-05,
+      "groups": {
+        "inside": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        },
+        "boundary": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 6
+        },
+        "outside": {
+          "selected": 10,
+          "valid_target_reach": 1,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 9,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 1
+        }
+      },
+      "source": "OF_gc_forward/50us",
+      "policy_sha256": "e01be7f625e2b363057a73da1df81c71bfe7b5f68424d41e14e462cb61814e16",
+      "protocol_sha256": "3a5a571844bed8026b90a5a0816d1e9966258b88f9b12824d31544e4a339dc98",
+      "outcomes_sha256": "b31982e77c948c129fad9770c8e00334476cfc4468266c5b5a421456000e0697",
+      "all_initial_states_satisfy_torque_and_contact_bounds": true,
+      "minimum_initial_contact_margins": {
+        "normal_n": 22.0757725184493,
+        "cop_margin_m": 0.0001469656783993356,
+        "friction_margin_n": 20.61921580098847
+      }
+    },
+    {
+      "exo": "gc",
+      "direction": "backward",
+      "timestep_s": 5e-05,
+      "control_period_s": 5e-05,
+      "groups": {
+        "inside": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        },
+        "boundary": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 5
+        },
+        "outside": {
+          "selected": 10,
+          "valid_target_reach": 0,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 10,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        }
+      },
+      "source": "OF_gc_backward/50us",
+      "policy_sha256": "3955ad7a4bff1284b8b8a8042535255aba265b28654d0dc67d15092aaa80704a",
+      "protocol_sha256": "abc8cf93c13139a4b7b5a53679e83ebbc4092aef27a1e985668219274a94725f",
+      "outcomes_sha256": "0d568a5ba44eeb163d4acbdac599ee1270d50f71828203b634af17479b444ed4",
+      "all_initial_states_satisfy_torque_and_contact_bounds": true,
+      "minimum_initial_contact_margins": {
+        "normal_n": 245.7283037375551,
+        "cop_margin_m": 0.0020183072537744776,
+        "friction_margin_n": 97.75851012117269
+      }
+    },
+    {
+      "exo": "pd",
+      "direction": "forward",
+      "timestep_s": 2.5e-05,
+      "control_period_s": 2.5e-05,
+      "groups": {
+        "inside": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        },
+        "boundary": {
+          "selected": 10,
+          "valid_target_reach": 9,
+          "completed_invalid": 1,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 3
+        },
+        "outside": {
+          "selected": 10,
+          "valid_target_reach": 1,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 9,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 1
+        }
+      },
+      "source": "OF_pd_forward/25us",
+      "policy_sha256": "921cd6a8af2624a3b4b9785a4af586040b7c2cf8afdf5645af0c45eea8dbe6e7",
+      "protocol_sha256": "38678131fc0546a4b953cda52468be68ca1ab735c38fad29c80694a34a5f6a94",
+      "outcomes_sha256": "38f7d04a5411dc8760036dda8dc6c00eb6948574d6d5a02638162ec3bf82521d",
+      "all_initial_states_satisfy_torque_and_contact_bounds": true,
+      "minimum_initial_contact_margins": {
+        "normal_n": 111.48594735631019,
+        "cop_margin_m": 0.006753220116606055,
+        "friction_margin_n": 29.117303784285184
+      }
+    },
+    {
+      "exo": "pd",
+      "direction": "backward",
+      "timestep_s": 1.25e-05,
+      "control_period_s": 1.25e-05,
+      "groups": {
+        "inside": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        },
+        "boundary": {
+          "selected": 10,
+          "valid_target_reach": 10,
+          "completed_invalid": 0,
+          "policy_coverage_errors": 0,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 5
+        },
+        "outside": {
+          "selected": 10,
+          "valid_target_reach": 0,
+          "completed_invalid": 1,
+          "policy_coverage_errors": 9,
+          "other_rollout_errors": 0,
+          "positive_value_valid_reaches": 0
+        }
+      },
+      "source": "OF_pd_backward/12p5us",
+      "policy_sha256": "64de00088b9f6cae944b1257a4b91e868f40467a81c9d2f335537648be8caeae",
+      "protocol_sha256": "cb2e68bb18ee5dcbb545867b8381cb1c423e19d3e7798030fdd141a6f80e3aff",
+      "outcomes_sha256": "cb6e7aa37220ccbe1dcb5afd71f9ad64171b81acec5bcbc5743291b5ee175898",
+      "all_initial_states_satisfy_torque_and_contact_bounds": true,
+      "minimum_initial_contact_margins": {
+        "normal_n": 252.93716500086845,
+        "cop_margin_m": 5.136576049225017e-06,
+        "friction_margin_n": 22.25946609367088
+      }
+    }
+  ]
+}

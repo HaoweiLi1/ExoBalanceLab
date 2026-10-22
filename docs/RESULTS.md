@@ -372,22 +372,36 @@ area is **0.434381 rad²/s**; solver wall time was **687.10 s**. All three spati
 differ from the previous 201×537×101 grid, so their similar areas are not a nested
 convergence test. [Configuration and projection](results/hjb_paper225/OF_none_forward/).
 
-At 1 ms physics/control, the frozen cohort retains six valid target reaches and three
-outside-group coverage errors. A broader, separately preselected cohort uses the same
-seed and ten states per group, with physical torque and contact limits checked.
+At 1 ms physics/control, the frozen nominal cohort retains six valid target reaches and
+three outside-group coverage errors. Broader, separately preselected cohorts cover all
+six OF assistance/direction pairs, using seed 240805418 and ten states per group.
+All 180 initial states satisfy physical torque and contact limits.
 
 Here, forward/backward identifies the solved grid. Rollout selection uses its full domain,
 including the opposite-velocity buffer; the area comparison uses only the named velocity sign.
 
-| Preselected group | Valid terminal-target reach | Left policy grid |
-|---|---:|---:|
-| Inside | 10 / 10 | 0 / 10 |
-| Outside | 0 / 10 | 10 / 10 |
-| Near zero value | 10 / 10 | 0 / 10 |
+| Assistance | Grid | Step (μs) | Inside reaches | Boundary reaches | Outside reaches | Coverage errors |
+|---|---|---:|---:|---:|---:|---:|
+| None | Forward | 1,000 | 10 / 10 | 10 / 10 | 0 / 10 | 10 |
+| None | Backward | 1,000 | 10 / 10 | 10 / 10 | 1 / 10 | 9 |
+| GC | Forward | 50 | 10 / 10 | 10 / 10 | 1 / 10 | 9 |
+| GC | Backward | 50 | 10 / 10 | 10 / 10 | 0 / 10 | 10 |
+| PD | Forward | 25 | 10 / 10 | 9 / 10 | 1 / 10 | 9 |
+| PD | Backward | 12.5 | 10 / 10 | 10 / 10 | 0 / 10 | 9 |
 
-Five boundary-group successes have slightly positive initial values, from 1.47e-5 to
-4.92e-5. Thus the sampled sign boundary still differs from forward behavior; coverage
-errors are unresolved rollouts, not proofs of physical failure. Every completed episode
+Reaches require both terminal-target membership and valid contact. Physics and feedback
+use the same simulated-time step; these are not measured controller rates. Two other
+episodes complete without a valid reach: the PD forward boundary miss and PD backward
+outside failure described below. The cohorts use different states, so the counts are
+not paired assistance effects or population success rates.
+[All cohort counts, initial-state checks and source hashes](results/hjb_paper225/forward_validation.json).
+Group labels use the full three-state value; the figures project over human torque.
+Replay a cohort with its saved `protocol.json` passed to `hjb_validation --protocol`,
+using the table's step for both `--dt` and `--control-period` and a new output directory.
+
+In the nominal forward cohort, five boundary successes have slightly positive initial
+values, from 1.47e-5 to 4.92e-5. Thus the sampled sign boundary still differs from forward
+behavior. Coverage errors are unresolved rollouts, not proofs of physical failure. Every completed episode
 retains valid contact. [All outcomes and summary](results/hjb_paper225/OF_none_forward/validation_summary.json) ·
 [Frozen cohort](results/hjb_paper225/OF_none_forward/frozen/) ·
 [Broader cohort and full trajectories](results/hjb_paper225/OF_none_forward/admissible/).
@@ -407,24 +421,17 @@ initial values. All completed episodes maintain valid contact.
 [Backward outcomes and full trajectories](results/hjb_paper225/OF_none_backward/admissible/) ·
 [Original failure and equality checks](results/hjb_paper225/OF_none_backward/validation_summary.json).
 
-The full-horizon GC forward policy was separately tested at **50 μs simulated physics
-and control steps**. All ten inside states and all ten boundary states reached the
-unchanged targets with valid contact. One positive-value outside state also reached a
-target (initial value 0.004553); the other nine outside states left the policy grid.
-Six boundary successes also had positive initial values. This discrepancy remains part
+GC forward includes a successful positive-value outside state (initial value 0.004553)
+and six positive-value boundary successes. This discrepancy remains part
 of the numerical evidence, alongside the successful inside predictions.
 [GC protocol, all outcomes and episode hashes](results/hjb_paper225/OF_gc_forward/50us/) ·
 [GC summary](results/hjb_paper225/OF_gc_forward/validation_summary.json).
 Episode 00 is included in full; the remaining raw trajectories are retained locally and
-can be regenerated from the recorded protocol. GC and nominal cohorts contain different
-states, so their counts are not a paired comparison of assistance. The 50 μs step is a
-simulation accuracy setting, not measured 20 kHz controller throughput.
+can be regenerated from the recorded protocol.
 
-GC's backward cohort also has ten inside and ten boundary successes, with ten outside
-coverage errors at 50 μs. [Complete backward outcomes](results/hjb_paper225/OF_gc_backward/50us/).
-PD's forward cohort at 25 μs has ten inside successes, nine boundary successes and one
-boundary target miss; one outside state succeeds and nine leave the grid.
-[PD outcomes and retained examples](results/hjb_paper225/OF_pd_forward/25us/).
+GC backward has five positive-value boundary successes.
+[Complete backward outcomes](results/hjb_paper225/OF_gc_backward/50us/) ·
+[PD forward outcomes and retained examples](results/hjb_paper225/OF_pd_forward/25us/).
 
 The PD boundary miss, case 25, ends at −0.00920357 Nm, just outside the unchanged
 ±0.00916863 Nm ankle target. Its angle, velocity and contact remain valid. Holding the
@@ -439,6 +446,13 @@ Reproduce the one-case check with `hjb_validation`, the saved `case25_precision/
 0.00000625 s. The selected examples include full NPZ arrays and model/configuration
 snapshots. Redundant CSV files and the other fine-step raw episodes remain in local logs,
 with their hashes and regeneration protocols retained.
+
+PD backward at 12.5 μs also has five positive-value boundary successes. Outside case 15
+has initial value 0.0212335 and completes without reaching either target; contact is valid
+for only 21.77% of recorded steps. Its final speed is 0.0338195 rad/s and human torque
+8.34436 Nm. This failure is retained alongside the successful inside examples.
+[All backward outcomes, protocol and raw-file hashes](results/hjb_paper225/OF_pd_backward/12p5us/) ·
+[Complete failure trajectory](results/hjb_paper225/OF_pd_backward/12p5us/episode_15/).
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 
