@@ -17,7 +17,7 @@ arXiv v3, October 2, 2024. Authors' code:
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
 | Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy` and MATLAB exporter | Synthetic grid/interface tests; original HJB policy pending |
-| Published HJB regions, Figs. 4–6 / Table II | Not yet reproduced | Requires activated MATLAB, matching source/dependencies and convergence study |
+| Published HJB regions, Figs. 4–6 / Table II | Not yet reproduced | Requires working MATLAB runtime, matching source/dependencies and convergence study |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
@@ -102,8 +102,9 @@ the reported figures. Record any patch separately from the authors' unchanged so
 
 ## Acceptance for the remaining HJB reproduction
 
-1. Activate MATLAB and verify the required numerical/toolbox dependencies.
-2. Pin helperOC/ToolboxLS, YALMIP, SeDuMi and the geometry utility; preserve their licenses.
+1. Complete MATLAB runtime sign-in and verify the required numerical/toolbox dependencies.
+2. Verify the [pinned helperOC/ToolboxLS, YALMIP and SeDuMi sources](../matlab/README.md#prepared-hjb-dependencies)
+   in MATLAB; acquire and pin the geometry utility. Preserve vendor licenses.
 3. Resolve the source differences above with versioned patches and independent unit checks.
 4. Recompute target sets and all five population profiles for no-exo/GC/PD, at documented
    grid resolutions and horizons; check numerical convergence.

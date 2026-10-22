@@ -18,7 +18,7 @@ HJB regions and real MATLAB runtime execution remain separate pending acceptance
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **33 automated tests passed**, with the licensed MATLAB test skipped until activation.
+- **33 automated tests passed**, with the licensed MATLAB test skipped pending runtime access.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
 
@@ -27,7 +27,8 @@ Reproduce:
 ```bash
 python -m exobalancelab.validation --out logs/validation
 pytest -q
-# After activating MATLAB and installing its matching Engine:
+# After successful MATLAB runtime sign-in and matching Engine installation:
+# On affected Linux systems, use the runtime prefix in matlab/README.md.
 EXOBALANCE_MATLAB_TEST=1 pytest -q -s tests/test_matlab_runtime.py
 ```
 
@@ -115,7 +116,7 @@ Model XML and full arrays make the rendered evidence directly inspectable.
 Earlier development runs used a superseded forward/backward convention and are retained
 only under ignored local `logs/`. They are not included in the published results above.
 
-Pending: activate the installed MATLAB R2026b, execute the licensed round-trip/feedback
+Pending: finish runtime sign-in for installed MATLAB R2026b, execute the licensed round-trip/feedback
 test, reconcile the upstream source discrepancies, and reproduce the original HJB regions
 with convergence/area comparisons. See [paper acceptance](PAPER.md). The articulated model
 also remains unvalidated against subject-specific mechanics or physical human experiments.

@@ -37,6 +37,28 @@ exception. Function output must match the channel count and contain finite numbe
 Simulation advances in simulated time; it does not guarantee wall-clock deadlines.
 Controllers with persistent state start fresh for every paired run.
 
+### Linux runtime compatibility
+
+On the development machine (Ubuntu 22.04, MATLAB R2026b), importing NumPy/MuJoCo
+before the Engine loaded the system C++ runtime, which lacks `GLIBCXX_3.4.31`.
+Selecting MATLAB's supplied runtime for this process resolves the import error:
+
+```bash
+MATLAB_ROOT=/path/to/MATLAB/R2026b
+LD_LIBRARY_PATH="$MATLAB_ROOT/sys/os/glnxa64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  python -c 'import numpy, mujoco, matlab.engine; print("Engine import OK")'
+
+LD_LIBRARY_PATH="$MATLAB_ROOT/sys/os/glnxa64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  EXOBALANCE_MATLAB_TEST=1 python -m pytest -q -s tests/test_matlab_runtime.py
+```
+
+Use the same process-local prefix for `exobalance run --matlab-function ...` if
+affected. No system library replacement is needed. Import success checks the binary
+dependencies only; the test still needs MATLAB to start with a valid license.
+Account activation and an authenticated MATLAB runtime are separate checks: verify
+that the desktop reaches its `>>` command prompt and that `matlab -batch "disp(version)"`
+exits successfully before running unattended experiments.
+
 ## HJB torque-rate feedback
 
 The paper controls **human torque rate**, with human torque as the third state.
@@ -68,6 +90,32 @@ as an exact reproduction merely because the file loads.
 
 Transport, interpolation, sampling, torque-rate sign and closed-loop MuJoCo execution are
 covered by automated tests. Synthetic HJB fixtures test the interface only, not reachability.
-The development machine has MATLAB R2026b and its matching Engine; activation is currently
-required before MATLAB execution can be verified. MATLAB-generated round-trip and real
-Engine benchmarks remain pending until that activation succeeds.
+The development machine has MATLAB R2026b, its matching Engine and Optimization Toolbox.
+Following reported activation, batch startup still requested a MathWorks sign-in and
+exited with `Sign-in failed`; the R2026b desktop also displayed a sign-in dialog.
+NumPy, MuJoCo and the Engine import together successfully with the Linux runtime prefix
+above. MATLAB-generated round-trip, closed-loop parity and real Engine latency remain
+unverified until runtime sign-in succeeds.
+
+## Prepared HJB dependencies
+
+The following sources were downloaded unchanged on October 22, 2026, under ignored
+`logs/hjb_dependencies/`. These are preparation records, not MATLAB solver test results.
+Keep vendor licenses with each download and apply any future source corrections separately.
+
+| Dependency | Source | Pinned version |
+|---|---|---|
+| helperOC | [HJReachability/helperOC](https://github.com/HJReachability/helperOC) | `4ff68174c616d8aa4dccbee9ebf36665999c90f1` |
+| ToolboxLS | [Ian Mitchell's release archive](https://www.cs.ubc.ca/~mitchell/ToolboxLS/toolboxLS-1.1.1.zip) | `1.1.1`; SHA-256 below |
+| YALMIP | [yalmip/YALMIP](https://github.com/yalmip/YALMIP) | `52666d27c40e5eca5ed72de713f05e5959daf937` |
+| SeDuMi | [sqlp/sedumi](https://github.com/sqlp/sedumi), maintained fork | `daef0b7ee87c727a6d97bc1ca892f48b599166d7` |
+
+ToolboxLS archive SHA-256:
+`8ac634e3b91a1d27827c156880428b35bd08d951580dd9e80fa064e84f5849e8`.
+Use the ToolboxLS `Kernel` directory and helperOC's documented setup paths. SeDuMi's
+source checkout needs `install_sedumi` and working MEX binaries or a compatible compiler.
+The authors also require Matt J's
+[Analyze N-dimensional Convex Polyhedra](https://www.mathworks.com/matlabcentral/fileexchange/30892-analyze-n-dimensional-convex-polyhedra)
+for `lcon2vert`/`vert2lcon`; that download and runtime validation are still pending.
+The missing friction function and target/controller discrepancies in
+[the source audit](../docs/PAPER.md) must be resolved before computing comparable regions.
