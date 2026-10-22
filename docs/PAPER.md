@@ -13,11 +13,11 @@ arXiv v3, October 2, 2024. Authors' code:
 | C1 human maximum torque | `limit_human` and actuator bounds | Raw/applied action tests |
 | C2 maximum torque rate | State-aware sampled torque limiting | Directional rate and saturation tests |
 | C3 normal force, C4 CoP, C5 friction | Analytical required reactions; measured contact extension | Static equilibrium/CoP checks and logged margins |
-| Table I, five profiles | `PROFILES` | Explicit bilateral MT/MRTD and anthropometry |
+| Table I, five profiles | `PROFILES`, `AUTHORS_PROFILES` | Printed and released-source parameters retained separately |
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
-| Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Lifted-ODE convergence tests and real nominal MATLAB HJB/MuJoCo pipeline check |
-| Published HJB regions, Figs. 4–6 / Table II | Not yet reproduced | Runtime/dependencies work; target/controller reconciliation and convergence remain open |
+| Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Native/GPU comparisons and 180 preselected OF rollouts across all assistance/direction pairs |
+| Published HJB regions, Figs. 4–6 / Table II | Reconciled 30-case protocol and area reporter | Population and spatial studies running; exact published-region reproduction remains unaccepted |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
@@ -146,17 +146,28 @@ the reported figures. Record any patch separately from the authors' unchanged so
 
 ## Acceptance for the remaining HJB reproduction
 
-1. MATLAB runtime access and numerical dependencies are verified; retain the
+1. **Runtime verified.** MATLAB and numerical dependencies execute on the workstation;
+   retain the
    [pinned dependency versions](../matlab/README.md#prepared-hjb-dependencies) and vendor licenses.
-2. The nominal source and reconciled GC/PD dynamics/target construction are executable
-   and checked. Quantify how the documented source/target differences affect full regions;
-   retain the published box approximation separately from stronger invariance claims.
-3. Resolve the source differences above with versioned patches and independent unit checks.
-4. Recompute target sets and all five population profiles for no-exo/GC/PD, at documented
-   grid resolutions and horizons; check numerical convergence.
-5. Compare forward/backward projected areas to the paper's Table II, reporting discrepancies.
-6. Export matching policies; select states inside/outside and near boundaries before viewing
-   results; compare their MuJoCo trajectories and C1–C5 validity against the solver prediction.
+2. **Targets and dynamics executable.** The unchanged nominal source and reconciled GC/PD
+   construction are checked. Full-region sensitivity to these choices remains to be
+   quantified. The published box approximation is retained; box invariance is not assumed.
+3. **Source differences recorded.** Reconciled force/moment constraints, gain units and
+   target construction have independent checks. The released source does not establish
+   that these choices generated the published Table II; exact-version equivalence remains open.
+4. **Population and spatial studies running.** All five profiles and three modes have
+   prepared forward/backward inputs at the recorded 225³ resolution and 1.4 s horizon.
+   The [OF study](results/hjb_grid_study/protocol.json) adds 151³ and 301³ grids. Its
+   results must be inspected before making a convergence claim; an OF-only study does
+   not establish convergence for every population profile.
+5. **Published-area comparison pending.** The reporter requires all 30 solves before
+   computing Table II differences. It retains absolute areas and discrepancies rather
+   than adjusting the model to fit the reported percentages.
+6. **OF forward validation complete.** All six matching policies have ten preselected
+   states in each inside/outside/boundary group, totalling 180 MuJoCo rollouts. The
+   [complete records](results/hjb_paper225/forward_validation.json) include target/contact
+   failures, policy-coverage errors and successful positive-value states. Other profiles
+   currently save projections only; their forward trajectories have not been validated.
 
 [The results page](RESULTS.md) lists what has actually been run. Synthetic policy tests,
 a point-mass acceleration match or attractive animation do not satisfy these six steps.
