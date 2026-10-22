@@ -43,3 +43,16 @@ dynamics agreement and sampled controller rollouts alone do not prove that resul
 authors' MATLAB/helperOC dependencies and missing referenced source functions must be
 resolved or reported, with an explicit path to running and comparing the full experiment.
 The articulated extension is a model study, not physical or clinical validation.
+
+## Delivered implementation milestone
+
+- Conda Python 3.11 environment created; native MuJoCo and optional matching MATLAB Engine installed.
+- Unified interfaces/models, historical bridge fixes, tests, paired MP4/GIF media and evidence committed.
+- Corrected forward-angle/pressure-center conventions checked independently; final results regenerated.
+- 33 tests pass, 1 licensed MATLAB test is explicitly skipped. Lint, formatting, local Markdown links,
+  dependency consistency and an installed CLI invocation from another directory pass.
+- GitHub repository created with preserved history, one main branch and `fork=false`; implementation
+  commit `d0ed547783ae81e4a681309ceed376f1bbc7dabc` pushed and remote SHA matched.
+- [Implementation CI run](https://github.com/HaoweiLi1/ExoBalanceLab/actions/runs/39784619849) passed.
+- Full requested scientific acceptance remains open as detailed in `TODO.md`; this milestone does
+  not claim complete HJB reproduction or a licensed MATLAB runtime pass.
