@@ -1,0 +1,725 @@
+{
+  "scope": "All raw episodes retained locally; selected NPZ arrays and metadata are included. CSV files duplicate the saved numerical arrays.",
+  "records": [
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_00/config.json",
+      "bytes": 393,
+      "sha256": "fc46462fc1ee7494ae8837ea4bb1e07beaa528ff4e3cdded1aef507002a243ed",
+      "curated": true
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_00/episode.npz",
+      "bytes": 2548981,
+      "sha256": "c89678a807f64ff000a3b136342f47d3e4d9e1cd39bbf8ad58132e71b44469ce",
+      "curated": true
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_00/metrics.json",
+      "bytes": 1277,
+      "sha256": "c079475e43c27470237678e1e304446bcfa82a9dc84193763de2747e9e709ab0",
+      "curated": true
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_00/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": true
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_00/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": true
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_00/signals.csv",
+      "bytes": 11998458,
+      "sha256": "60d10dfbc25d58b2a8f29e1256b5b5b19b36b083ff304a103d5858f55b427d82",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_01/config.json",
+      "bytes": 393,
+      "sha256": "da427009165448be69b2e72bbb1303c583f4fd50b6f140e8abc08f47ef28b983",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_01/episode.npz",
+      "bytes": 3057479,
+      "sha256": "8d5e91b484017a1ae95e0fc2d7d2a22e2a21fe63e19eaef0fec36e94816295de",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_01/metrics.json",
+      "bytes": 1285,
+      "sha256": "3cd65ee850ec66e6fdf8b9a9f34e0a4a5fef6cca50c28c7f8a63c3f1701b1d5d",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_01/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_01/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_01/signals.csv",
+      "bytes": 11995068,
+      "sha256": "cb8eeec1928b6a3e59655ce43b9f2afe0cc1e5acb7052b98c5109b2568d10a54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_02/config.json",
+      "bytes": 394,
+      "sha256": "43445ad6b8bf6aff83d997d488e17fefb63d2ce371232ab50cd5ad2caef5fc65",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_02/episode.npz",
+      "bytes": 2544518,
+      "sha256": "6e3d899048404ac58547dab5ece0eacc1a053dc75999520ae629a65018639dd5",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_02/metrics.json",
+      "bytes": 1277,
+      "sha256": "f1948d2fb86a4a911f14f7df0630e7d5ddb3f75d229898f25a1b6626655ec85a",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_02/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_02/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_02/signals.csv",
+      "bytes": 11989164,
+      "sha256": "d438a00f9168b587669abee58fc4c9a299bc7b8e50fcc2a8586320046b8a0a4b",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_03/config.json",
+      "bytes": 393,
+      "sha256": "edc4a5f8dbea21170e58bf0107a594a24eb772ed2a10eb9de2f3447722abffe0",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_03/episode.npz",
+      "bytes": 2565375,
+      "sha256": "9d389d7004f494e2a4eb205548a8367e75dd027c0bf9cadca9210e85a00e4cec",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_03/metrics.json",
+      "bytes": 1280,
+      "sha256": "327c703f029630303c89dc6454543fcfa18f4aaee46bcfd913c2b6925d37ef29",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_03/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_03/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_03/signals.csv",
+      "bytes": 12001279,
+      "sha256": "65988f37971f5a563867a4d96e812186575d9c421ab4cfaeada7f3207c7de5dc",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_04/config.json",
+      "bytes": 392,
+      "sha256": "a41efee62210ff2b201574970bf31b6df489e3eb7bb9380e7159045c051a91a4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_04/episode.npz",
+      "bytes": 2576550,
+      "sha256": "12e4a8dc49b3179f34125a52ffbb5afd6c61955e0c17b23a21952acbbd1057cc",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_04/metrics.json",
+      "bytes": 1280,
+      "sha256": "1ee90617220d1d4a0567607bc6827d3c242b79f82ed09d668f4430466ee30c45",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_04/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_04/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_04/signals.csv",
+      "bytes": 12001159,
+      "sha256": "a6d1009a772883bb63b5e8e9b75e31ab276b9d2013e61dc72641c72647f1dd25",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_05/config.json",
+      "bytes": 394,
+      "sha256": "f23c6959a6b611d7f4525ed36d7623ef79a76472e54f8c63b3e0edd878476a8a",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_05/episode.npz",
+      "bytes": 2977223,
+      "sha256": "e4dc597d7ef15352e24b1a755e798e2325319e9ddcb4a93e5d9d7b223687862e",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_05/metrics.json",
+      "bytes": 1287,
+      "sha256": "fac4171adbfa8c8ff7ab1dc340c318b820f7aea2b82a5b77122ad437945669d0",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_05/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_05/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_05/signals.csv",
+      "bytes": 12004611,
+      "sha256": "0225a82a57381b09d1bef65078dc5c67427fb54d3f8fa62faf5ca6ecce3ad878",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_06/config.json",
+      "bytes": 391,
+      "sha256": "a1abbb76ba529f811fb01376511eff7a1509d27c709889c7adb6dfd53e49d5e9",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_06/episode.npz",
+      "bytes": 2590503,
+      "sha256": "4b0aa010cdef28ba50bde45879f0d5c2d7a972e92145fa5fe668884562d347ae",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_06/metrics.json",
+      "bytes": 1279,
+      "sha256": "b73e3749c16ea14f93f25b8fac75dae536b5f14b2d538a6cb3ec443a51e7ca2c",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_06/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_06/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_06/signals.csv",
+      "bytes": 11996288,
+      "sha256": "f25943dde6348f919111ed8e443bbf05aed29e2cc331e33e0038af26284f7595",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_07/config.json",
+      "bytes": 394,
+      "sha256": "03d63c478b3feace0df2c513121a808e34e35392b5866158bb39c5b4feeec22d",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_07/episode.npz",
+      "bytes": 3008913,
+      "sha256": "01560e5e07a54f52f1591a3f849d38ba327b7b9488c00c7a82602b9ea57300cf",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_07/metrics.json",
+      "bytes": 1287,
+      "sha256": "8680a3ac70fa83b8c758fa04a9c317e10288bad014bcab575cfadc517998b6be",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_07/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_07/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_07/signals.csv",
+      "bytes": 12033439,
+      "sha256": "bdadf999f3d5e18dd6132c027101d2e84dd8564d0422b2955a55219dfd3cf197",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_08/config.json",
+      "bytes": 392,
+      "sha256": "6a30ac25210257bcde61699cf4095e8d76a3326ebbe2183967c8462f670649ea",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_08/episode.npz",
+      "bytes": 2825824,
+      "sha256": "e71de966c40a2bbc97461f82b3bb4a3bbd4ff7726cdc7f6a83eadcfa2c1a40e7",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_08/metrics.json",
+      "bytes": 1282,
+      "sha256": "0b98b1ed0d2bea6a51feb3b78160bd5cedad17f76831355d8b43c33c76837d92",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_08/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_08/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_08/signals.csv",
+      "bytes": 11982871,
+      "sha256": "c5c5dbc4576dee3343f97cfd5fe7923f412339c9d5c922183b4ebf5fcaacd6df",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_09/config.json",
+      "bytes": 393,
+      "sha256": "5ec16a760b18839485afe73de1c692bdbf3f44ff9d517646c050771b707ec70b",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_09/episode.npz",
+      "bytes": 2676896,
+      "sha256": "4b9b6673a88fdf8b48030e0ccb0cdb441326423ac3dc62dceeb40024040c4cd0",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_09/metrics.json",
+      "bytes": 1280,
+      "sha256": "98df1f7e8eca1891044eb8abaea681e2f6d1af1f69baba303981b71b767965fc",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_09/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_09/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_09/signals.csv",
+      "bytes": 12002630,
+      "sha256": "a81ce4ccc765a7f52d979c5f3ca5d06c01324f5c6dc14399d13c66c352dfc3c7",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_20/config.json",
+      "bytes": 392,
+      "sha256": "14cfaa3559128062770e5b77b05c57441d5d1e6e25d8aa14bb61ba2e54b07cbb",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_20/episode.npz",
+      "bytes": 2616345,
+      "sha256": "869c96a557ede03e7ec7a9e3009d1e1517e643d51a6939455ea541948a3e8ad5",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_20/metrics.json",
+      "bytes": 1275,
+      "sha256": "a013bfd43f3807aeef577373d9bee73c4063da15a66ed3632bd8d719825b48e9",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_20/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_20/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_20/signals.csv",
+      "bytes": 11982799,
+      "sha256": "429db30faa61709b7009cee3261a66dda1f66bf582e83fac5420266ee9df0f01",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_21/config.json",
+      "bytes": 394,
+      "sha256": "f77f06f0fb793271f8c8bb20f63ce7fbaf7e44eddcecaae70ca7aba894641cb3",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_21/episode.npz",
+      "bytes": 2920093,
+      "sha256": "69d39778468646dca2fdd7535957e66719f96578a286a42a953ee57b6f0c3962",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_21/metrics.json",
+      "bytes": 1286,
+      "sha256": "6ea479ace09d48b7d241f60683d9b2386eefd90cd39353ec0dc913e646252c58",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_21/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_21/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_21/signals.csv",
+      "bytes": 11987508,
+      "sha256": "b9479ed94ec5993ccc4bdd9811a88239c00cf24995f8687b8165801d0d510d7a",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_22/config.json",
+      "bytes": 396,
+      "sha256": "ffb22ca927c37e909e724d89d806107364982ccca7f5945ea32a4a2998440ddd",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_22/episode.npz",
+      "bytes": 3050740,
+      "sha256": "2781f469a1271ee971c9f848a9154ec00dda265c47ba48029fc0868ad618b38d",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_22/metrics.json",
+      "bytes": 1284,
+      "sha256": "384807adb023d5f9807a6a6fff5608899a4d10001f8fbba618976953329c8a75",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_22/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_22/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_22/signals.csv",
+      "bytes": 12028175,
+      "sha256": "271a6f8f6f0523bf70b32f075db5f19c66c39f619e7d76af6aa1164d2f124f61",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_23/config.json",
+      "bytes": 394,
+      "sha256": "fc10f69c9fa74c6bdce47dfd58b7286e04b8b7dcf266af30da5df35e0aac68dc",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_23/episode.npz",
+      "bytes": 3052715,
+      "sha256": "9c3c14cc5e59a6efa9eea8f180c3d26aafc88384d61e7a80e5beaff790df9f0d",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_23/metrics.json",
+      "bytes": 1285,
+      "sha256": "b734238babb390a5594e4d58024504d4f4c76c3904f448ea56dc26ed2c3ba080",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_23/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_23/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_23/signals.csv",
+      "bytes": 12028027,
+      "sha256": "5c4ff789f7e15d7f753ebdd9722eb6ca46e8d62a442b9a5483fb7a0772d36c2f",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_24/config.json",
+      "bytes": 392,
+      "sha256": "520a99252968b107471384a483904643101f3451db10a8a0e9d7171d75eff254",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_24/episode.npz",
+      "bytes": 2989509,
+      "sha256": "cd0725b53310a7432762e7c6978aa958239c13b5136d4755cadd81a090b3eca5",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_24/metrics.json",
+      "bytes": 1285,
+      "sha256": "efd192d8b79b6eab0042badf7ca59dcc0b5eb66f64e6c8e62b6ef2b61100770a",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_24/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_24/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_24/signals.csv",
+      "bytes": 12025225,
+      "sha256": "01052762a6e9a554cc7e683f845523c518043c83b7d1b60a574c032d5fc8e560",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_25/config.json",
+      "bytes": 393,
+      "sha256": "126c1a29ab8c48ed50b36251e450ff744db2b9f2b94e483e102c09abf3f4bed0",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_25/episode.npz",
+      "bytes": 2576734,
+      "sha256": "f00e50d0ce182d22edea0d0b28a96f876cdb068db3fe7fd7a9bd9db050ab3456",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_25/metrics.json",
+      "bytes": 1278,
+      "sha256": "1420af113392596710f1b96451b6411c6e7c8d8a2515ed86ee055d775a0c89c7",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_25/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_25/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_25/signals.csv",
+      "bytes": 12003018,
+      "sha256": "dd0755c01e6282de06df5908ce5fa57ea183c176d52b569aed095b9f1e2d9cc8",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_26/config.json",
+      "bytes": 385,
+      "sha256": "e02ce3916eb6b004dacf6addc39cca9a8da56232c3afc4851ca5ad98b6ede4f3",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_26/episode.npz",
+      "bytes": 2975817,
+      "sha256": "6b9e82392af3c9c6bac9e4695e109b2f1078f082a80a75eada374b0846c238c2",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_26/metrics.json",
+      "bytes": 1285,
+      "sha256": "f42d9cdb370be0af4bfe75ca1d328aaae07c42087de6aab22caf014488576e2f",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_26/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_26/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_26/signals.csv",
+      "bytes": 12005264,
+      "sha256": "98ec43d0c5878bb36471b49c5fa398f03b8374b9a3f34fc1b7439c4736dd5c76",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_27/config.json",
+      "bytes": 392,
+      "sha256": "911fc5f9efdd8575dcb848c0c5e1eac6909db08373a1ec8e065c75aae28c6f7d",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_27/episode.npz",
+      "bytes": 2874455,
+      "sha256": "aba301d4dd6dcbcf8e7dca8569f9e92b733b0debb197d283c57931c956a73969",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_27/metrics.json",
+      "bytes": 1285,
+      "sha256": "40f4cb6d76e768d0d4a47b504d64a4b7cb047297136aa90857846bec194afd7b",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_27/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_27/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_27/signals.csv",
+      "bytes": 11987392,
+      "sha256": "8e709e61ced5f4b2a900161612f220718c3cbd3ae8c171ce1eaf10c644a91b04",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_28/config.json",
+      "bytes": 395,
+      "sha256": "090f303db8495bc0294e6fb91de57e83231ca79efc3caa014433d470d3a1e1d0",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_28/episode.npz",
+      "bytes": 2979244,
+      "sha256": "d650087f285cb691a01c111900a60dd231721f36450307e1baf7b90f72a59638",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_28/metrics.json",
+      "bytes": 1284,
+      "sha256": "70a392156dd518ed747bd590991f69cef484f34cab2a1be2a054b5eaba4be700",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_28/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_28/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_28/signals.csv",
+      "bytes": 11999659,
+      "sha256": "fd413b53422e00d7fefd2efd82bea358cca407cf8a5cfca9d985933700fb582f",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_29/config.json",
+      "bytes": 392,
+      "sha256": "21038be756b826200cd3115c5de27519b9e1175fabba6a356d070335cf8d8be7",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_29/episode.npz",
+      "bytes": 2532614,
+      "sha256": "afa85965aadbe1a50305f6680c4b23a8612de296785b080d690d9626bae69154",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_29/metrics.json",
+      "bytes": 1281,
+      "sha256": "d3a02e0233c63adf88316e96c5909a28141b981c10f345f0e498d2371b87da71",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_29/model.xml",
+      "bytes": 2083,
+      "sha256": "d93534595395a94c08d0faec0458d30f6b918f5fa58c3adf76d78f69c8226e54",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_29/provenance.json",
+      "bytes": 1661,
+      "sha256": "1ac60c5bccdcb98f8a4a71ca4c7ca7a1fb4358279a348b4cfb2a7241ae2b8bf4",
+      "curated": false
+    },
+    {
+      "file": "logs/hjb_paper225/validation/OF_gc_backward_50us/episode_29/signals.csv",
+      "bytes": 11983107,
+      "sha256": "79b58790d86807155f596c97c660b8954567f4941373c4f5959d4165c5c840f0",
+      "curated": false
+    }
+  ]
+}

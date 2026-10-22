@@ -1,0 +1,29 @@
+{
+  "groups": {
+    "inside": {
+      "selected": 10,
+      "predicted_inside": 10,
+      "valid_target_reach": 10,
+      "completed_miss": 0,
+      "policy_coverage_errors": 0,
+      "other_rollout_errors": 0
+    },
+    "outside": {
+      "selected": 10,
+      "predicted_inside": 0,
+      "valid_target_reach": 1,
+      "completed_miss": 0,
+      "policy_coverage_errors": 9,
+      "other_rollout_errors": 0
+    },
+    "boundary": {
+      "selected": 10,
+      "predicted_inside": 7,
+      "valid_target_reach": 9,
+      "completed_miss": 1,
+      "policy_coverage_errors": 0,
+      "other_rollout_errors": 0
+    }
+  },
+  "scope": "Separately preselected finite-grid forward validation cohort; simulated-time feedback, not an assistance efficacy trial."
+}

@@ -1,0 +1,41 @@
+{
+  "model": "paper",
+  "profile": "OF",
+  "exo": "pd",
+  "controller": "hjb",
+  "recovered": false,
+  "contact_valid_fraction": 1.0,
+  "max_abs_lean_rad": 0.1727304589193892,
+  "final_lean_rad": -0.002555458465036829,
+  "final_velocity_rad_s": 0.00038266425077101393,
+  "final_human_torque_nm": -0.009203571444518879,
+  "human_torque_rms_nm": 13.83813832145703,
+  "control_calls": 56000,
+  "control_p50_us": 298.6000617966056,
+  "control_p99_us": 535.0296059623362,
+  "wall_s": 21.679225351079367,
+  "simulated_s_per_wall_s": 0.06457795319380712,
+  "physics_hz": 40000.0,
+  "control_hz": 40000.0,
+  "max_foot_pitch_rad": 0.0,
+  "max_foot_slide_m": 0.0,
+  "human_clipped_fraction": 0.0,
+  "total_mass_kg": 60.0,
+  "effective_profile": {
+    "name": "OF",
+    "mass_kg": 60.0,
+    "height_m": 1.58,
+    "torque_min_nm": -88.0,
+    "torque_max_nm": 22.0,
+    "rate_min_nm_s": -389.0,
+    "rate_max_nm_s": 148.0,
+    "damping_nm_s": 0.001,
+    "friction": 1.0,
+    "gravity_m_s2": 9.8
+  },
+  "controller_source": {
+    "file": "/home/kaidi-2/Documents/standing_balance_sim/logs/hjb_paper225/solved/OF_pd_forward/policy.mat",
+    "sha256": "921cd6a8af2624a3b4b9785a4af586040b7c2cf8afdf5645af0c45eea8dbe6e7"
+  },
+  "scope": "controller-specific rollout; not an HJB stabilizable region"
+}

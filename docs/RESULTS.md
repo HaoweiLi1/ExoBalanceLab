@@ -318,27 +318,39 @@ On the RTX 5060 Laptop GPU, same-grid comparisons gave:
 |---|---:|---:|---:|
 | None, 51×269×51, 1.4 s | 1,314.54 / 26.76 s | +0.274% | 0.99112 |
 | None, 101×269×51, 1.4 s | 2,552.52 / 59.19 s | −0.167% | 0.99684 |
+| None, 201×269×51, 1.4 s | 6,606.24 / 134.50 s | +0.0526% | 0.99938 |
 | GC, 51×269×51, 0.1 s | 102.43 / 1.83 s | 0% | 1.00000 |
 | PD, 51×269×51, 0.1 s | 110.91 / 1.82 s | 0% | 1.00000 |
 
 JAX timings include history writing but exclude compilation; MATLAB timings measure
 the native solver. Other workstation jobs were active, so these are observed run times,
 not a controlled hardware benchmark. Floating-point stencil choices do produce different
-values: the final maximum absolute field errors are 0.0151 and 0.1479 for the two nominal
-cases, and 1.08e-5 / 4.95e-6 for GC/PD. Similar areas do not imply identical value fields.
+values: the final maximum absolute field errors are 0.0151, 0.1479 and 0.2977 for the
+three nominal cases, and 1.08e-5 / 4.95e-6 for GC/PD. Similar areas do not imply identical value fields.
 Every saved time's error, sign disagreement, hashes and comparison figures are retained:
 [51 nodes](results/hjb_gpu/nominal51/comparison.json),
 [101 nodes](results/hjb_gpu/theta101/comparison.json),
+[201 nodes](results/hjb_gpu/theta201/comparison.json),
 [GC](results/hjb_gpu/gc_short/comparison.json), [PD](results/hjb_gpu/pd_short/comparison.json).
+
+The native 201-node MAT export stored all 141 times together in each compressed chunk,
+making repeated single-time reads expensive. A separate rechunked copy retains every
+value exactly, along with the MATLAB header and dataset attributes. MATLAB `matfile`
+also confirms the copy's dimensions and sampled values. The original export is retained;
+both file hashes and the complete value-equality check are in the
+[storage-transform record](results/hjb_gpu/theta201/storage_transform.json).
 
 ![MATLAB and JAX projected boundaries](results/hjb_gpu/theta101/projection.png)
 
-The original nine MuJoCo states were also replayed with both nominal GPU histories.
+The original nine MuJoCo states were also replayed with the nominal GPU histories.
 The 51-node policy has five valid target reaches, one miss and three coverage errors;
 the 101-node policy has six valid reaches and the same three coverage errors. These
 match the native policies' outcome counts, with all six predicted-inside states passing
 at 101 nodes. [51-node outcomes](results/hjb_gpu/nominal51/outcomes.json) ·
 [101-node outcomes](results/hjb_gpu/theta101/outcomes.json).
+At 201 angle nodes, both backends again give six valid target reaches and three outside
+coverage errors. [Native episodes](results/hjb_gpu/theta201/native_validation/) ·
+[GPU episodes](results/hjb_gpu/theta201/gpu_validation/).
 
 Grid sensitivity remains substantial: with the GPU backend, increasing angle nodes
 from 101 to 201 changes the sampled forward area from 0.343706 to 0.410191 rad²/s.
@@ -347,6 +359,9 @@ Increasing velocity nodes from 269 to 537 then changes it to 0.433604 rad²/s, a
 3.31%. The [velocity-refined projection and configuration](results/hjb_gpu/201_537_101/)
 are retained. These observations do not establish spatial convergence or reproduce
 Table II; the complete population comparison is still running.
+The prospective [three-grid OF protocol](results/hjb_grid_study/protocol.json) compares
+requested 151³, 225³ and 301³ grids for all six assistance/direction pairs. Its twelve
+additional inputs are prepared; integration follows the primary population campaign.
 
 ### Paper-sized nominal grid and broader forward validation
 
@@ -401,6 +416,26 @@ Episode 00 is included in full; the remaining raw trajectories are retained loca
 can be regenerated from the recorded protocol. GC and nominal cohorts contain different
 states, so their counts are not a paired comparison of assistance. The 50 μs step is a
 simulation accuracy setting, not measured 20 kHz controller throughput.
+
+GC's backward cohort also has ten inside and ten boundary successes, with ten outside
+coverage errors at 50 μs. [Complete backward outcomes](results/hjb_paper225/OF_gc_backward/50us/).
+PD's forward cohort at 25 μs has ten inside successes, nine boundary successes and one
+boundary target miss; one outside state succeeds and nine leave the grid.
+[PD outcomes and retained examples](results/hjb_paper225/OF_pd_forward/25us/).
+
+The PD boundary miss, case 25, ends at −0.00920357 Nm, just outside the unchanged
+±0.00916863 Nm ankle target. Its angle, velocity and contact remain valid. Holding the
+policy and initial state fixed, 12.5 μs and 6.25 μs steps give −0.00249107 Nm and
+0.00086518 Nm respectively, both valid target reaches.
+[Frozen case and both finer trajectories](results/hjb_paper225/OF_pd_forward/case25_precision/).
+This diagnoses sampled feedback precision in that case; the original 30-state result
+retains its miss. The finer steps were not applied to the entire cohort.
+
+Reproduce the one-case check with `hjb_validation`, the saved `case25_precision/selection.json`,
+`--dt 0.0000125 --control-period 0.0000125`, and a new output directory; repeat at
+0.00000625 s. The selected examples include full NPZ arrays and model/configuration
+snapshots. Redundant CSV files and the other fine-step raw episodes remain in local logs,
+with their hashes and regeneration protocols retained.
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 

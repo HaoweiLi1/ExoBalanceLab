@@ -1,0 +1,18 @@
+{
+  "action": "Stop this read-only comparison and use the verified rechunked copy",
+  "reason": "Native chunks span all 141 times, causing repeated full-history decompression for time-slice reads",
+  "command": [
+    "/home/kaidi-2/Documents/standing_balance_sim/.conda-exobalance/bin/python3.11",
+    "-m",
+    "exobalancelab.hjb_solver_comparison",
+    "--reference",
+    "logs/hjb_OF_theta201_buffer05_dt001",
+    "--candidate",
+    "logs/hjb_gpu_OF_theta201",
+    "--out",
+    "logs/hjb_gpu_comparison_theta201"
+  ],
+  "wall_s_before_stop": 1269.5154914855957,
+  "cpu_s_before_stop": 1268.54,
+  "source_values_preserved": true
+}

@@ -1,0 +1,28 @@
+{
+  "source": "logs/hjb_OF_theta201_buffer05_dt001/policy.mat",
+  "source_chunks": [
+    141,
+    51,
+    1,
+    1
+  ],
+  "result_chunks": [
+    1,
+    51,
+    1,
+    201
+  ],
+  "shape": [
+    141,
+    51,
+    269,
+    201
+  ],
+  "dtype": "float64",
+  "every_value_equal": true,
+  "value_sha256_velocity_time_torque_theta_order": "3b44b2e4f6edf1fe22d52cf4ae16e15e974be7257745c06201c8d43694fbcb04",
+  "scope": "Storage transformation only; original MATLAB solve and file retained.",
+  "source_file_sha256": "e42e071802b0cb66193e772ade539ca200c3771c678fb498133bb0a7bcef13bb",
+  "result_file_sha256": "59ee46a0cd2d635e33f37bde0ff0a27c51173043f2ce0f9893e860aae700025c",
+  "wall_s": 130.09771993302274
+}
