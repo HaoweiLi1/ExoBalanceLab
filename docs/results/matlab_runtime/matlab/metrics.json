@@ -1,0 +1,38 @@
+{
+  "model": "paper",
+  "profile": "OF",
+  "exo": "none",
+  "controller": "matlab",
+  "recovered": true,
+  "contact_valid_fraction": 1.0,
+  "max_abs_lean_rad": 0.010002092506954085,
+  "final_lean_rad": -4.9480506829042345e-06,
+  "human_torque_rms_nm": 1.9135630866039415,
+  "control_calls": 600,
+  "control_p50_us": 1859.9815084598958,
+  "control_p99_us": 3119.3900131620435,
+  "wall_s": 1.8742962599499151,
+  "simulated_s_per_wall_s": 3.2012015006423433,
+  "physics_hz": 1000.0,
+  "control_hz": 100.0,
+  "max_foot_pitch_rad": 0.0,
+  "max_foot_slide_m": 0.0,
+  "human_clipped_fraction": 0.0033333333333333335,
+  "total_mass_kg": 60.0,
+  "effective_profile": {
+    "name": "OF",
+    "mass_kg": 60.0,
+    "height_m": 1.59,
+    "torque_min_nm": -88.0,
+    "torque_max_nm": 22.0,
+    "rate_min_nm_s": -389.0,
+    "rate_max_nm_s": 148.0,
+    "damping_nm_s": 0.001,
+    "friction": 1.0
+  },
+  "controller_source": {
+    "function": "standing_pd",
+    "directory": "/home/kaidi-2/Documents/standing_balance_sim/matlab"
+  },
+  "scope": "controller-specific rollout; not an HJB stabilizable region"
+}

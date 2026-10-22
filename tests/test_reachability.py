@@ -3,12 +3,14 @@
 Value grids below are analytic interface fixtures, not solved stabilizable regions.
 """
 
+import json
+
 import numpy as np
 import pytest
 from scipy.integrate import solve_ivp
 
 from exobalancelab.paper import PROFILES
-from exobalancelab.reachability import HJBPolicy
+from exobalancelab.reachability import HJBPolicy, policy_contract
 from exobalancelab.simulation import RunConfig, run
 
 
@@ -24,6 +26,7 @@ def _policy(tmp_path, gradient):
         human_torque_nm=torque,
         time_to_go_s=times,
         value=value,
+        contract_json=json.dumps(policy_contract(PROFILES["OF"], "none")),
     )
     return HJBPolicy(path)
 
@@ -90,3 +93,17 @@ def test_lifted_mujoco_trajectory_converges_to_independent_ode(tmp_path):
 def test_initial_torque_respects_scaled_strength():
     with pytest.raises(ValueError, match="strength-scaled"):
         run(RunConfig(human_strength=0.5, initial_torque_nm=20))
+
+
+@pytest.mark.parametrize("kwargs", [{"parameters": "authors"}, {"exo": "gc"}, {"human_strength": 0.5}])
+def test_hjb_rejects_a_different_plant_before_rollout(tmp_path, kwargs):
+    policy = _policy(tmp_path, 1)
+    with pytest.raises(ValueError, match="HJB"):
+        run(RunConfig(duration_s=0.01, **kwargs), hjb=policy)
+
+
+def test_hjb_requires_parameter_provenance_for_rollout(tmp_path):
+    policy = _policy(tmp_path, 1)
+    policy.contract = None
+    with pytest.raises(ValueError, match="contract_json"):
+        run(RunConfig(duration_s=0.01), hjb=policy)

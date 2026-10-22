@@ -20,6 +20,7 @@ def main() -> None:
     parser.add_argument("command", choices=["run", "compare"])
     parser.add_argument("--model", choices=["paper", "contact", "human"], default="paper")
     parser.add_argument("--profile", choices=PROFILES, default="OF")
+    parser.add_argument("--parameters", choices=["table_i", "authors"], default="table_i")
     parser.add_argument("--exo", choices=["none", "gc", "pd"], default="none")
     parser.add_argument("--duration", type=float, default=6)
     parser.add_argument("--dt", type=float, default=0.001)
@@ -48,6 +49,7 @@ def main() -> None:
     config = RunConfig(
         model=args.model,
         profile=args.profile,
+        parameters=args.parameters,
         exo=args.exo,
         duration_s=args.duration,
         timestep_s=args.dt,

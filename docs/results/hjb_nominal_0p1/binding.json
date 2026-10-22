@@ -1,0 +1,20 @@
+{
+  "source_policy_sha256": "e1770bc253efff4c7711075d63c31a8c9db48a892ce74430f9a4e09fe15438da",
+  "value_dataset_sha256": "3db3204d4a63f7927c02a0f02492bf2f9686b1d50faca5177d22b10312c66e60",
+  "contract": {
+    "model": "paper",
+    "exo": "none",
+    "profile": {
+      "mass_kg": 60.0,
+      "height_m": 1.58,
+      "torque_min_nm": -88,
+      "torque_max_nm": 22,
+      "rate_min_nm_s": -389,
+      "rate_max_nm_s": 148,
+      "damping_nm_s": 0.001,
+      "friction": 1.0,
+      "gravity_m_s2": 9.8
+    }
+  },
+  "note": "Contract attached to an unchanged real MATLAB value dataset; original file retained."
+}

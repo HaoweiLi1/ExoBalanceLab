@@ -4,7 +4,7 @@ q = theta - pi/2; q>0 leans forward (world x>0), positive torque is dorsiflexion
 The paper's torque and angular velocity signs are unchanged by this angle offset.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 import numpy as np
 
@@ -22,6 +22,7 @@ class Profile:
     rate_max_nm_s: float
     damping_nm_s: float = 0.001
     friction: float = 1.0
+    gravity_m_s2: float = 9.81
 
     @property
     def body_mass_kg(self) -> float:
@@ -37,7 +38,7 @@ class Profile:
 
     @property
     def stiffness_nm(self) -> float:
-        return self.body_mass_kg * 9.81 * self.length_m
+        return self.body_mass_kg * self.gravity_m_s2 * self.length_m
 
     @property
     def foot_length_m(self) -> float:
@@ -51,6 +52,13 @@ PROFILES = {
     "OM": Profile("OM", 74.5, 1.74, -137, 37, -681, 232),
     "wOF": Profile("wOF", 60.0, 1.59, -78, 21, -303, 130),
 }
+
+# Original Models/*_model.mat at AnkleExoBRS 517ab41; retain printed Table I separately.
+AUTHORS_PROFILES = {
+    name: replace(p, height_m={"OF": 1.58, "YF": 1.653}.get(name, p.height_m), gravity_m_s2=9.8)
+    for name, p in PROFILES.items()
+}
+PROFILE_SETS = {"table_i": PROFILES, "authors": AUTHORS_PROFILES}
 
 
 def exo_torque(q: float, velocity: float, profile: Profile, mode: str) -> float:
@@ -88,11 +96,16 @@ def ground_reaction(q: float, velocity: float, torque: float, profile: Profile) 
     qdd = acceleration(q, velocity, torque, profile)
     mass, length = profile.body_mass_kg, profile.length_m
     fx = mass * length * (np.cos(q) * qdd - np.sin(q) * velocity**2)
-    fz = profile.mass_kg * 9.81 - mass * length * (np.sin(q) * qdd + np.cos(q) * velocity**2)
+    fz = profile.mass_kg * profile.gravity_m_s2 - mass * length * (np.sin(q) * qdd + np.cos(q) * velocity**2)
     foot_mass = profile.mass_kg - mass
     foot_com = (0.5 - 0.19) * profile.foot_length_m
     ankle_height = 0.039 * profile.height_m
-    moment = -torque + profile.damping_nm_s * velocity + foot_mass * 9.81 * foot_com - ankle_height * fx
+    moment = (
+        -torque
+        + profile.damping_nm_s * velocity
+        + foot_mass * profile.gravity_m_s2 * foot_com
+        - ankle_height * fx
+    )
     cop = moment / fz if fz > 0 else float("nan")
     heel, toe = -0.19 * profile.foot_length_m, 0.81 * profile.foot_length_m
     return {

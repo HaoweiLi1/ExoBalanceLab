@@ -16,14 +16,14 @@ def _element(parent: ET.Element, tag: str, **attrs) -> ET.Element:
     return ET.SubElement(parent, tag, {key: str(value) for key, value in attrs.items()})
 
 
-def _scene(dt: float) -> tuple[ET.Element, ET.Element]:
+def _scene(dt: float, gravity_m_s2: float) -> tuple[ET.Element, ET.Element]:
     root = ET.Element("mujoco", model="ExoBalanceLab")
     _element(root, "compiler", angle="radian", autolimits="true")
     _element(
         root,
         "option",
         timestep=dt,
-        gravity="0 0 -9.81",
+        gravity=f"0 0 {-gravity_m_s2}",
         integrator="implicitfast",
         solver="Newton",
         iterations="60",
@@ -71,7 +71,7 @@ def paper_xml(profile: Profile, dt: float = 0.001, contact: bool = False) -> str
     uses the physical inertia of the visible 0.1 m sphere for stable body impacts.
     Visual geometry has zero mass; it never changes the analytical plant.
     """
-    root, world = _scene(dt)
+    root, world = _scene(dt, profile.gravity_m_s2)
     length, foot = profile.length_m, profile.foot_length_m
     height, offset = 0.039 * profile.height_m, 0.31 * foot
     base = _element(world, "body", name="feet", pos=f"0 0 {height}")
@@ -167,7 +167,7 @@ def human_xml(profile: Profile, dt: float = 0.001, device_mass_kg: float = 2.0) 
     """
     if device_mass_kg < 0:
         raise ValueError("Device mass must be nonnegative")
-    root, world = _scene(dt)
+    root, world = _scene(dt, profile.gravity_m_s2)
     height, mass = profile.height_m, profile.mass_kg
     shank, thigh, trunk = 0.246 * height, 0.245 * height, 0.288 * height
     ankle_h = 0.039 * height

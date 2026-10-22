@@ -5,6 +5,8 @@ remaining horizon [s]. Value gradients select human torque RATE [Nm/s], Eq. (11)
 A sampled recovery controller is never substituted for missing HJB evidence.
 """
 
+import json
+from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
@@ -12,6 +14,13 @@ from scipy.interpolate import RegularGridInterpolator
 from scipy.io import loadmat
 
 from exobalancelab.paper import Profile
+
+
+def policy_contract(profile: Profile, exo: str) -> dict:
+    """Describe the paper plant for a policy, including effective MT/MRTD limits."""
+    parameters = asdict(profile)
+    parameters.pop("name")
+    return {"model": "paper", "exo": exo, "profile": parameters}
 
 
 class HJBPolicy:
@@ -36,6 +45,10 @@ class HJBPolicy:
                         key: np.asarray(loaded[key]).T
                         for key in ["theta_rad", "velocity_rad_s", "human_torque_nm", "time_to_go_s", "value"]
                     }
+                    if "contract_json" in loaded:
+                        arrays["contract_json"] = "".join(
+                            chr(int(c)) for c in loaded["contract_json"][:].ravel()
+                        )
             else:
                 arrays = loadmat(path)
         names = ["theta_rad", "velocity_rad_s", "human_torque_nm", "time_to_go_s"]
@@ -50,6 +63,29 @@ class HJBPolicy:
         self.horizon_s = float(axes[3][-1])
         self.minimum_horizon_s = float(axes[3][0])
         self.path = path.resolve()
+        self.contract = (
+            json.loads(str(np.asarray(arrays["contract_json"]).item())) if "contract_json" in arrays else None
+        )
+
+    def validate_plant(self, profile: Profile, exo: str) -> None:
+        """Reject a rollout unless its physical parameters match the exported contract."""
+        expected = policy_contract(profile, exo)
+        if self.contract is None:
+            raise ValueError("HJB rollout requires contract_json from export_hjb_policy")
+        if (
+            set(self.contract) != set(expected)
+            or self.contract["model"] != "paper"
+            or self.contract["exo"] != exo
+        ):
+            raise ValueError("HJB model or exoskeleton does not match the rollout")
+        actual = self.contract["profile"]
+        if set(actual) != set(expected["profile"]):
+            raise ValueError("HJB physical parameter fields are incomplete")
+        for key, value in expected["profile"].items():
+            if not np.isclose(actual[key], value, rtol=1e-12, atol=1e-12):
+                raise ValueError(
+                    f"HJB parameter {key} does not match the rollout; select matching --parameters"
+                )
 
     def rate(
         self,

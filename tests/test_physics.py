@@ -6,11 +6,15 @@ import pytest
 from scipy.integrate import solve_ivp
 
 from exobalancelab.models import compile_model, human_xml, paper_xml
-from exobalancelab.paper import PROFILES, exo_torque, ground_reaction, limit_human
+from exobalancelab.paper import AUTHORS_PROFILES, PROFILES, exo_torque, ground_reaction, limit_human
 from exobalancelab.simulation import RunConfig, run
 
 
-@pytest.mark.parametrize("profile", PROFILES.values(), ids=PROFILES.keys())
+@pytest.mark.parametrize(
+    "profile",
+    [*PROFILES.values(), *AUTHORS_PROFILES.values()],
+    ids=[*PROFILES, *("authors_" + name for name in AUTHORS_PROFILES)],
+)
 def test_mujoco_acceleration_matches_paper_equation(profile):
     model, data = compile_model(paper_xml(profile))
     rng = np.random.default_rng(240805418)
@@ -23,10 +27,18 @@ def test_mujoco_acceleration_matches_paper_equation(profile):
         # Independent Eq. (3), expressed in the paper's absolute angle.
         theta = np.pi / 2 + q
         expected = (
-            -9.81 / profile.length_m * np.cos(theta)
+            -profile.gravity_m_s2 / profile.length_m * np.cos(theta)
             + (human + exo - profile.damping_nm_s * velocity) / profile.inertia_kg_m2
         )
         assert data.qacc[0] == pytest.approx(expected, abs=2e-8)
+
+
+def test_author_parameter_selection_reaches_the_simulated_plant():
+    episode = run(RunConfig(parameters="authors", profile="OF", duration_s=0.01))
+    model, _ = compile_model(episode.xml)
+    assert model.opt.gravity[2] == -9.8
+    assert episode.metrics["effective_profile"]["height_m"] == 1.58
+    assert episode.metrics["effective_profile"]["gravity_m_s2"] == 9.8
 
 
 def test_paper_integrator_converges_to_independent_ode():

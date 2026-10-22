@@ -16,8 +16,8 @@ arXiv v3, October 2, 2024. Authors' code:
 | Table I, five profiles | `PROFILES` | Explicit bilateral MT/MRTD and anthropometry |
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
-| Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Synthetic policy execution and lifted-ODE convergence tests; original HJB policy pending |
-| Published HJB regions, Figs. 4–6 / Table II | Not yet reproduced | Requires working MATLAB runtime, matching source/dependencies and convergence study |
+| Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Lifted-ODE convergence tests and real nominal MATLAB HJB/MuJoCo pipeline check |
+| Published HJB regions, Figs. 4–6 / Table II | Not yet reproduced | Runtime/dependencies work; target/controller reconciliation and convergence remain open |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
@@ -93,7 +93,24 @@ Source inspection at the pinned authors' commit found:
    entry scripts access equilibrium fields absent from the saved structs. The provided
    parameter files cover no-exo and GC; PD target files are not included.
 6. **Target-set dependencies:** the target generators use YALMIP (`sdpvar`, `sdpsettings`),
-   SeDuMi and `lcon2vert`; all must be available in addition to helperOC/ToolboxLS.
+   SeDuMi and `lcon2vert`; all are now available and their numerical operations were
+   verified in MATLAB, in addition to the helperOC/ToolboxLS nominal solve.
+7. **Class directory layout:** the source class's `dynamics.m`/`optCtrl.m` are external
+   methods. MATLAB could not find them under the supplied ordinary folder name. Our
+   nominal runner copies the unchanged files into an `@LiftedInvPendExo` folder per run.
+8. **Solver method argument:** the source scripts set `extraArgs.compMethod='minVWithV0'`
+   but pass `'none'` as the fourth `HJIPDE_solve` argument. The pinned helperOC reads
+   that fourth argument and does not consume this extra field. The nominal runner exposes
+   both choices and records the selected method; its default `none` follows the actual
+   original call. Their equivalence requires controlled-invariant targets and adequate
+   discretization; it is not assumed from the target filenames.
+9. **Box target versus invariant ellipsoid:** the supplied solver seeds axis-aligned
+   boxes from stored widths, whereas the paper motivates invariant CLF ellipsoids.
+   A box containing positive velocity at its upper angle boundary is not controlled
+   invariant: `theta_dot>0` immediately leaves that boundary regardless of the torque-rate
+   input. The separated toe box does not remove this counterexample at the ankle box.
+   Reconstructing the actual ellipsoidal targets is necessary before identifying these
+   source-seeded reachable sets with the paper's controlled-invariant stabilizable regions.
 
 These findings are implementation differences, not a claim that the paper's mathematical
 results are wrong. An exact reproduction needs a reconciled parameter/controller version,
@@ -102,9 +119,10 @@ the reported figures. Record any patch separately from the authors' unchanged so
 
 ## Acceptance for the remaining HJB reproduction
 
-1. Complete MATLAB runtime sign-in and verify the required numerical/toolbox dependencies.
-2. Verify the [pinned helperOC/ToolboxLS, YALMIP and SeDuMi sources](../matlab/README.md#prepared-hjb-dependencies)
-   in MATLAB; acquire and pin the geometry utility. Preserve vendor licenses.
+1. MATLAB runtime access and numerical dependencies are verified; retain the
+   [pinned dependency versions](../matlab/README.md#prepared-hjb-dependencies) and vendor licenses.
+2. Validate the reconstructed nominal baseline against the source formulation and resolve
+   the missing GC/PD target/controller details, including controlled invariance.
 3. Resolve the source differences above with versioned patches and independent unit checks.
 4. Recompute target sets and all five population profiles for no-exo/GC/PD, at documented
    grid resolutions and horizons; check numerical convergence.

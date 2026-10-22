@@ -76,9 +76,15 @@ raise; an unrelated controller is never used as a fallback.
 The selected rate is held between control ticks, and human torque is integrated at
 each physics step from the configured initial torque. It is not applied as a torque
 jump at a control tick. Torque saturation and commanded/applied rates are recorded.
+Rollouts also require embedded `contract_json` identifying the paper model, assistance
+mode, mass, height, gravity, damping, friction and effective MT/MRTD limits. The exporter
+derives this automatically for the authors' unchanged nominal `LiftedInvPendExo` class.
+Other callers must supply a sixth `contract` struct; its schema matches Python's
+`policy_contract(profile, exo)` dictionary. Unbound files can be inspected with
+`HJBPolicy.rate`, but cannot drive a rollout. Mismatched plants fail before simulation.
 
 ```bash
-exobalance run --hjb-policy policy.mat --profile OF --exo none \
+exobalance run --hjb-policy policy.mat --profile OF --parameters authors --exo none \
   --duration 1 --out logs/hjb_feedback
 ```
 
@@ -96,16 +102,18 @@ covered by automated tests. HJB execution tests check initial torque, rate hold,
 and timestep convergence against an independently integrated three-state ODE.
 Synthetic HJB fixtures test execution only, not reachability or the published regions.
 The development machine has MATLAB R2026b, its matching Engine and Optimization Toolbox.
-Following reported activation, batch startup still requested a MathWorks sign-in and
-exited with `Sign-in failed`; the R2026b desktop also displayed a sign-in dialog.
-NumPy, MuJoCo and the Engine import together successfully with the Linux runtime prefix
-above. MATLAB-generated round-trip, closed-loop parity and real Engine latency remain
-unverified until runtime sign-in succeeds.
+Runtime sign-in, CSV/MAT v7 round trips, a real v7.3 HJB fixture export and closed-loop
+MATLAB/Python parity now pass. A six-second, 600-call run measured median Engine call
+latency 1.790 ms and p99 2.927 ms, with three calls exceeding the 10 ms control period.
+See [all measurements and retained episodes](../docs/RESULTS.md#real-matlab-feedback-and-exports).
+The Linux runtime prefix above is needed on the development machine.
 
 ## Prepared HJB dependencies
 
-The following sources were downloaded unchanged on October 22, 2026, under ignored
-`logs/hjb_dependencies/`. These are preparation records, not MATLAB solver test results.
+The following sources were downloaded on October 22, 2026, under ignored
+`logs/hjb_dependencies/`. SeDuMi's 34 MEX modules were compiled with MATLAB's selected
+GCC compiler. YALMIP/SeDuMi passed a positive-semidefinite optimization check, and
+the polyhedra utility recovered the eight vertices of a cube in real MATLAB.
 Keep vendor licenses with each download and apply any future source corrections separately.
 
 | Dependency | Source | Pinned version |
@@ -114,13 +122,65 @@ Keep vendor licenses with each download and apply any future source corrections 
 | ToolboxLS | [Ian Mitchell's release archive](https://www.cs.ubc.ca/~mitchell/ToolboxLS/toolboxLS-1.1.1.zip) | `1.1.1`; SHA-256 below |
 | YALMIP | [yalmip/YALMIP](https://github.com/yalmip/YALMIP) | `52666d27c40e5eca5ed72de713f05e5959daf937` |
 | SeDuMi | [sqlp/sedumi](https://github.com/sqlp/sedumi), maintained fork | `daef0b7ee87c727a6d97bc1ca892f48b599166d7` |
+| Polyhedra | [Matt J's File Exchange submission](https://www.mathworks.com/matlabcentral/fileexchange/30892-analyze-n-dimensional-convex-polyhedra) | Submission 30892, download version 6; SHA-256 below |
 
 ToolboxLS archive SHA-256:
 `8ac634e3b91a1d27827c156880428b35bd08d951580dd9e80fa064e84f5849e8`.
-Use the ToolboxLS `Kernel` directory and helperOC's documented setup paths. SeDuMi's
-source checkout needs `install_sedumi` and working MEX binaries or a compatible compiler.
-The authors also require Matt J's
-[Analyze N-dimensional Convex Polyhedra](https://www.mathworks.com/matlabcentral/fileexchange/30892-analyze-n-dimensional-convex-polyhedra)
-for `lcon2vert`/`vert2lcon`; that download and runtime validation are still pending.
-The missing friction function and target/controller discrepancies in
-[the source audit](../docs/PAPER.md) must be resolved before computing comparable regions.
+Polyhedra [download archive](https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/30892/versions/6/download/zip)
+SHA-256: `8edb364aeedb2f5d80c7a43ffe58845a6875179c9e7febd144c68f1c35f55389`.
+Keep its BSD license with `lcon2vert.m` and `vert2lcon.m`. Use the ToolboxLS `Kernel`
+directory and helperOC's documented setup paths. SeDuMi's source checkout needs
+`install_sedumi` and working MEX binaries or a compatible compiler.
+
+## Nominal HJB baseline
+
+`solve_nominal_hjb(author_root, dependency_root, output_dir, ...)` provides an executable
+no-exoskeleton baseline using the authors' stored model/target MAT files and unchanged
+dynamics. Download the pinned authors' repository and dependencies above first; unpack
+ToolboxLS as `dependency_root/ToolboxLS/ToolboxLS/Kernel`.
+
+```matlab
+addpath('matlab');
+solve_nominal_hjb('/path/to/AnkleExoBRS', 'logs/hjb_dependencies', 'logs/hjb_OF_forward', ...
+    profile="OF", direction="forward", resolution=[51;225;51]);
+```
+
+Options are `profile` (five paper labels), `direction` (`forward` or `backward`),
+`resolution` (three grid sizes), `duration_s` (default 1.4), `output_step_s` (default 0.1),
+and `method` (`none` or `minVWithV0`, default `none`). This coarse default is for bringing
+up the solver, not demonstrating spatial convergence. MATLAB's `-singleCompThread`
+startup option limits CPU use for these array-based experiments.
+
+The runner stages the original class files into an `@LiftedInvPendExo` directory inside
+the new run directory so MATLAB can find its external methods. Original checkouts and
+previous runs are preserved. Empty sampled targets raise an error rather than being enlarged.
+Outputs include `policy.mat`, final `projection.mat`, input MAT snapshots, staged class
+source and `summary.json`. Exports retain the complete sampled value history in SI units.
+
+`nominal_contact_constraints(x,pendulum)` reconstructs force/moment constraints directly
+from the nominal dynamics, filling the missing upstream friction implementation. It uses
+positive admissibility margins, friction coefficient 1, human torque bounds, and moment
+inequalities for CoP without dividing by normal force. Both SI and the authors' scaled
+states are supported; exoskeleton dynamics are explicitly rejected. The constraints passed
+500 random-state comparisons with MuJoCo under all five Table I parameter sets.
+
+The actual solver uses the **authors' parameters**, including g=9.8 and OF height 1.58 m;
+select `--parameters authors` for matching MuJoCo experiments. The default `table_i`
+parameter set retains the printed anthropometry and g=9.81. Embedded contracts prevent
+mixing these plants. GC/PD consistency, target-set invariance, convergence, matching
+forward rollouts and published-area comparison remain
+open. The [source audit](../docs/PAPER.md) describes the differences, including the solver
+method argument; a successful nominal solve does not reproduce all published regions.
+
+After a solve, select and record inside/outside/boundary states before viewing any
+forward outcomes, then test the exported policy in the matching MuJoCo plant:
+
+```bash
+python -m exobalancelab.hjb_validation --run-dir logs/hjb_OF_forward \
+  --out logs/hjb_OF_forward_validation --count 3 --seed 240805418
+```
+
+The protocol records the policy hash and all selected states. Outcomes distinguish
+target reach, contact validity and explicit rollout errors; an out-of-grid policy query
+is retained as an error. The final target test uses the actual end-of-horizon lifted
+state. Completed episodes and the projected region plot are saved alongside the report.

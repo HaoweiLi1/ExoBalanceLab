@@ -19,7 +19,7 @@ an articulated human/exoskeleton extension, videos and clear reproducible docume
 - MATLAB was absent from PATH but later located at `~/Applications/MATLAB/R2026b`.
   The matching Python Engine and Optimization Toolbox are installed. Batch startup returned
   MathWorks licensing error -1.2; activation UI was opened for the user. Runtime validation
-  remains pending successful activation.
+  was pending at that stage; it subsequently passed after program-level sign-in.
 
 ## Work and evidence required
 
@@ -55,4 +55,18 @@ The articulated extension is a model study, not physical or clinical validation.
   commit `d0ed547783ae81e4a681309ceed376f1bbc7dabc` pushed and remote SHA matched.
 - [Implementation CI run](https://github.com/HaoweiLi1/ExoBalanceLab/actions/runs/39784619849) passed.
 - Full requested scientific acceptance remains open as detailed in `TODO.md`; this milestone does
-  not claim complete HJB reproduction or a licensed MATLAB runtime pass.
+  not claim complete HJB reproduction.
+
+## MATLAB execution milestone
+
+- MATLAB R2026b batch startup and Optimization Toolbox license verified after sign-in.
+- Real CSV/MAT v7 and v7.3 exports, persistent feedback parity and contact-constraint
+  checks pass. A six-second comparison records all 600 Engine call latencies and paired
+  MATLAB/Python episodes; the measured deadline misses are reported in `RESULTS.md`.
+- YALMIP/SeDuMi and the polyhedra utility pass real numerical checks. The nominal HJB
+  runner uses unchanged author dynamics/targets with reconstructed contact constraints.
+- A 0.1 s native-parameter nominal solve and nine preselected MuJoCo rollouts exercise
+  the complete HJB/export/feedback chain. All outcomes, including a policy coverage
+  failure, are retained. The source box targets are not controlled invariant.
+- Full five-profile no-exo/GC/PD regions, target/controller reconciliation, convergence
+  and broader MuJoCo forward validation remain required.

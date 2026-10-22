@@ -18,7 +18,7 @@ from scipy.linalg import solve_discrete_are
 
 from exobalancelab.bridge import MatlabController, Trajectory
 from exobalancelab.models import compile_model, human_xml, paper_xml
-from exobalancelab.paper import PROFILES, exo_torque, ground_reaction, limit_human
+from exobalancelab.paper import PROFILE_SETS, PROFILES, exo_torque, ground_reaction, limit_human
 from exobalancelab.reachability import HJBPolicy
 
 
@@ -28,6 +28,7 @@ class RunConfig:
 
     model: str = "paper"
     profile: str = "OF"
+    parameters: str = "table_i"
     exo: str = "none"
     duration_s: float = 6.0
     timestep_s: float = 0.001
@@ -44,6 +45,8 @@ class RunConfig:
     def validate(self) -> None:
         if self.model not in {"paper", "contact", "human"} or self.profile not in PROFILES:
             raise ValueError("Unknown model or Table I profile")
+        if self.parameters not in PROFILE_SETS:
+            raise ValueError("Parameters must be table_i or authors")
         if self.exo not in {"none", "gc", "pd"}:
             raise ValueError("Exoskeleton must be none, gc or pd")
         values = [v for v in asdict(self).values() if isinstance(v, (int, float))]
@@ -54,7 +57,7 @@ class RunConfig:
                 raise ValueError("Duration and control period must be integer physics-step multiples")
         if self.control_period_s < self.timestep_s or not 0 < self.human_strength <= 1:
             raise ValueError("Control period must cover a physics step; human_strength must be in (0,1]")
-        p = PROFILES[self.profile]
+        p = PROFILE_SETS[self.parameters][self.profile]
         if not (
             p.torque_min_nm * self.human_strength
             <= self.initial_torque_nm
@@ -175,7 +178,7 @@ def run(
     if hjb is not None:
         if config.model != "paper" or config.duration_s > hjb.horizon_s or hjb.minimum_horizon_s > 0:
             raise ValueError("HJB requires the paper model and complete [0,duration] time coverage")
-    p = PROFILES[config.profile]
+    p = PROFILE_SETS[config.parameters][config.profile]
     p = replace(
         p,
         torque_min_nm=p.torque_min_nm * config.human_strength,
@@ -183,6 +186,8 @@ def run(
         rate_min_nm_s=p.rate_min_nm_s * config.human_strength,
         rate_max_nm_s=p.rate_max_nm_s * config.human_strength,
     )
+    if hjb is not None:
+        hjb.validate_plant(p, config.exo)
     xml = (
         human_xml(p, config.timestep_s, config.device_mass_kg)
         if config.model == "human"
@@ -397,6 +402,8 @@ def run(
         "contact_valid_fraction": float(np.mean(contact_valid)),
         "max_abs_lean_rad": float(max(abs(arrays["lean_rad"]))),
         "final_lean_rad": float(data.qpos[2] if human else data.qpos[qi]),
+        "final_velocity_rad_s": float(data.qvel[2] if human else data.qvel[vi]),
+        "final_human_torque_nm": float(previous[[2, 5]].sum() if human else previous[0]),
         "human_torque_rms_nm": float(np.sqrt(np.mean(arrays["human_applied_nm"] ** 2))),
         "control_calls": len(latencies),
         "control_p50_us": float(np.median(latencies) * 1e6),

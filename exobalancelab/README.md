@@ -11,7 +11,7 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `bridge` | `Trajectory.sample(time_s)` | seconds → C desired torques (Nm) |
 | `bridge` | `MatlabController(function, directory, channels)` | context manager owning one Engine |
 | `bridge` | `MatlabController.sample(time_s, state)` | seconds/SI column state → torque vector |
-| `paper` | `Profile`, `PROFILES` | Table I anthropometry, MT and MRTD |
+| `paper` | `Profile`, `PROFILES`, `AUTHORS_PROFILES`, `PROFILE_SETS` | Printed/source anthropometry, gravity, MT and MRTD |
 | `paper` | `exo_torque(q, velocity, profile, mode)` | rad/rad/s → bilateral Nm |
 | `paper` | `acceleration(q, velocity, total_torque, profile)` | Eq. (3) → rad/s² |
 | `paper` | `ground_reaction(q, velocity, total_torque, profile)` | flat-foot inverse dynamics → N/metres |
@@ -23,11 +23,13 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `simulation` | `run(config, trajectory, matlab, hjb)` | at most one external policy → `Episode` |
 | `simulation` | `Episode.save(directory)` | records → new evidence directory |
 | `reachability` | `HJBPolicy(path)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s |
+| `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
 | `rendering` | `comparison_video(episodes, output, fps, width, height)` | synchronized records → MP4/GIF/poster |
 | `rendering` | `plot_comparison(episodes, output)` | records → PNG time series |
 | `validation` | `validate_dynamics(seed)`, `benchmark_bridge(seed)` | deterministic protocol → metrics |
+| `hjb_validation` | `validate(run_dir, output, count, seed)` | MATLAB nominal solve → preselected MuJoCo rollouts and outcomes |
 
-`cli`, `sweep` and `validation` expose executable `main()` functions.
+`cli`, `sweep`, `validation` and `hjb_validation` expose executable `main()` functions.
 
 ## Timing and signs
 
@@ -48,6 +50,16 @@ HJB records additionally contain `human_rate_command_nm_s` and
 `human_rate_applied_nm_s`; the latter is the torque change over the following physics
 interval divided by dt, including saturation. All initial torques must satisfy the
 configured strength-scaled limits.
+Episode metrics `final_lean_rad`, `final_velocity_rad_s` and `final_human_torque_nm`
+describe the actual post-step endpoint; HJB terminal-target checks use that state.
+
+`RunConfig.parameters` / `--parameters` selects `table_i` (default printed Table I,
+g=9.81) or `authors` (pinned authors' MAT anthropometry, g=9.8). The source has OF
+height 1.58 m and YF height 1.653 m; other profiles retain their printed heights.
+The effective profile is recorded in episode metrics, and gravity is set in the MJCF.
+HJB files must include `contract_json`; `run` validates it against the effective profile
+and assistance mode before constructing the plant. This catches parameter/strength
+mismatches, but does not prove that a value function solves the declared HJB equation.
 
 For `paper`/`contact`, positive ankle angle is forward lean; positive motor torque is DF.
 A body hinge about world +y produces positive forward lean. In `human`, the ankle joint

@@ -39,8 +39,9 @@ outcomes visible and keeps the data behind them.
    distributed body mass, device mass/inertia, actual ground contact, chest perturbations,
    and synchronized videos with human/device torque and contact information.
 
-**Current evidence:** numerical dynamics agreement, tested controller transport and
-controller-specific recovery experiments. The published Hamilton–Jacobi stabilizable
+**Current evidence:** numerical dynamics agreement, real MATLAB/Python closed-loop parity,
+measured Engine latency, an executed nominal HJB/MuJoCo pipeline and controller-specific
+recovery experiments. The published Hamilton–Jacobi stabilizable
 regions and Table II are a separate reproduction milestone; this repository does not
 label a PD recovery grid as a maximal reachable set. See [paper correspondence](docs/PAPER.md).
 
@@ -110,6 +111,10 @@ All models use SI units, world **x forward, y left, z up**. Paper lean is
 `q = theta - pi/2`: **positive q is forward toward the toes**; positive ankle torque is
 dorsiflexion, negative is plantarflexion. Human joint channels and frame conventions are
 specified in [the API guide](exobalancelab/README.md).
+
+`--parameters table_i` is the default. Use `--parameters authors` to match the
+original HJB source's anthropometry and g=9.8. HJB rollouts verify the policy's
+embedded physical parameters against the selected plant before simulation.
 
 The human model is a torque-driven sagittal anthropometric approximation. It has no
 muscle recruitment, neural delay, lateral balance or subject-specific identification.

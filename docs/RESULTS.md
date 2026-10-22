@@ -2,8 +2,9 @@
 
 All results below were obtained with Python 3.11, MuJoCo 3.3.7 and the committed model
 configuration files. Complete numerical/video run snapshots are in [results](results/).
-The research statement is deliberately narrower than “complete reproduction”: original
-HJB regions and real MATLAB runtime execution remain separate pending acceptance.
+The research statement is deliberately narrower than “complete reproduction”:
+complete published HJB regions remain pending acceptance; real MATLAB runtime results
+are now reported below.
 
 ## Mechanics and MATLAB-file transport
 
@@ -18,9 +19,12 @@ HJB regions and real MATLAB runtime execution remain separate pending acceptance
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **40 automated tests passed**, with the licensed MATLAB test skipped pending runtime access.
+- **53 tests passed with MATLAB R2026b**, including three opt-in runtime/source tests.
+  The other 50 tests need no MATLAB license.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
+  Both printed Table I and original-source parameter sets are checked against MuJoCo;
+  mismatched HJB model/assistance/strength contracts are rejected before a rollout.
   HJB-specific execution checks preserve the initial torque, integrate held rate commands
   at each physics step, test both saturation bounds and compare the lifted trajectory to
   an independent three-state ODE at dt=2, 1 and 0.5 ms. Errors decrease by approximately
@@ -35,6 +39,86 @@ pytest -q
 # On affected Linux systems, use the runtime prefix in matlab/README.md.
 EXOBALANCE_MATLAB_TEST=1 pytest -q -s tests/test_matlab_runtime.py
 ```
+
+## Real MATLAB feedback and exports
+
+MATLAB R2026b (`26.2.0.3386108`) and its matching Python Engine were executed on the
+development workstation. Actual CSV/MAT v7 exports round-trip through Python; the
+MATLAB HJB exporter also writes a v7.3 fixture whose SI axes and gradient-derived rate
+are checked after reading it in Python. This fixture is not a solved HJB policy.
+
+The six-second OF/no-exoskeleton comparison uses `standing_pd.m`, 1 ms physics,
+10 ms control, initial lean 0.01 rad and zero initial speed. Across **600 Engine calls**,
+recorded joint positions and raw human torques match the Python counterpart exactly
+(maximum absolute error 0 in this run). The complete
+[measurement and call latencies](results/matlab_runtime/summary.json),
+[MATLAB episode](results/matlab_runtime/matlab/) and
+[Python episode](results/matlab_runtime/python/) are retained.
+
+| Engine call measurement | Result |
+|---|---:|
+| Median | 1.790 ms |
+| 99th percentile | 2.927 ms |
+| Maximum | 332.866 ms |
+| Calls longer than the 10 ms control period | 3 / 600 |
+
+All calls, including the first controller evaluation, are included; Engine process
+startup is outside these call timings. This is a development-workstation sample.
+The controller is suitable for simulated-time feedback, but these measurements do
+**not** establish hard real-time operation. Offline replay avoids per-step Engine calls.
+
+The independently reconstructed MATLAB nominal contact constraints were checked at
+500 random states across all five profiles against native MuJoCo accelerations and
+Newton–Euler force/moment reconstruction, including scaled/unscaled input agreement.
+Separately, the authors' unchanged `LiftedInvPendExo.dynamics` was executed in MATLAB
+for 500 random states across all five **original-source** parameter sets. Its SI-converted
+angle, speed and human-torque derivatives agreed with native MuJoCo and the supplied
+rate input within absolute tolerance 2e-8 per component (rad/s, rad/s², Nm/s).
+
+To include the source-level check, provide the downloaded source paths as well as
+the MATLAB runtime environment described in [the integration guide](../matlab/README.md):
+
+```bash
+EXOBALANCE_MATLAB_TEST=1 \
+EXOBALANCE_HJB_SOURCE=/path/to/AnkleExoBRS \
+EXOBALANCE_HJB_DEPS=/path/to/hjb_dependencies pytest -q
+```
+
+## Executed nominal HJB pipeline
+
+A real MATLAB/helperOC solve used the unchanged authors' OF/no-exoskeleton dynamics,
+native parameters (height 1.58 m, g=9.8), reconstructed C1/C3–C5 constraints and the
+stored ankle/toe **box targets**. The 51×225×51 grid and 0.1 s horizon are a pipeline
+check, not a converged stabilizable region. The method argument was `none`; the solve
+took 75.062 s and produced 110 nonpositive terminal-grid values from 36 strictly
+negative initial-target values. [Solver summary](results/hjb_nominal_0p1/summary.json).
+
+Before forward simulation, seed 240805418 selected three admissible states from each
+of the inside, outside and near-zero-value groups. Groups are disjoint; the boundary
+pool consists of the 2,000 grid points with smallest absolute value. The matching
+MuJoCo plant then used the exported time-dependent torque-rate policy at 1 kHz.
+
+| Preselected group | Reached terminal target with valid contact | Other outcomes |
+|---|---:|---|
+| Inside | 3 / 3 | None |
+| Outside | 0 / 3 | Two missed targets; one out-of-grid policy error |
+| Near zero value | 1 / 3 | Two missed targets |
+
+The successful near-zero case had a nonpositive initial value; the two missed cases
+had positive values. All eight completed rollouts retained valid contact. These few
+samples verify the execution chain, not boundary accuracy or a population success rate.
+The [preselection protocol](results/hjb_nominal_0p1/protocol.json),
+[all outcomes](results/hjb_nominal_0p1/outcomes.json), [projected values and samples](results/hjb_nominal_0p1/projection.png)
+and completed episode records are retained. The first short-run export predates automatic
+parameter binding; its copy was annotated with verified native parameters, with the
+value-array hash unchanged. [Binding record](results/hjb_nominal_0p1/binding.json).
+Full local value histories remain under ignored `logs/`; use the
+[nominal solver and validation commands](../matlab/README.md#nominal-hjb-baseline)
+to regenerate them (`duration_s=0.1` for this check).
+
+The source's box targets are not controlled invariant. This result therefore does not
+establish the paper's infinite-horizon stabilizable regions; see the
+[target-set audit](PAPER.md#source-discrepancies-to-resolve-before-claiming-exact-reproduction).
 
 ## Assistance can enlarge and shrink a fixed controller's recovery region
 
@@ -120,7 +204,6 @@ Model XML and full arrays make the rendered evidence directly inspectable.
 Earlier development runs used a superseded forward/backward convention and are retained
 only under ignored local `logs/`. They are not included in the published results above.
 
-Pending: finish runtime sign-in for installed MATLAB R2026b, execute the licensed round-trip/feedback
-test, reconcile the upstream source discrepancies, and reproduce the original HJB regions
+Pending: reconcile the upstream source discrepancies and reproduce the original HJB regions
 with convergence/area comparisons. See [paper acceptance](PAPER.md). The articulated model
 also remains unvalidated against subject-specific mechanics or physical human experiments.

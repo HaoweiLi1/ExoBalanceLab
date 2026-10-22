@@ -1,5 +1,7 @@
 """Controller transport contracts: units, coverage, actual samples and errors."""
 
+import json
+
 import h5py
 import numpy as np
 import pytest
@@ -79,7 +81,7 @@ def test_external_channels_must_match_model():
 
 def test_hjb_torque_rate_sign_and_grid_coverage(tmp_path):
     from exobalancelab.paper import PROFILES
-    from exobalancelab.reachability import HJBPolicy
+    from exobalancelab.reachability import HJBPolicy, policy_contract
 
     path = tmp_path / "policy.npz"
     theta = np.array([1.2, 1.9])
@@ -95,6 +97,7 @@ def test_hjb_torque_rate_sign_and_grid_coverage(tmp_path):
         human_torque_nm=torque,
         time_to_go_s=times,
         value=value,
+        contract_json=json.dumps(policy_contract(PROFILES["OF"], "none")),
     )
     policy = HJBPolicy(path)
     p = PROFILES["OF"]
