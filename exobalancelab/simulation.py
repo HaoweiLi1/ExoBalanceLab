@@ -426,7 +426,7 @@ def run(
         "controller_source": (
             {"function": matlab.function, "directory": str(matlab.directory)}
             if matlab
-            else {"file": str(hjb.path), "sha256": hashlib.sha256(hjb.path.read_bytes()).hexdigest()}
+            else {"file": str(hjb.path), "sha256": hjb.sha256}
             if hjb
             else {"interpolation": trajectory.interpolation, "outside": trajectory.outside}
             if trajectory

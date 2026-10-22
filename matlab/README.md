@@ -73,6 +73,10 @@ Python loads `theta_rad`, `velocity_rad_s`, `human_torque_nm`, `time_to_go_s`, a
 `value[Ntheta,Nvelocity,Ntorque,Ntime]`. It interpolates the torque derivative of the
 value function and selects the minimizing rate bound from Eq. (11). Out-of-grid queries
 raise; an unrelated controller is never used as a fallback.
+For v7.3 files, Python checks the value history one time slice at a time and keeps only
+the two adjacent torque-gradient slices needed for interpolation. Policy hashes are
+streamed and reused across episodes, so memory use does not grow with the number of
+saved times. NPZ and MAT v7 remain suitable for small fixtures.
 Time endpoints allow at most 1e-12 s of SI-conversion roundoff; physical grid bounds
 remain strict. This handles an exported 1.3999999999999997 s endpoint for a 1.4 s run.
 The selected rate is held between control ticks, and human torque is integrated at

@@ -5,8 +5,11 @@ remaining horizon [s]. Value gradients select human torque RATE [Nm/s], Eq. (11)
 A sampled recovery controller is never substituted for missing HJB evidence.
 """
 
+import hashlib
 import json
+from collections import OrderedDict
 from dataclasses import asdict
+from functools import cached_property
 from pathlib import Path
 
 import numpy as np
@@ -43,16 +46,51 @@ def policy_contract(profile: Profile, exo: str) -> dict:
     return {"model": "paper", "exo": exo, "profile": parameters}
 
 
+class _HDF5Gradient:
+    """Interpolate two adjacent time slices without loading a full 4D policy."""
+
+    def __init__(self, path: Path, axes: tuple[np.ndarray, ...]) -> None:
+        self.path = path
+        self.grid = axes
+        self._slices: OrderedDict[int, RegularGridInterpolator] = OrderedDict()
+
+    def _slice(self, index: int) -> RegularGridInterpolator:
+        import h5py
+
+        if index not in self._slices:
+            with h5py.File(self.path, "r") as source:
+                value = np.asarray(source["value"][index], dtype=float).T
+            derivative = np.gradient(value, self.grid[2], axis=2, edge_order=1)
+            self._slices[index] = RegularGridInterpolator(self.grid[:3], derivative, bounds_error=True)
+            if len(self._slices) > 2:
+                self._slices.popitem(last=False)
+        self._slices.move_to_end(index)
+        return self._slices[index]
+
+    def __call__(self, point: list[float]) -> np.ndarray:
+        times = self.grid[3]
+        upper = int(np.clip(np.searchsorted(times, point[3], side="right"), 1, len(times) - 1))
+        lower = upper - 1
+        weight = (point[3] - times[lower]) / (times[upper] - times[lower])
+        if weight == 0:
+            return self._slice(lower)(point[:3])
+        if weight == 1:
+            return self._slice(upper)(point[:3])
+        return (1 - weight) * self._slice(lower)(point[:3]) + weight * self._slice(upper)(point[:3])
+
+
 class HJBPolicy:
     """Time-dependent trilinear HJB policy with explicit SI axes and strict coverage.
 
     MAT v7: theta_rad, velocity_rad_s, human_torque_nm, time_to_go_s, value.
     value shape is (Ntheta, Nvelocity, Ntorque, Ntime). Axes must increase.
     NPZ uses the same keys. Export the entire time history, not just its last slice.
+    MAT v7.3 validates slices sequentially and caches only two gradient slices.
     """
 
     def __init__(self, path: str | Path) -> None:
         path = Path(path)
+        hdf5 = False
         if path.suffix == ".npz":
             with np.load(path) as loaded:
                 arrays = dict(loaded)
@@ -60,10 +98,11 @@ class HJBPolicy:
             import h5py
 
             if h5py.is_hdf5(path):
+                hdf5 = True
                 with h5py.File(path, "r") as loaded:
                     arrays = {
                         key: np.asarray(loaded[key]).T
-                        for key in ["theta_rad", "velocity_rad_s", "human_torque_nm", "time_to_go_s", "value"]
+                        for key in ["theta_rad", "velocity_rad_s", "human_torque_nm", "time_to_go_s"]
                     }
                     if "contract_json" in loaded:
                         arrays["contract_json"] = "".join(
@@ -75,17 +114,33 @@ class HJBPolicy:
         axes = [np.asarray(arrays[name], dtype=float).reshape(-1) for name in names]
         if any(len(axis) < 2 or not np.isfinite(axis).all() or np.any(np.diff(axis) <= 0) for axis in axes):
             raise ValueError("HJB axes must have at least two finite, increasing SI coordinates")
-        value = np.asarray(arrays["value"], dtype=float)
-        if value.shape != tuple(map(len, axes)) or not np.isfinite(value).all():
-            raise ValueError("Value function must be finite and match all four grid axes")
-        derivative = np.gradient(value, axes[2], axis=2, edge_order=1)
-        self.gradient = RegularGridInterpolator(tuple(axes), derivative, bounds_error=True)
+        shape = tuple(map(len, axes))
+        if hdf5:
+            with h5py.File(path, "r") as loaded:
+                value = loaded["value"]
+                if value.shape != shape[::-1] or any(
+                    not np.isfinite(value[index]).all() for index in range(shape[3])
+                ):
+                    raise ValueError("Value function must be finite and match all four grid axes")
+            self.gradient = _HDF5Gradient(path.resolve(), tuple(axes))
+        else:
+            value = np.asarray(arrays["value"], dtype=float)
+            if value.shape != shape or not np.isfinite(value).all():
+                raise ValueError("Value function must be finite and match all four grid axes")
+            derivative = np.gradient(value, axes[2], axis=2, edge_order=1)
+            self.gradient = RegularGridInterpolator(tuple(axes), derivative, bounds_error=True)
         self.horizon_s = float(axes[3][-1])
         self.minimum_horizon_s = float(axes[3][0])
         self.path = path.resolve()
         self.contract = (
             json.loads(str(np.asarray(arrays["contract_json"]).item())) if "contract_json" in arrays else None
         )
+
+    @cached_property
+    def sha256(self) -> str:
+        """Hash the immutable policy in bounded chunks, once per loaded policy."""
+        with self.path.open("rb") as source:
+            return hashlib.file_digest(source, "sha256").hexdigest()
 
     def validate_plant(self, profile: Profile, exo: str) -> None:
         """Reject a rollout unless its physical parameters match the exported contract."""
@@ -125,10 +180,12 @@ class HJBPolicy:
                 remaining_s = endpoint
                 break
         point = [np.pi / 2 + lean_rad, velocity_rad_s, human_torque_nm, remaining_s]
-        try:
-            derivative = float(self.gradient(point).item())
-        except ValueError as error:
-            raise PolicyCoverageError(point, self.gradient.grid) from error
+        if any(
+            not axis[0] <= coordinate <= axis[-1]
+            for coordinate, axis in zip(point, self.gradient.grid, strict=True)
+        ):
+            raise PolicyCoverageError(point, self.gradient.grid)
+        derivative = float(self.gradient(point).item())
         if derivative > 0:
             return profile.rate_min_nm_s
         if derivative < 0:

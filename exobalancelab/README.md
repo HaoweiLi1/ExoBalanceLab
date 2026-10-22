@@ -62,6 +62,9 @@ The effective profile is recorded in episode metrics, and gravity is set in the 
 HJB files must include `contract_json`; `run` validates it against the effective profile
 and assistance mode before constructing the plant. This catches parameter/strength
 mismatches, but does not prove that a value function solves the declared HJB equation.
+MAT v7.3 policies use two cached gradient slices; validation and SHA-256 hashing also
+stream from disk. This preserves four-dimensional linear interpolation without holding
+the full value history and its derivative in memory.
 
 For `paper`/`contact`, positive ankle angle is forward lean; positive motor torque is DF.
 A body hinge about world +y produces positive forward lean. In `human`, the ankle joint

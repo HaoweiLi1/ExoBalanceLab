@@ -3,11 +3,15 @@
 Value grids below are analytic interface fixtures, not solved stabilizable regions.
 """
 
+import hashlib
 import json
+from pathlib import Path
 
+import h5py
 import numpy as np
 import pytest
 from scipy.integrate import solve_ivp
+from scipy.interpolate import RegularGridInterpolator
 
 from exobalancelab.paper import PROFILES
 from exobalancelab.reachability import HJBPolicy, PolicyCoverageError, policy_contract
@@ -126,3 +130,45 @@ def test_policy_coverage_error_retains_physical_query_and_bounds(tmp_path):
     assert caught.value.query["remaining_s"] == 0.5
     assert caught.value.query["velocity_rad_s"] == -1.001
     assert caught.value.bounds["velocity_rad_s"] == [-1, 1]
+
+
+def test_hdf5_policy_matches_full_interpolation_without_loading_the_history(tmp_path, monkeypatch):
+    axes = ([1.2, 1.5, 1.9], [-1, -0.1, 0.3, 1], [-88, -30, -3, 0, 22], [0, 0.01, 0.04, 0.1])
+    rng = np.random.default_rng(240805418)
+    value = rng.normal(size=tuple(map(len, axes)))
+    path = tmp_path / "policy.mat"
+    with h5py.File(path, "w") as target:
+        for key, axis in zip(
+            ["theta_rad", "velocity_rad_s", "human_torque_nm", "time_to_go_s"], axes, strict=True
+        ):
+            target[key] = np.asarray(axis)[None, :]
+        target["value"] = value.T
+    expected_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+    original_array = h5py.Dataset.__array__
+
+    def bounded_array(dataset, *args, **kwargs):
+        assert dataset.name != "/value", "The full four-dimensional history must stay on disk"
+        return original_array(dataset, *args, **kwargs)
+
+    def no_read_bytes(path):
+        raise AssertionError("Policy hashing must stream rather than allocate the entire file")
+
+    monkeypatch.setattr(h5py.Dataset, "__array__", bounded_array)
+    monkeypatch.setattr(Path, "read_bytes", no_read_bytes)
+    policy = HJBPolicy(path)
+    reference = RegularGridInterpolator(axes, np.gradient(value, axes[2], axis=2, edge_order=1))
+    # Reverse and revisit time slices, including endpoints and nonuniform knots.
+    for time in [0.1, 0.08, 0.04, 0.015, 0.01, 0, 0.1, 0.005]:
+        for _ in range(10):
+            point = [rng.uniform(axis[0], axis[-1]) for axis in axes[:3]] + [time]
+            np.testing.assert_allclose(policy.gradient(point), reference(point), rtol=1e-13, atol=1e-14)
+            assert len(policy.gradient._slices) <= 2
+    assert policy.sha256 == expected_hash
+    assert policy.sha256 == expected_hash
+    with pytest.raises(PolicyCoverageError):
+        policy.rate(0.101, 0, 0, 0, PROFILES["OF"])
+    # Invalid values must still be rejected before a rollout, even in the final slice.
+    with h5py.File(path, "a") as target:
+        target["value"][-1, 0, 0, 0] = np.nan
+    with pytest.raises(ValueError, match="finite"):
+        HJBPolicy(path)

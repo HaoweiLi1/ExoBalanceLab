@@ -80,7 +80,7 @@ def validate(
     output.mkdir(parents=True, exist_ok=False)
     protocol = {
         "source": source,
-        "policy_sha256": hashlib.sha256(policy.path.read_bytes()).hexdigest(),
+        "policy_sha256": policy.sha256,
         "seed": seed,
         "requested_per_group": count,
         "states": selected,

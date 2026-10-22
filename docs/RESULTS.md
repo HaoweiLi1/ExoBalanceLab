@@ -19,8 +19,8 @@ are now reported below.
   scan 1,801 µs/query versus binary-search interpolation 20.5 µs/query, **87.8×** in this run.
   The continuous-signal error also fell from 2.45e-4 to 3.12e-8 for the sinusoidal fixture.
   This is in-process lookup cost, not a MATLAB Engine or end-to-end real-time benchmark.
-- **65 tests passed with MATLAB R2026b**, including four opt-in runtime/source tests.
-  The other 61 tests need no MATLAB license. The added plot checks expose 14
+- **66 tests passed with MATLAB R2026b**, including four opt-in runtime/source tests.
+  The other 62 tests need no MATLAB license. The added plot checks expose 14
   third-party Matplotlib/pyparsing deprecation warnings; they are not suppressed.
   These include native MuJoCo mechanics, static pressure-center/angle signs, MAT/CSV interchange,
   controller timing, legacy adapters, torque limits and synthetic HJB policy semantics.
@@ -86,6 +86,14 @@ EXOBALANCE_HJB_DEPS=/path/to/hjb_dependencies pytest -q
 ```
 
 ## Executed nominal HJB pipeline
+
+The v7.3 policy reader now validates one time slice at a time and caches two adjacent
+gradient slices. Streaming SHA-256 avoids allocating a second full copy of the file.
+The 101×269×51×141 value history contains 1.56 GB of uncompressed values; repeating the
+frozen nine-state validation used **242 MiB peak resident memory**. All nine outcomes
+and every array in the six completed episodes are exactly equal to the previous reader's
+results. Nonuniform-axis interpolation and rejection of nonfinite values remain tested.
+[Resource measurements and equality checks](results/hjb_streaming/summary.json).
 
 A real MATLAB/helperOC solve used the unchanged authors' OF/no-exoskeleton dynamics,
 native parameters (height 1.58 m, g=9.8), reconstructed C1/C3–C5 constraints and the
