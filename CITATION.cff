@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Please cite this software for its implementation and Raz et al. (2024) for the scientific method."
+title: "ExoBalanceLab: MATLAB-to-MuJoCo Human–Exoskeleton Standing Balance"
+type: software
+authors:
+  - family-names: Li
+    given-names: Haowei
+version: 0.1.0
+date-released: 2026-10-22
+repository-code: "https://github.com/HaoweiLi1/ExoBalanceLab"
+keywords:
+  - exoskeleton
+  - standing balance
+  - MuJoCo
+  - MATLAB
+  - human robot interaction
+references:
+  - type: article
+    title: "Ankle Exoskeletons May Hinder Standing Balance in Simple Models of Older and Younger Adults"
+    authors:
+      - family-names: Raz
+        given-names: Daphna
+      - family-names: Joshi
+        given-names: Varun
+      - family-names: Umberger
+        given-names: Brian R.
+      - family-names: Ozay
+        given-names: Necmiye
+    year: 2024
+    url: "https://arxiv.org/abs/2408.05418"

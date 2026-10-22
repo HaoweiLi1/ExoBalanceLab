@@ -1,0 +1,20 @@
+{
+  "mujoco": "3.3.7",
+  "numpy": "2.2.6",
+  "source_sha256": {
+    "__init__.py": "66cc1b610cb899f78098078717a852225219d4e9a05cb171601be883025ab56b",
+    "reachability.py": "5f0d3ded3ec32f8934e97c6819b586cc77a1e3f591b41e2339333e76b52f8e71",
+    "rendering.py": "3bfc2f275c77abaaceebc7a03e0e03322ccb7b6ded5da2a1a604bec0639e4db8",
+    "models.py": "4dff6925c60bcdb221e907371a93956f3e477b3c0a4dac585bfd8b45a24ee4d1",
+    "bridge.py": "e3c4705193d22ec710a85f8643ec12952bb6d5185d3092e9448c5a6abda3c162",
+    "paper.py": "4f0686f088c2baa795cb769b4e4463d1980b735905c9e4d3ca8e9ae3804cdd84",
+    "cli.py": "da7176084c9c9ae4309fc8ae384a97232fcda8d74b0acdbb15db36099c3d595a",
+    "validation.py": "f93c155ecfe878a0f2feb9a60b508b2a633d8c6f0fc61b7b2d2360802b95ba21",
+    "__main__.py": "7df609d3fdd959b5c5c046ca0b1bf8d904b4909fb89d21f828847482ec5872d9",
+    "simulation.py": "597239b673ba651bb02c1367dbdd4b20870dd1a7f5977090098c9354a6164319",
+    "sweep.py": "10281f96f5fb7cbbbb30413e114eff2de31733b9223a54025415aa3ff5f3d05b"
+  },
+  "model_sha256": "408d24c8ac59532c2f5b64545b9f5a046895b595666f273dfcdbc9cd72da7891",
+  "git_commit": "48c9f04f6fa73d098f069f285e24beb0f1c0adf8",
+  "working_tree_dirty": true
+}

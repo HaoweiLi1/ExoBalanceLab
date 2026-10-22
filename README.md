@@ -1,221 +1,166 @@
-# MuJoCo Human Standing Balance Simulation - Ozay Lab @ University of Michigan
+# ExoBalanceLab
 
-This repository provides a comprehensive platform for simulating human standing balance models in MuJoCo. The simulation framework ranges from simple single-joint inverted pendulum models to advanced multi-joint models with exoskeleton assistance. The models enable researchers to study stabilizable regions of state space, optimize control strategies for human-exoskeleton systems, and investigate various balance perturbation scenarios.
+**MATLAB controllers. MuJoCo contact dynamics. Human–exoskeleton balance you can inspect.**
 
-![humanoid_model](humanoid_model.jpg) \
-**Figure 1.** MuJoCo Two-link Standing Balance Model (left) with contact forces shown in red; Theoretical Two-link Model (right).
+[![Tests](https://github.com/HaoweiLi1/ExoBalanceLab/actions/workflows/tests.yml/badge.svg)](https://github.com/HaoweiLi1/ExoBalanceLab/actions/workflows/tests.yml)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue)](environment.yml)
+[![MuJoCo 3.3.7](https://img.shields.io/badge/MuJoCo-3.3.7-orange)](pyproject.toml)
+[Paper](https://arxiv.org/abs/2408.05418) · [MATLAB integration](matlab/README.md) ·
+[Model and paper correspondence](docs/PAPER.md) · [Measured results](docs/RESULTS.md)
 
-## Libraries to Install
+ExoBalanceLab connects MATLAB control research to reproducible MuJoCo experiments on
+ankle-exoskeleton standing balance. It extends the original
+[standing_balance_sim](https://github.com/celwell20/standing_balance_sim) work with one
+installable Python package, explicit controller contracts, physics checks and an
+articulated human model.
 
-To run the simulation framework, you'll need to install the following libraries:
+The research question comes from **Raz et al., “Ankle Exoskeletons May Hinder Standing
+Balance in Simple Models of Older and Younger Adults” (2024)**: assistance can help in
+some states and reduce the ability to recover in others. This project makes both
+outcomes visible and keeps the data behind them.
+
+![Synchronized human and exoskeleton simulation](docs/media/human.gif)
+
+[Watch the full human comparison](docs/media/human.mp4) ·
+[Inspect assistance-induced contact-constraint violations](docs/media/paper_constraints.mp4)
+
+## Three contributions
+
+1. **A practical MATLAB → MuJoCo bridge.** Validated CSV/MAT v7/v7.3 trajectories,
+   logarithmic-time interpolation, explicit sample-and-hold timing, separate physics/control
+   rates, and a persistent MATLAB Engine adapter. The original one- and two-joint entry
+   points now use the same replay implementation. HJB value-function exports provide
+   torque-rate feedback on the lifted state.
+2. **A paper-linked validation workbench.** Five Table I profiles, independently checked
+   Eq. (3) dynamics, human MT/MRTD limits, GC/PD exoskeletons, foot constraints, full
+   recovery-grid records and an unconstrained-foot MuJoCo comparison. The scope of each
+   result is stated alongside it.
+3. **An articulated human–device extension.** Bilateral hip, knee and ankle joints,
+   distributed body mass, device mass/inertia, actual ground contact, chest perturbations,
+   and synchronized videos with human/device torque and contact information.
+
+**Current evidence:** numerical dynamics agreement, tested controller transport and
+controller-specific recovery experiments. The published Hamilton–Jacobi stabilizable
+regions and Table II are a separate reproduction milestone; this repository does not
+label a PD recovery grid as a maximal reachable set. See [paper correspondence](docs/PAPER.md).
+
+## Run in five minutes
 
 ```bash
-# Core dependencies
-pip install numpy scipy matplotlib pyyaml
+git clone https://github.com/HaoweiLi1/ExoBalanceLab.git
+cd ExoBalanceLab
+conda env create -f environment.yml
+conda activate exobalancelab
 
-# MuJoCo dependencies
-pip install mujoco
+# Headless numerical comparison; no MATLAB license or display required.
+exobalance compare --model paper --profile OF --out logs/first_run
 
-# Visualization and video recording
-pip install imageio imageio-ffmpeg opencv-python
+# Full bilateral human, identical 80 N chest pulse for each assistance mode.
+# Linux headless rendering: EGL requires a working graphics driver.
+MUJOCO_GL=egl exobalance compare --model human --lean 0 --velocity 0 \
+  --push 80 --duration 6 --video --out logs/human_demo
 ```
 
-For MATLAB optimization components (optional, joint1_humanoid only):
-- MATLAB with Optimization Toolbox
-- MATLAB's Global Optimization Toolbox (recommended)
+With a desktop display, omit `MUJOCO_GL=egl`. On machines without EGL, use
+`MUJOCO_GL=osmesa` after installing the operating system's OSMesa library. Rendering is
+optional: numerical runs do not create a GUI. Reusing an output directory is rejected
+so a failed experiment cannot overwrite an earlier recording.
 
-## Repository Structure
+## Bring your MATLAB controller
 
-This repository is organized into several key directories:
+Export desired **human** torques, with time in seconds and torque in Nm:
 
-- **joint1_humanoid**: Advanced single-joint (ankle) model with exoskeleton assistance and optimal control implementations
-- **joint2_humanoid**: Two-joint (ankle-hip) model with enhanced controller architecture 
-- Legacy models (initial_humanoid, final_humanoid, muscle_humanoid): Earlier iterations of the models with basic control strategies
-
-Each directory contains:
-- XML model files
-- `config.yaml` for simulation parameters
-- Controller implementations
-- Visualization and data handling utilities
-- (For joint1_humanoid) MATLAB optimization scripts
-
-## How to use the Configuration file
-
-The `config.yaml` file in each model directory controls all aspects of the simulation:
-
-```yaml
-config:
-  # Simulation parameters
-  simend: 6                      # Duration in seconds
-  simulation_timestep: 0.0005    # Physics timestep
-  visualization_flag: True       # Enable 3D visualization
-  
-  # Body parameters
-  M_total: 60                    # Total mass (kg)
-  H_total: 1.59                  # Total height (m)
-  
-  # Joint parameters
-  ankle_initial_position_radians: -0.03    # Initial ankle angle
-  ankle_initial_velocity: 0.3             # Initial ankle velocity
-  ankle_position_setpoint_radians: 0.00   # Target angle
-  
-  # Controller settings
-  controllers:
-    human:
-      type: "PD"                 # Controller type (LQR, PD, Precomputed)
-      # Controller-specific parameters follow...
+```matlab
+addpath('matlab');
+time_s = (0:0.001:6)';
+torque_nm = 8*sin(2*pi*0.5*time_s).*exp(-time_s);
+export_controller('controller.mat', time_s, torque_nm);
 ```
 
-To modify simulation behavior:
-1. Edit the `config.yaml` file in the model directory
-2. Adjust parameters as needed for your experiment
-3. Save the file and run the simulation
-
-## Simulation Models
-
-### joint1_humanoid: Ankle Exoskeleton Model
-
-The `joint1_humanoid` directory contains an advanced ankle balance model with exoskeleton assistance capabilities. It features:
-
-#### Key Features
-- **Human-exoskeleton coordination**: Integrated control strategies for human and exoskeleton
-- **MATLAB optimal control**: Pre-computed optimal trajectories using direct collocation
-- **Dynamic gain calculation**: Biomechanically-informed gain scheduling
-- **System dynamics modification**: Accounts for exoskeleton's effect on plant dynamics
-- **Multiple controller types**:
-  - Human: LQR, PD, and pre-computed trajectory controllers
-  - Exoskeleton: PD controllers with various assistance strategies
-
-#### Running the joint1_humanoid Simulation
-1. Navigate to the directory: `cd joint1_humanoid` 
-2. Run the simulation: `python simulation.py`
-3. Results will be saved in a timestamped folder in the `data` directory
-
-#### Experimental Scenarios
-The model has been tested in four key scenarios:
-1. **Both Balance**: Human and exoskeleton controllers successfully balance together
-2. **Both Unbalance**: Neither controller alone can stabilize
-3. **Exo Improves**: Exoskeleton assists an otherwise unstable human controller
-4. **Exo Breaks**: Poorly tuned exoskeleton destabilizes an otherwise stable human controller
-
-### joint2_humanoid: Ankle-Hip Model
-
-The `joint2_humanoid` directory contains a more complex two-joint model with both ankle and hip control.
-
-#### Key Features
-- **Multi-joint control**: Coordinated ankle and hip joint dynamics
-- **Enhanced anthropometrics**: More accurate mass and geometry distribution
-- **Improved visualization**: Better rendering of forces and biomechanical properties
-- **Advanced controllers**:
-  - Ankle: Human and exoskeleton controllers (similar to joint1_humanoid)
-  - Hip: PD controller with biomechanically realistic constraints
-- **Rate-of-torque-development (RTD) limits**: Physiologically accurate torque application limits
-
-#### Running the joint2_humanoid Simulation
-1. Navigate to the directory: `cd joint2_humanoid` 
-2. Run the simulation: `python simulation.py`
-3. Results include both ankle and hip joint data
-
-### Legacy Models
-
-The repository also includes several earlier model iterations that may be useful for specific studies:
-
-- **initial_humanoid**: First revision with simplified dynamics
-- **final_humanoid**: Refined model with corrected reference frames
-- **muscle_humanoid**: Model using MuJoCo's muscle and tendon elements for more biologically accurate actuation
-
-These models are maintained for reference but are less advanced than the joint1_humanoid and joint2_humanoid implementations.
-
-## MuJoCo Simulation Class Architecture
-
-### Controller Methods
-
-Each simulation uses a modular controller architecture:
-
-- **Human controllers**: Model human motor control strategies
-  - `HumanLQRController`: Uses optimal control theory to generate stabilizing torques
-  - `HumanPDController`: Simple proportional-derivative controller
-  - `HumanPrecomputedController`: Applies pre-calculated optimal trajectories
-
-- **Exoskeleton controllers**: Model assistive devices
-  - `ExoPDController`: Provides assistance based on joint angle and velocity
-  - `ExoNoneController`: Simulates disabled exoskeleton (zero torque)
-
-- **Hip controllers** (joint2_humanoid only):
-  - `HipPDController`: Controls the hip joint with physiological constraints
-  - `HipNoneController`: Disables hip control for ankle-only studies
-
-Controllers can be toggled in the `config.yaml` file by setting appropriate controller types and parameters.
-
-### Run Method
-
-The simulation's main execution method handles:
-
-1. Loading configuration parameters
-2. Setting up the physics model and renderer
-3. Initializing controllers and data handlers
-4. Running the simulation loop with perturbations and data collection
-5. Saving results and generating visualizations
-
-## Simulation Results
-
-The simulation framework produces comprehensive results for each run, organized in timestamped directories within each model's `data` folder.
-
-### joint1_humanoid Results
-
-The single-joint model results are organized by perturbation direction (forward/backward) and experimental scenario:
-
-```
-joint1_humanoid/data/
-├── backward/                  # Backward perturbation direction
-│   ├── both_balance/          # Both human and exo controllers maintain balance
-│   ├── both_unbalance/        # Neither controller alone can stabilize
-│   ├── exo_break/             # Exo destabilizes an otherwise stable system
-│   └── exo_improve/           # Exo assists an otherwise unstable system
-└── forward/                   # Forward perturbation direction
-    ├── both_balance/
-    ├── both_unbalance/
-    ├── exo_break/
-    └── exo_improve/
+```bash
+exobalance run --trajectory controller.mat --lean 0 --velocity 0 \
+  --control-period .005 --out logs/replay
 ```
 
-Each simulation run produces:
-- `ankle_plots.png`: Time series plots of ankle angle, velocity, and torques
-- `simulation.mp4`: Video recording of the simulation
-- `state.csv`, `torque.csv`, `force.csv`: Raw data for analysis
-- `config.yaml`: Copy of the configuration used for the run
+For feedback, install the Engine package from **your MATLAB release**, then run:
 
-### joint2_humanoid Results
-
-The two-joint model results include both ankle and hip joint data:
-
-```
-joint2_humanoid/data/
-└── balance/                  # Balance experiment
-    ├── ankle_plots.png       # Ankle joint time series plots
-    ├── hip_plots.png         # Hip joint time series plots
-    ├── ankle_state.csv       # Ankle joint state data
-    ├── hip_state.csv         # Hip joint state data
-    ├── ankle_torque.csv      # Ankle torques (human, exo, gravity)
-    ├── hip_torque.csv        # Hip torques
-    ├── force.csv             # Contact and constraint forces
-    └── simulation.mp4        # Video recording of the simulation
+```bash
+python -m pip install /path/to/MATLAB/extern/engines/python
+exobalance run --matlab-function standing_pd --matlab-directory matlab \
+  --control-period .01 --out logs/matlab_feedback
 ```
 
-The visualization plots show:
-1. Joint angles over time
-2. Joint velocities over time
-3. Applied torques (human, exoskeleton, gravity)
-4. Rate of torque development (RTD)
+The simulation clock does not wait for wall-clock deadlines. MATLAB feedback latency is
+measured; this interface does not promise hard real-time operation. Offline replay works
+without MATLAB installed. The example `standing_pd.m` assumes no assistance; external
+controllers must account for the configured exoskeleton themselves.
 
-For more detailed experimental results and analysis, please refer to:
-- [MuJoCo Simulation Documentation](https://www.notion.so/MuJoCo-Simulation-1df7d0facf8a800cabb1cf42b29149c1)
-- [Presentation of Results](https://docs.google.com/presentation/d/1VR8CqYIliBoyK5xkXzbccSOwzxNYH7VUIWC2zvRn12Y/edit?slide=id.p1#slide=id.p1)
+See [MATLAB integration](matlab/README.md) for channel ordering, timing, format validation,
+HJB export, saturation, and runtime validation status.
 
+## Choose the model you need
 
+| Model | Degrees of freedom | Contact | Purpose |
+|---|---:|---|---|
+| `paper` | 1 | Fixed foot; analytically required ground reactions | Match Eq. (3) and evaluate C1–C5 |
+| `contact` | 4 | Foot slides, lifts and rotates under MuJoCo contact | Test failure of the fixed-foot assumption |
+| `human` | 9 | Independent feet; sagittal floating pelvis | Explore joint coordination and device loading |
 
+All models use SI units, world **x forward, y left, z up**. Paper lean is
+`q = theta - pi/2`: **positive q is forward toward the toes**; positive ankle torque is
+dorsiflexion, negative is plantarflexion. Human joint channels and frame conventions are
+specified in [the API guide](exobalancelab/README.md).
 
+The human model is a torque-driven sagittal anthropometric approximation. It has no
+muscle recruitment, neural delay, lateral balance or subject-specific identification.
+The extra geometry is not evidence of physiological validation. The same physical device
+mass remains attached in all human comparison modes; `none` means its motor is off.
 
+## Reproduce the evidence
 
+```bash
+pytest -q
+ruff check exobalancelab tests
+python -m exobalancelab.validation --out logs/numerical_validation
+python -m exobalancelab.sweep --points 13 --out logs/recovery_grid
+```
 
+Each run includes a standalone `model.xml`, `config.json`, `metrics.json`, full `episode.npz`,
+a scalar `signals.csv`, and source/model hashes in `provenance.json`. Replay additionally
+stores the actual input samples. Optional videos are streamed to FFmpeg without buffering
+all full-resolution frames. [Published results](docs/RESULTS.md) explain the experiment
+selection, pass criteria, observed failures and timing scope.
 
+## Repository map
+
+```text
+exobalancelab/        Unified models, controllers, simulation, rendering and CLI
+matlab/               Export helpers and persistent-feedback example
+tests/                Transport, timing, mechanics, contact and model contract tests
+docs/                 Paper correspondence, results and branch provenance
+joint1_humanoid/      Historical ankle workflow and original MATLAB optimization scripts
+joint2_humanoid/      Historical ankle–hip workflow and recordings
+logs/                 Local generated runs (ignored by Git)
+```
+
+`main`, `backup` and `origin` have one integrated history. The latter two were already
+ancestors of `main`; [migration notes](docs/MIGRATION.md) identify exactly what is retained
+and how to recover older muscle/control examples. The maintained entry point is
+`exobalance`; historical recordings keep their original provenance.
+
+## Research context and attribution
+
+- [Raz et al. (2024)](https://arxiv.org/abs/2408.05418) and the authors'
+  [AnkleExoBRS](https://github.com/Raquelometer/AnkleExoBRS) provide the central question,
+  lifted dynamics and reachability method.
+- [MuJoCo](https://github.com/google-deepmind/mujoco) provides contact dynamics and rendering.
+- [MyoSuite](https://github.com/MyoHub/myosuite) is a relevant musculoskeletal comparison
+  and a future validation target. This project's articulated model is independently built;
+  it does not include MyoSuite meshes or muscles.
+- Original simulation work: [celwell20/standing_balance_sim](https://github.com/celwell20/standing_balance_sim).
+  Haowei Li's ankle/exoskeleton and ankle–hip extensions are retained in Git history.
+
+See [NOTICE](NOTICE.md) for provenance and licensing scope. Cite the paper for its
+scientific method and [CITATION.cff](CITATION.cff) when referring to this software.
+Contributions that add measured controller comparisons, physiological parameters, or
+reproducible MATLAB/HJB evidence are welcome; see [contributing](CONTRIBUTING.md).

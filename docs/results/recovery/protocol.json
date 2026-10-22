@@ -1,0 +1,56 @@
+{
+  "config": {
+    "model": "paper",
+    "profile": "OF",
+    "exo": "none",
+    "duration_s": 6,
+    "timestep_s": 0.002,
+    "control_period_s": 0.002,
+    "lean_rad": -0.03,
+    "velocity_rad_s": 0.15,
+    "initial_torque_nm": 0.0,
+    "device_mass_kg": 2.0,
+    "push_n": 0.0,
+    "push_start_s": 1.0,
+    "push_duration_s": 0.15,
+    "human_strength": 1.0
+  },
+  "angles_rad": [
+    -0.08,
+    -0.05666666666666667,
+    -0.03333333333333333,
+    -0.009999999999999995,
+    0.013333333333333336,
+    0.03666666666666667,
+    0.06000000000000001,
+    0.08333333333333333,
+    0.10666666666666667,
+    0.13,
+    0.15333333333333332,
+    0.17666666666666664,
+    0.2
+  ],
+  "velocities_rad_s": [
+    -0.6,
+    -0.5,
+    -0.4,
+    -0.3,
+    -0.2,
+    -0.10000000000000003,
+    0.0,
+    0.09999999999999998,
+    0.19999999999999996,
+    0.29999999999999993,
+    0.3999999999999999,
+    0.4999999999999999,
+    0.6
+  ],
+  "human_initial_torque_nm": 0,
+  "modes": [
+    "none",
+    "gc",
+    "pd"
+  ],
+  "success": "last 1 s |q|<.05 rad and |qdot|<.05 rad/s; C3-C5 valid at all steps",
+  "scope": "fixed adaptive-PD recovery slice, not maximal HJB stabilizable region"
+}

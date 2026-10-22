@@ -47,7 +47,7 @@ config:
     
       # Precomputed specific parameters
       precomputed_params:
-        trajectory_file: "pre_traj/ankle_torque_trajectory.csv"
+        trajectory_file: "../joint1_humanoid/pre_traj/ankle_torque_trajectory.csv"
 
     exo:
       type: "PD"                                      # Options: "PD", "None" 

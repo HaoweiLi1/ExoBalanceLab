@@ -1,3 +1,7 @@
+> Historical workflow. Install the unified package from the repository root first (`pip install -e .`).
+> For maintained commands and verified experiments, see the [root README](../README.md).
+> Historical result claims below retain their original scope; they are not new validation.
+
 # Ankle Exoskeleton Simulation & Optimal Control Framework
 
 This directory contains a comprehensive framework for simulating and optimizing ankle exoskeleton systems, consisting of two main components:

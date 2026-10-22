@@ -1,3 +1,7 @@
+> Historical workflow. Install the unified package from the repository root first (`pip install -e .`).
+> For maintained commands and verified experiments, see the [root README](../README.md).
+> Historical result claims below retain their original scope; they are not new validation.
+
 # Double-Joint Humanoid MuJoCo Simulation
 
 This readme provides a detailed guide on using the MuJoCo simulation for the double-joint (ankle + hip) humanoid model and explains how it was developed by extending the single-joint (ankle only) version.
