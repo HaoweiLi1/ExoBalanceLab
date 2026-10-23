@@ -39,5 +39,16 @@ presenting the existing work with its measured limits.
   perturbations and fixed versus readapted human feedback. Its current assistance sweep
   does not establish the paper's harmful-assistance effect in that model.
 
-New controllers, subject-specific or muscle/3D models, and a new-paper contribution
-are outside the current project plan. See [scope](PLAN.md) and [paper correspondence](PAPER.md).
+## Optional long-term extensions
+
+These directions are retained for future development, without a new-paper requirement.
+They are not part of the current cleanup or prerequisites for public release.
+
+- [ ] Compare additional controller families against the existing no-assistance, GC and
+  PD baselines using matched tasks, human effort limits and recorded failure cases.
+- [ ] Explore muscle-based actuation and subject-specific parameters, with independent
+  physiological evidence for any claims beyond the current engineering model.
+- [ ] Extend the articulated model to 3D balance and evaluate lateral perturbations,
+  documenting the additional mechanics and validation assumptions.
+
+See [scope](PLAN.md) and [paper correspondence](PAPER.md).

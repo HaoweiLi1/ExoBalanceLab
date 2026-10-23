@@ -26,8 +26,9 @@ established.
 
 Current work is repository cleanup and presentation of those results. Further experiments,
 control changes and stronger validation are deferred to [TODO](TODO.md). New controller
-families, muscle/3D models and a new-paper roadmap are outside this scope. Public release
-is a separate remaining task; the repository stays private during this cleanup.
+families and muscle/3D models remain optional long-term directions, with no requirement
+to produce a new paper. Public release is a separate remaining task; the repository
+stays private during this cleanup.
 
 Historical implementation milestones remain in `docs/PLAN.md` at the
 `archive/exobalancelab-2026-10-23` tag; see [history retrieval](MIGRATION.md).
