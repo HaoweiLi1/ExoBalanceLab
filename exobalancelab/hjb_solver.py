@@ -69,13 +69,13 @@ def _rhs(value, grid, drift, rate_bounds):
 
 
 @jax.jit
-def advance(value, start, end, grid, drift, obstacle, rate_bounds, initial, tube):
-    """One saved interval: GLF, CFL 0.8, SSP-RK3, obstacle after every step."""
+def advance(value, start, end, grid, drift, obstacle, rate_bounds, initial, tube, cfl=0.8):
+    """One saved interval: GLF, configurable CFL, SSP-RK3 and contact obstacles."""
 
     def step(carry):
         current, state = carry
         first, bound = _rhs(state, grid, drift, rate_bounds)
-        dt = jnp.minimum(0.8 * bound, end - current)
+        dt = jnp.minimum(cfl * bound, end - current)
         first_state = state + dt * first
         second, _ = _rhs(first_state, grid, drift, rate_bounds)
         half_state = 0.25 * (3 * state + first_state + dt * second)
@@ -92,10 +92,14 @@ def _decode(dataset) -> str:
     return "".join(chr(int(code)) for code in np.asarray(dataset).ravel())
 
 
-def solve(problem: Path, output: Path, save_history: bool = True, platform: str = "gpu") -> dict:
+def solve(
+    problem: Path, output: Path, save_history: bool = True, platform: str = "gpu", cfl: float = 0.8
+) -> dict:
     """Integrate one prepared problem, preserving fields and physical contracts."""
     if output.exists():
         raise FileExistsError(f"Refusing to overwrite an HJB run: {output}")
+    if not np.isfinite(cfl) or not 0 < cfl <= 0.8:
+        raise ValueError("CFL must be in (0,0.8]")
     devices = jax.devices(platform)
     with jax.default_device(devices[0]), h5py.File(problem, "r") as source:
         metadata = json.loads(_decode(source["problem_json"]))
@@ -126,7 +130,7 @@ def solve(problem: Path, output: Path, save_history: bool = True, platform: str 
             raise ValueError("Only the explicit set and tube methods are supported")
         tube = summary["method"] == "minVWithV0"
         times = axes[3] / time_scale
-        args = (initial, times[0], times[1], grid, drift, obstacle, rate_bounds, initial, tube)
+        args = (initial, times[0], times[1], grid, drift, obstacle, rate_bounds, initial, tube, cfl)
         started = time.perf_counter()
         compiled = advance.lower(*args).compile()
         compilation_s = time.perf_counter() - started
@@ -152,6 +156,7 @@ def solve(problem: Path, output: Path, save_history: bool = True, platform: str 
             precision="float64",
             problem_sha256=digest,
             save_history=save_history,
+            cfl=cfl,
             compilation_s=compilation_s,
             compiled_temporary_bytes=memory.temp_size_in_bytes,
             versions={name: version(name) for name in ["jax", "jaxlib", "hj_reachability", "numpy", "h5py"]},
@@ -190,6 +195,7 @@ def solve(problem: Path, output: Path, save_history: bool = True, platform: str 
                         rate_bounds,
                         initial,
                         tube,
+                        cfl,
                     )
                     actual = np.asarray(value)
                     if not np.isfinite(actual).all():
@@ -231,8 +237,11 @@ def main() -> None:
         "--projection-only", action="store_true", help="Save final fields, without feedback history"
     )
     parser.add_argument("--platform", choices=["cpu", "gpu"], default="gpu")
+    parser.add_argument("--cfl", type=float, default=0.8)
     args = parser.parse_args()
-    print(json.dumps(solve(args.problem, args.out, not args.projection_only, args.platform), indent=2))
+    print(
+        json.dumps(solve(args.problem, args.out, not args.projection_only, args.platform, args.cfl), indent=2)
+    )
 
 
 if __name__ == "__main__":

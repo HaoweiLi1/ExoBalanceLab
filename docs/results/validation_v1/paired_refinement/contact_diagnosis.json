@@ -1,0 +1,24 @@
+[
+  {
+    "time_s": 0.105,
+    "normal_n": 0.0,
+    "cop_m": null,
+    "cop_margin_m": -1.0,
+    "friction_margin_n": 0.0,
+    "foot_pitch_rad": 1.8964986199662756e-06,
+    "foot_slide_m": 1.1244401633830892e-06,
+    "dt": 0.0005,
+    "mode": "gc"
+  },
+  {
+    "time_s": 0.105125,
+    "normal_n": 0.0,
+    "cop_m": null,
+    "cop_margin_m": -1.0,
+    "friction_margin_n": 0.0,
+    "foot_pitch_rad": 6.937882111507402e-06,
+    "foot_slide_m": 6.153366255839954e-07,
+    "dt": 0.000125,
+    "mode": "pd"
+  }
+]

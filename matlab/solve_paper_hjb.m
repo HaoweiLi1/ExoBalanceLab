@@ -1,7 +1,7 @@
 function summary = solve_paper_hjb(author_root, dependency_root, output_dir, options)
 %SOLVE_PAPER_HJB Nominal source or reconciled GC/PD HJB with C1/C3-C5.
-% Nominal mode retains the authors' dynamics and stored box targets. Assisted
-% modes use SI-consistent dynamics and recomputed Appendix II target boxes.
+% Legacy defaults retain stored nominal targets and recompute assisted boxes.
+% Explicit target definitions recompute both plants with independent MT/MRTD.
 arguments
     author_root (1,1) string
     dependency_root (1,1) string
@@ -17,7 +17,15 @@ arguments
     options.prepare_only (1,1) logical = false
     options.align_zero (1,1) logical = false
     options.method (1,1) string {mustBeMember(options.method,["none","minVWithV0"])} = "none"
+    options.mt_scale (1,1) double {mustBePositive,mustBeFinite} = 1
+    options.mrtd_scale (1,1) double {mustBePositive,mustBeFinite} = 1
+    options.target_definition (1,1) string {mustBeMember(options.target_definition, ...
+        ["legacy","recomputed","source_entry","common_ankle"])} = "legacy"
 end
+assert(options.mt_scale<=1 && options.mrtd_scale<=1,'Strength scales must not exceed one.');
+assert(options.target_definition~="legacy" || ...
+    (options.mt_scale==1 && options.mrtd_scale==1), ...
+    'Legacy stored targets are only defined at nominal strength; select an explicit target definition.');
 assert(~isfolder(output_dir) && ~isfile(output_dir), 'Refusing to overwrite an HJB run.');
 assert(all(options.resolution >= 3), 'Each grid dimension needs at least three points.');
 addpath(genpath(fullfile(dependency_root, 'helperOC')));
@@ -28,7 +36,7 @@ model_file = fullfile(author_root, 'Models', options.profile + "_model.mat");
 target_file = fullfile(author_root, 'TargetSets', 'computedSets', ...
     "Params_" + options.profile + "_noExo_100_pctMT_100_pctRTD.mat");
 model_data = load(model_file, 'model');
-if options.exo ~= "none"
+if options.exo ~= "none" || options.target_definition ~= "legacy"
     addpath(genpath(fullfile(dependency_root,'YALMIP')));
     addpath(genpath(fullfile(dependency_root,'sedumi')));
 end
@@ -41,14 +49,32 @@ copyfile(fullfile(author_root,'Dynamics','LiftedInvPendExo'), ...
     fullfile(class_root,'@LiftedInvPendExo'));
 addpath(class_root);
 copyfile(model_file, fullfile(output_dir,'source_model.mat'));
-if options.exo == "none"
+if options.exo == "none" && options.target_definition == "legacy"
     target_data = load(target_file, 'problemParams');
     copyfile(target_file, fullfile(output_dir,'source_target.mat'));
     pendulum = LiftedInvPendExo([pi/2;0;0], model_data.model, target_data.problemParams);
     target = target_data.problemParams.targetSets;
 else
-    pendulum = PaperExoPendulum(model_data.model,options.exo);
+    pendulum = PaperExoPendulum(model_data.model,options.exo,options.mt_scale,options.mrtd_scale);
     [target,target_diagnostics] = paper_target_boxes(pendulum);
+    if options.target_definition == "source_entry"
+        % Explicit overrides in the authors' computeAnkleExoBRS.m entry point.
+        % Both velocity widths are changed; these boxes are finite-time goals.
+        target.thetaDotAnkRange = 0.01;
+        target.thetaDotToeRange = 0.01;
+        target.torqueAnkRange = 1;
+    elseif options.target_definition == "common_ankle"
+        % An identical SI goal across modes/strengths, for a separate sensitivity
+        % experiment. Duplicate the ankle box to preserve the exported schema.
+        target.ankleEq = [pi/2;0;0];
+        target.toeEq = target.ankleEq;
+        target.thetaAnkRange = 0.005;
+        target.thetaToeRange = 0.005;
+        target.thetaDotAnkRange = 0.01;
+        target.thetaDotToeRange = 0.01;
+        target.torqueAnkRange = 1;
+        target.torqueToeRange = 1;
+    end
     save(fullfile(output_dir,'computed_target.mat'),'target','target_diagnostics');
 end
 for file_name = ["solve_paper_hjb.m","PaperExoPendulum.m","paper_target_boxes.m", ...
@@ -123,6 +149,9 @@ summary = struct('profile',options.profile,'exo',options.exo,'direction',options
     'aligned_zero',options.exo ~= "none" || options.align_zero, ...
     'matlab_release',version('-release'),'gravity_m_s2',pendulum.g, ...
     'source_model',model_data.model,'target',target, ...
+    'mt_scale',options.mt_scale,'mrtd_scale',options.mrtd_scale, ...
+    'target_definition',options.target_definition,'effective_profile',contract.profile, ...
+    'target_semantics','Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.', ...
     'ankle_target_nodes',ankle_nodes,'toe_target_nodes',toe_nodes, ...
     'initial_target_nodes',nnz(initial<0), ...
     'scope','Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.');

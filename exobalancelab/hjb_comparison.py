@@ -34,6 +34,8 @@ def compare(runs: dict[str, Path], output: Path) -> list[dict]:
             source["exo"],
             source["target"],
             source["duration_s"],
+            source.get("mt_scale", 1),
+            source.get("mrtd_scale", 1),
         )
         if reference is None:
             reference = signature

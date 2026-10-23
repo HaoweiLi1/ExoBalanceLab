@@ -1,0 +1,201 @@
+{
+  "source": {
+    "profile": "YF",
+    "exo": "none",
+    "direction": "forward",
+    "resolution": [
+      151,
+      152,
+      152
+    ],
+    "requested_resolution": [
+      151,
+      151,
+      151
+    ],
+    "duration_s": 1.4,
+    "output_step_s": 0.01,
+    "method": "none",
+    "velocity_buffer_rad_s": 0.5,
+    "aligned_zero": true,
+    "matlab_release": "2026b",
+    "gravity_m_s2": 9.8,
+    "source_model": {
+      "m": 59.4,
+      "h": 1.653,
+      "tauMin": -130,
+      "tauMax": 28,
+      "uMin": -608,
+      "uMax": 219,
+      "label": "YF"
+    },
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -99.24290810588042
+      ],
+      "thetaAnkRange": 0.014480787516215746,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 1,
+      "thetaToeRange": 0.014486685751929518,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 11.068663929248952
+    },
+    "mt_scale": 1,
+    "mrtd_scale": 1,
+    "target_definition": "source_entry",
+    "effective_profile": {
+      "mass_kg": 59.4,
+      "height_m": 1.653,
+      "torque_min_nm": -130,
+      "torque_max_nm": 28,
+      "rate_min_nm_s": -608,
+      "rate_max_nm_s": 219,
+      "damping_nm_s": 0.001,
+      "friction": 1,
+      "gravity_m_s2": 9.8
+    },
+    "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+    "ankle_target_nodes": 3,
+    "toe_target_nodes": 84,
+    "initial_target_nodes": 87,
+    "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+    "stage": "solved",
+    "backend": "JAX/ENO3",
+    "device": "cuda:0",
+    "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "solver_sha256": "a17212392407ba46a67f8bae1ab15a337ca42294ed996076589806e3ede61617",
+    "precision": "float64",
+    "problem_sha256": "ba5ee20de815f65b41aaaeacdc7e878797d6e3c56be9bb83c90467aae32e8764",
+    "save_history": true,
+    "cfl": 0.8,
+    "compilation_s": 1.5735403499566019,
+    "compiled_temporary_bytes": 423988576,
+    "versions": {
+      "jax": "0.12.0.1",
+      "jaxlib": "0.12.0.1",
+      "hj_reachability": "0.7.0",
+      "numpy": "2.2.6",
+      "h5py": "3.14.0"
+    },
+    "wall_s": 169.54514644597657,
+    "final_reachable_nodes": 221750
+  },
+  "policy_sha256": "38736be7a5cc4ad492e3bbcd0372cf026047c1f0434481249445650402673fdd",
+  "seed": 240805418,
+  "requested_per_group": 3,
+  "states": [
+    {
+      "group": "inside",
+      "state": [
+        1.5470000000000002,
+        0.40200000000000014,
+        5.266666666666667
+      ],
+      "value": -0.003514500970576731
+    },
+    {
+      "group": "inside",
+      "state": [
+        0.9106666666666667,
+        2.1663333333333337,
+        -3.1599999999999997
+      ],
+      "value": -0.0025927627892066056
+    },
+    {
+      "group": "inside",
+      "state": [
+        1.4856666666666667,
+        0.44666666666666677,
+        22.12
+      ],
+      "value": -0.003237722730244421
+    },
+    {
+      "group": "outside",
+      "state": [
+        0.903,
+        0.44666666666666677,
+        -18.960000000000004
+      ],
+      "value": 1.8848706184814987
+    },
+    {
+      "group": "outside",
+      "state": [
+        0.9643333333333333,
+        1.139,
+        -13.693333333333333
+      ],
+      "value": 1.4937149166247625
+    },
+    {
+      "group": "outside",
+      "state": [
+        1.2786666666666666,
+        0.3796666666666668,
+        -51.61333333333334
+      ],
+      "value": 1.4749473494225749
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.3553333333333333,
+        1.2060000000000002,
+        -49.506666666666675
+      ],
+      "value": -7.838860264127785e-06
+    },
+    {
+      "group": "boundary",
+      "state": [
+        1.3016666666666667,
+        1.34,
+        -30.546666666666667
+      ],
+      "value": -1.1652294083896842e-05
+    },
+    {
+      "group": "boundary",
+      "state": [
+        0.7956666666666667,
+        2.4120000000000004,
+        8.426666666666666
+      ],
+      "value": 2.951615943585032e-05
+    }
+  ],
+  "rollout": {
+    "timestep_s": 1.25e-05,
+    "control_period_s": 0.001,
+    "command_delay_s": 0.0
+  },
+  "selection_constraints": {
+    "human_torque_nm": [
+      -130,
+      28
+    ],
+    "positive_contact_margins": true
+  },
+  "gradient_cache": {
+    "policy_sha256": "38736be7a5cc4ad492e3bbcd0372cf026047c1f0434481249445650402673fdd",
+    "gradient_sha256": "f47955616caaff61d3e4f3bcdc75ea4e33f601ae0060b1fedcb4487bbee59941",
+    "shape": [
+      141,
+      152,
+      152,
+      151
+    ],
+    "dtype": "float64",
+    "numpy_version": "2.2.6",
+    "method": "numpy.gradient along human torque, edge_order=1"
+  }
+}

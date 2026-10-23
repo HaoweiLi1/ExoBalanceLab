@@ -1,0 +1,4902 @@
+[
+  {
+    "case": "OM_none_forward_recomputed_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014498403518089998,
+      0.01,
+      14.891952238358778
+    ],
+    "minimum_corner_margins": [
+      729.7279603156541,
+      0.029882842081214483,
+      704.5682387681184
+    ],
+    "outward_face_state_si": [
+      1.5852947303129865,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 729.9491822093473,
+      "friction_n": 10.276839632524792,
+      "cop_m": 0.0014227830530797291,
+      "cop_margin_m": 0.05167398305307973,
+      "friction_margin_n": 719.6723425768225
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_recomputed_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.735171176381032,
+      0,
+      -116.06374194738197
+    ],
+    "widths_si": [
+      0.014503323940844642,
+      0.01,
+      14.700631649709965
+    ],
+    "minimum_corner_margins": [
+      725.6760580637542,
+      0.031389933622027605,
+      701.2494905324406
+    ],
+    "outward_face_state_si": [
+      1.7496745003218768,
+      0.005,
+      -116.06374194738197
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.2957161827385,
+      "friction_n": 9.968680905454013,
+      "cop_m": 0.16081820931000806,
+      "cop_margin_m": 0.05341059068999193,
+      "friction_margin_n": 718.3270352772845
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_recomputed_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.0058646631490287815,
+      0.05024465936052392
+    ],
+    "minimum_corner_margins": [
+      730.0949912073403,
+      0.0037614614269594407,
+      730.0449542150697
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.0029323315745143907,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.0029323315745143907,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0993786055101,
+      "friction_n": -3.418422464048964e-05,
+      "cop_m": 0.05117164114626614,
+      "cop_margin_m": 0.10142284114626614,
+      "friction_margin_n": 730.0993444212854
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_recomputed_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "widths_si": [
+      0.014504727028301348,
+      0.01,
+      14.64769897211904
+    ],
+    "minimum_corner_margins": [
+      725.1721924877481,
+      0.011233969248203468,
+      700.9360022735963
+    ],
+    "outward_face_state_si": [
+      1.771093680885534,
+      0.005,
+      -81.02244646266334
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.0903758484126,
+      "friction_n": 9.88957510004003,
+      "cop_m": 0.18141605759584303,
+      "cop_margin_m": 0.032812742404156964,
+      "friction_margin_n": 718.2008007483726
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014498403518089998,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      729.9292637369957,
+      0.050211099800255614,
+      718.653092608273
+    ],
+    "outward_face_state_si": [
+      1.5852947303129865,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 729.9491822093473,
+      "friction_n": 10.276839632524792,
+      "cop_m": 0.0014227830530797291,
+      "cop_margin_m": 0.05167398305307973,
+      "friction_margin_n": 719.6723425768225
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.735171176381032,
+      0,
+      -116.06374194738197
+    ],
+    "widths_si": [
+      0.014503323940844642,
+      0.01,
+      14.700631649709965
+    ],
+    "minimum_corner_margins": [
+      725.6760580637542,
+      0.031389933622027605,
+      701.2494905324406
+    ],
+    "outward_face_state_si": [
+      1.7496745003218768,
+      0.005,
+      -116.06374194738197
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.2957161827385,
+      "friction_n": 9.968680905454013,
+      "cop_m": 0.16081820931000806,
+      "cop_margin_m": 0.05341059068999193,
+      "friction_margin_n": 718.3270352772845
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0425700792762,
+      0.002375271666329705,
+      729.0446848573209
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0981931429423,
+      "friction_n": -9.586986083276375e-05,
+      "cop_m": 0.05117173279930876,
+      "cop_margin_m": 0.10142293279930875,
+      "friction_margin_n": 730.0980972730814
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "widths_si": [
+      0.014504727028301348,
+      0.01,
+      14.64769897211904
+    ],
+    "minimum_corner_margins": [
+      725.1721924877481,
+      0.011233969248203468,
+      700.9360022735963
+    ],
+    "outward_face_state_si": [
+      1.771093680885534,
+      0.005,
+      -81.02244646266334
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.0903758484126,
+      "friction_n": 9.88957510004003,
+      "cop_m": 0.18141605759584303,
+      "cop_margin_m": 0.032812742404156964,
+      "friction_margin_n": 718.2008007483726
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0700419632858,
+      0.05083685921238809,
+      725.5260039769074
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0804676260536,
+      "friction_n": 3.544562378677173,
+      "cop_m": 0.002048283342472483,
+      "cop_margin_m": 0.05229948334247248,
+      "friction_margin_n": 726.5359052473765
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0700419632858,
+      0.05083685921238809,
+      725.5260039769074
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0804676260536,
+      "friction_n": 3.544562378677173,
+      "cop_m": 0.002048283342472483,
+      "cop_margin_m": 0.05229948334247248,
+      "friction_margin_n": 726.5359052473765
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_common_ankle_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0877649930932,
+      0.04630886390734096,
+      729.0883034297517
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.098190655861,
+      "friction_n": -1.4044359803686245e-05,
+      "cop_m": 0.0072351085446386125,
+      "cop_margin_m": 0.05748630854463861,
+      "friction_margin_n": 730.0981766115012
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_common_ankle_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0877649930932,
+      0.04630886390734096,
+      729.0883034297517
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.098190655861,
+      "friction_n": -1.4044359803686245e-05,
+      "cop_m": 0.0072351085446386125,
+      "cop_margin_m": 0.05748630854463861,
+      "friction_margin_n": 730.0981766115012
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_recomputed_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014498403518089998,
+      0.01,
+      14.891952238358778
+    ],
+    "minimum_corner_margins": [
+      729.7279603156541,
+      0.029882842081214483,
+      704.5682387681184
+    ],
+    "outward_face_state_si": [
+      1.5852947303129865,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 729.9491822093473,
+      "friction_n": 10.276839632524792,
+      "cop_m": 0.0014227830530797291,
+      "cop_margin_m": 0.05167398305307973,
+      "friction_margin_n": 719.6723425768225
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_recomputed_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.735171176381032,
+      0,
+      -116.06374194738197
+    ],
+    "widths_si": [
+      0.014503323940844642,
+      0.01,
+      14.700631649709965
+    ],
+    "minimum_corner_margins": [
+      725.6760580637542,
+      0.031389933622027605,
+      701.2494905324406
+    ],
+    "outward_face_state_si": [
+      1.7496745003218768,
+      0.005,
+      -116.06374194738197
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.2957161827385,
+      "friction_n": 9.968680905454013,
+      "cop_m": 0.16081820931000806,
+      "cop_margin_m": 0.05341059068999193,
+      "friction_margin_n": 718.3270352772845
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_recomputed_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.0058646631490287815,
+      0.05024465936052392
+    ],
+    "minimum_corner_margins": [
+      730.0949912073403,
+      0.0037614614269594407,
+      730.0449542150697
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.0029323315745143907,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.0029323315745143907,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0993786055101,
+      "friction_n": -3.418422464048964e-05,
+      "cop_m": 0.05117164114626614,
+      "cop_margin_m": 0.10142284114626614,
+      "friction_margin_n": 730.0993444212854
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_recomputed_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "widths_si": [
+      0.014504727028301348,
+      0.01,
+      14.64769897211904
+    ],
+    "minimum_corner_margins": [
+      725.1721924877481,
+      0.011233969248203468,
+      700.9360022735963
+    ],
+    "outward_face_state_si": [
+      1.771093680885534,
+      0.005,
+      -81.02244646266334
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.0903758484126,
+      "friction_n": 9.88957510004003,
+      "cop_m": 0.18141605759584303,
+      "cop_margin_m": 0.032812742404156964,
+      "friction_margin_n": 718.2008007483726
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014498403518089998,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      729.9292637369957,
+      0.050211099800255614,
+      718.653092608273
+    ],
+    "outward_face_state_si": [
+      1.5852947303129865,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 729.9491822093473,
+      "friction_n": 10.276839632524792,
+      "cop_m": 0.0014227830530797291,
+      "cop_margin_m": 0.05167398305307973,
+      "friction_margin_n": 719.6723425768225
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.735171176381032,
+      0,
+      -116.06374194738197
+    ],
+    "widths_si": [
+      0.014503323940844642,
+      0.01,
+      14.700631649709965
+    ],
+    "minimum_corner_margins": [
+      725.6760580637542,
+      0.031389933622027605,
+      701.2494905324406
+    ],
+    "outward_face_state_si": [
+      1.7496745003218768,
+      0.005,
+      -116.06374194738197
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.2957161827385,
+      "friction_n": 9.968680905454013,
+      "cop_m": 0.16081820931000806,
+      "cop_margin_m": 0.05341059068999193,
+      "friction_margin_n": 718.3270352772845
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0425700792762,
+      0.002375271666329705,
+      729.0446848573209
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0981931429423,
+      "friction_n": -9.586986083276375e-05,
+      "cop_m": 0.05117173279930876,
+      "cop_margin_m": 0.10142293279930875,
+      "friction_margin_n": 730.0980972730814
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "widths_si": [
+      0.014504727028301348,
+      0.01,
+      14.64769897211904
+    ],
+    "minimum_corner_margins": [
+      725.1721924877481,
+      0.011233969248203468,
+      700.9360022735963
+    ],
+    "outward_face_state_si": [
+      1.771093680885534,
+      0.005,
+      -81.02244646266334
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 728.0903758484126,
+      "friction_n": 9.88957510004003,
+      "cop_m": 0.18141605759584303,
+      "cop_margin_m": 0.032812742404156964,
+      "friction_margin_n": 718.2008007483726
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0700419632858,
+      0.05083685921238809,
+      725.5260039769074
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0804676260536,
+      "friction_n": 3.544562378677173,
+      "cop_m": 0.002048283342472483,
+      "cop_margin_m": 0.05229948334247248,
+      "friction_margin_n": 726.5359052473765
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0700419632858,
+      0.05083685921238809,
+      725.5260039769074
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.0804676260536,
+      "friction_n": 3.544562378677173,
+      "cop_m": 0.002048283342472483,
+      "cop_margin_m": 0.05229948334247248,
+      "friction_margin_n": 726.5359052473765
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_common_ankle_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0877649930932,
+      0.04630886390734096,
+      729.0883034297517
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.098190655861,
+      "friction_n": -1.4044359803686245e-05,
+      "cop_m": 0.0072351085446386125,
+      "cop_margin_m": 0.05748630854463861,
+      "friction_margin_n": 730.0981766115012
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "OM_gc_forward_common_ankle_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.005,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      730.0877649930932,
+      0.04630886390734096,
+      729.0883034297517
+    ],
+    "outward_face_state_si": [
+      1.5757963267948965,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 730.098190655861,
+      "friction_n": -1.4044359803686245e-05,
+      "cop_m": 0.0072351085446386125,
+      "cop_margin_m": 0.05748630854463861,
+      "friction_margin_n": 730.0981766115012
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt90_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7356063758060705,
+      0,
+      -88.14309126448137
+    ],
+    "widths_si": [
+      0.014485378315248756,
+      0.01,
+      11.107990959039684
+    ],
+    "minimum_corner_margins": [
+      578.5918345373516,
+      0.029477742664959172,
+      559.1559448570071
+    ],
+    "outward_face_state_si": [
+      1.7500917541213192,
+      0.005,
+      -88.14309126448137
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.6800603421192,
+      "friction_n": 7.937172599185052,
+      "cop_m": 0.15317608491529403,
+      "cop_margin_m": 0.05034127508470598,
+      "friction_margin_n": 572.7428877429342
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7356063758060705,
+      0,
+      -88.14309126448137
+    ],
+    "widths_si": [
+      0.014485378315248756,
+      0.01,
+      11.107990959039684
+    ],
+    "minimum_corner_margins": [
+      578.5918345373516,
+      0.029477742664959172,
+      559.1559448570071
+    ],
+    "outward_face_state_si": [
+      1.7500917541213192,
+      0.005,
+      -88.14309126448137
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.6800603421192,
+      "friction_n": 7.937172599185052,
+      "cop_m": 0.15317608491529403,
+      "cop_margin_m": 0.05034127508470598,
+      "friction_margin_n": 572.7428877429342
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt80_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.710999568937707,
+      0,
+      -75.07697308002646
+    ],
+    "widths_si": [
+      0.014484039058238774,
+      0.01,
+      11.148152219525882
+    ],
+    "minimum_corner_margins": [
+      579.0598032478554,
+      0.05160354209089718,
+      559.4703101792567
+    ],
+    "outward_face_state_si": [
+      1.725483607995946,
+      0.005,
+      -75.07697308002646
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.8709733613673,
+      "friction_n": 8.001125856107064,
+      "cop_m": 0.13062463206490804,
+      "cop_margin_m": 0.07289272793509197,
+      "friction_margin_n": 572.8698475052603
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.710999568937707,
+      0,
+      -75.07697308002646
+    ],
+    "widths_si": [
+      0.014484039058238774,
+      0.01,
+      11.148152219525882
+    ],
+    "minimum_corner_margins": [
+      579.0598032478554,
+      0.05160354209089718,
+      559.4703101792567
+    ],
+    "outward_face_state_si": [
+      1.725483607995946,
+      0.005,
+      -75.07697308002646
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.8709733613673,
+      "friction_n": 8.001125856107064,
+      "cop_m": 0.13062463206490804,
+      "cop_margin_m": 0.07289272793509197,
+      "friction_margin_n": 572.8698475052603
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt70_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.6864964147086676,
+      0,
+      -62.02071335463479
+    ],
+    "widths_si": [
+      0.014483123148381006,
+      0.01,
+      11.181905633967698
+    ],
+    "minimum_corner_margins": [
+      579.532642969623,
+      0.07376092028639525,
+      559.8125400177926
+    ],
+    "outward_face_state_si": [
+      1.7009795378570487,
+      0.005,
+      -62.02071335463479
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 581.0639456448151,
+      "friction_n": 8.055626426921634,
+      "cop_m": 0.10810563007676392,
+      "cop_margin_m": 0.09541172992323609,
+      "friction_margin_n": 573.0083192178935
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.6864964147086676,
+      0,
+      -62.02071335463479
+    ],
+    "widths_si": [
+      0.014483123148381006,
+      0.01,
+      11.181905633967698
+    ],
+    "minimum_corner_margins": [
+      579.532642969623,
+      0.07376092028639525,
+      559.8125400177926
+    ],
+    "outward_face_state_si": [
+      1.7009795378570487,
+      0.005,
+      -62.02071335463479
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 581.0639456448151,
+      "friction_n": 8.055626426921634,
+      "cop_m": 0.10810563007676392,
+      "cop_margin_m": 0.09541172992323609,
+      "friction_margin_n": 573.0083192178935
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt60_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.6620810705213858,
+      0,
+      -48.974197256570356
+    ],
+    "widths_si": [
+      0.01448224437556481,
+      0.01,
+      11.209015306339392
+    ],
+    "minimum_corner_margins": [
+      580.0095660931722,
+      0.09595122116994352,
+      560.1823385593601
+    ],
+    "outward_face_state_si": [
+      1.6765633148969505,
+      0.005,
+      -48.974197256570356
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 581.2586492733765,
+      "friction_n": 8.10047997302635,
+      "cop_m": 0.0856191582687242,
+      "cop_margin_m": 0.11789820173127581,
+      "friction_margin_n": 573.1581693003501
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.6620810705213858,
+      0,
+      -48.974197256570356
+    ],
+    "widths_si": [
+      0.01448224437556481,
+      0.01,
+      11.209015306339392
+    ],
+    "minimum_corner_margins": [
+      580.0095660931722,
+      0.09595122116994352,
+      560.1823385593601
+    ],
+    "outward_face_state_si": [
+      1.6765633148969505,
+      0.005,
+      -48.974197256570356
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 581.2586492733765,
+      "friction_n": 8.10047997302635,
+      "cop_m": 0.0856191582687242,
+      "cop_margin_m": 0.11789820173127581,
+      "friction_margin_n": 573.1581693003501
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565206380525957,
+      0,
+      -49.206837186168656
+    ],
+    "widths_si": [
+      0.014486681235728214,
+      0.01,
+      11.068799533660892
+    ],
+    "minimum_corner_margins": [
+      578.2003609123645,
+      0.01078016501583634,
+      558.912671066959
+    ],
+    "outward_face_state_si": [
+      1.771007319288324,
+      0.005,
+      -49.206837186168656
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5204142457973,
+      "friction_n": 7.8755708912833775,
+      "cop_m": 0.1722833736355502,
+      "cop_margin_m": 0.031233986364449795,
+      "friction_margin_n": 572.6448433545139
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt50_mrtd100_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565206380525957,
+      0,
+      -49.206837186168656
+    ],
+    "widths_si": [
+      0.014486681235728214,
+      0.01,
+      11.068799533660892
+    ],
+    "minimum_corner_margins": [
+      578.2003609123645,
+      0.01078016501583634,
+      558.912671066959
+    ],
+    "outward_face_state_si": [
+      1.771007319288324,
+      0.005,
+      -49.206837186168656
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5204142457973,
+      "friction_n": 7.8755708912833775,
+      "cop_m": 0.1722833736355502,
+      "cop_margin_m": 0.031233986364449795,
+      "friction_margin_n": 572.6448433545139
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd90_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd80_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd70_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd60_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.012307430354495203,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0159558423012,
+      0.04739265700182646,
+      574.0080557005239
+    ],
+    "outward_face_state_si": [
+      1.5831037571493918,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0330156832379,
+      "friction_n": 6.9559091184844695,
+      "cop_m": 0.0014886888828709022,
+      "cop_margin_m": 0.0492273288828709,
+      "friction_margin_n": 575.0771065647534
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.012307430354495203,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0159558423012,
+      0.04739265700182646,
+      574.0080557005239
+    ],
+    "outward_face_state_si": [
+      1.5831037571493918,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0330156832379,
+      "friction_n": 6.9559091184844695,
+      "cop_m": 0.0014886888828709022,
+      "cop_margin_m": 0.0492273288828709,
+      "friction_margin_n": 575.0771065647534
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd50_n151_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.6620810705213858,
+      0,
+      -48.974197256570356
+    ],
+    "widths_si": [
+      0.01448224437556481,
+      0.01,
+      11.209015306339392
+    ],
+    "minimum_corner_margins": [
+      580.0095660931722,
+      0.09595122116994352,
+      560.1823385593601
+    ],
+    "outward_face_state_si": [
+      1.6765633148969505,
+      0.005,
+      -48.974197256570356
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 581.2586492733765,
+      "friction_n": 8.10047997302635,
+      "cop_m": 0.0856191582687242,
+      "cop_margin_m": 0.11789820173127581,
+      "friction_margin_n": 573.1581693003501
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.6620810705213858,
+      0,
+      -48.974197256570356
+    ],
+    "widths_si": [
+      0.01448224437556481,
+      0.01,
+      11.209015306339392
+    ],
+    "minimum_corner_margins": [
+      580.0095660931722,
+      0.09595122116994352,
+      560.1823385593601
+    ],
+    "outward_face_state_si": [
+      1.6765633148969505,
+      0.005,
+      -48.974197256570356
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 581.2586492733765,
+      "friction_n": 8.10047997302635,
+      "cop_m": 0.0856191582687242,
+      "cop_margin_m": 0.11789820173127581,
+      "friction_margin_n": 573.1581693003501
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565206380525957,
+      0,
+      -49.206837186168656
+    ],
+    "widths_si": [
+      0.014486681235728214,
+      0.01,
+      11.068799533660892
+    ],
+    "minimum_corner_margins": [
+      578.2003609123645,
+      0.01078016501583634,
+      558.912671066959
+    ],
+    "outward_face_state_si": [
+      1.771007319288324,
+      0.005,
+      -49.206837186168656
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5204142457973,
+      "friction_n": 7.8755708912833775,
+      "cop_m": 0.1722833736355502,
+      "cop_margin_m": 0.031233986364449795,
+      "friction_margin_n": 572.6448433545139
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt50_mrtd100_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565206380525957,
+      0,
+      -49.206837186168656
+    ],
+    "widths_si": [
+      0.014486681235728214,
+      0.01,
+      11.068799533660892
+    ],
+    "minimum_corner_margins": [
+      578.2003609123645,
+      0.01078016501583634,
+      558.912671066959
+    ],
+    "outward_face_state_si": [
+      1.771007319288324,
+      0.005,
+      -49.206837186168656
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5204142457973,
+      "friction_n": 7.8755708912833775,
+      "cop_m": 0.1722833736355502,
+      "cop_margin_m": 0.031233986364449795,
+      "friction_margin_n": 572.6448433545139
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.012307430354495203,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0159558423012,
+      0.04739265700182646,
+      574.0080557005239
+    ],
+    "outward_face_state_si": [
+      1.5831037571493918,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0330156832379,
+      "friction_n": 6.9559091184844695,
+      "cop_m": 0.0014886888828709022,
+      "cop_margin_m": 0.0492273288828709,
+      "friction_margin_n": 575.0771065647534
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.012307430354495203,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0159558423012,
+      0.04739265700182646,
+      574.0080557005239
+    ],
+    "outward_face_state_si": [
+      1.5831037571493918,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0330156832379,
+      "friction_n": 6.9559091184844695,
+      "cop_m": 0.0014886888828709022,
+      "cop_margin_m": 0.0492273288828709,
+      "friction_margin_n": 575.0771065647534
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_backward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_backward_source_entry_mt100_mrtd50_n225_cfl0.8",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.012714582086430398,
+      0.01,
+      9.714674462155873
+    ],
+    "minimum_corner_margins": [
+      578.7078252474582,
+      0.01317028321653127,
+      561.7728268768877
+    ],
+    "outward_face_state_si": [
+      1.769303535943663,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.727475405685,
+      "friction_n": 6.915647752536292,
+      "cop_m": 0.17239062030831961,
+      "cop_margin_m": 0.031126739691680394,
+      "friction_margin_n": 573.8118276531487
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.4",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.014480787516215746,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      581.9807651521119,
+      0.04725661054372748,
+      572.7448840836561
+    ],
+    "outward_face_state_si": [
+      1.5852771143111124,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.0001113031823,
+      "friction_n": 8.183929606790231,
+      "cop_m": 0.0013527476503895804,
+      "cop_margin_m": 0.049091387650389576,
+      "friction_margin_n": 573.816181696392
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.4",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -99.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.4",
+    "target": "Ank",
+    "center_si": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "widths_si": [
+      0.05024722818662286,
+      0.01,
+      1.0
+    ],
+    "minimum_corner_margins": [
+      582.0616811543404,
+      0.0018126728229129196,
+      581.0111683545897
+    ],
+    "outward_face_state_si": [
+      1.6210435549815194,
+      0.005,
+      0.0
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 582.1186314708201,
+      "friction_n": -7.408990405025656e-05,
+      "cop_m": 0.04861314196097496,
+      "cop_margin_m": 0.09635178196097496,
+      "friction_margin_n": 582.1185573809161
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  },
+  {
+    "case": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.4",
+    "target": "Toe",
+    "center_si": [
+      1.7565889538572326,
+      0,
+      -49.24290810588042
+    ],
+    "widths_si": [
+      0.014486685751929518,
+      0.01,
+      11.068663929248952
+    ],
+    "minimum_corner_margins": [
+      578.19909241151,
+      0.010719261203266939,
+      558.9119129191184
+    ],
+    "outward_face_state_si": [
+      1.771075639609162,
+      0.005,
+      -49.24290810588042
+    ],
+    "outward_angle_velocity_rad_s": 0.005,
+    "outward_face_admissible": true,
+    "outward_face_ground_reaction": {
+      "normal_n": 580.5198970359183,
+      "friction_n": 7.875358890015839,
+      "cop_m": 0.17234568621716026,
+      "cop_margin_m": 0.03117167378283975,
+      "friction_margin_n": 572.6445381459025
+    },
+    "controlled_invariant_box": false,
+    "reason": "At the upper angle face with positive velocity, theta_dot>0 independently of the torque-rate input. This is a counterexample for the clipped goal only when the face point is admissible."
+  }
+]

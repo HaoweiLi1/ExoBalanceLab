@@ -78,7 +78,11 @@ def test_frozen_states_are_reused_and_failures_retain_the_query(
     protocol = json.loads((output / "protocol.json").read_text())
     assert protocol["seed"] == 123
     assert protocol["requested_per_group"] == 1
-    assert protocol["rollout"] == {"timestep_s": timestep, "control_period_s": timestep}
+    assert protocol["rollout"] == {
+        "timestep_s": timestep,
+        "control_period_s": timestep,
+        "command_delay_s": 0.0,
+    }
     if assistance == "pd":
         assert protocol["gradient_cache"]["policy_sha256"] == protocol["policy_sha256"]
     assert protocol["selection_protocol_sha256"] == hashlib.sha256(original.read_bytes()).hexdigest()

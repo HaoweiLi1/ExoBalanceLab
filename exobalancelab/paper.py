@@ -61,6 +61,19 @@ AUTHORS_PROFILES = {
 PROFILE_SETS = {"table_i": PROFILES, "authors": AUTHORS_PROFILES}
 
 
+def scale_strength(profile: Profile, mt_scale: float = 1, mrtd_scale: float = 1) -> Profile:
+    """Scale torque and torque-rate limits independently, without changing mechanics."""
+    if not all(np.isfinite(x) and 0 < x <= 1 for x in (mt_scale, mrtd_scale)):
+        raise ValueError("MT and MRTD scales must be finite and in (0,1]")
+    return replace(
+        profile,
+        torque_min_nm=profile.torque_min_nm * mt_scale,
+        torque_max_nm=profile.torque_max_nm * mt_scale,
+        rate_min_nm_s=profile.rate_min_nm_s * mrtd_scale,
+        rate_max_nm_s=profile.rate_max_nm_s * mrtd_scale,
+    )
+
+
 def exo_torque(q: float, velocity: float, profile: Profile, mode: str) -> float:
     """Bilateral GC or restoring PD torque, clipped to +/-50 Nm (25 Nm/ankle).
 

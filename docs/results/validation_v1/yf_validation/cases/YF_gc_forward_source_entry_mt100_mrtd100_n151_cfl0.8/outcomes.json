@@ -1,0 +1,227 @@
+[
+  {
+    "group": "inside",
+    "state": [
+      0.9796666666666667,
+      2.054666666666667,
+      -31.6
+    ],
+    "value": -0.002065790745910823,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.5816532120088542,
+      0.0004354423369016679,
+      -0.3910000000675436
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "inside",
+    "state": [
+      1.7616666666666667,
+      -0.08933333333333333,
+      -54.77333333333333
+    ],
+    "value": -0.003453108268926626,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.760149298503738,
+      0.00127534667882492,
+      -50.8553333331127
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "inside",
+    "state": [
+      1.7156666666666667,
+      0.11166666666666673,
+      -37.92
+    ],
+    "value": -0.0032726573638267573,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.7591766178523494,
+      0.0013643016781624763,
+      -50.54199999972495
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.294,
+      1.5410000000000001,
+      -63.199999999999996
+    ],
+    "value": 0.2506924090129736,
+    "predicted_inside": false,
+    "status": "rollout_error",
+    "error": "HJB query out of bounds: theta_rad=1.80021608375 outside [0.65, 1.8]",
+    "failed_query": {
+      "theta_rad": 1.8002160837508439,
+      "velocity_rad_s": 0.44481622416408645,
+      "human_torque_nm": -99.6790000001215,
+      "remaining_s": 0.8129999999999998
+    },
+    "policy_bounds": {
+      "theta_rad": [
+        0.65,
+        1.8
+      ],
+      "velocity_rad_s": [
+        -0.5136666666666667,
+        2.858666666666667
+      ],
+      "human_torque_nm": [
+        -130.61333333333332,
+        28.439999999999998
+      ],
+      "remaining_s": [
+        0.0,
+        1.4
+      ]
+    },
+    "elapsed_s": 0.5870000000000001
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.0486666666666666,
+      0.44666666666666677,
+      -79.0
+    ],
+    "value": 9.557316164235939,
+    "predicted_inside": false,
+    "status": "rollout_error",
+    "error": "HJB query out of bounds: velocity_rad_s=-0.518260518227 outside [-0.513666666667, 2.85866666667]",
+    "failed_query": {
+      "theta_rad": 1.0400506956018343,
+      "velocity_rad_s": -0.518260518226869,
+      "human_torque_nm": -38.485000000008476,
+      "remaining_s": 1.2149999999999999
+    },
+    "policy_bounds": {
+      "theta_rad": [
+        0.65,
+        1.8
+      ],
+      "velocity_rad_s": [
+        -0.5136666666666667,
+        2.858666666666667
+      ],
+      "human_torque_nm": [
+        -130.61333333333332,
+        28.439999999999998
+      ],
+      "remaining_s": [
+        0.0,
+        1.4
+      ]
+    },
+    "elapsed_s": 0.18500000000000005
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.7386666666666668,
+      1.853666666666667,
+      -16.853333333333328
+    ],
+    "value": 0.8288702638045089,
+    "predicted_inside": false,
+    "status": "rollout_error",
+    "error": "HJB query out of bounds: theta_rad=1.8001200626 outside [0.65, 1.8]",
+    "failed_query": {
+      "theta_rad": 1.8001200626015479,
+      "velocity_rad_s": 1.8720726501826315,
+      "human_torque_nm": -36.917333333331165,
+      "remaining_s": 1.367
+    },
+    "policy_bounds": {
+      "theta_rad": [
+        0.65,
+        1.8
+      ],
+      "velocity_rad_s": [
+        -0.5136666666666667,
+        2.858666666666667
+      ],
+      "human_torque_nm": [
+        -130.61333333333332,
+        28.439999999999998
+      ],
+      "remaining_s": [
+        0.0,
+        1.4
+      ]
+    },
+    "elapsed_s": 0.03299999999999992
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.409,
+      0.804,
+      -129.56
+    ],
+    "value": 9.340022960710126e-05,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.5626405591259742,
+      0.0003346431699509065,
+      0.061999999900071635
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.3706666666666667,
+      0.6253333333333334,
+      -72.68
+    ],
+    "value": 4.195352771195988e-06,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.564452260219011,
+      0.0004626488607064622,
+      -0.12100000000462957
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.0256666666666667,
+      1.7643333333333333,
+      -81.10666666666667
+    ],
+    "value": -9.1833215598009e-05,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.5698880583876982,
+      0.0004574447564620501,
+      -0.27766666657959055
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  }
+]

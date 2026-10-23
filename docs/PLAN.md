@@ -5,8 +5,28 @@ standing-balance theory. The delivery goal is a public-ready research repository
 shows the modeling, control integration, experimental reasoning and simulation results.
 A new paper or independent theoretical contribution is not required.
 
-This plan defines the delivery scope. [TODO](TODO.md) tracks completion, and
-[Release verification](RELEASE.md) records the executed checks and remaining limits.
+The initial public delivery is complete; [Release verification](RELEASE.md) records
+that snapshot. The requested validation implementation and experiment phase below
+is also complete; [Validation](VALIDATION.md) records its measured outcomes.
+[TODO](TODO.md) tracks its implementation and unresolved scientific acceptance separately.
+
+## Executed validation goals
+
+| Priority | Required implementation and runs | Delivered evidence |
+|---|---|---|
+| 1 · Target and error definitions | Explicit legacy, recomputed, source-entry and identical-ankle targets; predeclared spatial/time thresholds; actual target and refinement comparisons | Frozen protocol, SI target audit, region overlap/area errors and pass/fail results |
+| 2 · Independent human capacities | Separate MT and MRTD through MATLAB preparation, policy contracts, Python plant and CLI; full YF none/GC sweeps; work-energy diagnostic | Every solve, strength curves, independent ODE residuals and selected refined cases |
+| 3 · Control timing | Causal command delay, physics-step torque limiting; fixed-state control-period/delay sweep and finer-physics reference | All successes, misses and coverage errors; endpoint errors, call p99 and deadline misses |
+| 4 · Articulated correspondence | Contact-preserving initialization, fixed/readapted feedback, matched states/hardware, fixed design across physics steps | Complete paired outcomes, refinement disagreements, traces and MuJoCo videos |
+
+The executable specification and numerical thresholds are in
+[Validation](VALIDATION.md) and [the frozen protocol](../experiments/validation_v1.json).
+Completion requires implemented paths, executed experiments and inspectable result
+documents. A failed scientific acceptance check remains open; it must not be relabeled
+as convergence or theory transfer merely because the implementation is complete.
+
+No new article, novel controller family, muscle actuation or 3D model is required in
+this phase. Those model/controller extensions remain optional directions.
 
 ## Existing foundation
 
@@ -22,7 +42,7 @@ Full quantitative reproduction of the paper's stabilizable regions is not establ
 the articulated model does not have a transferred HJB guarantee. Existing disagreements
 and failed cases remain part of the evidence.
 
-## Delivery goals and acceptance
+## Completed public-delivery goals and acceptance
 
 | Workstream | Work to complete | Observable acceptance |
 |---|---|---|
@@ -33,8 +53,8 @@ and failed cases remain part of the evidence.
 
 ### Functional completion
 
-Use the existing `exobalance run` / `compare` interfaces and output format. Implementation
-work is limited to defects or missing examples/utilities found while completing these paths:
+The initial delivery used the existing `exobalance run` / `compare` interfaces and
+verified these paths; the current validation phase extends them as specified above:
 
 1. **Basic simulation:** run paper-model and articulated-model comparisons with none/GC/PD
    assistance, save metrics and traces, and render the documented human demonstration.
@@ -74,9 +94,11 @@ README.md                  Concise research overview, demo and quick start
 exobalancelab/             Maintained models, control interfaces, simulation and analysis
 matlab/                   Optional MATLAB export, feedback and HJB integration
 examples/                 Small runnable examples and reusable inputs, where needed
+experiments/              Frozen target, strength, timing and paired-model protocols
 docs/
   PAPER.md                Theory correspondence, assumptions and source differences
   RESULTS.md              Measured outcomes and links to evidence/reproduction commands
+  VALIDATION.md           Four-gap experiments, error thresholds and acceptance results
   media/                  Selected previews, videos and figures
   results/                Curated configurations, metrics, traces and protocols
   PLAN.md                 Delivery goals and acceptance
@@ -98,7 +120,7 @@ and historical material; tests still exercise their adapters. Review references 
 any future relocation. `main` is the only development branch; the
 `archive/exobalancelab-2026-10-23` tag preserves the full earlier history.
 
-## Execution order and completion boundary
+## Initial delivery order and completion boundary
 
 1. Verify the clean installation and basic examples; fix concrete failures.
 2. Verify selected result-rebuild paths and curate the README/media links.
@@ -109,4 +131,5 @@ any future relocation. `main` is the only development branch; the
 Completion means the selected public workflows are reproducible and the presentation
 accurately describes the evidence. It does not require rerunning every expensive
 campaign, establishing full paper reproduction or implementing the long-term roadmap.
-Stronger validation, additional controllers and muscle/3D models remain optional TODOs.
+The four validation goals above are now authorized work. Additional controller families
+and muscle/3D models remain optional TODOs.

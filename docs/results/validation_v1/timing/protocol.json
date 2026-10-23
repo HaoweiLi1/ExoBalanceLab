@@ -1,0 +1,372 @@
+{
+  "study": "timing",
+  "parent_protocol": {
+    "id": "validation_v1_20261023",
+    "purpose": "Close implementation and evidence gaps for existing research; no new-paper claim.",
+    "predeclared": true,
+    "author_commit": "517ab41b7767c5ab0e856a8885b118bd739a5011",
+    "seed": 240805418,
+    "targets": {
+      "legacy": "Historical campaigns only: stored nominal targets and recomputed assisted boxes.",
+      "recomputed": "Two Appendix II SDP-derived boxes, intersected with C1/C3-C5; no box-invariance assertion.",
+      "source_entry": "Recomputed geometry with BOTH velocity half-widths 0.01 rad/s and ankle torque half-width 1 Nm, as in the author entry point. Toe torque/equilibrium remain plant-specific.",
+      "common_ankle": "Same physical target in every mode: |theta-pi/2|<=0.005 rad, |velocity|<=0.01 rad/s, |human torque|<=1 Nm. This separate matched-task diagnostic is not Table II."
+    },
+    "hjb": {
+      "parameter_set": "authors",
+      "horizon_s": 1.4,
+      "output_step_s": 0.01,
+      "velocity_buffer_rad_s": 0.5,
+      "method": "none",
+      "align_zero": true,
+      "target_definition": "source_entry",
+      "primary_resolution": 151,
+      "refinement_resolution": 225,
+      "strength_profile": "YF",
+      "strength_scales": [
+        1.0,
+        0.9,
+        0.8,
+        0.7,
+        0.6,
+        0.5
+      ],
+      "strength_modes": [
+        "none",
+        "gc"
+      ],
+      "directions": [
+        "forward",
+        "backward"
+      ],
+      "refinement_scales": [
+        [
+          1,
+          1
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          1,
+          0.5
+        ]
+      ],
+      "target_diagnostic_profile": "OM",
+      "target_diagnostic_direction": "forward",
+      "cfl_pair": [
+        0.8,
+        0.4
+      ]
+    },
+    "acceptance": {
+      "spatial_area_relative_percent": 2.0,
+      "spatial_assistance_effect_pp": 1.0,
+      "common_grid_projection_iou": 0.98,
+      "temporal_area_relative_percent": 0.5,
+      "temporal_projection_iou": 0.995,
+      "rollout_endpoint_abs": {
+        "angle_rad": 0.001,
+        "velocity_rad_s": 0.01,
+        "torque_nm": 1.0
+      },
+      "rollout_classification_stable": true,
+      "deadline_p99_fraction": 1.0,
+      "interpretation": "Operational acceptance chosen before new outcomes; failures remain failures. These thresholds are not claims from the source paper. Region convergence requires all three spatial criteria for the compared pair. Reaching a terminal box is finite-time reach-avoid evidence, not an invariance proof."
+    },
+    "timing": {
+      "profile": "OF",
+      "modes": [
+        "none",
+        "gc",
+        "pd"
+      ],
+      "directions": [
+        "forward",
+        "backward"
+      ],
+      "per_group": 1,
+      "groups": [
+        "inside",
+        "boundary",
+        "outside"
+      ],
+      "selection": "First state of each group in the existing frozen 30-state OF protocol, in stored order; all conditions reuse those exact states.",
+      "physics_dt_s": 1.25e-05,
+      "physics_reference_dt_s": 6.25e-06,
+      "physics_reference_control_period_s": 0.001,
+      "control_periods_s": [
+        0.001,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "command_delays_s": [
+        0,
+        0.01,
+        0.03
+      ],
+      "delay_semantics": "Commands computed from the current sample are delivered after a fixed delay. Human rate and exo torque share that transport delay; initial rate/device torque are zero. Torque evolves every physics step. No future samples, no rate smoothing, no coverage extrapolation."
+    },
+    "paired_models": {
+      "profiles": [
+        "YF",
+        "OF"
+      ],
+      "models": [
+        "paper",
+        "human"
+      ],
+      "modes": [
+        "none",
+        "gc",
+        "pd"
+      ],
+      "human_feedback": [
+        "fixed",
+        "readapted"
+      ],
+      "lean_rad": [
+        -0.06,
+        0,
+        0.06
+      ],
+      "velocity_rad_s": [
+        -0.3,
+        0,
+        0.3
+      ],
+      "duration_s": 4.0,
+      "physics_dt_s": 0.001,
+      "control_period_s": 0.005,
+      "pushes_n": [
+        -80,
+        0,
+        80
+      ],
+      "push_subset": "Human upright zero-velocity state only; 0 N is already in the main grid.",
+      "initialization": "Paper ankle lean versus human root lean relative to the identical settled stance. This is a declared perturbation correspondence, not identical multibody states or a transferred HJB guarantee. Each assistance triplet uses identical initial state, hardware mass and human limits.",
+      "adaptation": "Fixed uses no-exo human feedback in every mode. Readapted designs feedback with the device contribution included in the local linearized plant; no outcome-based gain tuning.",
+      "outcomes": [
+        "both_recover",
+        "assistance_helps",
+        "assistance_harms",
+        "both_fail"
+      ],
+      "refinement": "Repeat every pair at half the physics timestep, with controller period unchanged."
+    }
+  },
+  "groups": [
+    {
+      "id": "OF_none_forward",
+      "states": [
+        {
+          "group": "inside",
+          "state": [
+            1.6357142857142857,
+            -0.01495535714285716,
+            -4.910714285714283
+          ],
+          "value": -0.003680148723312811
+        },
+        {
+          "group": "boundary",
+          "state": [
+            1.1377232142857143,
+            1.4058035714285715,
+            -7.857142857142855
+          ],
+          "value": 2.782813238006466e-05
+        },
+        {
+          "group": "outside",
+          "state": [
+            1.2814732142857144,
+            0.32901785714285714,
+            -58.92857142857144
+          ],
+          "value": 8.25821377918252
+        }
+      ],
+      "selection_sha256": "e262adc6b91dda2644e3e754523c33be8a192dd3baae14502ff079159b87074c",
+      "policy_sha256": "eeaefd627ee8afba6065c80df946327fcda5227664c19f69117c44ad8c71bdf3",
+      "source": "/home/kaidi-2/Documents/ExoBalanceLab/logs/hjb_gpu_OF_225_paper"
+    },
+    {
+      "id": "OF_none_backward",
+      "states": [
+        {
+          "group": "inside",
+          "state": [
+            2.3396875,
+            -2.3479910714285714,
+            -2.4553571428571432
+          ],
+          "value": -0.0032282550190366453
+        },
+        {
+          "group": "boundary",
+          "state": [
+            1.64125,
+            0.02991071428571432,
+            -75.625
+          ],
+          "value": -3.307391408826881e-07
+        },
+        {
+          "group": "outside",
+          "state": [
+            1.79125,
+            0.46361607142857153,
+            -74.15178571428572
+          ],
+          "value": 6.727099440553567
+        }
+      ],
+      "selection_sha256": "b2abd51bb43fe4c382548f30e79c584817f5e3f9e3558eca9fe2006f5f2f6b4f",
+      "policy_sha256": "8d9253df770a5ab9d2833c9abeb0259d35013034d189d593ff6556002e4c5e94",
+      "source": "/home/kaidi-2/Documents/ExoBalanceLab/logs/hjb_paper225/solved/OF_none_backward"
+    },
+    {
+      "id": "OF_gc_forward",
+      "states": [
+        {
+          "group": "inside",
+          "state": [
+            1.6151785714285714,
+            0.3888392857142856,
+            -41.74107142857143
+          ],
+          "value": -0.003366669490362046
+        },
+        {
+          "group": "boundary",
+          "state": [
+            1.5997767857142857,
+            0.10468749999999995,
+            -53.03571428571429
+          ],
+          "value": 2.5358279000894678e-06
+        },
+        {
+          "group": "outside",
+          "state": [
+            1.2763392857142857,
+            2.721875,
+            -58.43750000000001
+          ],
+          "value": 14.167739635647855
+        }
+      ],
+      "selection_sha256": "3a5a571844bed8026b90a5a0816d1e9966258b88f9b12824d31544e4a339dc98",
+      "policy_sha256": "e01be7f625e2b363057a73da1df81c71bfe7b5f68424d41e14e462cb61814e16",
+      "source": "/home/kaidi-2/Documents/ExoBalanceLab/logs/hjb_paper225/solved/OF_gc_forward"
+    },
+    {
+      "id": "OF_gc_backward",
+      "states": [
+        {
+          "group": "inside",
+          "state": [
+            1.90375,
+            -0.5683035714285714,
+            -15.714285714285714
+          ],
+          "value": -0.003276797262326631
+        },
+        {
+          "group": "boundary",
+          "state": [
+            2.05375,
+            -1.2263392857142856,
+            -31.42857142857143
+          ],
+          "value": -6.0964575614966346e-06
+        },
+        {
+          "group": "outside",
+          "state": [
+            1.5615625,
+            -2.5424107142857144,
+            -15.714285714285714
+          ],
+          "value": 0.6057290853579131
+        }
+      ],
+      "selection_sha256": "abc8cf93c13139a4b7b5a53679e83ebbc4092aef27a1e985668219274a94725f",
+      "policy_sha256": "3955ad7a4bff1284b8b8a8042535255aba265b28654d0dc67d15092aaa80704a",
+      "source": "/home/kaidi-2/Documents/ExoBalanceLab/logs/hjb_paper225/solved/OF_gc_backward"
+    },
+    {
+      "id": "OF_pd_forward",
+      "states": [
+        {
+          "group": "inside",
+          "state": [
+            1.6665178571428572,
+            0.20937499999999998,
+            -35.84821428571429
+          ],
+          "value": -0.003305608759417541
+        },
+        {
+          "group": "boundary",
+          "state": [
+            1.3174107142857143,
+            1.3160714285714286,
+            -84.95535714285715
+          ],
+          "value": 1.202398872036381e-06
+        },
+        {
+          "group": "outside",
+          "state": [
+            0.9220982142857144,
+            2.5424107142857144,
+            -43.21428571428572
+          ],
+          "value": 0.17967703666241586
+        }
+      ],
+      "selection_sha256": "38678131fc0546a4b953cda52468be68ca1ab735c38fad29c80694a34a5f6a94",
+      "policy_sha256": "921cd6a8af2624a3b4b9785a4af586040b7c2cf8afdf5645af0c45eea8dbe6e7",
+      "source": "/home/kaidi-2/Documents/ExoBalanceLab/logs/hjb_paper225/solved/OF_pd_forward"
+    },
+    {
+      "id": "OF_pd_backward",
+      "states": [
+        {
+          "group": "inside",
+          "state": [
+            2.185,
+            -1.4506696428571428,
+            -11.294642857142858
+          ],
+          "value": -0.003161393229444338
+        },
+        {
+          "group": "boundary",
+          "state": [
+            2.2834375000000002,
+            -1.7348214285714285,
+            -8.348214285714286
+          ],
+          "value": -9.653099958814094e-06
+        },
+        {
+          "group": "outside",
+          "state": [
+            2.1053125,
+            0.46361607142857153,
+            -31.919642857142854
+          ],
+          "value": 11.334007429113614
+        }
+      ],
+      "selection_sha256": "cb2e68bb18ee5dcbb545867b8381cb1c423e19d3e7798030fdd141a6f80e3aff",
+      "policy_sha256": "64de00088b9f6cae944b1257a4b91e868f40467a81c9d2f335537648be8caeae",
+      "source": "/home/kaidi-2/Documents/ExoBalanceLab/logs/hjb_paper225/solved/OF_pd_backward"
+    }
+  ]
+}

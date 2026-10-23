@@ -27,3 +27,23 @@ the traces, not execution-time metrics or metadata containing input paths.
 left hip/knee/ankle, then right hip/knee/ankle. The MAT fields are `time_s` (N-by-1)
 and `torque_nm` (N-by-C); CSV contains time followed by C torque columns.
 See [MATLAB integration](../matlab/README.md) for licensed Engine feedback and HJB use.
+
+## Validation experiments
+
+The [validation guide](../docs/VALIDATION.md) defines targets, tolerances and exact commands.
+
+| Script | Purpose |
+|---|---|
+| `validation_hjb.py` | Freeze, prepare and solve the target/MT/MRTD/grid/CFL campaign |
+| `validation_rollouts.py` | Run complete paired-model and HJB control-period/delay cohorts |
+| `refine_human_contact.py` | Refine every human triplet with an unstable recovery classification |
+| `report_validation.py` | Rebuild area, strength, timing, pairing and energy figures from recorded inputs |
+| `curate_validation.py` | Copy compact complete evidence; exclude large policies and caches |
+| `render_validation.py` | Render an explicitly selected recorded triplet with source hashes |
+
+For a single independent-capacity/delay check in the basic environment:
+
+```bash
+exobalance run --model paper --mt-scale 0.7 --mrtd-scale 1 \
+  --control-period 0.005 --command-delay 0.01 --out logs/independent_mt
+```

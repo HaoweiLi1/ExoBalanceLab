@@ -1,0 +1,15 @@
+{
+  "study": "YF_forward_validation",
+  "seed": 240805418,
+  "count_per_group": 3,
+  "physics_dt_s": 1.25e-05,
+  "control_period_s": 0.001,
+  "command_delay_s": 0,
+  "cases": [
+    "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "YF_none_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+    "YF_gc_backward_source_entry_mt100_mrtd100_n151_cfl0.8"
+  ],
+  "scope": "Preselected inside/boundary/outside states in a second population; no cohort replacement."
+}

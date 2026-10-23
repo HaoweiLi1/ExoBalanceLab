@@ -2,8 +2,10 @@
 
 The goal is a clear, reproducible presentation of existing research motivated by
 Daphna Raz's standing-balance theory. A new paper or independent theoretical contribution
-is not a release requirement. The delivery work below has been verified for the public release;
-scientific validation and model extensions remain deferred. Completed studies and their
+is not a release requirement. The initial delivery work is verified; the four-gap
+validation phase has been implemented and executed. Spatial convergence remains
+unaccepted at the frozen tolerances. Model extensions remain optional.
+Completed studies and their
 limitations remain in [Results](RESULTS.md). Acceptance is defined in [the delivery plan](PLAN.md).
 
 ## Delivery work, in order
@@ -42,27 +44,40 @@ limitations remain in [Results](RESULTS.md). Acceptance is defined in [the deliv
 
 Verification details are in [Release verification](RELEASE.md).
 
-## Optional follow-up validation
+## Four-gap validation
 
-These items would support stronger scientific claims. They are not prerequisites for
-presenting the existing work with its measured limits.
+Protocol, numerical tolerances and reproduction commands are in [Validation](VALIDATION.md).
+Execution completion and scientific acceptance are tracked separately.
 
-- [ ] Reconcile source/manuscript terminal-target definitions and report matched-target
-  comparisons. The OM gravity-compensation sign depends on this choice; changing the
-  target changes the task. Keep numerical reproduction separate from any claim that
-  a terminal box is control invariant.
-- [ ] Extend spatial/time refinement and quantify region-area uncertainty. The completed
-  population campaign and target diagnostic do not establish convergence or full
-  quantitative agreement with Table II.
-- [ ] Separate maximum human torque (MT) from maximum torque rate (MRTD) in parameter
-  studies, and compare the paper's independent sweeps and work–energy analysis.
-- [ ] Broaden forward validation beyond the existing OF cohort, including boundary
-  states and policy coverage failures, with all selected outcomes retained.
-- [ ] Evaluate realistic control periods and delay sensitivity; fine-step numerical
-  successes alone do not establish real-time feasibility.
-- [ ] If testing transfer to the articulated model, predefine paired initial states,
-  perturbations and fixed versus readapted human feedback. Its current assistance sweep
-  does not establish the paper's harmful-assistance effect in that model.
+- [x] Define explicit terminal goals, distinguish finite-time reach-avoid from invariance,
+  and freeze spatial, temporal and rollout error thresholds before new outcomes.
+- [x] Implement independent MT/MRTD through MATLAB, Python, policy contracts and CLI;
+  check the independent limits against the real MATLAB runtime.
+- [x] Complete the 70-case target/strength/grid/CFL campaign and curate every solve;
+  internal-time checks pass 2/2, while spatial checks fail 18/18 at the frozen thresholds.
+- [x] Implement causal command delay and physics-step torque limiting; execute all 234
+  timing/refinement cases and retain misses, coverage failures and wall-clock measurements.
+- [x] Implement paired fixed/readapted feedback and contact-preserving initialization;
+  execute 480 episodes with fixed controller design across physics steps and render videos.
+- [x] Diagnose the unstable human triplet at 62.5/31.25 µs with unchanged gains and
+  contact criteria; all six follow-up episodes retain failure, and original records remain.
+- [x] Implement and run independent work-energy checks; preserve the simplified model's
+  assumptions instead of treating its envelope as a contact-constrained HJB region.
+- [x] Finish all 36 additional YF inside/boundary/outside validations and publish the
+  complete report with all failures; 18/18 predicted-inside states are accepted.
+
+Scientific acceptance still requires evidence beyond execution:
+
+- [ ] Establish spatial convergence at the frozen thresholds before claiming quantitative
+  agreement with the article's region areas. The measured area errors are 5.60–26.43%;
+  a changed terminal target changes the task.
+- [ ] Establish any stronger delay/coverage guarantee or hardware timing claim. The measured
+  control-period and delay failures delimit the current implementation's tested behavior.
+
+The paired articulated experiments do not establish harmful assistance or transfer the
+reduced model's HJB guarantee. A positive result is not required or manufactured.
+The exceptional contact condition fails at both finest tested steps; its precise
+force-event timing remains sensitive to discretization.
 
 ## Optional long-term extensions
 

@@ -14,7 +14,7 @@ import h5py
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 
-from exobalancelab.paper import AUTHORS_PROFILES, exo_torque, ground_reaction
+from exobalancelab.paper import AUTHORS_PROFILES, exo_torque, ground_reaction, scale_strength
 from exobalancelab.reachability import HJBPolicy, PolicyCoverageError
 from exobalancelab.simulation import RunConfig, run
 
@@ -28,12 +28,14 @@ def validate(
     timestep_s: float = 0.001,
     control_period_s: float = 0.001,
     gradient_cache: Path | None = None,
+    command_delay_s: float = 0.0,
 ) -> dict:
     """Run stratified states, or reuse an earlier protocol without selecting new states."""
     if count < 1:
         raise ValueError("Count must be positive")
     source = json.loads((run_dir / "summary.json").read_text())
-    profile = AUTHORS_PROFILES[source["profile"]]
+    mt, mrtd = source.get("mt_scale", 1), source.get("mrtd_scale", 1)
+    profile = scale_strength(AUTHORS_PROFILES[source["profile"]], mt, mrtd)
     assistance = source.get("exo", "none")
     policy = HJBPolicy(run_dir / "policy.mat", gradient_cache=gradient_cache)
     policy.validate_plant(profile, assistance)
@@ -87,7 +89,11 @@ def validate(
         "seed": seed,
         "requested_per_group": count,
         "states": selected,
-        "rollout": {"timestep_s": timestep_s, "control_period_s": control_period_s},
+        "rollout": {
+            "timestep_s": timestep_s,
+            "control_period_s": control_period_s,
+            "command_delay_s": command_delay_s,
+        },
     }
     if selection is not None:
         protocol["selection_protocol_sha256"] = hashlib.sha256(protocol_path.read_bytes()).hexdigest()
@@ -115,6 +121,9 @@ def validate(
             lean_rad=theta - np.pi / 2,
             velocity_rad_s=speed,
             initial_torque_nm=torque,
+            mt_scale=mt,
+            mrtd_scale=mrtd,
+            command_delay_s=command_delay_s,
         )
         result = dict(case, predicted_inside=case["value"] <= 0)
         try:
@@ -147,9 +156,7 @@ def validate(
                     np.all(abs(final - np.asarray(target[center])) <= [target[k] for k in widths])
                 )
             lean = final[0] - np.pi / 2
-            reaction = ground_reaction(
-                lean, final[1], final[2] + exo_torque(lean, final[1], profile, assistance), profile
-            )
+            reaction = ground_reaction(lean, final[1], final[2] + metrics["final_exo_torque_nm"], profile)
             final_valid = (
                 min(reaction["normal_n"], reaction["cop_margin_m"], reaction["friction_margin_n"]) >= 0
             )
@@ -206,6 +213,7 @@ def main() -> None:
     parser.add_argument("--protocol", type=Path, help="Reuse this protocol's states and groups")
     parser.add_argument("--dt", type=float, default=0.001, help="MuJoCo physics timestep in seconds")
     parser.add_argument("--control-period", type=float, default=0.001, help="Feedback period in seconds")
+    parser.add_argument("--command-delay", type=float, default=0.0)
     parser.add_argument(
         "--gradient-cache", type=Path, help="Create/reuse a disk gradient cache for repeated rollouts"
     )
@@ -221,6 +229,7 @@ def main() -> None:
                 args.dt,
                 args.control_period,
                 args.gradient_cache,
+                args.command_delay,
             ),
             indent=2,
         )

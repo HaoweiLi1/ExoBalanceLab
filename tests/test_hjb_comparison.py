@@ -53,7 +53,7 @@ def test_comparison_keeps_every_outcome(runs, tmp_path, monkeypatch):
     assert (output / "outcomes.pdf").exists()
 
 
-@pytest.mark.parametrize("change", ["drop_failure", "target", "state", "gravity"])
+@pytest.mark.parametrize("change", ["drop_failure", "target", "state", "gravity", "mt_scale", "mrtd_scale"])
 def test_changed_cohorts_and_missing_failures_are_rejected(runs, tmp_path, change):
     path = runs["fine"] / ("outcomes.json" if change == "drop_failure" else "protocol.json")
     data = json.loads(path.read_text())
@@ -63,6 +63,8 @@ def test_changed_cohorts_and_missing_failures_are_rejected(runs, tmp_path, chang
         data["source"]["target"]["width"] = 0.02
     elif change == "state":
         data["states"][0]["state"][0] += 0.01
+    elif change in {"mt_scale", "mrtd_scale"}:
+        data["source"][change] = 0.5
     else:
         data["source"]["gravity_m_s2"] = 9.81
     path.write_text(json.dumps(data))

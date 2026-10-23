@@ -1,0 +1,720 @@
+{
+  "protocol_id": "validation_v1_20261023",
+  "acceptance": {
+    "spatial_area_relative_percent": 2.0,
+    "spatial_assistance_effect_pp": 1.0,
+    "common_grid_projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995,
+    "rollout_endpoint_abs": {
+      "angle_rad": 0.001,
+      "velocity_rad_s": 0.01,
+      "torque_nm": 1.0
+    },
+    "rollout_classification_stable": true,
+    "deadline_p99_fraction": 1.0,
+    "interpretation": "Operational acceptance chosen before new outcomes; failures remain failures. These thresholds are not claims from the source paper. Region convergence requires all three spatial criteria for the compared pair. Reaching a terminal box is finite-time reach-avoid evidence, not an invariance proof."
+  },
+  "hjb": {
+    "solves": 70,
+    "independent_strength_cases": 44,
+    "spatial_passed": 0,
+    "spatial_total": 18,
+    "spatial_max_area_error_percent": 26.429374870197293,
+    "temporal": [
+      {
+        "coarse": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+        "fine": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.4",
+        "area_error_percent": 0.14301036825168925,
+        "projection_iou": 0.9964721412964311,
+        "passed": true
+      },
+      {
+        "coarse": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+        "fine": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.4",
+        "area_error_percent": 1.1261038414884223e-14,
+        "projection_iou": 0.9961569043201697,
+        "passed": true
+      }
+    ],
+    "target_box_invariance_claim": false,
+    "article_fig5_comparison": [
+      {
+        "parameter": "mt_scale",
+        "scale": 0.7,
+        "exo": "none",
+        "article_prose_change_percent": -20.0,
+        "measured_change_percent": -26.02641913602285,
+        "difference_pp": -6.026419136022849,
+        "change_from_own_nominal_percent": -26.02641913602285,
+        "source": "https://arxiv.org/html/2408.05418v3#S5.SS2",
+        "scope": "Source-entry goal construction; finite grid; direct quantitative agreement unaccepted."
+      },
+      {
+        "parameter": "mt_scale",
+        "scale": 0.7,
+        "exo": "gc",
+        "article_prose_change_percent": -10.0,
+        "measured_change_percent": -10.871117458050705,
+        "difference_pp": -0.8711174580507048,
+        "change_from_own_nominal_percent": -13.285863146926037,
+        "source": "https://arxiv.org/html/2408.05418v3#S5.SS2",
+        "scope": "Source-entry goal construction; finite grid; direct quantitative agreement unaccepted."
+      },
+      {
+        "parameter": "mrtd_scale",
+        "scale": 0.7,
+        "exo": "none",
+        "article_prose_change_percent": -2.6,
+        "measured_change_percent": -1.9992859692966714,
+        "difference_pp": 0.6007140307033287,
+        "change_from_own_nominal_percent": -1.9992859692966714,
+        "source": "https://arxiv.org/html/2408.05418v3#S5.SS2",
+        "scope": "Source-entry goal construction; finite grid; direct quantitative agreement unaccepted."
+      },
+      {
+        "parameter": "mrtd_scale",
+        "scale": 0.7,
+        "exo": "gc",
+        "article_prose_change_percent": -10.4,
+        "measured_change_percent": -4.0342734737593755,
+        "difference_pp": 6.365726526240625,
+        "change_from_own_nominal_percent": -6.634248002778753,
+        "source": "https://arxiv.org/html/2408.05418v3#S5.SS2",
+        "scope": "Source-entry goal construction; finite grid; direct quantitative agreement unaccepted."
+      }
+    ]
+  },
+  "paired": {
+    "episodes": 480,
+    "errors": 0,
+    "groups": [
+      {
+        "model": "paper",
+        "feedback": "fixed",
+        "exo": "gc",
+        "timestep_s": 0.001,
+        "pairs": 18,
+        "both_recover": 2,
+        "assistance_helps": 0,
+        "assistance_harms": 6,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "fixed",
+        "exo": "gc",
+        "timestep_s": 0.0005,
+        "pairs": 18,
+        "both_recover": 2,
+        "assistance_helps": 0,
+        "assistance_harms": 6,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "fixed",
+        "exo": "pd",
+        "timestep_s": 0.001,
+        "pairs": 18,
+        "both_recover": 7,
+        "assistance_helps": 0,
+        "assistance_harms": 1,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "fixed",
+        "exo": "pd",
+        "timestep_s": 0.0005,
+        "pairs": 18,
+        "both_recover": 7,
+        "assistance_helps": 0,
+        "assistance_harms": 1,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "readapted",
+        "exo": "gc",
+        "timestep_s": 0.001,
+        "pairs": 18,
+        "both_recover": 6,
+        "assistance_helps": 0,
+        "assistance_harms": 2,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "readapted",
+        "exo": "gc",
+        "timestep_s": 0.0005,
+        "pairs": 18,
+        "both_recover": 6,
+        "assistance_helps": 0,
+        "assistance_harms": 2,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "readapted",
+        "exo": "pd",
+        "timestep_s": 0.001,
+        "pairs": 18,
+        "both_recover": 8,
+        "assistance_helps": 0,
+        "assistance_harms": 0,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "paper",
+        "feedback": "readapted",
+        "exo": "pd",
+        "timestep_s": 0.0005,
+        "pairs": 18,
+        "both_recover": 8,
+        "assistance_helps": 0,
+        "assistance_harms": 0,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "fixed",
+        "exo": "gc",
+        "timestep_s": 0.001,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 3,
+        "assistance_harms": 0,
+        "both_fail": 13,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "fixed",
+        "exo": "gc",
+        "timestep_s": 0.0005,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 3,
+        "assistance_harms": 0,
+        "both_fail": 13,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "fixed",
+        "exo": "pd",
+        "timestep_s": 0.001,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 4,
+        "assistance_harms": 0,
+        "both_fail": 12,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "fixed",
+        "exo": "pd",
+        "timestep_s": 0.0005,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 4,
+        "assistance_harms": 0,
+        "both_fail": 12,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "readapted",
+        "exo": "gc",
+        "timestep_s": 0.001,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 5,
+        "assistance_harms": 0,
+        "both_fail": 11,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "readapted",
+        "exo": "gc",
+        "timestep_s": 0.0005,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 4,
+        "assistance_harms": 0,
+        "both_fail": 12,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "readapted",
+        "exo": "pd",
+        "timestep_s": 0.001,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 6,
+        "assistance_harms": 0,
+        "both_fail": 10,
+        "rollout_error": 0
+      },
+      {
+        "model": "human",
+        "feedback": "readapted",
+        "exo": "pd",
+        "timestep_s": 0.0005,
+        "pairs": 22,
+        "both_recover": 6,
+        "assistance_helps": 6,
+        "assistance_harms": 0,
+        "both_fail": 10,
+        "rollout_error": 0
+      }
+    ],
+    "refinement_stable": 159,
+    "refinement_total": 160,
+    "transferred_hjb_guarantee": false,
+    "fixed_initial_state_and_gains_across_refinement": true,
+    "cross_model_same_category": 53,
+    "cross_model_total": 72
+  },
+  "contact": {
+    "scope": "Post-campaign diagnosis of every classification-unstable human condition.",
+    "episodes": 6,
+    "completed": 6,
+    "recovered": 0,
+    "all_tested_steps_retain_zero_support": true,
+    "original_classifications_retained": true
+  },
+  "timing": {
+    "episodes": 234,
+    "valid_target_reaches": 73,
+    "errors": 78,
+    "physics_refinement_passed": 12,
+    "physics_refinement_total": 18,
+    "physics_refinement_evaluable": 12,
+    "deadline_p99_evaluable": 156,
+    "deadline_p99_passed": 105,
+    "wallclock_workload": "Concurrent experiment workload, not hard real-time scheduling or hardware latency.",
+    "groups": [
+      {
+        "mode": "none",
+        "period_s": 0.001,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.005,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.01,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.02,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.001,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 2,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.005,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 2,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.01,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 2,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.02,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 1,
+        "all_successes": 2,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.001,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 1,
+        "all_successes": 1,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.005,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 1,
+        "all_successes": 1,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.01,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 1,
+        "all_successes": 1,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "none",
+        "period_s": 0.02,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.001,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.005,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.01,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.02,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.001,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.005,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.01,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 3,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.02,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.001,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.005,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.01,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "gc",
+        "period_s": 0.02,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.001,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.005,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 3,
+        "all_successes": 4,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.01,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 1,
+        "all_successes": 1,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.02,
+        "delay_s": 0,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.001,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.005,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.01,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.02,
+        "delay_s": 0.01,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.001,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.005,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.01,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      },
+      {
+        "mode": "pd",
+        "period_s": 0.02,
+        "delay_s": 0.03,
+        "all_cases": 6,
+        "predicted_inside": 3,
+        "inside_successes": 0,
+        "all_successes": 0,
+        "coverage_or_rollout_errors": 2
+      }
+    ]
+  },
+  "energy": {
+    "ode_runs": 20,
+    "max_energy_residual_j": 8.550660179906799e-13,
+    "model": "Undamped unconstrained YF; E=I*v\u00b2/2+U; saturated GC work integrated in SI."
+  },
+  "yf": {
+    "episodes": 36,
+    "predicted_inside": 18,
+    "inside_successes": 18,
+    "all_successes": 24,
+    "positive_value_successes": 6,
+    "errors": 12,
+    "cases": [
+      {
+        "case": "YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+        "selected": 9,
+        "predicted_inside": 5,
+        "inside_successes": 5,
+        "all_successes": 6,
+        "errors": 3
+      },
+      {
+        "case": "YF_none_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+        "selected": 9,
+        "predicted_inside": 4,
+        "inside_successes": 4,
+        "all_successes": 6,
+        "errors": 3
+      },
+      {
+        "case": "YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8",
+        "selected": 9,
+        "predicted_inside": 4,
+        "inside_successes": 4,
+        "all_successes": 6,
+        "errors": 3
+      },
+      {
+        "case": "YF_gc_backward_source_entry_mt100_mrtd100_n151_cfl0.8",
+        "selected": 9,
+        "predicted_inside": 5,
+        "inside_successes": 5,
+        "all_successes": 6,
+        "errors": 3
+      }
+    ]
+  }
+}

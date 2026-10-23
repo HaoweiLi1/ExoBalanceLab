@@ -11,7 +11,7 @@ arXiv v3, October 2, 2024. Authors' code:
 |---|---|---|
 | Lifted state `(theta, theta_dot, tau_human)`, Eq. (3) | `paper.py`, `models.paper_xml` | Independent acceleration and integration checks |
 | C1 human maximum torque | `limit_human` and actuator bounds | Raw/applied action tests |
-| C2 maximum torque rate | State-aware sampled torque limiting | Directional rate and saturation tests |
+| C2 maximum torque rate | Physics-step torque limiting with separately sampled commands | Independent MT/MRTD, directional rate and saturation tests |
 | C3 normal force, C4 CoP, C5 friction | Analytical required reactions; measured contact extension | Static equilibrium/CoP checks and logged margins |
 | Table I, five profiles | `PROFILES`, `AUTHORS_PROFILES` | Printed and released-source parameters retained separately |
 | GC, Eq. (15) | `exo_torque(..., "gc")` | Exact trigonometry, hard ±50 Nm saturation |
@@ -19,6 +19,11 @@ arXiv v3, October 2, 2024. Authors' code:
 | Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Native/GPU comparisons and 180 preselected OF rollouts across all assistance/direction pairs |
 | Published HJB regions, Figs. 4–6 / Table II | Complete reconciled 30-case comparison, spatial studies and target diagnostic | Primary sign disagreement, spatial sensitivity and target dependence quantified |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
+
+The subsequent [validation campaign](VALIDATION.md) explicitly separates terminal goals,
+numerical acceptance, independent MT/MRTD, sampled control with delay, and paired human
+feedback assumptions. Its comparisons supplement the historical evidence below; passing
+software checks does not imply convergence or a transferred multibody HJB guarantee.
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
 stabilizable region projects over all admissible initial human torques and optimizes
@@ -92,8 +97,8 @@ Source inspection at the pinned authors' commit found:
 5. **Incomplete stored target configuration:** stored `targetSets` have widths but some
    entry scripts access equilibrium fields absent from the saved structs. The provided
    parameter files cover no-exo and GC; PD target files are not included.
-   The assisted entry also fixes the ankle target to ±1 Nm and ±0.01 rad/s instead of
-   reading all computed widths. Reconciled assisted runs use their recorded, corner-checked
+   The assisted entry fixes the ankle target to ±1 Nm and sets **both** ankle/toe velocity
+   half-widths to 0.01 rad/s instead of reading all computed widths. Historical assisted runs use their recorded, corner-checked
    Appendix II box widths; this target choice is another difference from the released entry.
    A separate [OM/GC diagnostic](results/hjb_om_target_override/protocol.json) changes
    only those two bounds at fixed 225-grid settings: the area change reverses from −2.86%

@@ -1,0 +1,3 @@
+coarse,fine,area_error_percent,projection_iou,passed
+YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8,YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.4,0.14301036825168925,0.9964721412964311,True
+YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8,YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.4,1.1261038414884223e-14,0.9961569043201697,True

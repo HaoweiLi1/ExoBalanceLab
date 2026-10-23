@@ -1,0 +1,17 @@
+model,feedback,exo,timestep_s,pairs,both_recover,assistance_helps,assistance_harms,both_fail,rollout_error
+paper,fixed,gc,0.001,18,2,0,6,10,0
+paper,fixed,gc,0.0005,18,2,0,6,10,0
+paper,fixed,pd,0.001,18,7,0,1,10,0
+paper,fixed,pd,0.0005,18,7,0,1,10,0
+paper,readapted,gc,0.001,18,6,0,2,10,0
+paper,readapted,gc,0.0005,18,6,0,2,10,0
+paper,readapted,pd,0.001,18,8,0,0,10,0
+paper,readapted,pd,0.0005,18,8,0,0,10,0
+human,fixed,gc,0.001,22,6,3,0,13,0
+human,fixed,gc,0.0005,22,6,3,0,13,0
+human,fixed,pd,0.001,22,6,4,0,12,0
+human,fixed,pd,0.0005,22,6,4,0,12,0
+human,readapted,gc,0.001,22,6,5,0,11,0
+human,readapted,gc,0.0005,22,6,4,0,12,0
+human,readapted,pd,0.001,22,6,6,0,10,0
+human,readapted,pd,0.0005,22,6,6,0,10,0

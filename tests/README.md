@@ -34,6 +34,9 @@ With `EXOBALANCE_HJB_SOURCE` and `EXOBALANCE_HJB_DEPS` set to the pinned depende
 checkouts, `test_matlab_assistance.py` compares 1,500 reconciled none/GC/PD states
 against MuJoCo, checks SI/scaled equivalence, and verifies all 20 GC/PD target boxes.
 It also checks that prepared GPU inputs exactly preserve a native solve's initial field.
+The independent-capacity check executes MATLAB at nominal, half-MT and half-MRTD
+settings, checking effective bounds, scaled solver inputs and both source-entry
+velocity target widths.
 
 In the separate [GPU environment](../docs/HJB_GPU.md), `EXOBALANCE_JAX_TEST=1 pytest -q
 tests/test_hjb_solver.py` checks independent MATLAB ENO stencils (including tied
@@ -52,3 +55,13 @@ must explicitly declare their pairs; omitted, extra or duplicated pairs are reje
 The HJB validation sampler excludes physically invalid torque nodes introduced by grid
 alignment. Frozen-protocol tests retain invalid historical states and their recorded
 rejections rather than silently replacing them.
+
+`test_validation_controls.py` checks independent capacity limits in actual MuJoCo runs,
+causal command arrival, physics-step rate limits at slower control periods, and matching
+initial contact/gains across paired human conditions and physics refinements. It also
+checks that terminal contact uses the delivered device torque when commands are delayed.
+`test_validation_reporting.py` rejects incomplete cohorts, including missing failed runs,
+and compares target and contact classifications separately during physics refinement.
+`test_work_energy.py` checks the SI energy implementation against independent quadrature.
+The full [validation campaign](../docs/VALIDATION.md) runs separately and retains numerical
+disagreements even when these software tests pass.

@@ -47,6 +47,10 @@ population and velocity direction are selected with `profile` and `direction`.
 For matched assistance comparisons, `align_zero=true` samples zero velocity/torque in
 all modes. It extends each uniform axis by at most one cell per side; the physical
 torque/contact constraints remain enforced and actual grid dimensions are recorded.
+Independent capacities use `mt_scale` and `mrtd_scale` in `(0,1]`. Select an explicit
+`target_definition` when reducing either capacity: `source_entry`, `recomputed` or
+`common_ankle`. Their physical meanings and frozen validation thresholds are in
+[the validation campaign](VALIDATION.md); the default `legacy` target remains nominal-only.
 
 ```bash
 python -m exobalancelab.hjb_solver \
@@ -75,7 +79,8 @@ value history (about 13 GB for a 225³ grid with 141 saved times).
 ## Numerical correspondence
 
 - Float64, ENO3 with right-biased exact ties, global Lax–Friedrichs dissipation,
-  SSP-RK3 and CFL factor 0.8.
+  SSP-RK3 and default CFL factor 0.8. `--cfl 0.4` refines internal solver time steps
+  without changing the saved-history interval or prepared fields.
 - The CFL bound sums each axis's global maximum, matching ToolboxLS.
 - Constraints are applied after each internal RK3 step; `none` and `minVWithV0`
   retain their separate reachable-set and reachable-tube meanings.

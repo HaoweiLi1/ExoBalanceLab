@@ -16,6 +16,58 @@ from exobalancelab.paper import AUTHORS_PROFILES, exo_torque, ground_reaction
 
 @pytest.mark.skipif(
     not (os.environ.get("EXOBALANCE_HJB_SOURCE") and os.environ.get("EXOBALANCE_HJB_DEPS")),
+    reason="Licensed MATLAB and pinned HJB/SDP dependencies are opt-in",
+)
+def test_matlab_strength_axes_are_independent_and_source_entry_targets_explicit(tmp_path):
+    import json
+
+    from exobalancelab.paper import scale_strength
+
+    directory = Path(__file__).resolve().parents[1] / "matlab"
+    with MatlabController("standing_pd", directory) as controller:
+        for index, (mt, mrtd) in enumerate([(1, 1), (0.5, 1), (1, 0.5)]):
+            output = tmp_path / str(index)
+            controller.engine.feval(
+                "solve_paper_hjb",
+                os.environ["EXOBALANCE_HJB_SOURCE"],
+                os.environ["EXOBALANCE_HJB_DEPS"],
+                str(output),
+                "profile",
+                "YF",
+                "exo",
+                "gc",
+                "target_definition",
+                "source_entry",
+                "mt_scale",
+                float(mt),
+                "mrtd_scale",
+                float(mrtd),
+                "prepare_only",
+                True,
+                "duration_s",
+                0.001,
+                "output_step_s",
+                0.001,
+                "quiet",
+                True,
+                nargout=0,
+            )
+            summary = json.loads((output / "summary.json").read_text())
+            profile = scale_strength(AUTHORS_PROFILES["YF"], mt, mrtd)
+            for key in ["torque_min_nm", "torque_max_nm", "rate_min_nm_s", "rate_max_nm_s"]:
+                assert summary["effective_profile"][key] == getattr(profile, key)
+            assert summary["target"]["thetaDotAnkRange"] == 0.01
+            assert summary["target"]["thetaDotToeRange"] == 0.01
+            assert summary["target"]["torqueAnkRange"] == 1
+            with h5py.File(output / "problem.mat") as source:
+                scale = np.asarray(source["state_scale"]).ravel()
+                time_scale = float(np.asarray(source["time_scale_s"]).item())
+                actual = np.asarray(source["rate_bounds"]).ravel() / scale[2] / time_scale
+                np.testing.assert_allclose(actual, [profile.rate_min_nm_s, profile.rate_max_nm_s], atol=1e-10)
+
+
+@pytest.mark.skipif(
+    not (os.environ.get("EXOBALANCE_HJB_SOURCE") and os.environ.get("EXOBALANCE_HJB_DEPS")),
     reason="Licensed MATLAB and pinned HJB dependencies are opt-in",
 )
 def test_prepared_hjb_fields_equal_the_native_solver_inputs(tmp_path):

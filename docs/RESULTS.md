@@ -5,6 +5,28 @@ Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions a
 complete numerical/video snapshots are in [results](results/).
 The later [release verification](RELEASE.md) checks installation, examples and report rebuilds;
 it does not repeat these numerical campaigns.
+
+## Target, strength, timing and paired-model validation
+
+The subsequent [validation campaign](VALIDATION.md) defines its terminal goals and error
+standards before running **70 HJB solves** with independent MT/MRTD experiments. It adds **234** control-period
+and delay evaluations, **480** paired paper/human episodes, **36** second-population policy
+evaluations, and independent work-energy checks. Complete protocols and all outcomes,
+including coverage errors and failed numerical acceptance, are retained with that report.
+The internal-time checks pass **2/2**. Spatial refinement passes **0/18**, with area
+differences of **5.60–26.43%** against a frozen 2% criterion.
+
+Timing refinement passes for all **12 evaluable pairs**; six further pairs encounter
+coverage errors at both steps. In the articulated correspondence, **159/160** refinement
+classifications agree, while the human cohort produces no harmful-assistance pair.
+These results delimit the models and tested controllers; they do not establish a
+transferred HJB guarantee, hardware real-time operation or exact article reproduction.
+
+The following sections retain the earlier measured campaigns and their original code
+and execution context. They are historical evidence, not reruns of the updated controller.
+
+## Earlier population and pipeline studies
+
 All 30 population-region solves, 180 preselected OF forward-validation cases, both spatial
 studies and the OM target diagnostic are complete. The primary finite-grid comparison
 differs from Table II, including one change of sign. The source-entry target diagnostic

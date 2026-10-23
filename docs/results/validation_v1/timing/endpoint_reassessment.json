@@ -1,0 +1,7 @@
+{
+  "reason": "Reassess early timing results using recorded held device torque at the endpoint.\n\nRetain original outcome files and classification fields. This corrects analysis only;\nno trajectory, selected state, control command or measured latency is changed.\n",
+  "original_outcomes_sha256": "cbf7f582a412a2004d455085621569bccfc1c66640291d7a634b074bd9e47775",
+  "corrected_outcomes_sha256": "daa5e1d25ff1ed895e856e2ed2ca612532db1f29a8049f2db574b8dafd99db67",
+  "changed_classifications": [],
+  "assessment_source_sha256": "8de39a4ea48ff73f0bc31f4472fc3ffd3f4facc0332b086b8d4e60b355540a01"
+}

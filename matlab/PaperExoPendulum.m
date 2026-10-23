@@ -6,11 +6,16 @@ classdef PaperExoPendulum < LiftedInvPendExo
         assistance
     end
     methods
-        function obj = PaperExoPendulum(model, assistance)
+        function obj = PaperExoPendulum(model, assistance, mt_scale, mrtd_scale)
+            if nargin < 3, mt_scale = 1; end
+            if nargin < 4, mrtd_scale = 1; end
+            assert(all(isfinite([mt_scale,mrtd_scale])) && ...
+                all([mt_scale,mrtd_scale]>0) && all([mt_scale,mrtd_scale]<=1), ...
+                'MT and MRTD scales must be in (0,1].');
             assistance = string(assistance);
             assert(ismember(assistance,["none","gc","pd"]),'Unknown assistance mode.');
-            params.alphaMT = 1;
-            params.alphaRTD = 1;
+            params.alphaMT = mt_scale;
+            params.alphaRTD = mrtd_scale;
             params.exoParams = struct('Kp',0,'Kd',0,'muGrav',0,'motorLim',0);
             obj@LiftedInvPendExo([pi/2;0;0],model,params);
             obj.assistance = string(assistance);

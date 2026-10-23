@@ -1,0 +1,230 @@
+[
+  {
+    "policy": "OF_none_forward",
+    "group": "inside",
+    "absolute_endpoint_error": [
+      1.0162209157060786e-05,
+      1.5668742260463095e-06,
+      1.5829515476184497e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_none_forward",
+    "group": "boundary",
+    "absolute_endpoint_error": [
+      4.4091805870838385e-06,
+      8.280677973600487e-06,
+      1.4010126392349775e-11
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_none_forward",
+    "group": "outside",
+    "absolute_endpoint_error": null,
+    "target_and_contact_classifications_equal": null,
+    "passed": false,
+    "assessment": "not_evaluable",
+    "coarse_status": "rollout_error",
+    "fine_status": "rollout_error"
+  },
+  {
+    "policy": "OF_none_backward",
+    "group": "inside",
+    "absolute_endpoint_error": [
+      1.3827838307722828e-06,
+      9.319015164355269e-07,
+      2.9113778055034345e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_none_backward",
+    "group": "boundary",
+    "absolute_endpoint_error": [
+      4.014127580553861e-06,
+      4.23981625485197e-06,
+      2.5425439531545635e-11
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_none_backward",
+    "group": "outside",
+    "absolute_endpoint_error": null,
+    "target_and_contact_classifications_equal": null,
+    "passed": false,
+    "assessment": "not_evaluable",
+    "coarse_status": "rollout_error",
+    "fine_status": "rollout_error"
+  },
+  {
+    "policy": "OF_gc_forward",
+    "group": "inside",
+    "absolute_endpoint_error": [
+      9.763751791513897e-07,
+      1.0084385641416147e-06,
+      5.735500963055529e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_gc_forward",
+    "group": "boundary",
+    "absolute_endpoint_error": [
+      1.9103262460795634e-06,
+      1.816114291281108e-06,
+      5.140744774312367e-11
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_gc_forward",
+    "group": "outside",
+    "absolute_endpoint_error": null,
+    "target_and_contact_classifications_equal": null,
+    "passed": false,
+    "assessment": "not_evaluable",
+    "coarse_status": "rollout_error",
+    "fine_status": "rollout_error"
+  },
+  {
+    "policy": "OF_gc_backward",
+    "group": "inside",
+    "absolute_endpoint_error": [
+      2.91233481286568e-06,
+      1.7300990414415235e-06,
+      2.877840188375558e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_gc_backward",
+    "group": "boundary",
+    "absolute_endpoint_error": [
+      5.6994795931686326e-05,
+      7.238787911978666e-05,
+      6.586731160496129e-12
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_gc_backward",
+    "group": "outside",
+    "absolute_endpoint_error": null,
+    "target_and_contact_classifications_equal": null,
+    "passed": false,
+    "assessment": "not_evaluable",
+    "coarse_status": "rollout_error",
+    "fine_status": "rollout_error"
+  },
+  {
+    "policy": "OF_pd_forward",
+    "group": "inside",
+    "absolute_endpoint_error": [
+      1.6049773576831683e-07,
+      6.050009995461176e-06,
+      3.6901326438965043e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_pd_forward",
+    "group": "boundary",
+    "absolute_endpoint_error": [
+      1.348435350534416e-05,
+      1.5159355282851582e-05,
+      2.1230306401776033e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_pd_forward",
+    "group": "outside",
+    "absolute_endpoint_error": null,
+    "target_and_contact_classifications_equal": null,
+    "passed": false,
+    "assessment": "not_evaluable",
+    "coarse_status": "rollout_error",
+    "fine_status": "rollout_error"
+  },
+  {
+    "policy": "OF_pd_backward",
+    "group": "inside",
+    "absolute_endpoint_error": [
+      2.7564667282042876e-07,
+      3.2115671404006217e-06,
+      3.169375872857927e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_pd_backward",
+    "group": "boundary",
+    "absolute_endpoint_error": [
+      6.7322027894611836e-06,
+      2.0367195538366454e-05,
+      3.743849674719968e-10
+    ],
+    "target_and_contact_classifications_equal": true,
+    "passed": true,
+    "assessment": "pass",
+    "coarse_status": "completed",
+    "fine_status": "completed"
+  },
+  {
+    "policy": "OF_pd_backward",
+    "group": "outside",
+    "absolute_endpoint_error": null,
+    "target_and_contact_classifications_equal": null,
+    "passed": false,
+    "assessment": "not_evaluable",
+    "coarse_status": "rollout_error",
+    "fine_status": "rollout_error"
+  }
+]

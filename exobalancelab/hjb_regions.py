@@ -41,6 +41,9 @@ def _case_data(case: dict, protocol: dict) -> tuple[dict, dict, tuple[np.ndarray
     path = Path(case["solved"])
     summary = json.loads((path / "summary.json").read_text())
     profile = AUTHORS_PROFILES[case["profile"]]
+    for key in ["mt_scale", "mrtd_scale"]:
+        if summary.get(key, 1) != case.get(key, 1):
+            raise ValueError(f"Different {key} in {path}")
     expected_model = {
         "m": profile.mass_kg,
         "h": profile.height_m,

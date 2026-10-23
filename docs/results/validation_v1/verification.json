@@ -1,0 +1,168 @@
+{
+  "verified_at_utc": "2026-10-23T11:00:40.037107+00:00",
+  "scope": "Final software checks and report/media reconstruction. Original per-study execution hashes and superseded results remain separate.",
+  "tests": {
+    "basic": {
+      "passed": 85,
+      "skipped": 9,
+      "third_party_warnings": 14,
+      "log": "verification/basic.txt"
+    },
+    "matlab": {
+      "passed": 6,
+      "runtime": "MATLAB R2026b",
+      "log": "verification/matlab.txt"
+    },
+    "jax": {
+      "passed": 3,
+      "log": "verification/jax.txt"
+    }
+  },
+  "report_rebuild": {
+    "curated_input_files_verified": 288,
+    "relocated_input": "/tmp/exobalance-public-rebuild-acpjct7u/input",
+    "numeric_files_identical": [
+      "contact_followup.csv",
+      "fig5_comparison.csv",
+      "model_correspondence.csv",
+      "paired_cases.csv",
+      "paired_refinement.csv",
+      "paired_summary.csv",
+      "regions.csv",
+      "spatial_acceptance.csv",
+      "summary.json",
+      "target_audit.json",
+      "temporal_acceptance.csv",
+      "timing_cases.csv",
+      "timing_refinement.json",
+      "timing_summary.csv",
+      "work_energy_ode.csv",
+      "yf_forward_validation.csv"
+    ],
+    "plot_pixels_identical": [
+      "contact_followup.png",
+      "paired.png",
+      "strength.png",
+      "targets.png",
+      "timing.png",
+      "work_energy.png"
+    ],
+    "summary_sha256": "faf67b6f39f346ad8b976d0aacdd76963c72e2025780f11b3f3cf4830eb88e59",
+    "matlab_or_gpu_solver_needed_for_rebuild": false
+  },
+  "media_rebuild": [
+    {
+      "name": "human",
+      "recorded_sources_identical": true,
+      "poster_pixels_identical": true,
+      "fps": 30.0,
+      "frames": 120,
+      "duration_s": 4.0,
+      "size": [
+        1440,
+        640
+      ],
+      "original_sha256": "f43353fd5afb115c76e78db28ce0bb185f0cf0a8b35157ba146718d6c2109f7d",
+      "replay_sha256": "7075d990db863e041c469db6047d197b6de2b5cd25623cf00fea96c2d724aaaa"
+    },
+    {
+      "name": "paper",
+      "recorded_sources_identical": true,
+      "poster_pixels_identical": true,
+      "fps": 30.0,
+      "frames": 120,
+      "duration_s": 4.0,
+      "size": [
+        1440,
+        640
+      ],
+      "original_sha256": "9f5c2cd2dc79a5cf35f272d2663a5e3df72fca605daa9591168f376dfa0aa0c7",
+      "replay_sha256": "9f5c2cd2dc79a5cf35f272d2663a5e3df72fca605daa9591168f376dfa0aa0c7"
+    }
+  ],
+  "readme_workflow_recovery": {
+    "paper": {
+      "none": true,
+      "gc": true,
+      "pd": true
+    },
+    "human": {
+      "none": false,
+      "gc": true,
+      "pd": true
+    }
+  },
+  "readme_scope": "Current README examples executed successfully; no byte-identical trajectory claim against historical demonstrations.",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "mujoco": "3.3.7",
+    "matplotlib": "3.10.3",
+    "pytest": "8.4.1",
+    "ruff": "0.12.0"
+  },
+  "python": "3.11.17 (main, Oct 13 2026, 16:45:47) [GCC 15.3.0]",
+  "source_hashes": {
+    "exobalancelab/__init__.py": "66cc1b610cb899f78098078717a852225219d4e9a05cb171601be883025ab56b",
+    "exobalancelab/__main__.py": "7df609d3fdd959b5c5c046ca0b1bf8d904b4909fb89d21f828847482ec5872d9",
+    "exobalancelab/bridge.py": "e3c4705193d22ec710a85f8643ec12952bb6d5185d3092e9448c5a6abda3c162",
+    "exobalancelab/cli.py": "37a9c185efda285bf78a849c448c006400a82eea1233cf5e17cb2b2ed8ea11d7",
+    "exobalancelab/hjb_comparison.py": "82a8a0f6f567bd176c2f8d199063f2eedbecc57b6a3588da3f08bb132563ef12",
+    "exobalancelab/hjb_regions.py": "a4767fd4d01d6e451755765d31e5b2b15b7160cdb24a6202d9a28615c198037f",
+    "exobalancelab/hjb_solver.py": "a17212392407ba46a67f8bae1ab15a337ca42294ed996076589806e3ede61617",
+    "exobalancelab/hjb_solver_comparison.py": "214a3fb37c861ee728a2cf62e1686ce0910cca73822924001143784431e3086e",
+    "exobalancelab/hjb_validation.py": "21bfef1642d989cf24090cb590f3ca1fcb4bdb6f486f369e97231b052d4253d8",
+    "exobalancelab/models.py": "e4ba5c881eeca53df21412f74566eb291c3b682d9c5ec5ea7d00be32c3fad377",
+    "exobalancelab/paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "exobalancelab/reachability.py": "1fd93120aaff61b545061a8d504126c0139e581465651f629499af53d657f8d6",
+    "exobalancelab/rendering.py": "9f7cf613048ac5d06f13d1d273a124e08bf3e9aa4d4692d5d9eb706b5685e93b",
+    "exobalancelab/simulation.py": "1fe02fdb5518bf931b1c1627de739f2ed3757baf567f26364d51278871ecad42",
+    "exobalancelab/sweep.py": "0396288db7c275af8d109e456c924563d9392ac3e01b65f2b7a0d04569503f43",
+    "exobalancelab/validation.py": "f93c155ecfe878a0f2feb9a60b508b2a633d8c6f0fc61b7b2d2360802b95ba21",
+    "exobalancelab/work_energy.py": "39d695ba55d44bc8cb54547a6d6a74d7dbac5f21d73b4b226afc63b5ddda9475",
+    "examples/curate_validation.py": "d477b4293d6bd1df35726eefc59298dfd5f79da916e2dd236d0f1e4e8d675752",
+    "examples/make_replay.py": "ea6418c1c6195186a0f67c7383ad8fd48821e62dfae03f7ef43d5aa92deb3e2c",
+    "examples/reassess_timing_endpoint.py": "ad60217480a276e608df13c7e2b1be29092716ed1d77516b0b5a95c150d8cf6f",
+    "examples/rebuild_results.py": "aab688190b00011c14a7c238e0f523ad3aeda59447d607b314a9cb6b123a97a1",
+    "examples/refine_human_contact.py": "a5fa33ec040b11b86c05df608d70b7f7d455a69c1ac82e5aba4c2ba8fd48970d",
+    "examples/render_validation.py": "28ab7df78e3d245c6910a7de42ecf6285c44b5c8139f4eddc2ad4159142a31db",
+    "examples/report_validation.py": "63607a796ee9bc28dc4a7652049eaf6c31ff54d075abdab89c0d02074a1fb17c",
+    "examples/validation_hjb.py": "ab0c6b2e6172cdc263796cec20f35d0eabbdab81cb5340718d747c0a505f88a4",
+    "examples/validation_rollouts.py": "b35e0e5a8c8e7687256155500e154f102049b495e526e5d16280e5c8be07cde3",
+    "matlab/PaperExoPendulum.m": "0abd4fdde5d3b383ca2a175df0d007ed81d72f699992a431c8092ab24ee8865f",
+    "matlab/example_export.m": "77ec13f00e3c9fcc6925f5a7adff87fbe484eb4bb68609a881e972f4d710ba79",
+    "matlab/export_controller.m": "01a6760826f8929a6a57de8bed165dba40e6335af5ab6462160b60fe616c1538",
+    "matlab/export_hjb_policy.m": "9e4e22f4d1ce6770c4680d83a11d3f28db6fc4d37e536a5a2d327fc7963114b8",
+    "matlab/nominal_contact_constraints.m": "0215766f9f9eb9e240860a12d297dcc5f554c0333609b30760e589e636bd5d99",
+    "matlab/paper_contact_constraints.m": "f7747f51308d6a1b84241255b2f525f1dc22b664a724c1b6c541ed0ea7be1dec",
+    "matlab/paper_target_boxes.m": "363675e363ac4779060aba6f1b140eae9ca5be6ad350e5241ef1dce9da62c034",
+    "matlab/solve_nominal_hjb.m": "fe76a3ec178ba3011ca987be04ae43ec7c8d38b2c951130752f41f9013895e46",
+    "matlab/solve_paper_hjb.m": "79a5b84bc1cda77b3db4772f03f044a4c0b45eeee52c12bd38e059d6067bd9ae",
+    "matlab/standing_pd.m": "f8a68d67b6d900ac80853a21f0bbfc36a803e49416c5f85024bf09cf27973a16",
+    "tests/test_bridge.py": "6e91756c06fc0fe5e24b9b8c6fb7d92d84f17adaae2381d13aa200d3b0d9792c",
+    "tests/test_hjb_comparison.py": "cebd444523f4a91befc78ec969a84f0557e177fe309e2f59aa33e36fc0db0cbd",
+    "tests/test_hjb_regions.py": "dfad08863cfc571e0138f3132407e108fa55ffebbd3f3493d2e6766c0ec938e3",
+    "tests/test_hjb_solver.py": "242b3ae58e19c00f68c6b0320ea83f5a71ea4400e62da7e7a9fc2803acc7db8f",
+    "tests/test_hjb_solver_comparison.py": "fead667c225223007ba667fdb604fff98b8a6a91aceb8daa8e73f6147265248e",
+    "tests/test_hjb_validation.py": "edf6a7041eecc823862ca9d7487443e62a40f6196d38343a6aae394b24d223b2",
+    "tests/test_matlab_assistance.py": "576af4c78e86adcf530017d1e4dca352bd8944b3532a13d83a3401c9c19f353d",
+    "tests/test_matlab_hjb_source.py": "1edf1e752a8da1267a5edc0e9b593f2a7eb174c20fbd8229c69544410abbe97a",
+    "tests/test_matlab_runtime.py": "659cab336048d35c25e6cca3ecb4bd946168df65b061e0c2e3e882b7aefa627f",
+    "tests/test_physics.py": "befc285d38f37793aa8a2501448a327b16aa2d1dd73a0568f9ac28453e9ac61a",
+    "tests/test_provenance.py": "67fe9c389c4aca51738d11204feb1841e9fc59765fa10af0504f7a3653c689dc",
+    "tests/test_reachability.py": "cc2feb778c52234aeecf394363a7333e7b021cafc48d6de29c8dd968aadf533a",
+    "tests/test_validation_controls.py": "9894a57353b3cce621d81b0c72e934441a124603d8524a30b5365b6030fdc17c",
+    "tests/test_validation_reporting.py": "c3133b758522e5fe86c5fce877421d4881a77bd5105bfa719b44f7cd157666f9",
+    "tests/test_work_energy.py": "3ee166a67c5543bd714721e734536bfd3cdb084488d0427b10b20dee406f8bb2",
+    "experiments/validation_v1.json": "34cb7f983ce0676e871ad3ca262baa41e3e8ba4b9f09e1c4a6d388173e623098"
+  },
+  "solver_revision_audit": {
+    "source_sha256_case_counts": {
+      "a17212392407ba46a67f8bae1ab15a337ca42294ed996076589806e3ede61617": 64,
+      "8d5bafe0d7d3e92ea590899e0d0f42823d1bb7f4a6021421ccbd66e4f02f8075": 6
+    },
+    "syntax_trees_identical": true,
+    "syntax_tree_sha256": "d4b29576626ec9e2499c7e73fa168af18de1b2a66752654a7f41f9488f92efab",
+    "change": "Line wrapping only in solve signature and console output; numerical expressions and control flow unchanged."
+  }
+}

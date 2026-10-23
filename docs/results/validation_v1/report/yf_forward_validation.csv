@@ -1,0 +1,5 @@
+case,selected,predicted_inside,inside_successes,all_successes,errors
+YF_none_forward_source_entry_mt100_mrtd100_n151_cfl0.8,9,5,5,6,3
+YF_none_backward_source_entry_mt100_mrtd100_n151_cfl0.8,9,4,4,6,3
+YF_gc_forward_source_entry_mt100_mrtd100_n151_cfl0.8,9,4,4,6,3
+YF_gc_backward_source_entry_mt100_mrtd100_n151_cfl0.8,9,5,5,6,3

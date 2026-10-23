@@ -2,11 +2,12 @@
 
 - [Paper correspondence](PAPER.md): equations, coordinates, source differences and HJB acceptance.
 - [Measured results](RESULTS.md): recorded numerical comparisons and videos, with reproduction commands.
+- [Four-gap validation](VALIDATION.md): frozen targets/tolerances, independent strength, timing and paired models.
 - [Release verification](RELEASE.md): clean-checkout checks, numerical equality and publication scope.
 - [Reproduce the results](REPRODUCING.md): basic demos, report rebuilds and advanced dependencies.
 - [Branch integration](MIGRATION.md): original tips, preserved history and older model retrieval.
 - [Delivery plan](PLAN.md): functionality, acceptance criteria and final repository structure.
-- [TODO](TODO.md): ordered delivery work, deferred validation and long-term extensions.
+- [TODO](TODO.md): completed work, unresolved scientific acceptance and long-term extensions.
 - `media/`: selected generated comparison videos, animated previews and scientific plots.
 - `results/`: published configuration, metrics, model XML, state arrays and recovery CSV.
 

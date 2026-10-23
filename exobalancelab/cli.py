@@ -30,6 +30,11 @@ def main() -> None:
     parser.add_argument("--push", type=float, default=0, help="anterior chest force N, human model only")
     parser.add_argument("--device-mass", type=float, default=2, help="total bilateral mass kg, human only")
     parser.add_argument("--strength", type=float, default=1, help="human MT and MRTD multiplier in (0,1]")
+    parser.add_argument("--mt-scale", type=float, default=1, help="independent human torque multiplier")
+    parser.add_argument("--mrtd-scale", type=float, default=1, help="independent torque-rate multiplier")
+    parser.add_argument("--command-delay", type=float, default=0, help="sample-to-actuation delay, seconds")
+    parser.add_argument("--human-feedback", choices=["default", "fixed", "readapted"], default="default")
+    parser.add_argument("--initial-posture", choices=["root", "flat_feet"], default="root")
     parser.add_argument("--trajectory", type=Path, help="CSV or MAT desired human torque samples")
     parser.add_argument("--interpolation", choices=["linear", "zoh"], default="linear")
     parser.add_argument("--hjb-policy", type=Path, help="exported MATLAB/helperOC value function")
@@ -59,6 +64,11 @@ def main() -> None:
         device_mass_kg=args.device_mass,
         push_n=args.push,
         human_strength=args.strength,
+        mt_scale=args.mt_scale,
+        mrtd_scale=args.mrtd_scale,
+        command_delay_s=args.command_delay,
+        human_feedback=args.human_feedback,
+        initial_posture=args.initial_posture,
     )
     config.validate()
     trajectory = Trajectory.load(args.trajectory, args.interpolation) if args.trajectory else None

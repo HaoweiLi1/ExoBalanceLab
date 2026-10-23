@@ -1,0 +1,87 @@
+{
+  "profile": "OM",
+  "exo": "gc",
+  "direction": "forward",
+  "resolution": [
+    151,
+    152,
+    152
+  ],
+  "requested_resolution": [
+    151,
+    151,
+    151
+  ],
+  "duration_s": 1.4,
+  "output_step_s": 0.01,
+  "method": "none",
+  "velocity_buffer_rad_s": 0.5,
+  "aligned_zero": true,
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 74.5,
+    "h": 1.74,
+    "tauMin": -137,
+    "tauMax": 37,
+    "uMin": -681,
+    "uMax": 232
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "thetaAnkRange": 0.05024722818662286,
+    "thetaDotAnkRange": 0.0058646631490287815,
+    "torqueAnkRange": 0.05024465936052392,
+    "thetaToeRange": 0.014504727028301348,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 14.64769897211904
+  },
+  "mt_scale": 1,
+  "mrtd_scale": 1,
+  "target_definition": "recomputed",
+  "effective_profile": {
+    "mass_kg": 74.5,
+    "height_m": 1.74,
+    "torque_min_nm": -137,
+    "torque_max_nm": 37,
+    "rate_min_nm_s": -681,
+    "rate_max_nm_s": 232,
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8
+  },
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "ankle_target_nodes": 13,
+  "toe_target_nodes": 100,
+  "initial_target_nodes": 113,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "stage": "solved",
+  "backend": "JAX/ENO3",
+  "device": "cuda:0",
+  "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "solver_sha256": "8d5bafe0d7d3e92ea590899e0d0f42823d1bb7f4a6021421ccbd66e4f02f8075",
+  "precision": "float64",
+  "problem_sha256": "811218fe104622a3e159de29c582dfa11571aefe0d1f2af0bed758018c1e153e",
+  "save_history": false,
+  "cfl": 0.8,
+  "compilation_s": 1.7414781560655683,
+  "compiled_temporary_bytes": 423988576,
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "hj_reachability": "0.7.0",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0"
+  },
+  "wall_s": 63.783092609839514,
+  "final_reachable_nodes": 199679
+}

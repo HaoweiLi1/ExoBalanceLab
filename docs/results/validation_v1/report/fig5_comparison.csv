@@ -1,0 +1,5 @@
+parameter,scale,exo,article_prose_change_percent,measured_change_percent,difference_pp,change_from_own_nominal_percent,source,scope
+mt_scale,0.7,none,-20.0,-26.02641913602285,-6.026419136022849,-26.02641913602285,https://arxiv.org/html/2408.05418v3#S5.SS2,Source-entry goal construction; finite grid; direct quantitative agreement unaccepted.
+mt_scale,0.7,gc,-10.0,-10.871117458050705,-0.8711174580507048,-13.285863146926037,https://arxiv.org/html/2408.05418v3#S5.SS2,Source-entry goal construction; finite grid; direct quantitative agreement unaccepted.
+mrtd_scale,0.7,none,-2.6,-1.9992859692966714,0.6007140307033287,-1.9992859692966714,https://arxiv.org/html/2408.05418v3#S5.SS2,Source-entry goal construction; finite grid; direct quantitative agreement unaccepted.
+mrtd_scale,0.7,gc,-10.4,-4.0342734737593755,6.365726526240625,-6.634248002778753,https://arxiv.org/html/2408.05418v3#S5.SS2,Source-entry goal construction; finite grid; direct quantitative agreement unaccepted.

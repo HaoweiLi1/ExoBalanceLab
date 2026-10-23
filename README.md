@@ -6,6 +6,7 @@
 
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](environment.yml)
 [![MuJoCo 3.3.7](https://img.shields.io/badge/MuJoCo-3.3.7-F28C28)](pyproject.toml)
+[![Tests](https://github.com/HaoweiLi1/ExoBalanceLab/actions/workflows/tests.yml/badge.svg)](https://github.com/HaoweiLi1/ExoBalanceLab/actions/workflows/tests.yml)
 
 <h3>
 🎥 <a href="docs/media/human.mp4">Simulation</a> ·
@@ -35,9 +36,9 @@ the experiment to ground contact and an articulated human–exoskeleton model. T
 collects the implementation, experiments and visualizations from that research effort.
 
 - **Theory to simulation:** lifted dynamics, five population profiles, human torque/rate
-  limits, GC/PD assistance, and HJB torque-rate feedback.
+  limits with independent MT/MRTD scaling, GC/PD assistance, and HJB torque-rate feedback.
 - **MATLAB to MuJoCo:** CSV/MAT replay and persistent Engine feedback, with explicit units,
-  control timing, and recorded raw/applied commands.
+  sampled control, causal command delay, and recorded raw/applied commands.
 - **Inspect every experiment:** synchronized videos, state trajectories, contact margins,
   model snapshots, and reproducible comparisons.
 
@@ -75,7 +76,8 @@ using the basic environment.
 |---|---|
 | Analytical dynamics · 1,500 states | Maximum acceleration error **1.16e-9 rad/s²** |
 | MATLAB/Python feedback · six seconds | Identical recorded positions and commands |
-| HJB population study · 20 assistance comparisons | 19 match the paper's direction; quantitative differences remain |
+| [HJB validation](docs/VALIDATION.md) · 70 solves | Time checks **2/2**; spatial convergence **0/18** at frozen tolerances |
+| [Paired model study](docs/VALIDATION.md) · 480 episodes | 159/160 physics-refinement classifications agree; human harm not observed |
 
 The completed spatial and target studies retain differences from the paper's stabilizable
 regions; full reproduction is not established. The articulated model is a sagittal
@@ -91,8 +93,9 @@ explain the assumptions, disagreements and measured limits.
 | [Paper correspondence](docs/PAPER.md) | Equations, source audit and reproduction requirements |
 | [Measured results](docs/RESULTS.md) | Experiments, failures, figures, videos and reproduction commands |
 | [Reproduce the results](docs/REPRODUCING.md) | Basic demos, offline report rebuilds and optional solver requirements |
+| [Validation campaign](docs/VALIDATION.md) | Target/error standards, independent strength, timing and paired human models |
 | [Validation](tests/README.md) · [History](docs/MIGRATION.md) | Tests and integration of the original branches |
-| [Scope and TODO](docs/TODO.md) | Release preparation and optional follow-up validation |
+| [Scope and TODO](docs/TODO.md) | Completed work, open numerical acceptance and optional extensions |
 
 ## 📄 Source and citation
 

@@ -16,6 +16,7 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `paper` | `acceleration(q, velocity, total_torque, profile)` | Eq. (3) → rad/s² |
 | `paper` | `ground_reaction(q, velocity, total_torque, profile)` | flat-foot inverse dynamics → N/metres |
 | `paper` | `limit_human(raw, previous, dt, profile)` | desired/applied torque, s → limited Nm |
+| `paper` | `scale_strength(profile, mt_scale, mrtd_scale)` | Independent MT/MRTD bounds; unchanged mechanics |
 | `models` | `paper_xml(profile, dt, contact)` | profile → standalone MJCF string |
 | `models` | `human_xml(profile, dt, device_mass_kg)` | profile → bilateral sagittal MJCF |
 | `models` | `compile_model(xml)` | MJCF → MuJoCo model/data |
@@ -45,10 +46,14 @@ at every declared grid resolution.
 `mj_forward` computes the observation at time t after setting the current command;
 `mj_step` advances to t+dt. Recorded states/commands share the pre-step timestamp.
 Desired human torque controllers (replay, MATLAB and local feedback) update every
-`control_period_s`, with zero-order hold between updates. Their MRTD limiter permits
-one control interval of change at t=0. Exoskeleton commands use that same period.
-Physics dt must divide the control period and duration exactly; timing uses simulated
-time, not wall-clock call latency. No future-time lookup compensates for transport delay.
+`control_period_s`, with zero-order hold of the desired command between updates.
+The applied human torque moves toward that command by at most one **physics step**
+of MRTD each step, including t=0. Slower control does not authorize an instantaneous
+whole-period torque jump. Exoskeleton commands use the same sampling period.
+`command_delay_s` queues both human and device commands until their arrival time;
+the initial human rate/device torque are zero. Records include sample time and command
+age. Physics dt must divide duration, period and delay exactly. These are simulated
+times; wall-clock call latency and deadline misses are measured separately.
 
 HJB controls **torque rate**, so its lifted torque state starts exactly at
 `initial_torque_nm`. The selected rate is held between controller ticks, while torque
@@ -59,6 +64,12 @@ HJB records additionally contain `human_rate_command_nm_s` and
 `human_rate_applied_nm_s`; the latter is the torque change over the following physics
 interval divided by dt, including saturation. All initial torques must satisfy the
 configured strength-scaled limits.
+`mt_scale` and `mrtd_scale` vary the two capacities independently. The older
+`human_strength` argument remains a common multiplier on both capacities; its product
+with each independent scale is recorded in `effective_profile`.
+In the articulated model the same factors also scale the synthetic hip/knee limits
+(nominally ±100 Nm and ±500 Nm/s); the independent Figure 5 study uses the ankle-only
+paper model.
 Episode metrics `final_lean_rad`, `final_velocity_rad_s` and `final_human_torque_nm`
 describe the actual post-step endpoint; HJB terminal-target checks use that state.
 
@@ -75,6 +86,21 @@ the full value history and its derivative in memory.
 For repeated rollouts, `HJBPolicy(path, gradient_cache=directory)` optionally stores an
 uncompressed derivative on disk and reads it through a memory map. Source and cache
 checksums prevent reuse with another policy; the interpolation arithmetic is unchanged.
+
+## Paired human feedback
+
+`human_feedback="fixed"` designs the human controller without assistance and reuses
+it across none/GC/PD. `"readapted"` includes sampled device feedback in the articulated
+plant linearization (or subtracts current assistance in the paper local controller).
+The default preserves the original choice: fixed stance LQR for `human`, adapted PD
+for `paper`/`contact`. These are explicit synthetic feedback assumptions.
+
+Settling and LQR design use a step of at most 1 ms, determined solely by the control
+period. Changing only the physics step therefore preserves the reference and gains.
+For articulated perturbation studies, `initial_posture="flat_feet"` coordinates root
+and ankle lean and the pelvis translation/velocity to preserve settled sole poses and
+velocities. The older `"root"` initialization remains the default. Initial states,
+reference poses, gains and design step are saved in episode metrics.
 
 For `paper`/`contact`, positive ankle angle is forward lean; positive motor torque is DF.
 A body hinge about world +y produces positive forward lean. In `human`, the ankle joint

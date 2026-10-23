@@ -64,6 +64,22 @@ recorded disagreement with the paper. Individual commands are in [Results](RESUL
 
 ## Rerun advanced integrations
 
+The [four-gap validation campaign](VALIDATION.md) adds explicit target definitions,
+independent MT/MRTD, control-period/delay sweeps and paired articulated experiments.
+Its compact recorded inputs can be rebuilt without MATLAB or a GPU:
+
+```bash
+python examples/report_validation.py --input docs/results/validation_v1 \
+  --out logs/rebuilt_validation
+MUJOCO_GL=egl python examples/render_validation.py \
+  --cases docs/results/validation_v1/paired/cases \
+  --pair OF_human_fixed_dt0.0005_state07 --out logs/rebuilt_validation/human.mp4
+```
+
+The report rebuild also reruns the small independent work-energy ODE checks. Full HJB
+and MuJoCo reruns use the separate commands in the validation guide. Large histories
+and gradient caches are intentionally excluded from the curated dataset.
+
 [MATLAB integration](../matlab/README.md) specifies Engine installation, process-local
 Linux runtime configuration, author-source/dependency versions, policy generation and
 forward validation. [GPU HJB](HJB_GPU.md) describes the separate Python 3.12/JAX

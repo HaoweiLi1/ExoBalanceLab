@@ -1,0 +1,22 @@
+{
+  "pair": "OF_human_fixed_dt0.0005_state07",
+  "sources": [
+    {
+      "case": "OF_human_fixed_dt0.0005_state07_none",
+      "trace_sha256": "0b3d1d2689a941cbb87c354973bc6fcc0a4e0a90de6f246a91c20874f7f7134c",
+      "result_sha256": "769b2fec7083a096898ba434bd26a19950646bd821a96542efdb21fbf8f6fd9d"
+    },
+    {
+      "case": "OF_human_fixed_dt0.0005_state07_gc",
+      "trace_sha256": "3e6c90c51f3f364f37b4784e76f24a4dc3a4b8df47dc07d4b42470772c94e0a4",
+      "result_sha256": "14dcc85cb6f3ed857ac9b791f322e20ed2be2a7e2fd7e8df29794c90d04056f5"
+    },
+    {
+      "case": "OF_human_fixed_dt0.0005_state07_pd",
+      "trace_sha256": "c032c51fee588cfda625ee633825256d58812d072741b95634f1432376cb5ae2",
+      "result_sha256": "ad9bc0e4576bbd48ceb49584efdc11a1f0be78408183e26d82c63e97aca77bad"
+    }
+  ],
+  "selection": "Explicit illustration chosen after the full cohort; all outcomes remain in the report.",
+  "rendering": "Recorded states at 10 ms intervals; no new integration during rendering."
+}
