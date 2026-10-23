@@ -1,0 +1,110 @@
+{
+  "scope": "Release workflow verification; no new HJB solves or scientific parameter sweeps.",
+  "rebuilt_reports": {
+    "population": {
+      "numeric_records_equal": true,
+      "areas": 30,
+      "comparisons": 20
+    },
+    "of_grid": {
+      "numeric_records_equal": true,
+      "areas": 18,
+      "comparisons": 12
+    },
+    "om_grid": {
+      "numeric_records_equal": true,
+      "areas": 6,
+      "comparisons": 4
+    },
+    "target_diagnostic": {
+      "numeric_records_equal": true,
+      "areas": 3,
+      "comparisons": 0
+    },
+    "time_comparison": {
+      "all_outcomes_equal": true,
+      "cases": 27,
+      "schema_difference": "Current reporter additionally emits rollout: null for historical protocols."
+    }
+  },
+  "csv_mat_replay": {
+    "arrays_equal": 20,
+    "duration_s": 1
+  },
+  "demo_record_comparisons": {
+    "human": {
+      "arrays_equal": 60
+    },
+    "paper_constraints": {
+      "arrays_equal": 60
+    }
+  },
+  "date": "2026-10-23",
+  "tested_code_commit": "4323d07829e271d52d0bbcd2040d22626c48b292",
+  "fresh_checkout_clean": true,
+  "correct_clean_source_provenance_episodes": 8,
+  "environment": {
+    "python": "3.11.17",
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.3",
+    "pytest": "8.4.1",
+    "ruff": "0.12.0",
+    "matlab_engine_installed": false,
+    "jax_installed": false
+  },
+  "source_sha256": {
+    "exobalancelab/__init__.py": "66cc1b610cb899f78098078717a852225219d4e9a05cb171601be883025ab56b",
+    "exobalancelab/hjb_validation.py": "0b98d0367a572d004eaf2819ae97e0a28049ffd26cb1caeb8773bce2143391b6",
+    "exobalancelab/reachability.py": "1fd93120aaff61b545061a8d504126c0139e581465651f629499af53d657f8d6",
+    "exobalancelab/hjb_solver.py": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+    "exobalancelab/hjb_comparison.py": "c6b80531b182fbe46177fc197d64eb46b20628d9ed91353c6d1e6c271bfcae8c",
+    "exobalancelab/hjb_solver_comparison.py": "214a3fb37c861ee728a2cf62e1686ce0910cca73822924001143784431e3086e",
+    "exobalancelab/rendering.py": "9f7cf613048ac5d06f13d1d273a124e08bf3e9aa4d4692d5d9eb706b5685e93b",
+    "exobalancelab/models.py": "e4ba5c881eeca53df21412f74566eb291c3b682d9c5ec5ea7d00be32c3fad377",
+    "exobalancelab/bridge.py": "e3c4705193d22ec710a85f8643ec12952bb6d5185d3092e9448c5a6abda3c162",
+    "exobalancelab/paper.py": "da44d063e8409a4453641f50a701e36befa7e435c58de23f4be85c59bde446b3",
+    "exobalancelab/cli.py": "d5b5f5db90c7e3527bbdeb5a3dc58e8218f722110e1000b3fe4d21fdbe7c0c53",
+    "exobalancelab/validation.py": "f93c155ecfe878a0f2feb9a60b508b2a633d8c6f0fc61b7b2d2360802b95ba21",
+    "exobalancelab/__main__.py": "7df609d3fdd959b5c5c046ca0b1bf8d904b4909fb89d21f828847482ec5872d9",
+    "exobalancelab/hjb_regions.py": "9d9abe7f586246fdf5133c5d0cc8e8d42119d8981e9d4203cf899d7fd4ec87c1",
+    "exobalancelab/simulation.py": "cb324be3d3a9cddd89dd1164f2b7a4f0e9e30303be52132a7b6115e077d6061e",
+    "exobalancelab/sweep.py": "0396288db7c275af8d109e456c924563d9392ac3e01b65f2b7a0d04569503f43",
+    "examples/make_replay.py": "ea6418c1c6195186a0f67c7383ad8fd48821e62dfae03f7ef43d5aa92deb3e2c",
+    "examples/rebuild_results.py": "aab688190b00011c14a7c238e0f523ad3aeda59447d607b314a9cb6b123a97a1"
+  },
+  "automated_checks": {
+    "passed": 70,
+    "skipped": 8,
+    "warnings": 14,
+    "skips": "5 optional MATLAB/source checks and 3 optional JAX checks",
+    "warnings_source": "Matplotlib/pyparsing deprecations",
+    "ruff": "passed, including examples",
+    "github_actions": "https://github.com/HaoweiLi1/ExoBalanceLab/actions/runs/39918497073"
+  },
+  "media": {
+    "human": {
+      "duration_s": 6,
+      "fps": 30,
+      "size": [
+        1440,
+        640
+      ]
+    },
+    "paper_constraints": {
+      "duration_s": 6,
+      "fps": 30,
+      "size": [
+        1440,
+        640
+      ]
+    },
+    "reviewed": "Opening and later frames, outcome labels and recorded time-series figures."
+  },
+  "publication": {
+    "maintainer_confirmed_publication": true,
+    "new_project_wide_license": false
+  },
+  "advanced_workflows": "Instructions reviewed; licensed MATLAB/JAX numerical campaigns were not repeated in this release check."
+}

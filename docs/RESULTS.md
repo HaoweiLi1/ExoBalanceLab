@@ -3,6 +3,8 @@
 MuJoCo experiments use Python 3.11 and MuJoCo 3.3.7; the optional HJB backend uses
 Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions and
 complete numerical/video snapshots are in [results](results/).
+The later [release verification](RELEASE.md) checks installation, examples and report rebuilds;
+it does not repeat these numerical campaigns.
 All 30 population-region solves, 180 preselected OF forward-validation cases, both spatial
 studies and the OM target diagnostic are complete. The primary finite-grid comparison
 differs from Table II, including one change of sign. The source-entry target diagnostic

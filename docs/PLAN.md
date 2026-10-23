@@ -5,8 +5,8 @@ standing-balance theory. The delivery goal is a public-ready research repository
 shows the modeling, control integration, experimental reasoning and simulation results.
 A new paper or independent theoretical contribution is not required.
 
-This plan defines the next work; unchecked acceptance items are not completed claims.
-[TODO](TODO.md) tracks execution. The repository remains private until publication.
+This plan defines the delivery scope. [TODO](TODO.md) tracks completion, and
+[Release verification](RELEASE.md) records the executed checks and remaining limits.
 
 ## Existing foundation
 
@@ -104,7 +104,7 @@ any future relocation. `main` is the only development branch; the
 2. Verify selected result-rebuild paths and curate the README/media links.
 3. Review redistribution rights, release contents and current automated checks.
 4. Present the release-ready snapshot and its validation record, then perform the
-   separately authorized public visibility change.
+   maintainer-authorized public visibility change.
 
 Completion means the selected public workflows are reproducible and the presentation
 accurately describes the evidence. It does not require rerunning every expensive
