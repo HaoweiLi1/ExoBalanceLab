@@ -4,8 +4,8 @@ Run from the repository root in the project Conda environment:
 
 ```bash
 pytest -q
-ruff check exobalancelab tests
-ruff format --check exobalancelab tests
+ruff check exobalancelab tests examples
+ruff format --check exobalancelab tests examples
 ```
 
 `test_bridge.py` covers MATLAB-compatible CSV/MAT v7/v7.3 data, temporal sampling,
@@ -18,6 +18,10 @@ These tests use native MuJoCo, with no renderer or MATLAB license. Synthetic MAT
 verify interchange semantics and are explicitly not MATLAB execution or original-paper
 reachability evidence. Numerical campaigns and demonstration videos use separate commands
 listed in the root README. They are not rerun as part of every unit test.
+
+`test_provenance.py` checks that results identify the installed source checkout when
+called from an unrelated repository. Wheel installations and systems without Git
+retain source/model hashes with null Git metadata.
 
 `test_hjb_comparison.py` verifies complete outcome accounting and rejects comparisons
 that drop failed cases or change initial states, targets or plant parameters.

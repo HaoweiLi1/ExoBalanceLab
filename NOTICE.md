@@ -15,11 +15,11 @@ The paper's authors maintain <https://github.com/Raquelometer/AnkleExoBRS>.
 ExoBalanceLab independently implements the documented mathematical model and preserves
 explicit differences between the manuscript, released source and this simulator.
 
-No root license was present in the inherited repository at inspection. This migration
-has not unilaterally relicensed that source, historical assets or recordings. Public
-availability and GitHub fork status do not settle redistribution/licensing permissions.
-A project-wide open-source license remains a maintainer decision requiring the relevant
-rights holders' permission for inherited components.
+The maintainer confirmed publication of the repository, including its inherited material,
+on October 23, 2026. No root license was present in the inherited repository at inspection,
+and this release does not add a project-wide license or relicense historical code, assets
+or recordings. Existing third-party notices remain in place. Contact the maintainer for
+reuse terms that are not covered by an explicit component license.
 
 MuJoCo, NumPy, SciPy and other installed dependencies retain their respective licenses.
 MATLAB and its toolboxes require the user's applicable MathWorks license and are not

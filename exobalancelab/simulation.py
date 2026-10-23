@@ -104,10 +104,25 @@ class Episode:
             for source in Path(__file__).parent.glob("*.py")
         }
         provenance["model_sha256"] = hashlib.sha256(self.xml.encode()).hexdigest()
-        git = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True)
-        provenance["git_commit"] = git.stdout.strip() if git.returncode == 0 else None
-        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
-        provenance["working_tree_dirty"] = bool(status.stdout.strip()) if status.returncode == 0 else None
+        provenance["git_commit"] = None
+        provenance["working_tree_dirty"] = None
+        source_root = Path(__file__).resolve().parents[1]
+        # A wheel has no checkout; never inherit an unrelated parent/caller repository.
+        if (source_root / ".git").exists():
+            try:
+                git = subprocess.run(
+                    ["git", "rev-parse", "HEAD"], cwd=source_root, capture_output=True, text=True
+                )
+                status = subprocess.run(
+                    ["git", "status", "--porcelain"], cwd=source_root, capture_output=True, text=True
+                )
+            except FileNotFoundError:
+                pass  # Git is optional; source and model hashes still identify the run.
+            else:
+                provenance["git_commit"] = git.stdout.strip() if git.returncode == 0 else None
+                provenance["working_tree_dirty"] = (
+                    bool(status.stdout.strip()) if status.returncode == 0 else None
+                )
         (path / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
 
 

@@ -2,6 +2,7 @@
 
 - [Paper correspondence](PAPER.md): equations, coordinates, source differences and HJB acceptance.
 - [Measured results](RESULTS.md): recorded numerical comparisons and videos, with reproduction commands.
+- [Reproduce the results](REPRODUCING.md): basic demos, report rebuilds and advanced dependencies.
 - [Branch integration](MIGRATION.md): original tips, preserved history and older model retrieval.
 - [Delivery plan](PLAN.md): functionality, acceptance criteria and final repository structure.
 - [TODO](TODO.md): ordered delivery work, deferred validation and long-term extensions.

@@ -124,6 +124,7 @@ Keep vendor licenses with each download and apply any future source corrections 
 
 | Dependency | Source | Pinned version |
 |---|---|---|
+| Authors' model and targets | [Raquelometer/AnkleExoBRS](https://github.com/Raquelometer/AnkleExoBRS) | `517ab41b7767c5ab0e856a8885b118bd739a5011` |
 | helperOC | [HJReachability/helperOC](https://github.com/HJReachability/helperOC) | `4ff68174c616d8aa4dccbee9ebf36665999c90f1` |
 | ToolboxLS | [Ian Mitchell's release archive](https://www.cs.ubc.ca/~mitchell/ToolboxLS/toolboxLS-1.1.1.zip) | `1.1.1`; SHA-256 below |
 | YALMIP | [yalmip/YALMIP](https://github.com/yalmip/YALMIP) | `52666d27c40e5eca5ed72de713f05e5959daf937` |
@@ -178,9 +179,11 @@ states are supported; exoskeleton dynamics are explicitly rejected. The constrai
 The actual solver uses the **authors' parameters**, including g=9.8 and OF height 1.58 m;
 select `--parameters authors` for matching MuJoCo experiments. The default `table_i`
 parameter set retains the printed anthropometry and g=9.81. Embedded contracts prevent
-mixing these plants. GC/PD consistency, target-set invariance, convergence, matching
-forward rollouts over the full regions and published-area comparison remain
-open. The [source audit](../docs/PAPER.md) describes the differences, including the solver
+mixing these plants. Reconciled GC/PD dynamics, target calculations and the population
+area comparison have been executed; the [recorded studies](../docs/RESULTS.md) retain
+disagreement with the paper and spatial/target sensitivity. Target-set invariance,
+convergence and forward validation across every population remain unestablished.
+The [source audit](../docs/PAPER.md) describes the differences, including the solver
 method argument; a successful nominal solve does not reproduce all published regions.
 The box targets follow the numerical approximation explicitly described in Appendix II-B;
 they do not inherit a proof of invariance from their enclosed CLF ellipsoids. The default

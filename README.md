@@ -44,7 +44,7 @@ collects the implementation, experiments and visualizations from that research e
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/HaoweiLi1/ExoBalanceLab.git
+git clone --depth 1 https://github.com/HaoweiLi1/ExoBalanceLab.git
 cd ExoBalanceLab
 conda env create -f environment.yml
 conda activate exobalancelab
@@ -60,6 +60,8 @@ MUJOCO_GL=egl exobalance compare --model human --lean 0 --velocity 0 \
 The quick-start comparisons run without MATLAB or a display. For desktop rendering, omit
 `MUJOCO_GL=egl`; headless EGL needs a working graphics driver. Use a new output directory
 for each run. [MATLAB setup and examples](matlab/README.md) cover replay, feedback and HJB solves.
+Start with [CSV/MAT replay](examples/README.md) or [rebuild the recorded results](docs/REPRODUCING.md)
+using the basic environment.
 
 ## 📊 Models and validation
 
@@ -69,14 +71,16 @@ for each run. [MATLAB setup and examples](matlab/README.md) cover replay, feedba
 | `contact` · 4 DoF | Release the foot to study slipping, lifting and rotation |
 | `human` · 9 DoF | Bilateral hips, knees and ankles, device inertia, and chest perturbations |
 
-The paper model agrees with the analytical acceleration to **1.16e-9 rad/s²** across
-1,500 states. Real MATLAB and Python feedback produce identical recorded positions and
-commands in the six-second reference run. HJB forward validation and discretization
-experiments are recorded in [Results](docs/RESULTS.md).
+| Recorded check | Result |
+|---|---|
+| Analytical dynamics · 1,500 states | Maximum acceleration error **1.16e-9 rad/s²** |
+| MATLAB/Python feedback · six seconds | Identical recorded positions and commands |
+| HJB population study · 20 assistance comparisons | 19 match the paper's direction; quantitative differences remain |
 
 The completed spatial and target studies retain differences from the paper's stabilizable
 regions; full reproduction is not established. The articulated model is a sagittal
-engineering extension. [Paper correspondence](docs/PAPER.md) explains the assumptions and measured limits.
+engineering extension. [Results](docs/RESULTS.md) and [paper correspondence](docs/PAPER.md)
+explain the assumptions, disagreements and measured limits.
 
 ## 📚 Documentation
 
@@ -86,6 +90,7 @@ engineering extension. [Paper correspondence](docs/PAPER.md) explains the assump
 | [Models and API](exobalancelab/README.md) | Coordinates, units, model parameters and public interfaces |
 | [Paper correspondence](docs/PAPER.md) | Equations, source audit and reproduction requirements |
 | [Measured results](docs/RESULTS.md) | Experiments, failures, figures, videos and reproduction commands |
+| [Reproduce the results](docs/REPRODUCING.md) | Basic demos, offline report rebuilds and optional solver requirements |
 | [Validation](tests/README.md) · [History](docs/MIGRATION.md) | Tests and integration of the original branches |
 | [Scope and TODO](docs/TODO.md) | Release preparation and optional follow-up validation |
 

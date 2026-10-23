@@ -119,3 +119,8 @@ so they are not estimates of metabolic cost.
 Use an existing episode's XML and arrays for offline inspection. Renderer frames use the
 first recorded sample at or after the requested display time (error < physics dt).
 Wall-clock performance excludes rendering and model initialization; see the result labels.
+
+Saved provenance identifies the installed source checkout, independent of the caller's
+working directory. Wheel installations and systems without Git record null Git fields;
+Python source hashes and the model hash remain available. The
+[reproduction guide](../docs/REPRODUCING.md) covers report and video rebuilds from recorded arrays.

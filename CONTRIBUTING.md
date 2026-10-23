@@ -7,8 +7,8 @@ Before submitting a change:
 
 ```bash
 pytest -q
-ruff check exobalancelab tests
-ruff format --check exobalancelab tests
+ruff check exobalancelab tests examples
+ruff format --check exobalancelab tests examples
 ```
 
 Keep SI units, coordinate conventions and human/device torque separation explicit.
