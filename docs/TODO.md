@@ -38,7 +38,7 @@ limitations remain in [Results](RESULTS.md). Acceptance is defined in [the deliv
   links. Keep local environments, credentials and arbitrary generated runs excluded.
 - [x] Run the maintained automated checks for the final code changes and record the
   demo/reproduction results. Report optional backend checks separately, including skips.
-- [ ] Publish the verified snapshot with the maintainer's authorization and confirm public access.
+- [x] Publish the verified snapshot with the maintainer's authorization and confirm public access.
 
 Verification details are in [Release verification](RELEASE.md).
 

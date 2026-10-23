@@ -29,7 +29,8 @@ migrated copies. At the maintainer's request, the new `main` starts from a paren
 project import. Code, environments, tests, numerical results and media matched the
 archive at import; subsequent maintenance is recorded on `main`. The import records the
 migration and does not replace original authorship; see [NOTICE](../NOTICE.md).
-The repository remains private pending the release tasks in [TODO](TODO.md).
+The repository became public on October 23, 2026 after the maintainer confirmed
+publication and the [release checks](RELEASE.md) passed.
 
 ## Retrieve historical work
 

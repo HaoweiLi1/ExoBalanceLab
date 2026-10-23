@@ -104,7 +104,10 @@
   },
   "publication": {
     "maintainer_confirmed_publication": true,
-    "new_project_wide_license": false
+    "new_project_wide_license": false,
+    "visibility": "public",
+    "url": "https://github.com/HaoweiLi1/ExoBalanceLab",
+    "anonymous_access_verified": true
   },
   "advanced_workflows": "Instructions reviewed; licensed MATLAB/JAX numerical campaigns were not repeated in this release check."
 }

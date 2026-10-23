@@ -37,7 +37,8 @@ their earlier execution evidence remains in [Results](RESULTS.md).
 
 ## Publication and scope
 
-The maintainer confirmed public distribution on October 23, 2026. Original attribution,
+The repository was made public on October 23, 2026 with the maintainer's confirmation.
+Original attribution,
 the archive tag and component license notices are retained; no project-wide license was
 added. See [NOTICE](../NOTICE.md). Tracked files exclude local environments and run folders.
 README claims link to measured evidence, including disagreements and failures.
