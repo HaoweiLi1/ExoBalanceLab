@@ -2,20 +2,44 @@
 
 The goal is a clear, reproducible presentation of existing research motivated by
 Daphna Raz's standing-balance theory. A new paper or independent theoretical contribution
-is not a release requirement. Items below are recorded for later work, not an active
-experiment queue. Completed studies and their limitations remain in [Results](RESULTS.md).
+is not a release requirement. The delivery work below is the next implementation scope;
+scientific validation and model extensions remain deferred. Completed studies and their
+limitations remain in [Results](RESULTS.md). Acceptance is defined in [the delivery plan](PLAN.md).
 
-## Before public release
+## Delivery work, in order
+
+### 1. Reproducible entry points
+
+- [ ] Verify a fresh-checkout Conda installation and the README paper/human comparisons,
+  including rendering requirements and expected output files.
+- [ ] Provide and check a small CSV/MAT replay example with documented units and channels;
+  reuse the existing interface and keep Python replay independent of a MATLAB license.
+- [ ] Check installed invocation outside the checkout, including the recorded source
+  identity, and fix concrete portability or provenance defects.
+
+### 2. Evidence and presentation
+
+- [ ] Select the main summary figures/tables and verify their rebuild commands against
+  committed inputs. Document separately any full reruns that need local-only HJB fields,
+  external source checkouts, MATLAB or GPU dependencies.
+- [ ] Fill missing example/reproduction steps with small utilities where necessary;
+  preserve existing measured results and historical manifests.
+- [ ] Review the main human video, supporting paper/contact comparison and result labels.
+  Keep matched conditions, source records and failure outcomes inspectable.
+- [ ] Finalize the concise README and documentation navigation: motivation, implemented
+  work, demo, quick start, measured results, limits, then source/citation.
+
+### 3. Release readiness
 
 - [ ] Confirm redistribution rights and licensing scope for inherited code, recordings
-  and assets; retain source attribution and distinguish the simulator's contributions
-  from the paper's method. See [NOTICE](../NOTICE.md).
-- [ ] Check a fresh-clone Conda setup, the README demo and documented result-reproduction
-  paths. Identify any large local-only inputs needed to regenerate curated results.
-- [ ] Review the selected videos, figures and result links for a compact public showcase;
-  retain numerical disagreements and failures alongside successes.
-- [ ] Review the final release contents and explicitly switch repository visibility to
-  public when ready. The documentation cleanup itself leaves visibility private.
+  and assets; retain attribution and describe the repository's implementation work
+  separately from the paper's method. See [NOTICE](../NOTICE.md).
+- [ ] Inspect tracked release contents, required notices, dependency instructions and
+  links. Keep local environments, credentials and arbitrary generated runs excluded.
+- [ ] Run the maintained automated checks for the final code changes and record the
+  demo/reproduction results. Report optional backend checks separately, including skips.
+- [ ] Present the release-ready snapshot and remaining limitations; switch to public
+  only after the separate publication decision. Keep visibility private during preparation.
 
 ## Optional follow-up validation
 
