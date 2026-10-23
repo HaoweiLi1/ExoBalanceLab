@@ -34,7 +34,7 @@ points to their actual historical location.
 
 The maintained repository is [HaoweiLi1/ExoBalanceLab](https://github.com/HaoweiLi1/ExoBalanceLab),
 an independent, private repository. All three branches from
-[HaoweiLi1/standing_balance_sim](https://github.com/HaoweiLi1/standing_balance_sim)
+the former `HaoweiLi1/standing_balance_sim` repository
 are retained here under `legacy/`, with their original commit IDs and authors:
 
 | Current branch | Source | Preserved commit |
@@ -45,7 +45,8 @@ are retained here under `legacy/`, with their original commit IDs and authors:
 | `legacy/origin` | Original repository's `origin` | `2f446a1e374fb829e52013870c6c2871040cb265` |
 | `archive/exobalancelab-2026-10-23` | ExoBalanceLab before the history separation | `a8717646ab8a53c3e73685814114b52e985838ad` |
 
-The original repository and its branches remain available. The archive contains the full
+The old fork was deleted on October 23, 2026 after all three remote branch tips were
+verified against their migrated copies. Its branches remain available here. The archive contains the full
 implementation and validation history, including commit IDs referenced by experiment
 manifests. All original branches are ancestors of that archive tip; no source work was
 lost or overwritten during integration.
@@ -66,3 +67,14 @@ those branches back into `main` would also reintroduce their historical authors 
 commit graph. Existing clones should preserve local changes before switching to the new
 history; a fresh clone is the simplest option. The archive remains available for comparing
 or recovering any prior work.
+
+## Local project location
+
+The local checkout is `/home/kaidi-2/Documents/ExoBalanceLab`, with `origin` set to
+`https://github.com/HaoweiLi1/ExoBalanceLab.git`. Both project Conda environments were
+relocated with Conda to retain their installed versions and update executable paths.
+Editable package installations point to the renamed checkout. Open this directory in
+your editor; the former `standing_balance_sim` directory is no longer the project path.
+
+Historical experiment manifests retain their original execution paths as provenance.
+They are records of prior runs, not current environment or checkout configuration.

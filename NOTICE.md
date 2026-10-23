@@ -1,8 +1,8 @@
 # Attribution and licensing scope
 
 ExoBalanceLab builds on the standing-balance simulation history from
-<https://github.com/celwell20/standing_balance_sim> and
-<https://github.com/HaoweiLi1/standing_balance_sim>. Original authorship is preserved in the
+<https://github.com/celwell20/standing_balance_sim> and the former
+`HaoweiLi1/standing_balance_sim` fork, retired after migration. Original authorship is preserved in the
 `legacy/*` and `archive/exobalancelab-2026-10-23` Git branches; see [branch provenance](docs/MIGRATION.md).
 The maintained `main` starts from an imported project snapshot. Its import commit records
 the migration, not sole authorship of the inherited code, assets or research.
