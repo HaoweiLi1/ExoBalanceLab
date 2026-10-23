@@ -1,0 +1,6 @@
+{
+  "source_report": "logs/hjb_grid_study_report",
+  "reconstructed_report": "logs/hjb_grid_study_report_from_curated",
+  "all_18_area_records_equal_except_run_paths": true,
+  "all_12_grid_comparisons_equal": true
+}

@@ -1,0 +1,6 @@
+{
+  "source_report": "logs/hjb_om_target_override/report",
+  "reconstructed_report": "logs/hjb_om_target_override/report_from_curated",
+  "all_three_area_records_equal_except_run_paths": true,
+  "all_metrics_equal": true
+}

@@ -1,0 +1,150 @@
+{
+  "scope": "Prepared fields only; the grid study waits for the complete primary population campaign.",
+  "cases": [
+    {
+      "case": "OF_none_forward_151",
+      "resolution": [
+        151,
+        152,
+        151
+      ],
+      "ankle_target_nodes": 87,
+      "toe_target_nodes": 116,
+      "stage": "prepared",
+      "problem_sha256": "ee8d332ffcda974c0721da05095d65633fbd3ba589d0c2f7dfd6d75e6e4ba35b"
+    },
+    {
+      "case": "OF_none_backward_151",
+      "resolution": [
+        151,
+        152,
+        151
+      ],
+      "ankle_target_nodes": 116,
+      "toe_target_nodes": 116,
+      "stage": "prepared",
+      "problem_sha256": "cead6408df9a281a3de7b8f3d214cd15f594adf9bc53d2d42a18133701ca98da"
+    },
+    {
+      "case": "OF_gc_forward_151",
+      "resolution": [
+        151,
+        152,
+        151
+      ],
+      "ankle_target_nodes": 13,
+      "toe_target_nodes": 120,
+      "stage": "prepared",
+      "problem_sha256": "89ec4aed425a5e803846ec100e688349668af32fe2bff1c7a2fec730df8baa74"
+    },
+    {
+      "case": "OF_gc_backward_151",
+      "resolution": [
+        151,
+        152,
+        151
+      ],
+      "ankle_target_nodes": 14,
+      "toe_target_nodes": 120,
+      "stage": "prepared",
+      "problem_sha256": "5975e05fe23d5c48f214170aa556396dfb07cd2fe56bada16e2d40dc0263e432"
+    },
+    {
+      "case": "OF_pd_forward_151",
+      "resolution": [
+        151,
+        152,
+        151
+      ],
+      "ankle_target_nodes": 5,
+      "toe_target_nodes": 120,
+      "stage": "prepared",
+      "problem_sha256": "393773ec54c464f1afa52f0d1584e6d4eec53eb0b306f4c3c9eb81c44121e237"
+    },
+    {
+      "case": "OF_pd_backward_151",
+      "resolution": [
+        151,
+        152,
+        151
+      ],
+      "ankle_target_nodes": 5,
+      "toe_target_nodes": 120,
+      "stage": "prepared",
+      "problem_sha256": "2379a8cf57ee2c9254f7f6b3a162d2fba199cd05853d2e1214cf3aca772e9783"
+    },
+    {
+      "case": "OF_none_forward_301",
+      "resolution": [
+        301,
+        302,
+        301
+      ],
+      "ankle_target_nodes": 413,
+      "toe_target_nodes": 413,
+      "stage": "prepared",
+      "problem_sha256": "91d0fec8aa7eeab9f79dce7ceb53c6023f01bbd219121bd385d4fa9dd04f1265"
+    },
+    {
+      "case": "OF_none_backward_301",
+      "resolution": [
+        301,
+        302,
+        301
+      ],
+      "ankle_target_nodes": 472,
+      "toe_target_nodes": 472,
+      "stage": "prepared",
+      "problem_sha256": "e39fdc7549c3c016f1b55a6d6cc3499f7ba25200e5b00e4ce00ad742673ba095"
+    },
+    {
+      "case": "OF_gc_forward_301",
+      "resolution": [
+        301,
+        302,
+        301
+      ],
+      "ankle_target_nodes": 26,
+      "toe_target_nodes": 472,
+      "stage": "prepared",
+      "problem_sha256": "1bd6d55c09d806c7413dedc91353458be50a0ccb33947624ff07ebcc288d1a21"
+    },
+    {
+      "case": "OF_gc_backward_301",
+      "resolution": [
+        301,
+        302,
+        301
+      ],
+      "ankle_target_nodes": 28,
+      "toe_target_nodes": 472,
+      "stage": "prepared",
+      "problem_sha256": "be0568b5de2a2c16cf8413620ec753989fe48fe3b75b55f2ea10e86f1152ebb2"
+    },
+    {
+      "case": "OF_pd_forward_301",
+      "resolution": [
+        301,
+        302,
+        301
+      ],
+      "ankle_target_nodes": 9,
+      "toe_target_nodes": 472,
+      "stage": "prepared",
+      "problem_sha256": "30b840ee1cbcdc0b60ee44f965226914bb5055522252e1ba771904308b790ee5"
+    },
+    {
+      "case": "OF_pd_backward_301",
+      "resolution": [
+        301,
+        302,
+        301
+      ],
+      "ankle_target_nodes": 10,
+      "toe_target_nodes": 472,
+      "stage": "prepared",
+      "problem_sha256": "8ad4c878e85f6e273c03fdaf29240d876cbdc2ed71da5b22ce002579b0317a8a"
+    }
+  ],
+  "target_parameter_max_abs_difference_across_grids": 0.0
+}

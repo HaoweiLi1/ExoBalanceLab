@@ -1,0 +1,46 @@
+{
+  "source_case_index": 25,
+  "source_protocol_sha256": "38678131fc0546a4b953cda52468be68ca1ab735c38fad29c80694a34a5f6a94",
+  "case": {
+    "group": "boundary",
+    "state": [
+      1.7435267857142858,
+      -0.44866071428571436,
+      -9.82142857142857
+    ],
+    "value": -1.013056169565631e-05,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.5682408683298596,
+      0.00038266425077101393,
+      -0.009203571444518879
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  "steps_s": [
+    1.25e-05,
+    6.25e-06
+  ],
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -45.81831308077206
+    ],
+    "thetaAnkRange": 0.016555015279240783,
+    "thetaDotAnkRange": 0.01,
+    "torqueAnkRange": 0.009168629752093295,
+    "thetaToeRange": 0.014471675279422828,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 10.665529973479257
+  },
+  "scope": "One recorded target miss, unchanged policy/state/target; simulated control and physics step refinement."
+}

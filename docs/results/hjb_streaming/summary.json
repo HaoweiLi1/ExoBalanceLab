@@ -1,0 +1,63 @@
+{
+  "policy_bytes": 1480628633,
+  "value_bytes": 1562978232,
+  "peak_resident_kib": 247844,
+  "wall_s": 187.91,
+  "tests_passed": 66,
+  "matlab_tests": 4,
+  "baseline": "docs/results/hjb_refinement/theta101",
+  "cases": [
+    {
+      "case": 0,
+      "outcome_equal": true,
+      "status": "completed",
+      "all_episode_arrays_equal": true
+    },
+    {
+      "case": 1,
+      "outcome_equal": true,
+      "status": "completed",
+      "all_episode_arrays_equal": true
+    },
+    {
+      "case": 2,
+      "outcome_equal": true,
+      "status": "completed",
+      "all_episode_arrays_equal": true
+    },
+    {
+      "case": 3,
+      "outcome_equal": true,
+      "status": "rollout_error"
+    },
+    {
+      "case": 4,
+      "outcome_equal": true,
+      "status": "rollout_error"
+    },
+    {
+      "case": 5,
+      "outcome_equal": true,
+      "status": "rollout_error"
+    },
+    {
+      "case": 6,
+      "outcome_equal": true,
+      "status": "completed",
+      "all_episode_arrays_equal": true
+    },
+    {
+      "case": 7,
+      "outcome_equal": true,
+      "status": "completed",
+      "all_episode_arrays_equal": true
+    },
+    {
+      "case": 8,
+      "outcome_equal": true,
+      "status": "completed",
+      "all_episode_arrays_equal": true
+    }
+  ],
+  "scope": "One 101x269x51x141 policy and the frozen nine-state cohort; concurrent MATLAB/GPU work makes elapsed time unsuitable for a dedicated performance comparison."
+}

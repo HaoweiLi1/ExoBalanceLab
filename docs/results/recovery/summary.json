@@ -1,0 +1,20 @@
+{
+  "none": {
+    "recovered_count": 35,
+    "total": 169,
+    "helped_vs_none": 0,
+    "hindered_vs_none": 0
+  },
+  "gc": {
+    "recovered_count": 32,
+    "total": 169,
+    "helped_vs_none": 9,
+    "hindered_vs_none": 12
+  },
+  "pd": {
+    "recovered_count": 42,
+    "total": 169,
+    "helped_vs_none": 11,
+    "hindered_vs_none": 4
+  }
+}

@@ -1,0 +1,12 @@
+--- original225/source.py
++++ exobalancelab/hjb_solver.py
+@@ -160 +160,2 @@
+-        policy = h5py.File(output / "policy.mat", "w") if save_history else None
++        partial_policy = output / "policy.partial.mat"
++        policy = h5py.File(partial_policy, "w") if save_history else None
+@@ -216 +216,0 @@
+-            (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+@@ -219,0 +220,3 @@
++        if policy is not None:
++            partial_policy.rename(output / "policy.mat")
++        (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")

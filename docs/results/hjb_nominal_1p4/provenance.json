@@ -1,0 +1,14 @@
+{
+  "author_source_commit": "517ab41b7767c5ab0e856a8885b118bd739a5011",
+  "helperoc_commit": "4ff68174c616d8aa4dccbee9ebf36665999c90f1",
+  "policy_sha256": "cc99db4b3880cc2ad5c300ab80e4ddf0b92202de96cfce48f068d6c60a06387a",
+  "matlab_startup": "-batch (default computational threads)",
+  "solver_files_sha256": {
+    "matlab/solve_nominal_hjb.m": "189321ec660ef237d6daf9bea051a92fb0e0df792090182dabcb446dcd0639be",
+    "matlab/export_hjb_policy.m": "9e4e22f4d1ce6770c4680d83a11d3f28db6fc4d37e536a5a2d327fc7963114b8",
+    "matlab/nominal_contact_constraints.m": "a54f024c2e60eaa0de4f031ea1726d6b69071c2ce883eb1e4da7a53e05ab6377"
+  },
+  "pre_fix_failure": "SI conversion gave a 1.3999999999999997 s endpoint; strict comparison rejected a 1.4 s request. Fixed with 1e-12 s endpoint tolerance; identical preselected states rerun.",
+  "duplicate_single_thread_attempt": "Stopped after this independent identical-parameter default-thread solve completed. Its input/log directory remains local.",
+  "video_episode": "episode_01: first completed inside-group case; misses terminal speed limit."
+}

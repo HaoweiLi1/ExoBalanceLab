@@ -1,0 +1,68 @@
+{
+  "profile": "OF",
+  "exo": "gc",
+  "direction": "forward",
+  "resolution": [
+    51,
+    269,
+    51
+  ],
+  "requested_resolution": [
+    51,
+    269,
+    51
+  ],
+  "duration_s": 0.1,
+  "output_step_s": 0.01,
+  "method": "none",
+  "velocity_buffer_rad_s": 0.5,
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 60,
+    "h": 1.58,
+    "tauMin": -88,
+    "tauMax": 22,
+    "uMin": -389,
+    "uMax": 148
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -45.81831308077206
+    ],
+    "thetaAnkRange": 0.05024722818662286,
+    "thetaDotAnkRange": 0.007172155601083794,
+    "torqueAnkRange": 0.05024411972568244,
+    "thetaToeRange": 0.014471675279422828,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 10.665529973479257
+  },
+  "ankle_target_nodes": 5,
+  "toe_target_nodes": 10,
+  "initial_target_nodes": 15,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "stage": "solved",
+  "backend": "JAX/ENO3",
+  "device": "cuda:0",
+  "precision": "float64",
+  "problem_sha256": "20486df87d7e03933bf43da8e6de24f825265baee7a309bbc6c750fff64f1b27",
+  "save_history": true,
+  "compilation_s": 1.459455486969091,
+  "compiled_temporary_bytes": 75660376,
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "hj_reachability": "0.7.0",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0"
+  },
+  "wall_s": 1.8275246659759432,
+  "final_reachable_nodes": 173
+}

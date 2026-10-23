@@ -1,0 +1,47 @@
+{
+  "profile": "OF",
+  "exo": "none",
+  "direction": "forward",
+  "resolution": [
+    51,
+    269,
+    51
+  ],
+  "duration_s": 1.3999999999999997,
+  "output_step_s": 0.1,
+  "method": "none",
+  "wall_s": 1314.537379,
+  "velocity_buffer_rad_s": 0.5,
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 60,
+    "h": 1.58,
+    "tauMin": -88,
+    "tauMax": 22,
+    "uMin": -389,
+    "uMax": 148
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7112737387029464,
+      0,
+      -72.627092236206565
+    ],
+    "thetaAnkRange": 0.014466168793943728,
+    "thetaToeRange": 0.014469327824432499,
+    "thetaDotAnkRange": 0.01,
+    "thetaDotToeRange": 0.01,
+    "torqueAnkRange": 10.844324499535924,
+    "torqueToeRange": 10.742001927119986
+  },
+  "initial_target_nodes": 18,
+  "final_reachable_nodes": 24878,
+  "scope": "Reconstructed nominal HJB baseline; convergence and published-area agreement unverified.",
+  "derivation": "Every tenth saved slice of the same 10 ms HJB solve; no PDE recomputation."
+}

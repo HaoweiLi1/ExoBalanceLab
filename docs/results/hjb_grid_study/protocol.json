@@ -1,0 +1,297 @@
+{
+  "created": "2026-10-23T02:16:15+08:00",
+  "parameter_set": "authors",
+  "target_sets": "Stored author nominal boxes; reconciled GC/PD boxes from paper_target_boxes.m",
+  "align_zero": true,
+  "horizon_s": 1.4,
+  "output_step_s": 0.01,
+  "velocity_buffer_rad_s": 0.5,
+  "backend": "JAX/ENO3 float64; matched against native MATLAB on smaller grids",
+  "method": "none",
+  "cases": [
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_none_forward_151",
+      "solved": "logs/hjb_grid_study/solved/OF_none_forward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_none_backward_151",
+      "solved": "logs/hjb_grid_study/solved/OF_none_backward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_gc_forward_151",
+      "solved": "logs/hjb_grid_study/solved/OF_gc_forward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_gc_backward_151",
+      "solved": "logs/hjb_grid_study/solved/OF_gc_backward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_pd_forward_151",
+      "solved": "logs/hjb_grid_study/solved/OF_pd_forward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_pd_backward_151",
+      "solved": "logs/hjb_grid_study/solved/OF_pd_backward_151",
+      "save_history": false,
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_prepared_OF_225_paper",
+      "solved": "logs/hjb_grid_study/solved/OF_none_forward_225",
+      "save_history": false,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OF_none_backward",
+      "solved": "logs/hjb_paper225/solved/OF_none_backward",
+      "save_history": true,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OF_gc_forward",
+      "solved": "logs/hjb_paper225/solved/OF_gc_forward",
+      "save_history": true,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OF_gc_backward",
+      "solved": "logs/hjb_paper225/solved/OF_gc_backward",
+      "save_history": true,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OF_pd_forward",
+      "solved": "logs/hjb_paper225/solved/OF_pd_forward",
+      "save_history": true,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OF_pd_backward",
+      "solved": "logs/hjb_paper225/solved/OF_pd_backward",
+      "save_history": true,
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_none_forward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_none_forward_301_platform",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_none_backward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_none_backward_301_platform",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_gc_forward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_gc_forward_301_platform",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_gc_backward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_gc_backward_301_platform",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_pd_forward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_pd_forward_301_platform",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_grid_study/prepared/OF_pd_backward_301",
+      "solved": "logs/hjb_grid_study/solved/OF_pd_backward_301_platform",
+      "save_history": false,
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ]
+    }
+  ],
+  "scope": "Three-grid spatial sensitivity study for all six OF mode/direction pairs. Compare sampled projected areas and common-domain boundary signs; report differences without assuming convergence. Actual zero-aligned grid extents are retained for each run.",
+  "requested_resolutions": [
+    [
+      151,
+      151,
+      151
+    ],
+    [
+      225,
+      225,
+      225
+    ],
+    [
+      301,
+      301,
+      301
+    ]
+  ],
+  "baseline_revision": {
+    "recorded": "2026-10-23T03:05:31+08:00",
+    "reason": "Repeat the original 225-grid nominal forward solve under the common solver file revision. Original policy and outcomes remain preserved; all numerical inputs and study resolutions unchanged.",
+    "original_run": "logs/hjb_gpu_OF_225_paper",
+    "matched_run": "logs/hjb_grid_study/solved/OF_none_forward_225"
+  },
+  "runtime_revision": {
+    "recorded_utc": "2026-10-22T20:45:25.048265+00:00",
+    "reason": "OF 301 BFC allocation failure; validated platform allocator used for remaining integrations.",
+    "prior_protocol": "docs/results/hjb_grid_study/protocol_before_allocator_repair.json",
+    "prior_protocol_sha256": "b972a372a15636f54c9a23feb7415e220df5328215d392f583a7a31dfcef486d",
+    "failure_record": "docs/results/hjb_grid_study/allocator_repair/failure.json",
+    "validation_record": "docs/results/hjb_grid_study/allocator_repair/platform_validation.json",
+    "new_solve_environment": {
+      "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+      "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
+      "XLA_CLIENT_MEM_FRACTION": null,
+      "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+      "TF_GPU_ALLOCATOR": null,
+      "XLA_FLAGS": null,
+      "LD_LIBRARY_PATH": null
+    },
+    "new_solve_outputs": [
+      "logs/hjb_grid_study/solved/OF_none_forward_301_platform",
+      "logs/hjb_grid_study/solved/OF_none_backward_301_platform",
+      "logs/hjb_grid_study/solved/OF_gc_forward_301_platform",
+      "logs/hjb_grid_study/solved/OF_gc_backward_301_platform",
+      "logs/hjb_grid_study/solved/OF_pd_forward_301_platform",
+      "logs/hjb_grid_study/solved/OF_pd_backward_301_platform"
+    ],
+    "scope": "Runtime allocator and new output paths only. Numerical solver, prepared inputs, float64 precision, resolution, horizon and target definitions are unchanged. Existing completed integrations retain their original allocator configuration."
+  }
+}

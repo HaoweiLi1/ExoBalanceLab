@@ -1,0 +1,242 @@
+[
+  {
+    "profile": "OF",
+    "exo": "gc",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -45.818313080772057
+      ],
+      "thetaAnkRange": 0.050247228186622861,
+      "thetaDotAnkRange": 0.0071721556010837942,
+      "torqueAnkRange": 0.050244119725682442,
+      "thetaToeRange": 0.014471675279422828,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.665529973479257
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.0141200019301772
+  },
+  {
+    "profile": "YF",
+    "exo": "gc",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -49.242908105880417
+      ],
+      "thetaAnkRange": 0.050247228186622861,
+      "thetaDotAnkRange": 0.006895344867326748,
+      "torqueAnkRange": 0.050243950717828841,
+      "thetaToeRange": 0.014486685751929518,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 11.068663929248952
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.014133116428855404
+  },
+  {
+    "profile": "YM",
+    "exo": "gc",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -80.4190336682623
+      ],
+      "thetaAnkRange": 0.050247228186622861,
+      "thetaDotAnkRange": 0.0058286781316939443,
+      "torqueAnkRange": 0.050244686065047055,
+      "thetaToeRange": 0.014510814031942763,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 14.591971105619704
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.014220816472758399
+  },
+  {
+    "profile": "OM",
+    "exo": "gc",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -81.022446462663339
+      ],
+      "thetaAnkRange": 0.050247228186622861,
+      "thetaDotAnkRange": 0.0058646631490287815,
+      "torqueAnkRange": 0.05024465936052392,
+      "thetaToeRange": 0.014504727028301348,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 14.64769897211904
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.014222102294297996
+  },
+  {
+    "profile": "wOF",
+    "exo": "gc",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -46.424758100270623
+      ],
+      "thetaAnkRange": 0.050247228186622861,
+      "thetaDotAnkRange": 0.0071279582885497225,
+      "torqueAnkRange": 0.0502441640924757,
+      "thetaToeRange": 0.014473759487316178,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.735977985285654
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.014122391615595038
+  },
+  {
+    "profile": "OF",
+    "exo": "pd",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -45.818313080772057
+      ],
+      "thetaAnkRange": 0.016555015279240783,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.0091686297520932949,
+      "thetaToeRange": 0.014471675279422828,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.665529973479257
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.042395538960796404
+  },
+  {
+    "profile": "YF",
+    "exo": "pd",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -49.242908105880417
+      ],
+      "thetaAnkRange": 0.016819215659677894,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.0091603983732293018,
+      "thetaToeRange": 0.014486685751929518,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 11.068663929248952
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.042908477254971725
+  },
+  {
+    "profile": "YM",
+    "exo": "pd",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -80.4190336682623
+      ],
+      "thetaAnkRange": 0.017356025160537587,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.0089910584961530315,
+      "thetaToeRange": 0.014510814031942763,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 14.591971105619704
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.042656929491407945
+  },
+  {
+    "profile": "OM",
+    "exo": "pd",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -81.022446462663339
+      ],
+      "thetaAnkRange": 0.01725897509459887,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.0089818986651038421,
+      "thetaToeRange": 0.014504727028301348,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 14.64769897211904
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.04272079967278717
+  },
+  {
+    "profile": "wOF",
+    "exo": "pd",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -46.424758100270623
+      ],
+      "thetaAnkRange": 0.016592223167406238,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.00916641591359873,
+      "thetaToeRange": 0.014473759487316178,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.735977985285654
+    },
+    "max_linear_constraint_residual": 0,
+    "minimum_corner_contact_margin": 0.0399227868222918
+  }
+]

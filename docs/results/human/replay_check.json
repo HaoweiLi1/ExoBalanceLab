@@ -1,0 +1,901 @@
+{
+  "recorded_utc": "2026-10-22T22:20:46.110368+00:00",
+  "scope": "Replay of the three fixed README human-demo cases using the current committed implementation. This checks these trajectories and video inputs, not population-level assistance efficacy.",
+  "command": [
+    "python",
+    "-m",
+    "exobalancelab",
+    "compare",
+    "--model",
+    "human",
+    "--profile",
+    "OF",
+    "--parameters",
+    "table_i",
+    "--lean",
+    "0",
+    "--velocity",
+    "0",
+    "--push",
+    "80",
+    "--duration",
+    "6",
+    "--dt",
+    "0.001",
+    "--control-period",
+    "0.001",
+    "--device-mass",
+    "2",
+    "--strength",
+    "1",
+    "--out",
+    "logs/human_delivery_replay"
+  ],
+  "provenance": {
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "source_sha256": {
+      "__init__.py": "66cc1b610cb899f78098078717a852225219d4e9a05cb171601be883025ab56b",
+      "hjb_validation.py": "0b98d0367a572d004eaf2819ae97e0a28049ffd26cb1caeb8773bce2143391b6",
+      "reachability.py": "1fd93120aaff61b545061a8d504126c0139e581465651f629499af53d657f8d6",
+      "hjb_solver.py": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+      "hjb_comparison.py": "c6b80531b182fbe46177fc197d64eb46b20628d9ed91353c6d1e6c271bfcae8c",
+      "hjb_solver_comparison.py": "214a3fb37c861ee728a2cf62e1686ce0910cca73822924001143784431e3086e",
+      "rendering.py": "9f7cf613048ac5d06f13d1d273a124e08bf3e9aa4d4692d5d9eb706b5685e93b",
+      "models.py": "e4ba5c881eeca53df21412f74566eb291c3b682d9c5ec5ea7d00be32c3fad377",
+      "bridge.py": "e3c4705193d22ec710a85f8643ec12952bb6d5185d3092e9448c5a6abda3c162",
+      "paper.py": "da44d063e8409a4453641f50a701e36befa7e435c58de23f4be85c59bde446b3",
+      "cli.py": "d5b5f5db90c7e3527bbdeb5a3dc58e8218f722110e1000b3fe4d21fdbe7c0c53",
+      "validation.py": "f93c155ecfe878a0f2feb9a60b508b2a633d8c6f0fc61b7b2d2360802b95ba21",
+      "__main__.py": "7df609d3fdd959b5c5c046ca0b1bf8d904b4909fb89d21f828847482ec5872d9",
+      "hjb_regions.py": "9d9abe7f586246fdf5133c5d0cc8e8d42119d8981e9d4203cf899d7fd4ec87c1",
+      "simulation.py": "19f878d2645cd957fe9780181ceb791e69052aa27bbfdbca7a52e94c73bf473f",
+      "sweep.py": "0396288db7c275af8d109e456c924563d9392ac3e01b65f2b7a0d04569503f43"
+    },
+    "model_sha256": "75c7793d7b5838f02a55ea01e6bc1a81e5878bccdb83e9be3358d1f6927de8e0",
+    "git_commit": "0b623a5a889d5acf158659e3ed3af946319566b1",
+    "working_tree_dirty": false
+  },
+  "config_note": "The original demo predates the explicit parameters field. Its Table I parameters are now selected explicitly; every other recorded field is identical.",
+  "media": "docs/media/human.mp4",
+  "media_sha256": "54238a6bf1addd214d7d086bd632024cdd26bc88885960ef1fb40d25fa8f14bc",
+  "all_60_arrays_value_equal": true,
+  "all_60_arrays_bitwise_equal": true,
+  "all_three_model_xml_files_equal": true,
+  "records": [
+    {
+      "mode": "none",
+      "reference": "docs/results/human/none",
+      "replay": "logs/human_delivery_replay/none",
+      "reference_episode_sha256": "eb4740f17698ec81a0574dd493f09baea4b8a2ba90a1c4f6d0274fd531982eb2",
+      "replay_episode_sha256": "eb4740f17698ec81a0574dd493f09baea4b8a2ba90a1c4f6d0274fd531982eb2",
+      "model_xml_sha256": "75c7793d7b5838f02a55ea01e6bc1a81e5878bccdb83e9be3358d1f6927de8e0",
+      "model_xml_bytes_equal": true,
+      "original_recovered": false,
+      "replay_recovered": false,
+      "arrays": [
+        {
+          "name": "time_s",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "9b5df9ddc32f49a6a36ae308772c98f7377f5425074211b3b7534ca7a018baf1",
+          "replay_array_sha256": "9b5df9ddc32f49a6a36ae308772c98f7377f5425074211b3b7534ca7a018baf1"
+        },
+        {
+          "name": "qpos",
+          "shape": [
+            6000,
+            9
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "4b9ca4a2982631d80741f6bc503f78b9960aacbd358ae39c23bf926602f4b5b6",
+          "replay_array_sha256": "4b9ca4a2982631d80741f6bc503f78b9960aacbd358ae39c23bf926602f4b5b6"
+        },
+        {
+          "name": "qvel",
+          "shape": [
+            6000,
+            9
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "494f46229900c11f6e88641432c3b94b6d457aadbfac29594f8bc7ce2acb60f0",
+          "replay_array_sha256": "494f46229900c11f6e88641432c3b94b6d457aadbfac29594f8bc7ce2acb60f0"
+        },
+        {
+          "name": "human_raw_nm",
+          "shape": [
+            6000,
+            6
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "c611e1a1410e13524d3f9e461ec78d4ebb62a04b994f6747086ad178f51f5605",
+          "replay_array_sha256": "c611e1a1410e13524d3f9e461ec78d4ebb62a04b994f6747086ad178f51f5605"
+        },
+        {
+          "name": "human_applied_nm",
+          "shape": [
+            6000,
+            6
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "70afe41d1042c965b4f7a514e856ce2b527564a34465614220ef1a1b908efaad",
+          "replay_array_sha256": "70afe41d1042c965b4f7a514e856ce2b527564a34465614220ef1a1b908efaad"
+        },
+        {
+          "name": "exo_applied_nm",
+          "shape": [
+            6000,
+            2
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "55873fecc61a79e87ca550c7072e38ccdd7ecb600ace286fe4717952a97c42b0",
+          "replay_array_sha256": "55873fecc61a79e87ca550c7072e38ccdd7ecb600ace286fe4717952a97c42b0"
+        },
+        {
+          "name": "lean_rad",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "199c90565343f6f159eec58c74379922a65cdd4e8aafc6857bbc5979e9b04c8a",
+          "replay_array_sha256": "199c90565343f6f159eec58c74379922a65cdd4e8aafc6857bbc5979e9b04c8a"
+        },
+        {
+          "name": "velocity_rad_s",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "060aaf2a93e315fd625434a61d9bd30b7cc3663c0be78ab3d06d6347ed09a3f0",
+          "replay_array_sha256": "060aaf2a93e315fd625434a61d9bd30b7cc3663c0be78ab3d06d6347ed09a3f0"
+        },
+        {
+          "name": "human_torque_nm",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "7fa7d851f2d751d5a73d76f8183bc70680ba2f6acfe28194359400173a05a352",
+          "replay_array_sha256": "7fa7d851f2d751d5a73d76f8183bc70680ba2f6acfe28194359400173a05a352"
+        },
+        {
+          "name": "exo_torque_nm",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "bb918147fe10391b43adeba4bd21b9ef32e5bd6c5076c3517733a05ed6dd0569",
+          "replay_array_sha256": "bb918147fe10391b43adeba4bd21b9ef32e5bd6c5076c3517733a05ed6dd0569"
+        },
+        {
+          "name": "com_x_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "ed7aa975036620977740c1a34417962d0e8ddcfe6086a71b67425d6904cd5b9e",
+          "replay_array_sha256": "ed7aa975036620977740c1a34417962d0e8ddcfe6086a71b67425d6904cd5b9e"
+        },
+        {
+          "name": "com_z_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "970318c5ead7a33731fc19171fd28aa820ed8ce89b39fcd7c5ee133e09806fe2",
+          "replay_array_sha256": "970318c5ead7a33731fc19171fd28aa820ed8ce89b39fcd7c5ee133e09806fe2"
+        },
+        {
+          "name": "normal_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "a0b7c8ff15f64a7936c43141622d76dedfc579c27d01118c6b663373c8ea634c",
+          "replay_array_sha256": "a0b7c8ff15f64a7936c43141622d76dedfc579c27d01118c6b663373c8ea634c"
+        },
+        {
+          "name": "friction_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "4305c46f7b308ba9e431c0fa8cbfff717fae24798e6249d924b8c2408a99af3a",
+          "replay_array_sha256": "4305c46f7b308ba9e431c0fa8cbfff717fae24798e6249d924b8c2408a99af3a"
+        },
+        {
+          "name": "cop_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 1546,
+          "reference_array_sha256": "e787dfb27b597c04b0d024320940b2f787a5b7fc2bf5146563cc666fd1a68daf",
+          "replay_array_sha256": "e787dfb27b597c04b0d024320940b2f787a5b7fc2bf5146563cc666fd1a68daf"
+        },
+        {
+          "name": "cop_margin_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "e051baa019be14cec080147570e295dc8a529ac30dda101d6c515b1f918bfce6",
+          "replay_array_sha256": "e051baa019be14cec080147570e295dc8a529ac30dda101d6c515b1f918bfce6"
+        },
+        {
+          "name": "friction_margin_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "6c34a93acf164e777ecde235da39bfa630e9763e55a9fed1057b03435ada41d3",
+          "replay_array_sha256": "6c34a93acf164e777ecde235da39bfa630e9763e55a9fed1057b03435ada41d3"
+        },
+        {
+          "name": "push_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "4ccc92c30c14561b43b688995b6f51303a3adfb01ca06fd2cc8aea3ce9144b3f",
+          "replay_array_sha256": "4ccc92c30c14561b43b688995b6f51303a3adfb01ca06fd2cc8aea3ce9144b3f"
+        },
+        {
+          "name": "foot_pitch_rad",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "39ea1f87f012e69409fe66a480e9da69b82c6ff268cfcbbc510ef9ab3fbc90d5",
+          "replay_array_sha256": "39ea1f87f012e69409fe66a480e9da69b82c6ff268cfcbbc510ef9ab3fbc90d5"
+        },
+        {
+          "name": "foot_slide_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "112a25e31cced675d2119ea1faae4c4ea5f48488f976bb689bd81c690bda79b2",
+          "replay_array_sha256": "112a25e31cced675d2119ea1faae4c4ea5f48488f976bb689bd81c690bda79b2"
+        }
+      ]
+    },
+    {
+      "mode": "gc",
+      "reference": "docs/results/human/gc",
+      "replay": "logs/human_delivery_replay/gc",
+      "reference_episode_sha256": "120d1ec873efe76f66440dfd126611f7676a127dec00b6f640c761475cf8e4ab",
+      "replay_episode_sha256": "120d1ec873efe76f66440dfd126611f7676a127dec00b6f640c761475cf8e4ab",
+      "model_xml_sha256": "75c7793d7b5838f02a55ea01e6bc1a81e5878bccdb83e9be3358d1f6927de8e0",
+      "model_xml_bytes_equal": true,
+      "original_recovered": true,
+      "replay_recovered": true,
+      "arrays": [
+        {
+          "name": "time_s",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "9b5df9ddc32f49a6a36ae308772c98f7377f5425074211b3b7534ca7a018baf1",
+          "replay_array_sha256": "9b5df9ddc32f49a6a36ae308772c98f7377f5425074211b3b7534ca7a018baf1"
+        },
+        {
+          "name": "qpos",
+          "shape": [
+            6000,
+            9
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "d6b1ed2b71ec5cbe386947f746b7637f9c69970fef24c253ca0798b72323ac0a",
+          "replay_array_sha256": "d6b1ed2b71ec5cbe386947f746b7637f9c69970fef24c253ca0798b72323ac0a"
+        },
+        {
+          "name": "qvel",
+          "shape": [
+            6000,
+            9
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "31e2518fc849e2b97238ab08a4affc082bffc3e063fe5467cc24b504aec77f27",
+          "replay_array_sha256": "31e2518fc849e2b97238ab08a4affc082bffc3e063fe5467cc24b504aec77f27"
+        },
+        {
+          "name": "human_raw_nm",
+          "shape": [
+            6000,
+            6
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "06f481cca31f0d7cbbf75e4dfc7c0ee299a06a9cc463cf1a1b4a4408501cee45",
+          "replay_array_sha256": "06f481cca31f0d7cbbf75e4dfc7c0ee299a06a9cc463cf1a1b4a4408501cee45"
+        },
+        {
+          "name": "human_applied_nm",
+          "shape": [
+            6000,
+            6
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "34f59294f936377ce1c67b7a571d526947cc6b51cab0bec35e1598f495d58340",
+          "replay_array_sha256": "34f59294f936377ce1c67b7a571d526947cc6b51cab0bec35e1598f495d58340"
+        },
+        {
+          "name": "exo_applied_nm",
+          "shape": [
+            6000,
+            2
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "ddfe8c113f24ed1392b9efe71edd48b01096c7636666217305f45531cc0f2d55",
+          "replay_array_sha256": "ddfe8c113f24ed1392b9efe71edd48b01096c7636666217305f45531cc0f2d55"
+        },
+        {
+          "name": "lean_rad",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "a9433e1690018e4e4ea0df30b715f547f161a4ad1cd892e1821e65535018f7fb",
+          "replay_array_sha256": "a9433e1690018e4e4ea0df30b715f547f161a4ad1cd892e1821e65535018f7fb"
+        },
+        {
+          "name": "velocity_rad_s",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "3ddd79e9a22b5cdddce2d2dfbe0729e4ae38f8d3be0c6f07295e2ab7cbfb4cb4",
+          "replay_array_sha256": "3ddd79e9a22b5cdddce2d2dfbe0729e4ae38f8d3be0c6f07295e2ab7cbfb4cb4"
+        },
+        {
+          "name": "human_torque_nm",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "32fb33158dc7d41dc0f6940802a782509a0710c91f3ba7b5096a585c698d4fda",
+          "replay_array_sha256": "32fb33158dc7d41dc0f6940802a782509a0710c91f3ba7b5096a585c698d4fda"
+        },
+        {
+          "name": "exo_torque_nm",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "d47f86329b3e2e367716fa5f8e7b2513d318fd40606e94bc72cefa6a048e3a98",
+          "replay_array_sha256": "d47f86329b3e2e367716fa5f8e7b2513d318fd40606e94bc72cefa6a048e3a98"
+        },
+        {
+          "name": "com_x_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "b545e43b53bdaf2ef377fd8dc309dd307eae69b34e5cffade0f742b79dbb43b2",
+          "replay_array_sha256": "b545e43b53bdaf2ef377fd8dc309dd307eae69b34e5cffade0f742b79dbb43b2"
+        },
+        {
+          "name": "com_z_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "da728ff54b14ceb4d737c308251bdb647e7c801f7e975dbb711dff89240c5047",
+          "replay_array_sha256": "da728ff54b14ceb4d737c308251bdb647e7c801f7e975dbb711dff89240c5047"
+        },
+        {
+          "name": "normal_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "a2b8d06c70e3265694f2be6665a050807501b4e9e35f6a8cf9b0a0c9668d23ae",
+          "replay_array_sha256": "a2b8d06c70e3265694f2be6665a050807501b4e9e35f6a8cf9b0a0c9668d23ae"
+        },
+        {
+          "name": "friction_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "7d650f496a9faea29e12f73f2ab27d0065941796ab92ebd2b6b5a02518bcc7ae",
+          "replay_array_sha256": "7d650f496a9faea29e12f73f2ab27d0065941796ab92ebd2b6b5a02518bcc7ae"
+        },
+        {
+          "name": "cop_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "e865839c60ac0a5a05c72673672516a9730efd3ada8e6eaddf3b0bc0707bdcd7",
+          "replay_array_sha256": "e865839c60ac0a5a05c72673672516a9730efd3ada8e6eaddf3b0bc0707bdcd7"
+        },
+        {
+          "name": "cop_margin_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "c2878aaf03ef54860eefcdc023d01d3e9bc310edbe7ad1c0d467261c019a1848",
+          "replay_array_sha256": "c2878aaf03ef54860eefcdc023d01d3e9bc310edbe7ad1c0d467261c019a1848"
+        },
+        {
+          "name": "friction_margin_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "f78fdd2925268601b73bde4a1d8de98e5c40106c60b14af70ab8026ca9a8fc3a",
+          "replay_array_sha256": "f78fdd2925268601b73bde4a1d8de98e5c40106c60b14af70ab8026ca9a8fc3a"
+        },
+        {
+          "name": "push_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "4ccc92c30c14561b43b688995b6f51303a3adfb01ca06fd2cc8aea3ce9144b3f",
+          "replay_array_sha256": "4ccc92c30c14561b43b688995b6f51303a3adfb01ca06fd2cc8aea3ce9144b3f"
+        },
+        {
+          "name": "foot_pitch_rad",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "e6c141882ac054f6d56ced546b7fd5dd5b673111596b7e08433bf6dee0d4c80e",
+          "replay_array_sha256": "e6c141882ac054f6d56ced546b7fd5dd5b673111596b7e08433bf6dee0d4c80e"
+        },
+        {
+          "name": "foot_slide_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "8456301ad36f4d4eef9de77e2c7214c66084d3d85a0e4e8a8acc0598d88669ed",
+          "replay_array_sha256": "8456301ad36f4d4eef9de77e2c7214c66084d3d85a0e4e8a8acc0598d88669ed"
+        }
+      ]
+    },
+    {
+      "mode": "pd",
+      "reference": "docs/results/human/pd",
+      "replay": "logs/human_delivery_replay/pd",
+      "reference_episode_sha256": "02101d14ad28f93bb369ac246548d521bbcdcda528e60fad118312722555400d",
+      "replay_episode_sha256": "02101d14ad28f93bb369ac246548d521bbcdcda528e60fad118312722555400d",
+      "model_xml_sha256": "75c7793d7b5838f02a55ea01e6bc1a81e5878bccdb83e9be3358d1f6927de8e0",
+      "model_xml_bytes_equal": true,
+      "original_recovered": true,
+      "replay_recovered": true,
+      "arrays": [
+        {
+          "name": "time_s",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "9b5df9ddc32f49a6a36ae308772c98f7377f5425074211b3b7534ca7a018baf1",
+          "replay_array_sha256": "9b5df9ddc32f49a6a36ae308772c98f7377f5425074211b3b7534ca7a018baf1"
+        },
+        {
+          "name": "qpos",
+          "shape": [
+            6000,
+            9
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "cd9c75967eb1ee55000d3291d4e1c80950fa4dfa5bbab48db9e4cdf38157cc2b",
+          "replay_array_sha256": "cd9c75967eb1ee55000d3291d4e1c80950fa4dfa5bbab48db9e4cdf38157cc2b"
+        },
+        {
+          "name": "qvel",
+          "shape": [
+            6000,
+            9
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "58965229d547cff7b0e30848fcc6783a3158001abc0886b84e091855a26a1224",
+          "replay_array_sha256": "58965229d547cff7b0e30848fcc6783a3158001abc0886b84e091855a26a1224"
+        },
+        {
+          "name": "human_raw_nm",
+          "shape": [
+            6000,
+            6
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "37062ce0d2c019ef285910bfef8b3a62a4c1b4a55699adef964bc5a4795ed54e",
+          "replay_array_sha256": "37062ce0d2c019ef285910bfef8b3a62a4c1b4a55699adef964bc5a4795ed54e"
+        },
+        {
+          "name": "human_applied_nm",
+          "shape": [
+            6000,
+            6
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "558e90a41820bdf3509aba26d5c22110b04d0bb2ad419972b24125de063c4f6c",
+          "replay_array_sha256": "558e90a41820bdf3509aba26d5c22110b04d0bb2ad419972b24125de063c4f6c"
+        },
+        {
+          "name": "exo_applied_nm",
+          "shape": [
+            6000,
+            2
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "ea6664a3948e614db74b8e34a7a80dd8335f4b208a495edefb8b59253b67f5e7",
+          "replay_array_sha256": "ea6664a3948e614db74b8e34a7a80dd8335f4b208a495edefb8b59253b67f5e7"
+        },
+        {
+          "name": "lean_rad",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "d8a14f8c4ca355c34427b267266d214479e5fbad3c49d208ccaa144652f07c1d",
+          "replay_array_sha256": "d8a14f8c4ca355c34427b267266d214479e5fbad3c49d208ccaa144652f07c1d"
+        },
+        {
+          "name": "velocity_rad_s",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "db37a50713a7974bb54ae20a9524039b58e09d24149703629e8096d529e232de",
+          "replay_array_sha256": "db37a50713a7974bb54ae20a9524039b58e09d24149703629e8096d529e232de"
+        },
+        {
+          "name": "human_torque_nm",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "0b8d8c9cc4766a6ddd58d59941166f4f9b0a091e82410ae16dae536e5d5bbdd8",
+          "replay_array_sha256": "0b8d8c9cc4766a6ddd58d59941166f4f9b0a091e82410ae16dae536e5d5bbdd8"
+        },
+        {
+          "name": "exo_torque_nm",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "2a7bc84b5d8a27828a090fad51b7dc2f7281c0b3d2cd06bc3690643861f6b936",
+          "replay_array_sha256": "2a7bc84b5d8a27828a090fad51b7dc2f7281c0b3d2cd06bc3690643861f6b936"
+        },
+        {
+          "name": "com_x_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "78c38fa18c75e61412e937258e21eaa1aed1e6516bce4b91daa88d1c7627a257",
+          "replay_array_sha256": "78c38fa18c75e61412e937258e21eaa1aed1e6516bce4b91daa88d1c7627a257"
+        },
+        {
+          "name": "com_z_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "28a600c3e361171973e82937866f2a2bfbb9b3cc1ceec02abf68f6909b8c7245",
+          "replay_array_sha256": "28a600c3e361171973e82937866f2a2bfbb9b3cc1ceec02abf68f6909b8c7245"
+        },
+        {
+          "name": "normal_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "113b296d607a1e7b995091ff1e3c89bfd846c022406bcc014716e02e5ad5d627",
+          "replay_array_sha256": "113b296d607a1e7b995091ff1e3c89bfd846c022406bcc014716e02e5ad5d627"
+        },
+        {
+          "name": "friction_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "d4b70b77c5667ce8c51c94eeef4f044f8a0c7810e1abd6d37ee597621c0151e2",
+          "replay_array_sha256": "d4b70b77c5667ce8c51c94eeef4f044f8a0c7810e1abd6d37ee597621c0151e2"
+        },
+        {
+          "name": "cop_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "665a508d8ca94e029a8c2b7dfa0e43dc9da719841e9445dc66f2d339f60f8a8f",
+          "replay_array_sha256": "665a508d8ca94e029a8c2b7dfa0e43dc9da719841e9445dc66f2d339f60f8a8f"
+        },
+        {
+          "name": "cop_margin_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "34db314e673865e62f08e550ec2005a1f6204b9c3ab35b0d1399ce1a0c49b98e",
+          "replay_array_sha256": "34db314e673865e62f08e550ec2005a1f6204b9c3ab35b0d1399ce1a0c49b98e"
+        },
+        {
+          "name": "friction_margin_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "b7ec41fca9a6a7d5c8cc41ba5db25dc5b59b132023f4b9ddd7479c02bf26fb64",
+          "replay_array_sha256": "b7ec41fca9a6a7d5c8cc41ba5db25dc5b59b132023f4b9ddd7479c02bf26fb64"
+        },
+        {
+          "name": "push_n",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "4ccc92c30c14561b43b688995b6f51303a3adfb01ca06fd2cc8aea3ce9144b3f",
+          "replay_array_sha256": "4ccc92c30c14561b43b688995b6f51303a3adfb01ca06fd2cc8aea3ce9144b3f"
+        },
+        {
+          "name": "foot_pitch_rad",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "631f5130af55a7ba1c44a8a387912bdf1e1de0708b348e5fc4b9f76b2506e251",
+          "replay_array_sha256": "631f5130af55a7ba1c44a8a387912bdf1e1de0708b348e5fc4b9f76b2506e251"
+        },
+        {
+          "name": "foot_slide_m",
+          "shape": [
+            6000
+          ],
+          "dtype": "float64",
+          "values_equal_including_nan": true,
+          "bitwise_equal": true,
+          "nonfinite_positions_equal": true,
+          "nan_count": 0,
+          "reference_array_sha256": "6a256d4ea7bfbf5f9a5673bf54ae90481234944ac7a645db28ca77ffaa562140",
+          "replay_array_sha256": "6a256d4ea7bfbf5f9a5673bf54ae90481234944ac7a645db28ca77ffaa562140"
+        }
+      ]
+    }
+  ]
+}

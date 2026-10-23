@@ -1,0 +1,72 @@
+{
+  "scope": "Preparation only; every target is sampled and target parameters match across all three grids within each mode. GPU runs follow the OF grid study.",
+  "cases": [
+    {
+      "case": "OM_none_forward_151",
+      "resolution": [
+        151,
+        152,
+        152
+      ],
+      "ankle_target_nodes": 75,
+      "toe_target_nodes": 100,
+      "problem_sha256": "77df0fd53bcc87d9be742253cb89241f4671cd005a9671a5a59c7f0d2e93dc2d"
+    },
+    {
+      "case": "OM_gc_forward_151",
+      "resolution": [
+        151,
+        152,
+        152
+      ],
+      "ankle_target_nodes": 13,
+      "toe_target_nodes": 100,
+      "problem_sha256": "d425c9266d7b6bed3ed254917f95332f8d9003674e90f158e2c3ec6aee6d36a7"
+    },
+    {
+      "case": "OM_none_forward_225",
+      "resolution": [
+        225,
+        226,
+        226
+      ],
+      "ankle_target_nodes": 234,
+      "toe_target_nodes": 228,
+      "problem_sha256": "af23829d0d269182801d991ef44f21831d3ca032af0165a9c976ec2f0b154ed0"
+    },
+    {
+      "case": "OM_gc_forward_225",
+      "resolution": [
+        225,
+        226,
+        226
+      ],
+      "ankle_target_nodes": 20,
+      "toe_target_nodes": 228,
+      "problem_sha256": "5d0a2723570053f0ea490e73b16e56d20d9cc124d1fb0bbb594bd61640071521"
+    },
+    {
+      "case": "OM_none_forward_301",
+      "resolution": [
+        301,
+        302,
+        302
+      ],
+      "ankle_target_nodes": 357,
+      "toe_target_nodes": 357,
+      "problem_sha256": "00917d4adc548e0e6c3366c6eb7e3956a54a0e404cf735a1fbb02d63cba07b9e"
+    },
+    {
+      "case": "OM_gc_forward_301",
+      "resolution": [
+        301,
+        302,
+        302
+      ],
+      "ankle_target_nodes": 26,
+      "toe_target_nodes": 400,
+      "problem_sha256": "567be4829794f659555e666cfbe32a2b4b4b8106e61ea2354eec83586bcc21d8"
+    }
+  ],
+  "maximum_target_parameter_difference": 0.0
+}

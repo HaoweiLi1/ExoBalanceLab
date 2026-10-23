@@ -1,0 +1,2 @@
+hjb_grid_study: 18 cases, runtime correction metadata decoded
+hjb_om_gc_followup: 6 cases, runtime correction metadata decoded

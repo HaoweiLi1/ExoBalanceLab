@@ -1,0 +1,60 @@
+{
+  "checked_utc": "2026-10-22T21:21:22.449604+00:00",
+  "repository": "https://github.com/Raquelometer/AnkleExoBRS",
+  "source_commit": "517ab41b7767c5ab0e856a8885b118bd739a5011",
+  "shallow_clone": false,
+  "reachable_commit_count": 16,
+  "unique_matlab_and_autosave_blobs": 34,
+  "remote_heads_and_tags": [
+    {
+      "sha": "517ab41b7767c5ab0e856a8885b118bd739a5011",
+      "ref": "refs/heads/main"
+    }
+  ],
+  "published_releases": [],
+  "release_query": "https://api.github.com/repos/Raquelometer/AnkleExoBRS/releases",
+  "history": [
+    "517ab41b7767c5ab0e856a8885b118bd739a5011 2024-09-10 updated README",
+    "6508e367cedf3ce30aeea662e6e7027dc6edc05c 2024-09-10 updated README",
+    "790e2de8200d0be2f7ccfd44290df50a20fac885 2024-09-10 updated README",
+    "d77c3c671b5a833ba08cafe0b4b74d8f35c4d974 2024-09-10 updated README",
+    "bbdf4182cf0e331995789b31b3abb1607b621fd0 2024-09-10 updated README",
+    "c29588b3fc8d28f296df0692375761cc056d1e2d 2024-09-10 updated README",
+    "6bdac321cf18718393fa7319ef02b9c7d9adf571 2024-09-10 added more constraint functions",
+    "204b2b2515884343ecc90e83ee61454758d6fd8a 2024-09-10 Added script for computing BRS with exo, updated exo target set computation",
+    "fac7dde94ce4c9d9c3e2d8ff159f19b2e8d129b5 2024-09-10 Updated readme",
+    "0e6150260eff5490835c73bdd03cfbcd50e6536f 2024-09-10 Added dynamics and constraints, plus precomputed target sets",
+    "9257c75e30b6811a7169784419b26b19b2ab8fbf 2024-04-13 fixed model",
+    "02db1a2cdd66648726980249d52b412340a04cf5 2024-04-04 added parameter packing to target set code",
+    "9fb6685522510eba2601ada104ad8a1ed755be26 2024-04-01 Updated target set code",
+    "81851841d8e6521263dd16eeefbdbb797e3c1a09 2024-03-27 edited readme",
+    "78a4ccc0d12c8d7b64529e994ec87cff0d6f7c0a 2024-03-27 added readme",
+    "7f81f187c08ac1ead879d8891e74594695fe2389 2024-03-27 Initial Commit"
+  ],
+  "friction_function_definition_matches": [],
+  "friction_function_references": [
+    {
+      "blob": "1e5a6052efd207ad381a7221a6f9af5277211f7e",
+      "path": "computeAnkleExoBRS.m",
+      "line": 58,
+      "text": "FrictionConstraintMat = generateLiftedInvPendFrictionConstraint(g.vs, g.shape, dPend, mu);"
+    },
+    {
+      "blob": "a49fc984ae05332a7d597a9f31620e255982dee6",
+      "path": "computeNominalBRS.m",
+      "line": 55,
+      "text": "FrictionConstraintMat = generateLiftedInvPendFrictionConstraint(g.vs, g.shape, dPend, mu);"
+    }
+  ],
+  "inspection": "Inspected all reachable file histories, MATLAB and autosave source blobs, the two solver entries and their earlier revisions. The named friction function occurs only as a call, never as an implementation. Remote refs contain main only; the public releases query returned an empty list.",
+  "scope": "The published reachable history and refs at the recorded time. This does not identify unpublished code or establish which source generated Table II. No upstream files or numerical study settings were changed.",
+  "assisted_ankle_target_override": {
+    "source_file": "computeAnkleExoBRS.m",
+    "source_line": 45,
+    "source_url": "https://github.com/Raquelometer/AnkleExoBRS/blob/517ab41b7767c5ab0e856a8885b118bd739a5011/computeAnkleExoBRS.m#L45",
+    "human_torque_half_width_nm": 1.0,
+    "velocity_half_width_rad_s": 0.01,
+    "reconciled_choice": "matlab/solve_paper_hjb.m uses every width computed by paper_target_boxes for the reconciled assisted plant, including thetaDotAnkRange and torqueAnkRange.",
+    "scope": "A documented source/reconciled target difference; its isolated contribution to Table II discrepancies has not been measured. No active protocol or target was changed."
+  }
+}

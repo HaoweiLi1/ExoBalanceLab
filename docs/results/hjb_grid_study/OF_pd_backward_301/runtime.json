@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-10-22T21:56:46.291677+00:00",
+  "case": "OF_pd_backward_301",
+  "prepared_problem_sha256": "8ad4c878e85f6e273c03fdaf29240d876cbdc2ed71da5b22ce002579b0317a8a",
+  "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "environment": {
+    "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+    "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
+    "XLA_CLIENT_MEM_FRACTION": null,
+    "XLA_PYTHON_CLIENT_MEM_FRACTION": null,
+    "TF_GPU_ALLOCATOR": null,
+    "XLA_FLAGS": null,
+    "LD_LIBRARY_PATH": null
+  },
+  "command": [
+    "/home/kaidi-2/Documents/standing_balance_sim/.conda-hjb-jax/bin/python",
+    "-m",
+    "exobalancelab.hjb_solver",
+    "--problem",
+    "/home/kaidi-2/Documents/standing_balance_sim/logs/hjb_grid_study/prepared/OF_pd_backward_301/problem.mat",
+    "--out",
+    "/home/kaidi-2/Documents/standing_balance_sim/logs/hjb_grid_study/solved/OF_pd_backward_301_platform",
+    "--projection-only"
+  ],
+  "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+  "allocator_validation": "docs/results/hjb_grid_study/allocator_repair/platform_validation.json",
+  "returncode": 0,
+  "wall_s": 839.7552072280087,
+  "sampled_peak_gpu_mib": 4424
+}

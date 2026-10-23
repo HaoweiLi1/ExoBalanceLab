@@ -1,0 +1,157 @@
+{
+  "reference_problem_sha256": "5d0a2723570053f0ea490e73b16e56d20d9cc124d1fb0bbb594bd61640071521",
+  "candidate_problem_sha256": "ab948620b4316fdc004ef962b1cfcb603cfe0c318c716f809b3668096c86a34f",
+  "same_physical_contract": true,
+  "unchanged_fields": [
+    {
+      "field": "theta_rad",
+      "shape": [
+        1,
+        225
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "ddba4f8423ac2115b8a30f94108ddcf852b23ef105a0b09589ff120b396acc2a"
+    },
+    {
+      "field": "velocity_rad_s",
+      "shape": [
+        1,
+        226
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "d7fb4075bde03c0dc987872a7ad76c515ec3b980868c713f2758b545397edaf8"
+    },
+    {
+      "field": "human_torque_nm",
+      "shape": [
+        1,
+        226
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "633e685c115c6a2e5509be204f6d05ad84b35e122b7f5d7b4fbbed82a18450a8"
+    },
+    {
+      "field": "time_to_go_s",
+      "shape": [
+        1,
+        141
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "89159e298d9a97f5011e3fb6068ffb6a226b81093dd5c567d79c862cbebb8576"
+    },
+    {
+      "field": "state_scale",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "655988ea0093b4c82291c22984ea3269ece62b4aefa44a99db8e0413f5fbfdf7"
+    },
+    {
+      "field": "time_scale_s",
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "21aed2a679b8c5df954fb870bd22ac61765dd4abead5ba086fd8a4c01910bc10"
+    },
+    {
+      "field": "rate_bounds",
+      "shape": [
+        1,
+        2
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "b674f2df3e9ecdef98345987f35356d20d40e729d8f81097ec00ad2cafd13150"
+    },
+    {
+      "field": "drift_theta",
+      "shape": [
+        226,
+        226,
+        225
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "f36c03a33a06be9f18735e394b3c59ac6544e14e28bb3a8eafa4eebba1a9ffc5"
+    },
+    {
+      "field": "drift_velocity",
+      "shape": [
+        226,
+        226,
+        225
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "ce60ae985e70c84ecb95be3b71a351c0a2722339a4ab719186aaa6c3313b54ad"
+    },
+    {
+      "field": "obstacle_value",
+      "shape": [
+        226,
+        226,
+        225
+      ],
+      "dtype": "float64",
+      "all_values_equal": true,
+      "array_sha256": "e18f25501cbb15433e1fc498ae596a6283c9c18f6cbc80f079c225d703e73df2"
+    }
+  ],
+  "changed_target_fields": [
+    "thetaDotAnkRange",
+    "torqueAnkRange"
+  ],
+  "reference_initial_target_nodes": 248,
+  "candidate_initial_target_nodes": 288,
+  "initial_field_changed_nodes": 2285505,
+  "new_initial_value_pointwise_le_original": true,
+  "unchanged_obstacles_enforced": true,
+  "old_target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "thetaAnkRange": 0.05024722818662286,
+    "thetaDotAnkRange": 0.0058646631490287815,
+    "torqueAnkRange": 0.05024465936052392,
+    "thetaToeRange": 0.014504727028301348,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 14.64769897211904
+  },
+  "new_target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -81.02244646266334
+    ],
+    "thetaAnkRange": 0.05024722818662286,
+    "thetaDotAnkRange": 0.01,
+    "torqueAnkRange": 1,
+    "thetaToeRange": 0.014504727028301348,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 14.64769897211904
+  },
+  "preparation_script_sha256": "1cc3b7366aab8d68d828f26a1b90c5bb61fdb052f2bb647e21752290f87cc9d5",
+  "scope": "Prepared-input identity and target intervention only; no HJB integration has run for this candidate."
+}

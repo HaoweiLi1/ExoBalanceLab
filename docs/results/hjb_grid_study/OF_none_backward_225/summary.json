@@ -1,0 +1,71 @@
+{
+  "profile": "OF",
+  "exo": "none",
+  "direction": "backward",
+  "resolution": [
+    225,
+    226,
+    226
+  ],
+  "requested_resolution": [
+    225,
+    225,
+    225
+  ],
+  "duration_s": 1.4,
+  "output_step_s": 0.01,
+  "method": "none",
+  "velocity_buffer_rad_s": 0.5,
+  "aligned_zero": true,
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 60,
+    "h": 1.58,
+    "tauMin": -88,
+    "tauMax": 22,
+    "uMin": -389,
+    "uMax": 148
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7112737387029464,
+      0,
+      -72.62709223620656
+    ],
+    "thetaAnkRange": 0.014466168793943728,
+    "thetaToeRange": 0.014469327824432499,
+    "thetaDotAnkRange": 0.01,
+    "thetaDotToeRange": 0.01,
+    "torqueAnkRange": 10.844324499535924,
+    "torqueToeRange": 10.742001927119986
+  },
+  "ankle_target_nodes": 315,
+  "toe_target_nodes": 301,
+  "initial_target_nodes": 616,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "stage": "solved",
+  "backend": "JAX/ENO3",
+  "device": "cuda:0",
+  "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "precision": "float64",
+  "problem_sha256": "4c204913a94aca96891d9ae9df4e912cb5f4d2433aa9e5ddb93f6d2ef9e69f4d",
+  "save_history": true,
+  "compilation_s": 1.9345012339763343,
+  "compiled_temporary_bytes": 1116784728,
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "hj_reachability": "0.7.0",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0"
+  },
+  "wall_s": 680.1491610190133,
+  "final_reachable_nodes": 742501
+}

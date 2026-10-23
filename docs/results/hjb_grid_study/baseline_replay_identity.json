@@ -1,0 +1,12 @@
+{
+  "original_run": "logs/hjb_gpu_OF_225_paper",
+  "matched_run": "logs/hjb_grid_study/solved/OF_none_forward_225",
+  "same_prepared_input": true,
+  "every_final_value_equal": true,
+  "max_absolute_final_value_difference": 0.0,
+  "source_solver_sha256": "a1372f941ea714e75df2384b1d3eae6cfc6a454635bf7e0072f08dc24edfe82e",
+  "matched_solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "scope": "Complete final-field equality; the original full feedback history remains preserved.",
+  "original_value_file_sha256": "d86cd6c98681d6612a3173af65fa448e2ff29d6571f124bdf9f6863a50856e9e",
+  "matched_value_file_sha256": "d86cd6c98681d6612a3173af65fa448e2ff29d6571f124bdf9f6863a50856e9e"
+}

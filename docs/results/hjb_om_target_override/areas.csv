@@ -1,0 +1,4 @@
+variant,profile,exo,direction,area_rad2_per_s,theta_min_rad,theta_max_rad,velocity_min_rad_s,velocity_max_rad_s,requested_resolution,resolution,wall_s,run,projection_sha256
+No assistance,OM,none,forward,0.48294453523596936,0.65,1.8,-0.5084821428571429,2.8564732142857143,225x225x225,225x226x226,301.4167148760753,logs/hjb_paper225/solved/OM_none_forward,188cd77434b5624c7852f210b729520141f08ab178714d4bf9b9c37daac53ab1
+GC / computed target,OM,gc,forward,0.46912418287627555,0.65,1.8,-0.5084821428571429,2.8564732142857143,225x225x225,225x226x226,301.3568230350502,logs/hjb_paper225/solved/OM_gc_forward,c64d34032439ea41c2b825f7f9f666720f25894d113592c030b58cfaf669aa09
+GC / source-entry ankle bounds,OM,gc,forward,0.496841667330995,0.65,1.8,-0.5084821428571429,2.8564732142857143,225x225x225,225x226x226,301.3138111550361,logs/hjb_om_target_override/solved/OM_gc_forward_225_source_bounds,b60777d1c6b593db325c042041492638c4a494aabde0001132abbc1bbd3edefb

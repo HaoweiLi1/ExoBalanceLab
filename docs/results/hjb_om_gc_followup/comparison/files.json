@@ -1,0 +1,153 @@
+{
+  "scope": "All summaries/projections included; full final fields retained locally and hashed here.",
+  "records": [
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform/summary.json",
+      "bytes": 1705,
+      "sha256": "07bfbf23db6bc617b7874426752736c4f5001caab885b5bac7b36d1b7b498d5e",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform/projection.mat",
+      "bytes": 186384,
+      "sha256": "2aeb92287c06e08f301cada61d0f06d0e14f9e546ce5e32222513b658a147ce2",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform/final_value.npy",
+      "bytes": 27909760,
+      "sha256": "a4cf8e3a7c07d1defbd1b6b35f5acaa4ee77c90acb8e37321f31aa5e33cacb41",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_151_platform/runtime.json",
+      "bytes": 1244,
+      "sha256": "c95aecb06a988d9ae1bd185c09c77b522fe21787fba972130e35a147119d70ce",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_151/runtime.json"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform/summary.json",
+      "bytes": 1720,
+      "sha256": "c9ed4da8bdb72d653b550b322cf7a0265adcd9fc93d6661641d04ec7bc8c91de",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform/projection.mat",
+      "bytes": 186384,
+      "sha256": "6c8858ea4d6770b18e6011e64b3f5a349b4d6252a37813b88a76b78413ee6ead",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform/final_value.npy",
+      "bytes": 27909760,
+      "sha256": "19f3ec1d6523d9efde6092a7875e4f0d93539b0586cc1cf2462bcff0bb49320c",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_151_platform/runtime.json",
+      "bytes": 1238,
+      "sha256": "8f7b8b431486714a73a7d6867a0a97eae1a7c8454c569ad867706d237eb98b96",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_151/runtime.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OM_none_forward/summary.json",
+      "bytes": 1707,
+      "sha256": "c5cbf29d74306fe366797f001208f755a772345b7e0ed2c43b7a5ca7a0be43fb",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OM_none_forward/projection.mat",
+      "bytes": 410752,
+      "sha256": "188cd77434b5624c7852f210b729520141f08ab178714d4bf9b9c37daac53ab1",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OM_none_forward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "8d63fd135eaffb630eba05d8cce450dd11fa1109044dc8b40c560f9150b065cc",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OM_gc_forward/summary.json",
+      "bytes": 1722,
+      "sha256": "f2622b53e72b1d20811af1e91f35c711d4b856f52afa8e22a7f41ce2624f11b9",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OM_gc_forward/projection.mat",
+      "bytes": 410752,
+      "sha256": "c64d34032439ea41c2b825f7f9f666720f25894d113592c030b58cfaf669aa09",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OM_gc_forward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "b583e42fd0bdc9b05c2abe44650394b6ac9f21af68e744580aee9e002299f2e9",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform/summary.json",
+      "bytes": 1708,
+      "sha256": "c80f32cb79c645d057c9abaa25b28c30c2b83261bdb25bdc05e5451dca405573",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "21a1d91a0037825369f506fa57a084acd4679cd405618d0bb9718f46bf667285",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform/final_value.npy",
+      "bytes": 219619360,
+      "sha256": "0a147ad79c31ccb58f68ca15bc727a82941f4fcb2051f2e7b6f154d9c473c13d",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_none_forward_301_platform/runtime.json",
+      "bytes": 1246,
+      "sha256": "4ac4c275e0949343f8ac050041daeebd9dc646e49e4817257f7e505d9e484f17",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_none_forward_301/runtime.json"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform/summary.json",
+      "bytes": 1723,
+      "sha256": "dba4ee3d3c8204f16ee8e47eca49efce7adeefed20ed83744e2413c9749d7a31",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "6fab4ac9ec12efc8ba3f2158590d7918c7020568442fc2802567a88aaa5dac0d",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform/final_value.npy",
+      "bytes": 219619360,
+      "sha256": "2b736335309d4358729878b9721fcc3425d275bf1896e69be33860f1d3e5ba4c",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_om_gc_followup/solved/OM_gc_forward_301_platform/runtime.json",
+      "bytes": 1239,
+      "sha256": "0f0d1056589cb6a36d42df7b0dd0f4cafd315480f5e4870817f24181d82f3cb3",
+      "included": true,
+      "curated_file": "docs/results/hjb_om_gc_followup/OM_gc_forward_301/runtime.json"
+    }
+  ]
+}

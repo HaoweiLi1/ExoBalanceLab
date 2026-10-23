@@ -1,0 +1,23 @@
+	Command being timed: ".conda-exobalance/bin/python -m exobalancelab.hjb_validation --run-dir logs/hjb_paper225/solved/OF_pd_forward --out logs/hjb_paper225/validation/OF_pd_forward_25us --count 10 --dt 0.000025 --control-period 0.000025 --gradient-cache logs/hjb_gradient_cache/OF_pd_forward_225"
+	User time (seconds): 661.80
+	System time (seconds): 73.86
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 12:27.45
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1393712
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 11239
+	Minor (reclaiming a frame) page faults: 4090532
+	Voluntary context switches: 121667
+	Involuntary context switches: 3048
+	Swaps: 0
+	File system inputs: 84055416
+	File system outputs: 26528536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

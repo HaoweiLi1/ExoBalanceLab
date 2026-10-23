@@ -1,0 +1,120 @@
+{
+  "scope": "Eight ankle-box corners checked against C1/C3-C5 and the original linear-feedback rate bounds C2. This is not a controlled-invariance certificate for the expanded box.",
+  "profile": "OM",
+  "exo": "gc",
+  "reference_gain_nm_s_per_si_state": [
+    -38.039935956464696,
+    -1.0133780994222008,
+    -38.56728296011055
+  ],
+  "corners": [
+    {
+      "state_si": [
+        1.5205490986082737,
+        -0.01,
+        -1.0
+      ],
+      "original_linear_feedback_nm_s": 40.488818083313774,
+      "normal_n": 730.0425710832958,
+      "friction_n": -0.9978652571801063,
+      "cop_m": -0.04495736685457349,
+      "cop_margin_m": 0.005293833145426509,
+      "friction_margin_n": 729.0447058261157
+    },
+    {
+      "state_si": [
+        1.5205490986082737,
+        -0.01,
+        1.0
+      ],
+      "original_linear_feedback_nm_s": -36.64574783690733,
+      "normal_n": 730.1429730562224,
+      "friction_n": 0.9986122512916772,
+      "cop_m": -0.04787592833367029,
+      "cop_margin_m": 0.002375271666329705,
+      "friction_margin_n": 729.1443608049308
+    },
+    {
+      "state_si": [
+        1.5205490986082737,
+        0.01,
+        -1.0
+      ],
+      "original_linear_feedback_nm_s": 40.468550521325334,
+      "normal_n": 730.0425700792762,
+      "friction_n": -0.9978852219551972,
+      "cop_m": -0.044957337664944766,
+      "cop_margin_m": 0.00529386233505523,
+      "friction_margin_n": 729.0446848573209
+    },
+    {
+      "state_si": [
+        1.5205490986082737,
+        0.01,
+        1.0
+      ],
+      "original_linear_feedback_nm_s": -36.66601539889577,
+      "normal_n": 730.1429720522027,
+      "friction_n": 0.9985922865165863,
+      "cop_m": -0.04787589915206876,
+      "cop_margin_m": 0.002375300847931236,
+      "friction_margin_n": 729.1443797656862
+    },
+    {
+      "state_si": [
+        1.6210435549815194,
+        -0.01,
+        -1.0
+      ],
+      "original_linear_feedback_nm_s": 36.66601539889577,
+      "normal_n": 730.1429720522027,
+      "friction_n": -0.9985922865165863,
+      "cop_m": 0.05263096967925829,
+      "cop_margin_m": 0.10288216967925828,
+      "friction_margin_n": 729.1443797656862
+    },
+    {
+      "state_si": [
+        1.6210435549815194,
+        -0.01,
+        1.0
+      ],
+      "original_linear_feedback_nm_s": -40.468550521325334,
+      "normal_n": 730.0425700792762,
+      "friction_n": 0.9978852219551972,
+      "cop_m": 0.049713062151892126,
+      "cop_margin_m": 0.09996426215189212,
+      "friction_margin_n": 729.0446848573209
+    },
+    {
+      "state_si": [
+        1.6210435549815194,
+        0.01,
+        -1.0
+      ],
+      "original_linear_feedback_nm_s": 36.64574783690733,
+      "normal_n": 730.1429730562224,
+      "friction_n": -0.9986122512916772,
+      "cop_m": 0.05263099885432112,
+      "cop_margin_m": 0.10288219885432112,
+      "friction_margin_n": 729.1443608049308
+    },
+    {
+      "state_si": [
+        1.6210435549815194,
+        0.01,
+        1.0
+      ],
+      "original_linear_feedback_nm_s": -40.488818083313774,
+      "normal_n": 730.0425710832958,
+      "friction_n": 0.9978652571801063,
+      "cop_m": 0.04971309133498034,
+      "cop_margin_m": 0.09996429133498033,
+      "friction_margin_n": 729.0447058261157
+    }
+  ],
+  "all_corners_pass": true,
+  "minimum_cop_margin_m": 0.002375271666329705,
+  "maximum_absolute_original_linear_feedback_nm_s": 40.488818083313774,
+  "physics_source_sha256": "da44d063e8409a4453641f50a701e36befa7e435c58de23f4be85c59bde446b3"
+}

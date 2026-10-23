@@ -1,0 +1,13 @@
+{
+  "policy_sha256": "b4a1cba111d55436fabc5b20c8fb3ff673ced76b55ebc6eeb368266dfbccf4d2",
+  "gradient_sha256": "4e22830bbaa755c4755dfdc7dbc8ccbaa69ebc024d91e9742ce419d22ed80f56",
+  "shape": [
+    141,
+    51,
+    269,
+    101
+  ],
+  "dtype": "float64",
+  "numpy_version": "2.2.6",
+  "method": "numpy.gradient along human torque, edge_order=1"
+}

@@ -1,0 +1,25 @@
+W1023 04:32:41.607798 3114062 bfc_allocator.cc:743] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.12GiB (rounded to 2274928640) from the lower end requested by op
+If this is caused by memory fragmentation, the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' may improve the situation.
+Current allocation summary follows.
+W1023 04:32:41.608002 3114062 bfc_allocator.cc:754] ************x___________**********************___*****************_________________________________*
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/kaidi-2/Documents/standing_balance_sim/exobalancelab/hjb_solver.py", line 239, in <module>
+    main()
+  File "/home/kaidi-2/Documents/standing_balance_sim/exobalancelab/hjb_solver.py", line 235, in main
+    print(json.dumps(solve(args.problem, args.out, not args.projection_only, args.platform), indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kaidi-2/Documents/standing_balance_sim/exobalancelab/hjb_solver.py", line 194, in solve
+    actual = np.asarray(value)
+             ^^^^^^^^^^^^^^^^^
+  File "/home/kaidi-2/Documents/standing_balance_sim/.conda-hjb-jax/lib/python3.12/site-packages/jax/_src/array.py", line 448, in __array__
+    return np.asarray(self._value, dtype=dtype, **kwds)  # pyrefly: ignore[no-matching-overload]
+                      ^^^^^^^^^^^
+  File "/home/kaidi-2/Documents/standing_balance_sim/.conda-hjb-jax/lib/python3.12/site-packages/jax/_src/profiler.py", line 588, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kaidi-2/Documents/standing_balance_sim/.conda-hjb-jax/lib/python3.12/site-packages/jax/_src/array.py", line 696, in _value
+    npy_value, did_copy = self._to_np_array_did_copy()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jax.errors.JaxRuntimeError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 2.12GiB with allocator GPU_0_bfc on device 0. [tf-allocator-allocation-error=''] [executable_name='jit_advance']

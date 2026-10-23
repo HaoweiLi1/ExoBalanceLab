@@ -1,0 +1,291 @@
+{
+  "created": "2026-10-23",
+  "parameter_set": "authors",
+  "target_sets": "Stored author nominal boxes; reconciled GC/PD boxes from paper_target_boxes.m",
+  "requested_resolution": [
+    225,
+    225,
+    225
+  ],
+  "align_zero": true,
+  "horizon_s": 1.4,
+  "output_step_s": 0.01,
+  "velocity_buffer_rad_s": 0.5,
+  "backend": "JAX/ENO3 float64; matched against native MATLAB on smaller grids",
+  "method": "none",
+  "scope": "Finite-grid cross-profile comparison. Native/GPU agreement is separate from spatial convergence. Quantitative Table II agreement is evaluated, not assumed.",
+  "cases": [
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_prepared_OF_225_paper",
+      "solved": "logs/hjb_gpu_OF_225_paper",
+      "save_history": true
+    },
+    {
+      "profile": "OF",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OF_none_backward",
+      "solved": "logs/hjb_paper225/solved/OF_none_backward",
+      "save_history": true
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OF_gc_forward",
+      "solved": "logs/hjb_paper225/solved/OF_gc_forward",
+      "save_history": true
+    },
+    {
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OF_gc_backward",
+      "solved": "logs/hjb_paper225/solved/OF_gc_backward",
+      "save_history": true
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OF_pd_forward",
+      "solved": "logs/hjb_paper225/solved/OF_pd_forward",
+      "save_history": true
+    },
+    {
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OF_pd_backward",
+      "solved": "logs/hjb_paper225/solved/OF_pd_backward",
+      "save_history": true
+    },
+    {
+      "profile": "YF",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/YF_none_forward",
+      "solved": "logs/hjb_paper225/solved/YF_none_forward",
+      "save_history": false
+    },
+    {
+      "profile": "YF",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/YF_none_backward",
+      "solved": "logs/hjb_paper225/solved/YF_none_backward",
+      "save_history": false
+    },
+    {
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/YF_gc_forward",
+      "solved": "logs/hjb_paper225/solved/YF_gc_forward",
+      "save_history": false
+    },
+    {
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/YF_gc_backward",
+      "solved": "logs/hjb_paper225/solved/YF_gc_backward",
+      "save_history": false
+    },
+    {
+      "profile": "YF",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/YF_pd_forward",
+      "solved": "logs/hjb_paper225/solved/YF_pd_forward",
+      "save_history": false
+    },
+    {
+      "profile": "YF",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/YF_pd_backward",
+      "solved": "logs/hjb_paper225/solved/YF_pd_backward",
+      "save_history": false
+    },
+    {
+      "profile": "YM",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/YM_none_forward",
+      "solved": "logs/hjb_paper225/solved/YM_none_forward",
+      "save_history": false
+    },
+    {
+      "profile": "YM",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/YM_none_backward",
+      "solved": "logs/hjb_paper225/solved/YM_none_backward",
+      "save_history": false
+    },
+    {
+      "profile": "YM",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/YM_gc_forward",
+      "solved": "logs/hjb_paper225/solved/YM_gc_forward",
+      "save_history": false
+    },
+    {
+      "profile": "YM",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/YM_gc_backward",
+      "solved": "logs/hjb_paper225/solved/YM_gc_backward",
+      "save_history": false
+    },
+    {
+      "profile": "YM",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/YM_pd_forward",
+      "solved": "logs/hjb_paper225/solved/YM_pd_forward",
+      "save_history": false
+    },
+    {
+      "profile": "YM",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/YM_pd_backward",
+      "solved": "logs/hjb_paper225/solved/YM_pd_backward",
+      "save_history": false
+    },
+    {
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OM_none_forward",
+      "solved": "logs/hjb_paper225/solved/OM_none_forward",
+      "save_history": false
+    },
+    {
+      "profile": "OM",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OM_none_backward",
+      "solved": "logs/hjb_paper225/solved/OM_none_backward",
+      "save_history": false
+    },
+    {
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OM_gc_forward",
+      "solved": "logs/hjb_paper225/solved/OM_gc_forward",
+      "save_history": false
+    },
+    {
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OM_gc_backward",
+      "solved": "logs/hjb_paper225/solved/OM_gc_backward",
+      "save_history": false
+    },
+    {
+      "profile": "OM",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/OM_pd_forward",
+      "solved": "logs/hjb_paper225/solved/OM_pd_forward",
+      "save_history": false
+    },
+    {
+      "profile": "OM",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/OM_pd_backward",
+      "solved": "logs/hjb_paper225/solved/OM_pd_backward",
+      "save_history": false
+    },
+    {
+      "profile": "wOF",
+      "exo": "none",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/wOF_none_forward",
+      "solved": "logs/hjb_paper225/solved/wOF_none_forward",
+      "save_history": false
+    },
+    {
+      "profile": "wOF",
+      "exo": "none",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/wOF_none_backward",
+      "solved": "logs/hjb_paper225/solved/wOF_none_backward",
+      "save_history": false
+    },
+    {
+      "profile": "wOF",
+      "exo": "gc",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/wOF_gc_forward",
+      "solved": "logs/hjb_paper225/solved/wOF_gc_forward",
+      "save_history": false
+    },
+    {
+      "profile": "wOF",
+      "exo": "gc",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/wOF_gc_backward",
+      "solved": "logs/hjb_paper225/solved/wOF_gc_backward",
+      "save_history": false
+    },
+    {
+      "profile": "wOF",
+      "exo": "pd",
+      "direction": "forward",
+      "prepared": "logs/hjb_paper225/prepared/wOF_pd_forward",
+      "solved": "logs/hjb_paper225/solved/wOF_pd_forward",
+      "save_history": false
+    },
+    {
+      "profile": "wOF",
+      "exo": "pd",
+      "direction": "backward",
+      "prepared": "logs/hjb_paper225/prepared/wOF_pd_backward",
+      "solved": "logs/hjb_paper225/solved/wOF_pd_backward",
+      "save_history": false
+    }
+  ],
+  "paper_table_ii_percent": {
+    "YM": {
+      "gc_forward": -0.4,
+      "gc_backward": -16.9,
+      "pd_forward": -0.4,
+      "pd_backward": -16.5
+    },
+    "YF": {
+      "gc_forward": -3.1,
+      "gc_backward": -32.7,
+      "pd_forward": -2.7,
+      "pd_backward": -32.4
+    },
+    "OM": {
+      "gc_forward": 3.7,
+      "gc_backward": -15.4,
+      "pd_forward": 4.6,
+      "pd_backward": -14.9
+    },
+    "OF": {
+      "gc_forward": 8.4,
+      "gc_backward": -19.6,
+      "pd_forward": 9.6,
+      "pd_backward": -18.9
+    },
+    "wOF": {
+      "gc_forward": 15.9,
+      "gc_backward": -10.5,
+      "pd_forward": 17.5,
+      "pd_backward": -10.2
+    }
+  }
+}

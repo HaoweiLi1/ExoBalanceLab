@@ -1,0 +1,6 @@
+{
+  "source_report": "logs/hjb_paper225_report",
+  "reconstructed_report": "logs/hjb_paper225_report_from_curated",
+  "all_30_area_records_equal_except_run_paths": true,
+  "all_20_table_ii_comparisons_equal": true
+}

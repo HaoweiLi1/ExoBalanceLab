@@ -1,0 +1,106 @@
+{
+  "source": {
+    "profile": "OF",
+    "exo": "pd",
+    "direction": "forward",
+    "resolution": [
+      225,
+      226,
+      226
+    ],
+    "requested_resolution": [
+      225,
+      225,
+      225
+    ],
+    "duration_s": 1.4,
+    "output_step_s": 0.01,
+    "method": "none",
+    "velocity_buffer_rad_s": 0.5,
+    "aligned_zero": true,
+    "matlab_release": "2026b",
+    "gravity_m_s2": 9.8,
+    "source_model": {
+      "m": 60,
+      "h": 1.58,
+      "tauMin": -88,
+      "tauMax": 22,
+      "uMin": -389,
+      "uMax": 148
+    },
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -45.81831308077206
+      ],
+      "thetaAnkRange": 0.016555015279240783,
+      "thetaDotAnkRange": 0.01,
+      "torqueAnkRange": 0.009168629752093295,
+      "thetaToeRange": 0.014471675279422828,
+      "thetaDotToeRange": 0.01,
+      "torqueToeRange": 10.665529973479257
+    },
+    "ankle_target_nodes": 6,
+    "toe_target_nodes": 264,
+    "initial_target_nodes": 270,
+    "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+    "stage": "solved",
+    "backend": "JAX/ENO3",
+    "device": "cuda:0",
+    "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+    "precision": "float64",
+    "problem_sha256": "36356352befddd63aa2db3678a3098e2dc687587d56ff3889f0d6c2a60fe2bcc",
+    "save_history": true,
+    "compilation_s": 1.8496591310249642,
+    "compiled_temporary_bytes": 1116784728,
+    "versions": {
+      "jax": "0.12.0.1",
+      "jaxlib": "0.12.0.1",
+      "hj_reachability": "0.7.0",
+      "numpy": "2.2.6",
+      "h5py": "3.14.0"
+    },
+    "wall_s": 692.7774795410223,
+    "final_reachable_nodes": 849530
+  },
+  "policy_sha256": "921cd6a8af2624a3b4b9785a4af586040b7c2cf8afdf5645af0c45eea8dbe6e7",
+  "seed": 240805418,
+  "requested_per_group": 1,
+  "states": [
+    {
+      "group": "boundary",
+      "state": [
+        1.7435267857142858,
+        -0.44866071428571436,
+        -9.82142857142857
+      ],
+      "value": -1.013056169565631e-05
+    }
+  ],
+  "rollout": {
+    "timestep_s": 2.5e-05,
+    "control_period_s": 2.5e-05
+  },
+  "gradient_cache": {
+    "policy_sha256": "921cd6a8af2624a3b4b9785a4af586040b7c2cf8afdf5645af0c45eea8dbe6e7",
+    "gradient_sha256": "08b8eb45b6cc4a1abbddd8a4fc2a2566f4dc3acdd62b8cfc05a991ac116f8d9f",
+    "shape": [
+      141,
+      226,
+      226,
+      225
+    ],
+    "dtype": "float64",
+    "numpy_version": "2.2.6",
+    "method": "numpy.gradient along human torque, edge_order=1"
+  },
+  "source_case_index": 25,
+  "selection_scope": "Recorded boundary target miss; one-case timestep study, not a new random cohort."
+}

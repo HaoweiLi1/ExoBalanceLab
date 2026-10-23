@@ -1,0 +1,154 @@
+<mujoco model="initial_humanoid">
+  <!-- SET GRAVITY TO POINT DOWN -->
+  <option gravity="0 0 -9.81">
+  </option>
+
+  <!-- VISUAL SETUP STUFF THAT I DON'T FULLY UNDERSTAND YET -->
+  <visual>
+    <map zfar="30"/>
+    <!-- <scale forcewidth="0.1" contactwidth="0.1" contactheight="0.1" connect="0.1" com="0.4" selectpoint="0.2" jointlength="0.1" jointwidth="0.1" actuatorlength="0.7" actuatorwidth="0.2" framelength="1" framewidth="0.1"/> -->
+    <rgba haze="0.15 0.25 0.35 1" />
+    <!-- force="1 0.5 0.5 1" contactforce="0.7 0.9 0.9 1" com="0.9 0.9 0.9 1"/> -->
+    <!-- <global offwidth="2560" offheight="1440" elevation="-20" azimuth="120"/> -->
+  </visual>
+
+  <!-- DON'T KNOW WHAT THIS DOES YET -->
+  <statistic center="0 0 0.7"/>
+
+  <!-- NOT SURE EXACTLY WHAT THIS STUFF DOES, BUT IT SETS UP THE CAMERA AND FLOOR -->
+  <asset>
+  <!-- this makes the sky blue in the simulation: -->
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="512"/>
+    
+    <!-- configure the texture and material of the default body created in a simulation -->
+    <texture name="body" type="cube" builtin="flat" mark="cross" width="128" height="128" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>
+    <!-- the material references the texture -->
+    <material name="body" texture="body" texuniform="true" rgba="0.8 0.6 .4 1"/>
+    
+     <!-- configure the default texture and material for the ground of the simulation -->
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+    <!-- the material references the texture -->
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+    
+    <mesh name="foot_mesh" vertex="-1 0 0  1 0 0  0 -1 0  0 1 0  0 0 1  0 0 -1"/>
+
+    <!-- Add new materials for exoskeleton components -->
+    <material name="exo_metal" rgba="0.7 0.7 0.7 1" shininess="0.8" specular="0.5"/>
+    <material name="exo_blue" rgba="0.1 0.3 0.7 1" shininess="0.3" specular="0.3"/>
+    <material name="exo_straps" rgba="0.3 0.3 0.3 1" shininess="0.1" specular="0.1"/>
+
+  </asset>
+
+  <!-- SECTION TO DEFINE GEOMETRIES AND JOINTS -->
+  <default>
+    
+    <default class="general_geom">
+      <motor ctrlrange="-0.5 0.5" ctrllimited="true"/>
+      <!-- geoms -->
+      <!-- ALL DEFAULT GEOMETRIES ARE CAPSULE TYPE -->
+      <geom material="body" type="capsule" condim="1" friction="0.99 0.99 0.99" solimp=".9 .99 .003" group="1"/>
+      
+      <!-- SHIN GEOMETRY -->
+      <default class="long_link">
+        <geom fromto="0 0 0.1 0 0 0" size = "0.025"/>
+      </default>
+
+    </default>
+  </default>
+
+    <!-- DEFINE THE LEG, STARTING FROM THE WORLDBODY FRAME? -->
+	<worldbody>
+      <!-- DEFINE THE FLOOR IN THE ENVIRONMENT -->
+      <geom name="ground" size="0 0 .05" friction='0.99 0.99 0.99' type="plane" material="grid" condim="3" solimp=".9 .99 .003" />
+      
+      <!-- LIGHT SETTING -->
+      <light name="spotlight" mode="targetbodycom" target="foot" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 -6 4" cutoff="30"/>
+    
+        <!-- BODY FOR FOOT; CAN HAVE MAX 6-DOF -->
+        <body name="foot" >
+          <!-- Create prismatic joints to constrain motion along the x and z directions -->
+          <joint type="hinge" name="rotation_dof" axis="0 1 0"/>
+          <joint type="slide" name="joint_slide_x" axis="1 0 0"/>
+          <joint type="slide" name="joint_slide_z" axis="0 0 1"/>
+
+          <site name="front_foot_site" type="cylinder" size="0.075" rgba="0.5 0.5 0.5 0"/>
+          <site name="back_foot_site" type="cylinder" size="0.075" rgba="0.5 0.5 0.5 0"/>
+          
+          <geom type="mesh" mesh="foot_mesh" name="foot_geom" friction=".99 .99 .99" rgba="0.8 0.6 0.4 1"/>
+          
+          <!-- Heel plate where exoskeleton attaches -->
+          <geom name="exo_heel_attachment" type="box" size="0.02 0.025 0.005" pos="-0.1 0 0.005" 
+                material="exo_metal" contype="0" conaffinity="0"/>
+      
+            <body name="long_link_body">
+            
+            <!-- Create a hinge joint to constrain rotation around the y-axis -->
+              <joint type="hinge" name="ankle_hinge" axis="0 1 0" damping="2.5"/>
+              <geom name="long_link_geom" class="long_link" solref="0.015 1" solimp=".99 .99 .001"/>
+              <geom name="m_body" type="sphere" size="0.05"/>
+
+              <!-- Exoskeleton components -->
+              <!-- Main actuator housing -->
+              <geom name="exo_housing" type="box" size="0.025 0.03 0.04" pos="-0.03 0 0.08" 
+                    material="exo_blue" contype="0" conaffinity="0"/>
+                    
+              <!-- Connecting rod -->
+              <geom name="exo_connecting_rod" type="capsule" fromto="-0.03 0 0.05 -0.03 0 -0.025" size="0.005" 
+                    material="exo_metal" contype="0" conaffinity="0"/>
+                    
+              <!-- Ball joint at top of rod -->
+              <geom name="exo_joint_upper" type="sphere" size="0.007" pos="-0.03 0 0.05" 
+                    material="exo_metal" contype="0" conaffinity="0"/>
+                    
+              <!-- Ball joint at bottom of rod -->
+              <geom name="exo_joint_lower" type="sphere" size="0.007" pos="-0.03 0 -0.025" 
+                    material="exo_metal" contype="0" conaffinity="0"/>
+              
+              <!-- NEW: Calf bandage/strap to fix the motor -->
+              <!-- Left side of strap -->
+              <geom name="exo_calf_strap_left" type="capsule" fromto="-0.03 -0.02 0.08 0.03 -0.02 0.08" size="0.008" 
+                    material="exo_straps" contype="0" conaffinity="0"/>
+                    
+              <!-- Right side of strap -->
+              <geom name="exo_calf_strap_right" type="capsule" fromto="-0.03 0.02 0.08 0.03 0.02 0.08" size="0.008" 
+                    material="exo_straps" contype="0" conaffinity="0"/>
+                    
+              <!-- Top connecting strap -->
+              <geom name="exo_calf_strap_top" type="capsule" fromto="0.03 -0.02 0.08 0.03 0.02 0.08" size="0.008" 
+                    material="exo_straps" contype="0" conaffinity="0"/>
+            
+              <body name="upper_body">
+                  <joint type="hinge" name="hip_hinge" axis="0 1 0" damping="2.5"/>
+                  <geom name="upper_body_geom" type="capsule" fromto="0 0 0 0 0 0.5" size="0.025" 
+                        solref="0.015 1" solimp=".99 .99 .001"/>
+                  <geom name="upper_body_com" type="sphere" size="0.05" pos="0 0 0.25"/>
+              </body>
+
+            </body>
+
+        </body>
+	</worldbody>
+  
+  <contact>
+    <pair name="foot_ground_friction" geom1="foot_geom" geom2="ground" solref="0.015 1" solimp="0.99 .99 .003" friction=".99 .99 .99"/>
+    <pair name="longlink_ground_friction" geom1="long_link_geom" geom2="ground" solref="0.015 1" solimp="0.99 .99 .003" friction=".99 .99 .99"/>
+  </contact>
+
+    <!-- ACTUATORS FOR THE ANKLE JOINTS -->
+	<actuator>
+      <motor joint="ankle_hinge" name="human_ankle_actuator" gear="1" ctrlrange="-150 150" ctrllimited="true"/> 
+      <motor joint="ankle_hinge" name="exo_ankle_actuator" gear="1" ctrlrange="-50 50" ctrllimited="true"/>
+      <motor joint="hip_hinge" name="hip_actuator" gear="1" ctrlrange="-150 150" ctrllimited="true"/>
+	</actuator>
+
+    <!-- SENSORS FOR THE ANKLE JOINTS -->
+	<sensor>
+      <jointpos joint='ankle_hinge'/>
+      <touch site='front_foot_site'/>
+      <touch site='back_foot_site'/>
+      <jointpos joint='hip_hinge'/>
+      <jointvel joint='hip_hinge'/>
+      <actuatorfrc actuator='hip_actuator'/>
+	</sensor>
+
+</mujoco>

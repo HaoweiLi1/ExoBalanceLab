@@ -1,0 +1,26 @@
+[
+  {
+    "step_s": 1.25e-05,
+    "status": "completed",
+    "final_state": [
+      1.568241301926402,
+      0.0003823625394556921,
+      -0.002491071423135772
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "step_s": 6.25e-06,
+    "status": "completed",
+    "final_state": [
+      1.5682422679102777,
+      0.0003823957264720207,
+      0.0008651784735646709
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  }
+]

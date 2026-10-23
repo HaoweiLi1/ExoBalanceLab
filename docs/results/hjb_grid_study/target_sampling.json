@@ -1,0 +1,716 @@
+{
+  "scope": "Prepared-input sampling, independent of solve completion. This observation alone does not identify the cause of area differences or establish convergence.",
+  "calculation": "For each stored SI axis, count abs(x - ankleEq) < half-width. Record all interior axis nodes. Their product equals the recorded constrained ankle-target count in these inputs.",
+  "records": [
+    {
+      "study": "hjb_grid_study",
+      "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ],
+      "prepared_input": "logs/hjb_grid_study/prepared/OF_gc_forward_151/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 151,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.007666666666666666,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.524,
+            1.5316666666666667,
+            1.5393333333333334,
+            1.5470000000000002,
+            1.5546666666666666,
+            1.5623333333333334,
+            1.57,
+            1.5776666666666668,
+            1.5853333333333335,
+            1.593,
+            1.6006666666666667,
+            1.6083333333333334,
+            1.616
+          ],
+          "array_sha256": "67c779d585015c9a8680ceb4808135cced74e239816230e3a2e4402c3c0dbdef"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 152,
+          "min": -0.5136666666666667,
+          "max": 2.858666666666667,
+          "mean_spacing": 0.022333333333333337,
+          "target_center": 0,
+          "target_half_width": 0.007172155601083794,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "72470cc45ce7bcb02e21ef3ed0900cf531a17639090d4a6c823eb2aa94749ffa"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 151,
+          "min": -88.0,
+          "max": 22.0,
+          "mean_spacing": 0.7333333333333333,
+          "target_center": 0,
+          "target_half_width": 0.05024411972568244,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "ce9660439d322c2a00c6f2567abc418018c69854be2d64d77ddb864d245eb3a5"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 13,
+      "initial_target_nodes": 133
+    },
+    {
+      "study": "hjb_grid_study",
+      "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ],
+      "prepared_input": "logs/hjb_grid_study/prepared/OF_pd_forward_151/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 151,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.007666666666666666,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.016555015279240783,
+          "strict_interior_nodes": [
+            1.5546666666666666,
+            1.5623333333333334,
+            1.57,
+            1.5776666666666668,
+            1.5853333333333335
+          ],
+          "array_sha256": "67c779d585015c9a8680ceb4808135cced74e239816230e3a2e4402c3c0dbdef"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 152,
+          "min": -0.5136666666666667,
+          "max": 2.858666666666667,
+          "mean_spacing": 0.022333333333333337,
+          "target_center": 0,
+          "target_half_width": 0.01,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "72470cc45ce7bcb02e21ef3ed0900cf531a17639090d4a6c823eb2aa94749ffa"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 151,
+          "min": -88.0,
+          "max": 22.0,
+          "mean_spacing": 0.7333333333333333,
+          "target_center": 0,
+          "target_half_width": 0.009168629752093295,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "ce9660439d322c2a00c6f2567abc418018c69854be2d64d77ddb864d245eb3a5"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 5,
+      "initial_target_nodes": 125
+    },
+    {
+      "study": "hjb_grid_study",
+      "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ],
+      "prepared_input": "logs/hjb_paper225/prepared/OF_gc_forward/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 225,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.005133928571428571,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.5227678571428571,
+            1.5279017857142858,
+            1.5330357142857143,
+            1.538169642857143,
+            1.5433035714285714,
+            1.5484375,
+            1.5535714285714286,
+            1.5587053571428573,
+            1.5638392857142858,
+            1.5689732142857142,
+            1.574107142857143,
+            1.5792410714285714,
+            1.584375,
+            1.5895089285714286,
+            1.5946428571428573,
+            1.5997767857142857,
+            1.6049107142857144,
+            1.6100446428571429,
+            1.6151785714285714,
+            1.6203125
+          ],
+          "array_sha256": "ddba4f8423ac2115b8a30f94108ddcf852b23ef105a0b09589ff120b396acc2a"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 226,
+          "min": -0.5084821428571429,
+          "max": 2.8564732142857143,
+          "mean_spacing": 0.014955357142857142,
+          "target_center": 0,
+          "target_half_width": 0.007172155601083794,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "16975600723cde5199446cebfc51eee7831599fb515bbac3dfef1010cf907827"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 226,
+          "min": -88.39285714285715,
+          "max": 22.09821428571429,
+          "mean_spacing": 0.49107142857142866,
+          "target_center": 0,
+          "target_half_width": 0.05024411972568244,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "bb5d03f2c2803c3a5894d386f4d395274fe7cd42490ab7fab478233f98f3fd2e"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 20,
+      "initial_target_nodes": 284
+    },
+    {
+      "study": "hjb_grid_study",
+      "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ],
+      "prepared_input": "logs/hjb_paper225/prepared/OF_pd_forward/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 225,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.005133928571428571,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.016555015279240783,
+          "strict_interior_nodes": [
+            1.5587053571428573,
+            1.5638392857142858,
+            1.5689732142857142,
+            1.574107142857143,
+            1.5792410714285714,
+            1.584375
+          ],
+          "array_sha256": "ddba4f8423ac2115b8a30f94108ddcf852b23ef105a0b09589ff120b396acc2a"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 226,
+          "min": -0.5084821428571429,
+          "max": 2.8564732142857143,
+          "mean_spacing": 0.014955357142857142,
+          "target_center": 0,
+          "target_half_width": 0.01,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "16975600723cde5199446cebfc51eee7831599fb515bbac3dfef1010cf907827"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 226,
+          "min": -88.39285714285715,
+          "max": 22.09821428571429,
+          "mean_spacing": 0.49107142857142866,
+          "target_center": 0,
+          "target_half_width": 0.009168629752093295,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "bb5d03f2c2803c3a5894d386f4d395274fe7cd42490ab7fab478233f98f3fd2e"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 6,
+      "initial_target_nodes": 270
+    },
+    {
+      "study": "hjb_grid_study",
+      "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+      "profile": "OF",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ],
+      "prepared_input": "logs/hjb_grid_study/prepared/OF_gc_forward_301/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 301,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.003833333333333333,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.524,
+            1.5278333333333334,
+            1.5316666666666667,
+            1.5355,
+            1.5393333333333334,
+            1.5431666666666668,
+            1.5470000000000002,
+            1.5508333333333333,
+            1.5546666666666666,
+            1.5585,
+            1.5623333333333334,
+            1.5661666666666667,
+            1.57,
+            1.5738333333333334,
+            1.5776666666666668,
+            1.5815000000000001,
+            1.5853333333333335,
+            1.5891666666666668,
+            1.593,
+            1.5968333333333333,
+            1.6006666666666667,
+            1.6045,
+            1.6083333333333334,
+            1.6121666666666667,
+            1.616,
+            1.6198333333333335
+          ],
+          "array_sha256": "3eceae539d3c34e7dc53475face409e3aac95361e02048e22320faed382120db"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 302,
+          "min": -0.5025000000000001,
+          "max": 2.858666666666667,
+          "mean_spacing": 0.011166666666666668,
+          "target_center": 0,
+          "target_half_width": 0.007172155601083794,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "947cc6585087f319e708e0b204fbef56ac0a2aa549ab1b71115481692d5d2a12"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 301,
+          "min": -88.0,
+          "max": 22.0,
+          "mean_spacing": 0.36666666666666664,
+          "target_center": 0,
+          "target_half_width": 0.05024411972568244,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "4188cd0b3d53cd873c103c9baaf58e2274b84ddd9055bb02c6d198a1fb9a7d64"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 26,
+      "initial_target_nodes": 498
+    },
+    {
+      "study": "hjb_grid_study",
+      "protocol_sha256": "5dea36aed94125b5364029d094c4e3a618ac6f1653d35e7187b1aca05d1df757",
+      "profile": "OF",
+      "exo": "pd",
+      "direction": "forward",
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ],
+      "prepared_input": "logs/hjb_grid_study/prepared/OF_pd_forward_301/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 301,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.003833333333333333,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.016555015279240783,
+          "strict_interior_nodes": [
+            1.5546666666666666,
+            1.5585,
+            1.5623333333333334,
+            1.5661666666666667,
+            1.57,
+            1.5738333333333334,
+            1.5776666666666668,
+            1.5815000000000001,
+            1.5853333333333335
+          ],
+          "array_sha256": "3eceae539d3c34e7dc53475face409e3aac95361e02048e22320faed382120db"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 302,
+          "min": -0.5025000000000001,
+          "max": 2.858666666666667,
+          "mean_spacing": 0.011166666666666668,
+          "target_center": 0,
+          "target_half_width": 0.01,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "947cc6585087f319e708e0b204fbef56ac0a2aa549ab1b71115481692d5d2a12"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 301,
+          "min": -88.0,
+          "max": 22.0,
+          "mean_spacing": 0.36666666666666664,
+          "target_center": 0,
+          "target_half_width": 0.009168629752093295,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "4188cd0b3d53cd873c103c9baaf58e2274b84ddd9055bb02c6d198a1fb9a7d64"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 9,
+      "initial_target_nodes": 481
+    },
+    {
+      "study": "hjb_om_gc_followup",
+      "protocol_sha256": "25be91155885eee2b409d3c7d0bfc7102dfe361e378c53d650769aeaaa60f758",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        151,
+        151,
+        151
+      ],
+      "prepared_input": "logs/hjb_om_gc_followup/prepared/OM_gc_forward_151/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 151,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.007666666666666666,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.524,
+            1.5316666666666667,
+            1.5393333333333334,
+            1.5470000000000002,
+            1.5546666666666666,
+            1.5623333333333334,
+            1.57,
+            1.5776666666666668,
+            1.5853333333333335,
+            1.593,
+            1.6006666666666667,
+            1.6083333333333334,
+            1.616
+          ],
+          "array_sha256": "67c779d585015c9a8680ceb4808135cced74e239816230e3a2e4402c3c0dbdef"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 152,
+          "min": -0.5136666666666667,
+          "max": 2.858666666666667,
+          "mean_spacing": 0.022333333333333337,
+          "target_center": 0,
+          "target_half_width": 0.0058646631490287815,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "50385826648b8c6099634e4dbc347dbc04c42e66ea7601ab9c1c2d6294bd070e"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 152,
+          "min": -138.04,
+          "max": 37.12,
+          "mean_spacing": 1.1599999999999997,
+          "target_center": 0,
+          "target_half_width": 0.05024465936052392,
+          "strict_interior_nodes": [
+            -4.9216295174708815e-15
+          ],
+          "array_sha256": "a534074e1b59fa0cd0c0f7db43d3d8e3eb179f34102801b6612ce104b7183704"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 13,
+      "initial_target_nodes": 113
+    },
+    {
+      "study": "hjb_om_gc_followup",
+      "protocol_sha256": "25be91155885eee2b409d3c7d0bfc7102dfe361e378c53d650769aeaaa60f758",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ],
+      "prepared_input": "logs/hjb_paper225/prepared/OM_gc_forward/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 225,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.005133928571428571,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.5227678571428571,
+            1.5279017857142858,
+            1.5330357142857143,
+            1.538169642857143,
+            1.5433035714285714,
+            1.5484375,
+            1.5535714285714286,
+            1.5587053571428573,
+            1.5638392857142858,
+            1.5689732142857142,
+            1.574107142857143,
+            1.5792410714285714,
+            1.584375,
+            1.5895089285714286,
+            1.5946428571428573,
+            1.5997767857142857,
+            1.6049107142857144,
+            1.6100446428571429,
+            1.6151785714285714,
+            1.6203125
+          ],
+          "array_sha256": "ddba4f8423ac2115b8a30f94108ddcf852b23ef105a0b09589ff120b396acc2a"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 226,
+          "min": -0.5084821428571429,
+          "max": 2.8564732142857143,
+          "mean_spacing": 0.014955357142857144,
+          "target_center": 0,
+          "target_half_width": 0.0058646631490287815,
+          "strict_interior_nodes": [
+            -8.686698133223623e-17
+          ],
+          "array_sha256": "d7fb4075bde03c0dc987872a7ad76c515ec3b980868c713f2758b545397edaf8"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 226,
+          "min": -137.49107142857144,
+          "max": 37.285714285714285,
+          "mean_spacing": 0.7767857142857143,
+          "target_center": 0,
+          "target_half_width": 0.05024465936052392,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "633e685c115c6a2e5509be204f6d05ad84b35e122b7f5d7b4fbbed82a18450a8"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 20,
+      "initial_target_nodes": 248
+    },
+    {
+      "study": "hjb_om_gc_followup",
+      "protocol_sha256": "25be91155885eee2b409d3c7d0bfc7102dfe361e378c53d650769aeaaa60f758",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        301,
+        301,
+        301
+      ],
+      "prepared_input": "logs/hjb_om_gc_followup/prepared/OM_gc_forward_301/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 301,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.003833333333333333,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.524,
+            1.5278333333333334,
+            1.5316666666666667,
+            1.5355,
+            1.5393333333333334,
+            1.5431666666666668,
+            1.5470000000000002,
+            1.5508333333333333,
+            1.5546666666666666,
+            1.5585,
+            1.5623333333333334,
+            1.5661666666666667,
+            1.57,
+            1.5738333333333334,
+            1.5776666666666668,
+            1.5815000000000001,
+            1.5853333333333335,
+            1.5891666666666668,
+            1.593,
+            1.5968333333333333,
+            1.6006666666666667,
+            1.6045,
+            1.6083333333333334,
+            1.6121666666666667,
+            1.616,
+            1.6198333333333335
+          ],
+          "array_sha256": "3eceae539d3c34e7dc53475face409e3aac95361e02048e22320faed382120db"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 302,
+          "min": -0.5025000000000001,
+          "max": 2.858666666666667,
+          "mean_spacing": 0.011166666666666668,
+          "target_center": 0,
+          "target_half_width": 0.0058646631490287815,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "f4a9cbf882b3f98e7559d1f20d2d41a01fe50cb7cfda3fd76eb32b7d4d741eac"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 302,
+          "min": -137.46,
+          "max": 37.12,
+          "mean_spacing": 0.5800000000000001,
+          "target_center": 0,
+          "target_half_width": 0.05024465936052392,
+          "strict_interior_nodes": [
+            0.0
+          ],
+          "array_sha256": "d5d16325dfafac09e192e72d6fcd15087e1f6548a15eb0bb4e73854042e9b675"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 26,
+      "initial_target_nodes": 426
+    },
+    {
+      "study": "hjb_om_target_override",
+      "protocol_sha256": "bcc9db9225c53098a7313fde25659e96e91a9f321cf60c3280ad263b06c85448",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "requested_resolution": [
+        225,
+        225,
+        225
+      ],
+      "prepared_input": "logs/hjb_om_target_override/prepared/OM_gc_forward_225_source_bounds/problem.mat",
+      "axes": [
+        {
+          "axis": "theta_rad",
+          "count": 225,
+          "min": 0.65,
+          "max": 1.8,
+          "mean_spacing": 0.005133928571428571,
+          "target_center": 1.5707963267948966,
+          "target_half_width": 0.05024722818662286,
+          "strict_interior_nodes": [
+            1.5227678571428571,
+            1.5279017857142858,
+            1.5330357142857143,
+            1.538169642857143,
+            1.5433035714285714,
+            1.5484375,
+            1.5535714285714286,
+            1.5587053571428573,
+            1.5638392857142858,
+            1.5689732142857142,
+            1.574107142857143,
+            1.5792410714285714,
+            1.584375,
+            1.5895089285714286,
+            1.5946428571428573,
+            1.5997767857142857,
+            1.6049107142857144,
+            1.6100446428571429,
+            1.6151785714285714,
+            1.6203125
+          ],
+          "array_sha256": "ddba4f8423ac2115b8a30f94108ddcf852b23ef105a0b09589ff120b396acc2a"
+        },
+        {
+          "axis": "velocity_rad_s",
+          "count": 226,
+          "min": -0.5084821428571429,
+          "max": 2.8564732142857143,
+          "mean_spacing": 0.014955357142857144,
+          "target_center": 0,
+          "target_half_width": 0.01,
+          "strict_interior_nodes": [
+            -8.686698133223623e-17
+          ],
+          "array_sha256": "d7fb4075bde03c0dc987872a7ad76c515ec3b980868c713f2758b545397edaf8"
+        },
+        {
+          "axis": "human_torque_nm",
+          "count": 226,
+          "min": -137.49107142857144,
+          "max": 37.285714285714285,
+          "mean_spacing": 0.7767857142857143,
+          "target_center": 0,
+          "target_half_width": 1,
+          "strict_interior_nodes": [
+            -0.7767857142857127,
+            0.0,
+            0.7767857142857127
+          ],
+          "array_sha256": "633e685c115c6a2e5509be204f6d05ad84b35e122b7f5d7b4fbbed82a18450a8"
+        }
+      ],
+      "ankle_target_nodes_after_constraints": 60,
+      "initial_target_nodes": 288
+    }
+  ]
+}

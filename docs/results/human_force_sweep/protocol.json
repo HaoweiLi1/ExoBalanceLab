@@ -1,0 +1,28 @@
+{
+  "forces_n": [
+    -65,
+    -55,
+    -45,
+    -35,
+    35,
+    45,
+    55,
+    65,
+    80,
+    95,
+    110
+  ],
+  "duration_s": 6,
+  "push_time_s": [
+    1,
+    1.15
+  ],
+  "model": "human",
+  "initial_lean_rad": 0,
+  "initial_velocity_rad_s": 0,
+  "modes": [
+    "none",
+    "gc",
+    "pd"
+  ]
+}

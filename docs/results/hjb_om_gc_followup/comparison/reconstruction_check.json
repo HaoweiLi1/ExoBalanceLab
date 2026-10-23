@@ -1,0 +1,6 @@
+{
+  "source_report": "logs/hjb_om_gc_followup_report",
+  "reconstructed_report": "logs/hjb_om_gc_followup_report_from_curated",
+  "all_6_area_records_equal_except_run_paths": true,
+  "all_4_grid_comparisons_equal": true
+}

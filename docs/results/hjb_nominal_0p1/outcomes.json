@@ -1,0 +1,166 @@
+[
+  {
+    "group": "inside",
+    "state": [
+      1.57,
+      0.018437500000000002,
+      2.2000000000000006
+    ],
+    "value": -0.001132499574754786,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.5714072177413936,
+      0.009443107342328325,
+      -3.4060000000000192
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "inside",
+    "state": [
+      1.57,
+      -0.02,
+      2.2000000000000006
+    ],
+    "value": -0.00046759866874328834,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.5685251097246753,
+      -0.008802549044514238,
+      6.259999999999978
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "inside",
+    "state": [
+      1.57,
+      0.005625000000000001,
+      8.800000000000002
+    ],
+    "value": -0.0016153270915724345,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.570642832865836,
+      0.005428837204519145,
+      -0.0280000000000013
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.363,
+      1.594375,
+      -39.6
+    ],
+    "value": 0.40155496878300934,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.5083852212180875,
+      1.3283949923527065,
+      -78.50000000000003
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "outside",
+    "state": [
+      1.5470000000000002,
+      1.2228124999999999,
+      -79.2
+    ],
+    "value": 0.3256335397498294,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.6610605307959359,
+      1.0784770259503378,
+      -88.0
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "outside",
+    "state": [
+      0.88,
+      0.3515625,
+      -22.0
+    ],
+    "value": 0.6770759698413618,
+    "predicted_inside": false,
+    "status": "rollout_error",
+    "error": "One of the requested xi is out of bounds in dimension 1"
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.5470000000000002,
+      0.056875,
+      19.8
+    ],
+    "value": 0.01003162231489418,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.552240050851689,
+      0.03744908454649701,
+      -8.359999999999987
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.685,
+      0.108125,
+      -79.2
+    ],
+    "value": 0.01487134893234882,
+    "predicted_inside": false,
+    "status": "completed",
+    "final_state": [
+      1.6931534994804849,
+      0.055625704838650356,
+      -85.42900000000007
+    ],
+    "target_reached": false,
+    "contact_valid": true,
+    "valid_target_reach": false
+  },
+  {
+    "group": "boundary",
+    "state": [
+      1.708,
+      0.005625000000000001,
+      -68.2
+    ],
+    "value": -0.0017957544397473194,
+    "predicted_inside": true,
+    "status": "completed",
+    "final_state": [
+      1.7085751307255752,
+      0.005656987048456079,
+      -71.12100000000012
+    ],
+    "target_reached": true,
+    "contact_valid": true,
+    "valid_target_reach": true
+  }
+]

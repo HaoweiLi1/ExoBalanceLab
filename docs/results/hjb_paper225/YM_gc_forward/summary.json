@@ -1,0 +1,71 @@
+{
+  "profile": "YM",
+  "exo": "gc",
+  "direction": "forward",
+  "resolution": [
+    225,
+    226,
+    225
+  ],
+  "requested_resolution": [
+    225,
+    225,
+    225
+  ],
+  "duration_s": 1.4,
+  "output_step_s": 0.01,
+  "method": "none",
+  "velocity_buffer_rad_s": 0.5,
+  "aligned_zero": true,
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 72.9,
+    "h": 1.77,
+    "tauMin": -181,
+    "tauMax": 43,
+    "uMin": -957,
+    "uMax": 309
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -80.4190336682623
+    ],
+    "thetaAnkRange": 0.05024722818662286,
+    "thetaDotAnkRange": 0.005828678131693944,
+    "torqueAnkRange": 0.050244686065047055,
+    "thetaToeRange": 0.014510814031942763,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 14.591971105619704
+  },
+  "ankle_target_nodes": 20,
+  "toe_target_nodes": 180,
+  "initial_target_nodes": 200,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "stage": "solved",
+  "backend": "JAX/ENO3",
+  "device": "cuda:0",
+  "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "solver_sha256": "42e25fc737c19fd7f265c94169e403e5a402f79f580167e8d7e5c02f04e13eec",
+  "precision": "float64",
+  "problem_sha256": "54760dd7bacf8a43427d3d9fe0e03b815fc524b8d502b92959a3219505a0aa07",
+  "save_history": false,
+  "compilation_s": 1.438939171959646,
+  "compiled_temporary_bytes": 1106096984,
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "hj_reachability": "0.7.0",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0"
+  },
+  "wall_s": 287.75406207493506,
+  "final_reachable_nodes": 717931
+}

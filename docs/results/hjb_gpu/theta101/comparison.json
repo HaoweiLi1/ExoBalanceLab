@@ -1,0 +1,27 @@
+{
+  "reference": "logs/hjb_OF_theta101_buffer05_dt001",
+  "candidate": "logs/hjb_gpu_OF_theta101",
+  "reference_wall_s": 2552.52338,
+  "candidate_wall_s": 59.1904438349884,
+  "final": {
+    "time_s": 1.3999999999999997,
+    "max_absolute_error": 0.14790198428843127,
+    "rmse": 0.0023327798756086465,
+    "sign_disagreement_nodes": 203,
+    "negative_set_jaccard": 0.9968443470285563,
+    "reference_nonpositive_nodes": 64259,
+    "candidate_nonpositive_nodes": 64196
+  },
+  "area_rad2_per_s": {
+    "reference": 0.34428125,
+    "candidate": 0.34370625
+  },
+  "relative_area_difference": -0.0016701461377870337,
+  "projected_sign_disagreement_nodes": 10,
+  "area_method": "Trapezoidal integral of sampled min_torque(V)<=0 over the selected velocity sign.",
+  "scope": "Backend comparison on one grid; no spatial convergence or bitwise-equivalence claim.",
+  "policy_sha256": {
+    "reference": "b4a1cba111d55436fabc5b20c8fb3ff673ced76b55ebc6eeb368266dfbccf4d2",
+    "candidate": "9654ad0f01749086e3f3e0f25a7bc7c333bba626adea028f7ff7734fcda0683b"
+  }
+}

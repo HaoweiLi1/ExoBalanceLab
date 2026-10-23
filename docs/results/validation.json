@@ -1,0 +1,179 @@
+{
+  "dynamics": {
+    "seed": 240805418,
+    "mujoco_version": "3.3.7",
+    "profiles": {
+      "YF": {
+        "profile": {
+          "name": "YF",
+          "mass_kg": 59.4,
+          "height_m": 1.65,
+          "torque_min_nm": -130,
+          "torque_max_nm": 28,
+          "rate_min_nm_s": -608,
+          "rate_max_nm_s": 219,
+          "damping_nm_s": 0.001,
+          "friction": 1.0
+        },
+        "max_acceleration_error_rad_s2": 1.113544811914835e-09,
+        "sample_count": 300,
+        "integrations": [
+          {
+            "dt_s": 0.002,
+            "angle_error_rad": 0.00037544864120611643,
+            "velocity_error_rad_s": 0.001538444237790898
+          },
+          {
+            "dt_s": 0.001,
+            "angle_error_rad": 0.00018750178089100428,
+            "velocity_error_rad_s": 0.0007696589945632992
+          },
+          {
+            "dt_s": 0.0005,
+            "angle_error_rad": 9.369510864400826e-05,
+            "velocity_error_rad_s": 0.00038493811735992867
+          }
+        ]
+      },
+      "OF": {
+        "profile": {
+          "name": "OF",
+          "mass_kg": 60.0,
+          "height_m": 1.59,
+          "torque_min_nm": -88,
+          "torque_max_nm": 22,
+          "rate_min_nm_s": -389,
+          "rate_max_nm_s": 148,
+          "damping_nm_s": 0.001,
+          "friction": 1.0
+        },
+        "max_acceleration_error_rad_s2": 1.1549445844138972e-09,
+        "sample_count": 300,
+        "integrations": [
+          {
+            "dt_s": 0.002,
+            "angle_error_rad": 0.00039922013825038904,
+            "velocity_error_rad_s": 0.0016188754920707649
+          },
+          {
+            "dt_s": 0.001,
+            "angle_error_rad": 0.00019937843259259375,
+            "velocity_error_rad_s": 0.0008099280255799146
+          },
+          {
+            "dt_s": 0.0005,
+            "angle_error_rad": 9.963114412086388e-05,
+            "velocity_error_rad_s": 0.0004050859243413252
+          }
+        ]
+      },
+      "YM": {
+        "profile": {
+          "name": "YM",
+          "mass_kg": 72.9,
+          "height_m": 1.77,
+          "torque_min_nm": -181,
+          "torque_max_nm": 43,
+          "rate_min_nm_s": -957,
+          "rate_max_nm_s": 309,
+          "damping_nm_s": 0.001,
+          "friction": 1.0
+        },
+        "max_acceleration_error_rad_s2": 6.970592991706326e-10,
+        "sample_count": 300,
+        "integrations": [
+          {
+            "dt_s": 0.002,
+            "angle_error_rad": 0.00030993155581313797,
+            "velocity_error_rad_s": 0.001398568799683142
+          },
+          {
+            "dt_s": 0.001,
+            "angle_error_rad": 0.00015475465759069718,
+            "velocity_error_rad_s": 0.0006995890973583163
+          },
+          {
+            "dt_s": 0.0005,
+            "angle_error_rad": 7.732443751218981e-05,
+            "velocity_error_rad_s": 0.0003498702247986263
+          }
+        ]
+      },
+      "OM": {
+        "profile": {
+          "name": "OM",
+          "mass_kg": 74.5,
+          "height_m": 1.74,
+          "torque_min_nm": -137,
+          "torque_max_nm": 37,
+          "rate_min_nm_s": -681,
+          "rate_max_nm_s": 232,
+          "damping_nm_s": 0.001,
+          "friction": 1.0
+        },
+        "max_acceleration_error_rad_s2": 6.678382291624985e-10,
+        "sample_count": 300,
+        "integrations": [
+          {
+            "dt_s": 0.002,
+            "angle_error_rad": 0.00031670773250902506,
+            "velocity_error_rad_s": 0.001431242547490802
+          },
+          {
+            "dt_s": 0.001,
+            "angle_error_rad": 0.00015813819679496438,
+            "velocity_error_rad_s": 0.000715938954755968
+          },
+          {
+            "dt_s": 0.0005,
+            "angle_error_rad": 7.901506518432494e-05,
+            "velocity_error_rad_s": 0.00035804837773725784
+          }
+        ]
+      },
+      "wOF": {
+        "profile": {
+          "name": "wOF",
+          "mass_kg": 60.0,
+          "height_m": 1.59,
+          "torque_min_nm": -78,
+          "torque_max_nm": 21,
+          "rate_min_nm_s": -303,
+          "rate_max_nm_s": 130,
+          "damping_nm_s": 0.001,
+          "friction": 1.0
+        },
+        "max_acceleration_error_rad_s2": 1.0407159578562641e-09,
+        "sample_count": 300,
+        "integrations": [
+          {
+            "dt_s": 0.002,
+            "angle_error_rad": 0.00039922013825038904,
+            "velocity_error_rad_s": 0.0016188754920707649
+          },
+          {
+            "dt_s": 0.001,
+            "angle_error_rad": 0.00019937843259259375,
+            "velocity_error_rad_s": 0.0008099280255799146
+          },
+          {
+            "dt_s": 0.0005,
+            "angle_error_rad": 9.963114412086388e-05,
+            "velocity_error_rad_s": 0.0004050859243413252
+          }
+        ]
+      }
+    }
+  },
+  "bridge": {
+    "seed": 240805418,
+    "samples": 12001,
+    "queries": 1000,
+    "legacy_scan_us_per_query": 1801.2146579567343,
+    "interpolation_us_per_query": 20.506632048636675,
+    "speedup": 87.83571352354191,
+    "legacy_max_sine_error": 0.00024506237913526907,
+    "interpolation_max_sine_error": 3.12041604777491e-08,
+    "scope": "in-process off-grid trajectory lookup; excludes MATLAB execution and physics"
+  }
+}

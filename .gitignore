@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.conda*/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+logs/
+.DS_Store
+MUJOCO_LOG.TXT

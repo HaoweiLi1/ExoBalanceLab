@@ -1,0 +1,73 @@
+config: 
+  # Simulation parameters
+  simend: 6                                           # set the duration for which the simulation will run
+  simulation_timestep: 0.0005                          # set the simulation timestep - this attribute is critical to simulation success
+  visualization_flag: True                             # Enable/disable MuJoCo 3D visualization
+  
+  # Body parameters
+  M_total: 60                                          # total mass of the human, used for literature estimate calculations
+  H_total: 1.59                                        # total height of the human, used for literature estimate calculations
+  
+  # Ankle joint parameters
+  ankle_initial_position_radians: 0.1                  # set the initial ankle angle in radians 
+  ankle_initial_velocity: 0.0                        # set initial ankle velocity in rad/s
+  ankle_position_setpoint_radians: 0.00                 # set the ankle joint setpoint in radians
+  mrtd_df: 148                                         # Maximum rate of torque development for dorsiflexion (Nm/s)
+  mrtd_pf: 389                                        # Maximum rate of torque development for plantarflexion (Nm/s)
+  
+  # Environment parameters
+  foot_angle_initial_position_radians: 0               # set the initial angle of the foot
+  foot_rotation_initial_velocity: 0.0                  # initial rotational velocity of the foot
+  foot_x_initial_velocity: 0.0                         # initial x-velocity of the foot
+  foot_z_initial_velocity: 0.0                         # initial z-velocity of the foot
+  translation_friction_constant: 0.99                  # set the translational friction constant for model geoms
+  rolling_friction_constant: 0.99                      # set the rolling friction constant for model geoms
+  
+  # Controller configuration
+  controllers:
+    human:
+      type: "LQR"                                      # Options: "LQR", "PD", "Precomputed"
+      
+      # LQR specific parameters
+      lqr_params:
+        Q_angle: 1000                                  # State cost for angle
+        Q_velocity: 4000                                # State cost for velocity
+        R: 1                                         # Control cost
+      
+      # PD specific parameters
+      pd_params:
+        kp: 100                                        # Proportional gain
+        kd: 10                                         # Derivative gain
+    
+      # Precomputed specific parameters
+      precomputed_params:
+        trajectory_file: "ankle_torque_trajectory.csv"
+
+    exo:
+      type: "None"                                       # Options: "PD", "None" 
+      
+      # PD specific parameters
+      pd_params:
+        use_dynamic_gains: true                        # New flag to indicate we want to use calculated gains
+        kp: 400                                        # Proportional gain
+        kd: 10                                         # Derivative gain
+
+  # Visualization settings
+  camera_azimuth: 87.5                                 # set camera azimuth 
+  camera_distance: 3.                                  # set camera distance from worldbody origin
+  camera_elevation: -5                                 # set camera elevation from worldbody origin; not sure why it's negative (pretend it is positive)
+  camera_lookat_xyz: '0.012768, -0.000000, 1'          # configure the (x,y,z) coordinates that the camera looks at in simulation
+  visualize_center_of_mass: False                      # toggle on/off to visualize humanoid COM
+  visualize_contact_force: False                       # toggle on / off to visualize contact forces
+  visualize_joints: False                              # toggle on / off to visualize model joints
+  visualize_actuators: False                           # toggle on / off to visualize model actuators
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,407 @@
+{
+  "scope": "All summaries/projections included; full final fields retained locally and hashed here.",
+  "records": [
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_151/summary.json",
+      "bytes": 1704,
+      "sha256": "3aadf0b87d494b325ec7ed7252dc5c15ec02e6669e1c7b8acbbe4cc65f97663c",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_151/projection.mat",
+      "bytes": 186384,
+      "sha256": "cc08bbd6252bc7fe5697caba49f1e9742bd8c379c05e235032c479a633e35445",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_151/final_value.npy",
+      "bytes": 27726144,
+      "sha256": "632f197d0f8daa8fa7392a0db4c8b48b744345b18ab06340a601c9df7791ed1e",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_151/summary.json",
+      "bytes": 1706,
+      "sha256": "3d31e3db02f171c19f808b8373675b6ccabe437476a881fc4597ea69f0fd1714",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_151/projection.mat",
+      "bytes": 186384,
+      "sha256": "622800a3cc68c13896b492676e2f0ed688d85d3be3bde1e8afe3e7544ce003f1",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_151/final_value.npy",
+      "bytes": 27726144,
+      "sha256": "e070cb55abfbc56bd889b8d4e8eb17ca5282909bd36a0d37c045de112180d615",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_151/summary.json",
+      "bytes": 1719,
+      "sha256": "53947e274935cb6b9fb341339b1e4d946ad4ec573c370121cc1d3189853db6fc",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_151/projection.mat",
+      "bytes": 186384,
+      "sha256": "d6328e4a5cfdf0c9c6fda592a04c4f2c4b6bbfd890420e5a5c72c814187224e4",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_151/final_value.npy",
+      "bytes": 27726144,
+      "sha256": "dda6ba71512c10bb8c7ce3875a3d174ecb696ad1aa0f7a248a9a8f36982f05cb",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_151/summary.json",
+      "bytes": 1719,
+      "sha256": "47c83687f00c4fc6155bc07cf624ffdedc0632dd1ad79e5590dd4dbc6ac3fdb9",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_151/projection.mat",
+      "bytes": 186384,
+      "sha256": "6fde78fbe8371d00837fc78485cbb894f895a91dfd1d37c12caf14ed7095ca73",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_151/final_value.npy",
+      "bytes": 27726144,
+      "sha256": "2be9b53766282c51d71f3fb0e6de132b6cfc60cf111878bb698b1716199bb927",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_151/summary.json",
+      "bytes": 1703,
+      "sha256": "196e3a0e5fea44abb4ad9224e8203929f04438c3047e905b170c40ff06aa87e3",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_151/projection.mat",
+      "bytes": 186384,
+      "sha256": "825a06634ef8026e8908f301799e1769d4d81c805c7fb67969c15561681308d9",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_151/final_value.npy",
+      "bytes": 27726144,
+      "sha256": "38914ffcc222c9ab79074965a6ec40d1f34196b0b9e27407ad677e36cc0eb16c",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_151/summary.json",
+      "bytes": 1703,
+      "sha256": "107e585522352bbd185e34ace8ae3730bcbd874eedbd5f8bc7dce6b709b69d57",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_151/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_151/projection.mat",
+      "bytes": 186384,
+      "sha256": "f89b809b7575be369b0f22357326c2c21e7ff9f7a40ec2b3de05f947fe2fd358",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_151/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_151/final_value.npy",
+      "bytes": 27726144,
+      "sha256": "be829370e1268b054493cd5de9f1ea6780970f9a7d97f4cea3d1404edb2087f9",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_225/summary.json",
+      "bytes": 1707,
+      "sha256": "18448a2f9b72d47b6b2f8be6a0cf5ceb50bf5ec524ce4f57b7c62ffc847b6d54",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_225/projection.mat",
+      "bytes": 410752,
+      "sha256": "447d0d06f784168b9e21eccbc8891ab9f522f6872b364ba40ef9b59798484182",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_225/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "d86cd6c98681d6612a3173af65fa448e2ff29d6571f124bdf9f6863a50856e9e",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_none_backward/summary.json",
+      "bytes": 1706,
+      "sha256": "66974ebc73c79f7323fe5ea6e0363cfa008bb4b446bd6f4a580aad64b4d97ace",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_none_backward/projection.mat",
+      "bytes": 410752,
+      "sha256": "bfdf288287b55031dbe4127929982cf4b0cb2faac486c8033404a2a0b50f14e7",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_none_backward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "b054d7ec365e094c396f5a74b69f893a5e60eb8738dd9ff20d191b3fb8d73365",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_gc_forward/summary.json",
+      "bytes": 1718,
+      "sha256": "c58890069deb0b2dc48f6c12e1e94904f0a99fa52bc0dbbe2abda8f2569fa54a",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_gc_forward/projection.mat",
+      "bytes": 410752,
+      "sha256": "a31e56cf2948393d90adc78dff964a3445ed1688350d1d7ed3fa38f6bbf32fbc",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_gc_forward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "ba4118814c48ebd64a9d17a71d84a3eaf54cb788a8582f5f641538ebe9e3cd29",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_gc_backward/summary.json",
+      "bytes": 1718,
+      "sha256": "7a3d61f02a59b7ebe73d8292dc0a7fc460325d12fb418c9a7d389ecc89fa1da7",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_gc_backward/projection.mat",
+      "bytes": 410752,
+      "sha256": "c668e6a09061c40d549357cfec66e2e87e340d2570917609a477ab09d35a0a72",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_gc_backward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "9859b53c7a2463d73e2587ece086aca8d7fecd45dee9d81c7071536abd0b4bb1",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_pd_forward/summary.json",
+      "bytes": 1703,
+      "sha256": "54c56425ba3a2cd3bb59c3361f435a382859b17a79a79be0f89df7ebea629c50",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_pd_forward/projection.mat",
+      "bytes": 410752,
+      "sha256": "0d0c5ce48971bf0b10ee89ef08b88c1841aafe74b42b21b9a79432e4c9b59fb1",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_pd_forward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "523f41aa7b031043422f649f80e5e4c81a83be0ce05780bc3f01caf38a5a36da",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_pd_backward/summary.json",
+      "bytes": 1703,
+      "sha256": "ade56e2b52c55e50de0dcd2aca426f28c1ebb6fa6b1d868402d26709f08b1718",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_225/summary.json"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_pd_backward/projection.mat",
+      "bytes": 410752,
+      "sha256": "e1b03aea7c6b0f58b9386118530f98341b8a2d3864c7f7ddd9ffadfbf690dc64",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_225/projection.mat"
+    },
+    {
+      "file": "logs/hjb_paper225/solved/OF_pd_backward/final_value.npy",
+      "bytes": 91936928,
+      "sha256": "45440e9cfcb6b20e8c7f0cd070fb639941abb6fa9c079cfa4642556a42a8d60a",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_301_platform/summary.json",
+      "bytes": 1706,
+      "sha256": "7f2f769f302c2f2e4cfce4f7b718348d62acb72b289e8fa69fec35bc8866a086",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "4334a741c3f5013b33640bb9837f98c8f7d6c64f1d040af752b334edebeda6c3",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_301_platform/final_value.npy",
+      "bytes": 218892144,
+      "sha256": "12942e56a463edbb74b428acf4cfe2ba30e612ba099c41581fafc1c39f77bd6f",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_forward_301_platform/runtime.json",
+      "bytes": 1237,
+      "sha256": "2796d16c91784bc9a1fc998a74c36b59996af875fd7c1dccff5203d39d9d060f",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_forward_301/runtime.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_301_platform/summary.json",
+      "bytes": 1708,
+      "sha256": "61f5e2e7c1580622864a763463a72a68b2ea31dc496abb8a117679c9d4aa6504",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "b57fce0100bd5649ae0a36de04957f91899ea2294d0bba8af198c0352d921eb3",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_301_platform/final_value.npy",
+      "bytes": 218892144,
+      "sha256": "508fec164ea867f0ba662138835c6d38b57927fa1e90f62961820c79ca843fc2",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_none_backward_301_platform/runtime.json",
+      "bytes": 1240,
+      "sha256": "852cd7d5cb3b115aa482ac7cca5f167e8f5788edb2f67a20183941485695cd51",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_none_backward_301/runtime.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_301_platform/summary.json",
+      "bytes": 1720,
+      "sha256": "0f6e77dbed28b2e15d5bbdd2609ddfb37fe8439c58a51e22601191f250f77d3d",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "c8eea665a02caec110b8d496670d17499955fe3255f1f2d94bcc6b228ceaddbc",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_301_platform/final_value.npy",
+      "bytes": 218892144,
+      "sha256": "b4d056d46784ac2e52de25f211852db8a3e80570a365c9544e327b7ff077a3c8",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_forward_301_platform/runtime.json",
+      "bytes": 1231,
+      "sha256": "a0f455bbf56e8dfcf2448a55153c5135ef361737184a4ebaaf460cb7b692534d",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_forward_301/runtime.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_301_platform/summary.json",
+      "bytes": 1720,
+      "sha256": "0a55ae3e622bbeda771b1769116819ea706d0cae51cea89cfe05432a5ebfd8bc",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "dbfc76a036f637792c64b488eb2e27d4dedd6699aaf92ae198f7c70d1a01da48",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_301_platform/final_value.npy",
+      "bytes": 218892144,
+      "sha256": "af98c31efb881f94f8e179191b2e69dae78fe030afc2a82bde5a433bd0b95cb3",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_gc_backward_301_platform/runtime.json",
+      "bytes": 1234,
+      "sha256": "4f302698e4f829acbf0723a22332668aef4b770811354d624406da2054c648e7",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_gc_backward_301/runtime.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_301_platform/summary.json",
+      "bytes": 1704,
+      "sha256": "2d5c7bc114529ec9d3bc6897a9bafd40a3f73bcaa9ce9d047b5e1b93558702e0",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "e5587f461407498ae65b32099835406dbc5e94477da3c05d50a813c306e05344",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_301_platform/final_value.npy",
+      "bytes": 218892144,
+      "sha256": "a5a6f00fb56949bb5137dae9b3885d7a5f00872f9a8f5ea330b889e453c11e0b",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_forward_301_platform/runtime.json",
+      "bytes": 1230,
+      "sha256": "3342f20fd6b7d48f1242edcf2838aafe3f70c0c5990f10246abffdbc40348271",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_forward_301/runtime.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_301_platform/summary.json",
+      "bytes": 1707,
+      "sha256": "f07ba2c4e2d285947b8dd3efe4a37e65c7758f70c5604b01e943ac2955bf2b68",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_301/summary.json"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_301_platform/projection.mat",
+      "bytes": 732384,
+      "sha256": "6b03bfdbd8ee6fc065638264c37e7598a99f06c0e7f82820a747a45bc9aeceb4",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_301/projection.mat"
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_301_platform/final_value.npy",
+      "bytes": 218892144,
+      "sha256": "792955c2165e0dc81c348dbb13f54f0293cddb704f67f09fc55703c24d2e899f",
+      "included": false
+    },
+    {
+      "file": "logs/hjb_grid_study/solved/OF_pd_backward_301_platform/runtime.json",
+      "bytes": 1234,
+      "sha256": "616fe913a718bb50ea619f3112b41fed07492214ecd148565e45d100c3ab2c29",
+      "included": true,
+      "curated_file": "docs/results/hjb_grid_study/OF_pd_backward_301/runtime.json"
+    }
+  ]
+}
