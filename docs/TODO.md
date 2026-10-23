@@ -1,17 +1,43 @@
-# Remaining acceptance
+# TODO
 
-- Reconcile the specific upstream source/parameter/target-set issues in `PAPER.md` and
-  reproduce the original five-profile HJB figures/Table II with a convergence study.
-  MATLAB runtime and the helperOC/ToolboxLS, YALMIP/SeDuMi and polyhedra dependencies now
-  run. The nominal source and reconciled GC/PD paths now execute, with checked dynamics,
-  regenerated assisted targets and short forward rollouts. Quantifying the effects of
-  source/target reconciliation and full region convergence remains open. A certified
-  invariant target is a separate stronger extension.
-  With 101 angle nodes, a 0.5 rad/s buffer and 10 ms history, all six predicted-inside
-  states in the original nominal cohort reach the unchanged targets. The sampled
-  forward projected area still changes by 9.21% from 51 angle nodes. Complete spatial
-  convergence, long-horizon assisted solves and broader forward validation.
-- Resolve the inherited source licensing scope with relevant rights holders before
-  claiming a project-wide open-source license.
-- Validate any future musculoskeletal/3D or subject-specific extension against independent
-  physiological evidence; the current articulated model is a sagittal engineering model.
+The goal is a clear, reproducible presentation of existing research motivated by
+Daphna Raz's standing-balance theory. A new paper or independent theoretical contribution
+is not a release requirement. Items below are recorded for later work, not an active
+experiment queue. Completed studies and their limitations remain in [Results](RESULTS.md).
+
+## Before public release
+
+- [ ] Confirm redistribution rights and licensing scope for inherited code, recordings
+  and assets; retain source attribution and distinguish the simulator's contributions
+  from the paper's method. See [NOTICE](../NOTICE.md).
+- [ ] Check a fresh-clone Conda setup, the README demo and documented result-reproduction
+  paths. Identify any large local-only inputs needed to regenerate curated results.
+- [ ] Review the selected videos, figures and result links for a compact public showcase;
+  retain numerical disagreements and failures alongside successes.
+- [ ] Review the final release contents and explicitly switch repository visibility to
+  public when ready. The documentation cleanup itself leaves visibility private.
+
+## Optional follow-up validation
+
+These items would support stronger scientific claims. They are not prerequisites for
+presenting the existing work with its measured limits.
+
+- [ ] Reconcile source/manuscript terminal-target definitions and report matched-target
+  comparisons. The OM gravity-compensation sign depends on this choice; changing the
+  target changes the task. Keep numerical reproduction separate from any claim that
+  a terminal box is control invariant.
+- [ ] Extend spatial/time refinement and quantify region-area uncertainty. The completed
+  population campaign and target diagnostic do not establish convergence or full
+  quantitative agreement with Table II.
+- [ ] Separate maximum human torque (MT) from maximum torque rate (MRTD) in parameter
+  studies, and compare the paper's independent sweeps and work–energy analysis.
+- [ ] Broaden forward validation beyond the existing OF cohort, including boundary
+  states and policy coverage failures, with all selected outcomes retained.
+- [ ] Evaluate realistic control periods and delay sensitivity; fine-step numerical
+  successes alone do not establish real-time feasibility.
+- [ ] If testing transfer to the articulated model, predefine paired initial states,
+  perturbations and fixed versus readapted human feedback. Its current assistance sweep
+  does not establish the paper's harmful-assistance effect in that model.
+
+New controllers, subject-specific or muscle/3D models, and a new-paper contribution
+are outside the current project plan. See [scope](PLAN.md) and [paper correspondence](PAPER.md).

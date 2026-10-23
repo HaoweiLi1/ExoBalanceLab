@@ -31,7 +31,8 @@ simulation**: when does ankle assistance help recovery, and when does it reduce 
 ability to balance?
 
 The project connects the paper's MATLAB reachability formulation to MuJoCo, then extends
-the experiment to ground contact and an articulated human–exoskeleton model.
+the experiment to ground contact and an articulated human–exoskeleton model. This repository
+collects the implementation, experiments and visualizations from that research effort.
 
 - **Theory to simulation:** lifted dynamics, five population profiles, human torque/rate
   limits, GC/PD assistance, and HJB torque-rate feedback.
@@ -86,13 +87,14 @@ engineering extension. [Paper correspondence](docs/PAPER.md) explains the assump
 | [Paper correspondence](docs/PAPER.md) | Equations, source audit and reproduction requirements |
 | [Measured results](docs/RESULTS.md) | Experiments, failures, figures, videos and reproduction commands |
 | [Validation](tests/README.md) · [History](docs/MIGRATION.md) | Tests and integration of the original branches |
+| [Scope and TODO](docs/TODO.md) | Release preparation and optional follow-up validation |
 
 ## 📄 Source and citation
 
 The theory and reachability method come from [Daphna Raz et al.](https://arxiv.org/abs/2408.05418)
 and [AnkleExoBRS](https://github.com/Raquelometer/AnkleExoBRS). The simulation builds on
 [standing_balance_sim](https://github.com/celwell20/standing_balance_sim), whose original
-branches and authorship are preserved in the [history archive](docs/MIGRATION.md).
+commits and authorship are preserved in the [history archive](docs/MIGRATION.md).
 MuJoCo supplies the physics and rendering.
 
 Cite the source paper for the scientific method and [CITATION.cff](CITATION.cff) for this
