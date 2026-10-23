@@ -1,0 +1,42 @@
+[
+  {
+    "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+    "coordinate_reconstruction_max_error": 1.1102230246251565e-16,
+    "physical_drift_max_error": 2.220446049250313e-16,
+    "minimum_jacobians": [
+      0.14987152837947515,
+      0.06375852770504879
+    ],
+    "ankle_target_nodes": 9
+  },
+  {
+    "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+    "coordinate_reconstruction_max_error": 1.1102230246251565e-16,
+    "physical_drift_max_error": 3.3306690738754696e-16,
+    "minimum_jacobians": [
+      0.14993137822340494,
+      0.06393682968719606
+    ],
+    "ankle_target_nodes": 75
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+    "coordinate_reconstruction_max_error": 1.1102230246251565e-16,
+    "physical_drift_max_error": 4.440892098500626e-16,
+    "minimum_jacobians": [
+      0.14987152837947515,
+      0.06214412572689153
+    ],
+    "ankle_target_nodes": 21
+  },
+  {
+    "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+    "coordinate_reconstruction_max_error": 1.1102230246251565e-16,
+    "physical_drift_max_error": 3.3306690738754696e-16,
+    "minimum_jacobians": [
+      0.14993137822340494,
+      0.06231791300201764
+    ],
+    "ankle_target_nodes": 165
+  }
+]

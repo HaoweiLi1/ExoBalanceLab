@@ -25,6 +25,8 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `simulation` | `Episode.save(directory)` | records → new evidence directory |
 | `reachability` | `HJBPolicy(path, gradient_cache=None)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s; optional disk derivative cache |
 | `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
+| `hjb_solver` · optional JAX | `solve(problem, output, save_history=True, platform="gpu", cfl=0.8, flux="lax_friedrichs")` | MATLAB-prepared fields → float64 set/tube solve, policy and projection; optional `godunov` flux |
+| `hjb_target_geometry` | `box_value(axes, center, widths)`, `prepare(source, output)` | Independent normalized-box construction; explicit prepared-field diagnostic |
 | `reachability` | `PolicyCoverageError.query`, `.bounds` | Failed query and exported bounds in SI units |
 | `rendering` | `comparison_video(episodes, output, fps, width, height, titles)` | synchronized records and optional panel labels → MP4/GIF/poster |
 | `rendering` | `plot_comparison(episodes, output)` | records → PNG time series |

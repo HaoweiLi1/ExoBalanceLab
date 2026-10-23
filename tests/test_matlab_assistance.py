@@ -18,6 +18,125 @@ from exobalancelab.paper import AUTHORS_PROFILES, exo_torque, ground_reaction
     not (os.environ.get("EXOBALANCE_HJB_SOURCE") and os.environ.get("EXOBALANCE_HJB_DEPS")),
     reason="Licensed MATLAB and pinned HJB/SDP dependencies are opt-in",
 )
+@pytest.mark.parametrize("stretch", [[0, 0, 0], [0.15, 0.2, 0]])
+def test_frozen_goal_refinement_keeps_physics_and_matches_independent_box_field(tmp_path, stretch):
+    import json
+
+    import matlab
+    from exobalancelab.hjb_target_geometry import box_value
+
+    directory = Path(__file__).resolve().parents[1] / "matlab"
+    arguments = [
+        "profile",
+        "YF",
+        "exo",
+        "none",
+        "target_definition",
+        "source_entry",
+        "resolution",
+        matlab.double([[101], [101], [101]]),
+        "prepare_only",
+        True,
+        "align_zero",
+        True,
+        "quiet",
+        True,
+    ]
+    with MatlabController("standing_pd", directory) as controller:
+        with pytest.raises(matlab.engine.MatlabExecutionError, match="frozen target requires"):
+            controller.engine.feval(
+                "solve_paper_hjb",
+                os.environ["EXOBALANCE_HJB_SOURCE"],
+                os.environ["EXOBALANCE_HJB_DEPS"],
+                str(tmp_path / "invalid_legacy"),
+                "frozen_target_file",
+                str(tmp_path / "original/computed_target.mat"),
+                nargout=0,
+            )
+        for name, extra in [
+            ("original", []),
+            (
+                "refined",
+                [
+                    "align_upright",
+                    True,
+                    "target_field",
+                    "width_normalized",
+                    "frozen_target_file",
+                    str(tmp_path / "original/computed_target.mat"),
+                ],
+            ),
+        ]:
+            controller.engine.feval(
+                "solve_paper_hjb",
+                os.environ["EXOBALANCE_HJB_SOURCE"],
+                os.environ["EXOBALANCE_HJB_DEPS"],
+                str(tmp_path / name),
+                *arguments,
+                *extra,
+                "grid_stretch_si",
+                matlab.double([[v] for v in stretch]) if name == "refined" else matlab.double([[0]] * 3),
+                nargout=0,
+            )
+    before = json.loads((tmp_path / "original/summary.json").read_text())
+    after = json.loads((tmp_path / "refined/summary.json").read_text())
+    assert before["target"] == after["target"]
+    assert before["effective_profile"] == after["effective_profile"]
+    with h5py.File(tmp_path / "refined/problem.mat") as source:
+        scale = np.asarray(source["state_scale"]).ravel()
+        axes = [
+            np.asarray(source[k]).ravel() * s
+            for k, s in zip(["theta_rad", "velocity_rad_s", "human_torque_nm"], scale, strict=True)
+        ]
+        assert min(abs(axes[0] - np.pi / 2)) < 1e-14
+        assert min(abs(axes[1])) < 1e-14
+        assert min(abs(axes[2])) < 1e-14
+        target = after["target"]
+        fields = []
+        for key, label in [("ankleEq", "Ank"), ("toeEq", "Toe")]:
+            widths = (
+                np.array(
+                    [
+                        target[f"theta{label}Range"],
+                        target[f"thetaDot{label}Range"],
+                        target[f"torque{label}Range"],
+                    ]
+                )
+                * scale
+            )
+            fields.append(box_value(axes, np.array(target[key]) * scale, widths))
+        expected = np.maximum(np.minimum(*fields), np.asarray(source["obstacle_value"]).T)
+        np.testing.assert_allclose(np.asarray(source["initial_value"]).T, expected, atol=2e-14, rtol=0)
+        if any(stretch):
+            from exobalancelab.paper import acceleration
+
+            computational = [np.asarray(source[k]).ravel() for k in ["solver_theta", "solver_velocity"]]
+            jacobians = []
+            for dimension, coordinate in enumerate(computational):
+                mapping = after["grid_mapping"][dimension]
+                expected_axis = (
+                    mapping["center"]
+                    + mapping["lambda"] * np.sinh(coordinate)
+                    + mapping["correction"] * coordinate**2
+                )
+                np.testing.assert_allclose(axes[dimension], expected_axis, atol=2e-14, rtol=0)
+                jacobians.append(
+                    mapping["lambda"] * np.cosh(coordinate) + 2 * mapping["correction"] * coordinate
+                )
+                assert min(jacobians[-1]) > 0
+            q = axes[0][:, None, None] - np.pi / 2
+            velocity = axes[1][None, :, None] / scale[1]
+            torque = axes[2][None, None, :] / scale[2]
+            time_scale = float(np.asarray(source["time_scale_s"]).item())
+            expected = acceleration(q, velocity, torque, AUTHORS_PROFILES["YF"]) * time_scale * scale[1]
+            restored = np.asarray(source["drift_velocity"]).T * jacobians[1][None, :, None]
+            np.testing.assert_allclose(restored, expected, atol=2e-14, rtol=0)
+
+
+@pytest.mark.skipif(
+    not (os.environ.get("EXOBALANCE_HJB_SOURCE") and os.environ.get("EXOBALANCE_HJB_DEPS")),
+    reason="Licensed MATLAB and pinned HJB/SDP dependencies are opt-in",
+)
 def test_matlab_strength_axes_are_independent_and_source_entry_targets_explicit(tmp_path):
     import json
 

@@ -69,6 +69,16 @@ memory and progress. Existing output directories are never overwritten.
 The history is named `policy.partial.mat` during integration and becomes `policy.mat`
 only after it is complete and closed. Interrupted runs retain their partial data.
 
+For the [spatial diagnostic](SPATIAL_CONVERGENCE.md), experimental `--flux godunov` selects the exact
+concave control flux and a lower bound at `min(initial)` in each RK stage. The default
+`--flux lax_friedrichs` preserves the historical scheme. Both use float64 and ENO3.
+MATLAB preparation can use `frozen_target_file`, `target_field="width_normalized"`
+and `align_upright=true` to retain the earlier physical goal and sample its equilibrium.
+The optional `grid_stretch_si=[theta_scale;velocity_scale;0]` is a mapped-grid diagnostic;
+it requires `prepare_only=true` and exports computational axes with Jacobian-scaled drift.
+Recorded mapped/WENO5 experiments do not establish spatial acceptance. The new Godunov
+OM case also remains time-sensitive; consult its measured limits before using it.
+
 For many forward rollouts, add `--gradient-cache logs/OF_gradient_cache` to
 `hjb_validation`. The first invocation writes an uncompressed float64 derivative;
 later queries read only the required pages through a memory map. The cache is bound

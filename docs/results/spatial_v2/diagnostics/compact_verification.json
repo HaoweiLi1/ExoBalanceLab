@@ -1,0 +1,14 @@
+[
+  {
+    "flux": "lax_friedrichs",
+    "max_abs_error": 0.0,
+    "classification_equal": true,
+    "saved_device_coordinate_bytes": 84283392
+  },
+  {
+    "flux": "godunov",
+    "max_abs_error": 0.0,
+    "classification_equal": true,
+    "saved_device_coordinate_bytes": 84283392
+  }
+]

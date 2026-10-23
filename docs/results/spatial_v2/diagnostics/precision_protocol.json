@@ -1,0 +1,8 @@
+{
+  "reference": "Identical float64 prepared input, Godunov ENO3 and geometry",
+  "acceptance": {
+    "area_relative_percent": 0.1,
+    "projection_iou": 0.999
+  },
+  "purpose": "Determine whether a lower-memory precision can support meaningful finer grids without relaxing spatial criteria."
+}

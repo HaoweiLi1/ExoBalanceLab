@@ -6,6 +6,17 @@ complete numerical/video snapshots are in [results](results/).
 The later [release verification](RELEASE.md) checks installation, examples and report rebuilds;
 it does not repeat these numerical campaigns.
 
+## Spatial diagnosis and partial repair
+
+The [spatial follow-up](SPATIAL_CONVERGENCE.md) freezes the original goals and tolerances,
+repairs thin-box representation, adds an exact Godunov control flux, and tests each
+spatial axis independently. A separate double-integrator reference confirms substantial
+transport error even without human/contact physics. The changes improve some comparisons
+but do **not** establish spatial acceptance. The report retains unsuccessful methods,
+source hashes and rebuildable projections; the original 70-solve evidence below is unchanged.
+The completed 225³→337³ comparisons still give **6.36% / 0.9359** (YF) and
+**10.13% / 0.9021** (OM) for area difference / IoU. Neither meets the frozen 2% / 0.98 limits.
+
 ## Target, strength, timing and paired-model validation
 
 The subsequent [validation campaign](VALIDATION.md) defines its terminal goals and error

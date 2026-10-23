@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-23",
+  "basic_suite": {
+    "passed": 89,
+    "optional_skipped": 16
+  },
+  "real_matlab": {
+    "passed": 8
+  },
+  "jax": {
+    "passed": 8
+  },
+  "target_option_regression": {
+    "passed": 2,
+    "note": "Subset repeated after rejecting legacy calls that ignore frozen goals."
+  },
+  "ruff": "passed",
+  "diff_whitespace": "passed",
+  "scope": "Software and analytical-reference checks do not establish the spatial acceptance gate.",
+  "checked_sources": {
+    "exobalancelab/hjb_solver.py": "5ebdef68f6c82f3a493244fba2e95ed1b9048c61b4009d7e387d1c0e376460d4",
+    "matlab/solve_paper_hjb.m": "46eaca47df991efd9d7b2e78387cc3f56215c46ed84992ccb2cf8f8556fdd5f0",
+    "examples/hjb_analytic_reference.py": "703a7ab465f91691d60fdda280ac2a84b769d986897f1d9683bed9f309b9070d"
+  },
+  "delivered_solver_sha256": "476c6638de6b334d4122716c746324c8068bc0d73f6eb125e9fd5e9021d6cd38",
+  "solver_executable_ast_matches_checked_source": true,
+  "offline_report_byte_identical": true,
+  "local_document_links_checked": 12,
+  "historical_validation_unchanged": true
+}

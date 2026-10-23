@@ -1,0 +1,29 @@
+{
+  "purpose": "Isolate angle, velocity and torque resolution at fixed other axes after geometric repair. Physical target and numerical criteria unchanged.",
+  "grids": [
+    [
+      449,
+      225,
+      225
+    ],
+    [
+      225,
+      449,
+      225
+    ],
+    [
+      225,
+      225,
+      449
+    ]
+  ],
+  "baseline_grid": [
+    225,
+    225,
+    225
+  ],
+  "profile": "YF",
+  "exo": "none",
+  "direction": "forward",
+  "target_definition": "source_entry"
+}

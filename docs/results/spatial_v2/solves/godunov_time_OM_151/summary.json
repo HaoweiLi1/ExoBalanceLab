@@ -1,0 +1,91 @@
+{
+  "profile": "OM",
+  "exo": "none",
+  "direction": "forward",
+  "resolution": [
+    152,
+    152,
+    152
+  ],
+  "requested_resolution": [
+    151,
+    151,
+    151
+  ],
+  "duration_s": 1.4,
+  "output_step_s": 0.01,
+  "method": "none",
+  "velocity_buffer_rad_s": 0.5,
+  "aligned_zero": true,
+  "aligned_upright": true,
+  "target_field": "width_normalized",
+  "frozen_target_file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/validation_v1/hjb/prepared/OM_none_forward_common_ankle_mt100_mrtd100_n151/computed_target.mat",
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 74.5,
+    "h": 1.74,
+    "tauMin": -137,
+    "tauMax": 37,
+    "uMin": -681,
+    "uMax": 232
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "thetaAnkRange": 0.005,
+    "thetaDotAnkRange": 0.01,
+    "torqueAnkRange": 1,
+    "thetaToeRange": 0.005,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 1
+  },
+  "mt_scale": 1,
+  "mrtd_scale": 1,
+  "target_definition": "common_ankle",
+  "effective_profile": {
+    "mass_kg": 74.5,
+    "height_m": 1.74,
+    "torque_min_nm": -137,
+    "torque_max_nm": 37,
+    "rate_min_nm_s": -681,
+    "rate_max_nm_s": 232,
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8
+  },
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "ankle_target_nodes": 1,
+  "toe_target_nodes": 1,
+  "initial_target_nodes": 1,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "stage": "solved",
+  "backend": "JAX/ENO3",
+  "device": "cuda:0",
+  "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "solver_sha256": "3cc4d6aebe6fd25db6a7d1d3f7b35a44db2947e15f61400746b38b8960195b3d",
+  "precision": "float64",
+  "problem_sha256": "60b852387e6a7c5ea791d983d52b6494a8420edd4cd83531ddde0c59264c2dbf",
+  "save_history": false,
+  "cfl": 0.4,
+  "flux": "godunov",
+  "compilation_s": 1.375005688983947,
+  "compiled_temporary_bytes": 323004008,
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "hj_reachability": "0.7.0",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0"
+  },
+  "wall_s": 229.61012410698459,
+  "final_reachable_nodes": 145807
+}

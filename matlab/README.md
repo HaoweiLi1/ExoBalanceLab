@@ -231,6 +231,14 @@ No-assistance mode retains the original source model and stored targets. Assiste
 use `PaperExoPendulum`, with SI GC/restoring-PD torque and ±50 Nm saturation, then scale
 the complete dynamics. Exported assistance contracts must match the MuJoCo run.
 
+For fixed-goal refinement, `frozen_target_file` loads a previous `computed_target.mat`
+under an explicit `target_definition` (`recomputed`, `source_entry` or `common_ankle`).
+`target_field="width_normalized"` re-encodes the same analytic boxes and
+`align_upright=true` samples `theta=pi/2` exactly. Defaults preserve the original fields.
+The diagnostic `grid_stretch_si=[theta_scale;velocity_scale;0]` requires `prepare_only=true`;
+its computational coordinates and transformed drift are consumed by the GPU backend.
+See [spatial diagnosis and measured limitations](../docs/SPATIAL_CONVERGENCE.md).
+
 `paper_contact_constraints(x,pendulum,exo_torque_nm)` applies C1/C3–C5 to the total
 torque while retaining human-only torque limits. `paper_target_boxes(pendulum)` solves
 the Appendix II SDP using YALMIP/SeDuMi, applies Eq. (48) relative to each equilibrium,

@@ -1,0 +1,22 @@
+{
+  "purpose": "Check temporal sensitivity of the changed numerical flux separately from spatial error.",
+  "profiles": [
+    "YF",
+    "OM"
+  ],
+  "resolution": [
+    151,
+    151,
+    151
+  ],
+  "cfl": [
+    0.8,
+    0.4
+  ],
+  "thresholds": {
+    "area_relative_percent": 0.5,
+    "iou": 0.995
+  },
+  "physical_targets": "frozen originals",
+  "horizon_s": 1.4
+}

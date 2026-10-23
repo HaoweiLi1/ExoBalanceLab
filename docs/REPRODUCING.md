@@ -64,6 +64,13 @@ recorded disagreement with the paper. Individual commands are in [Results](RESUL
 
 ## Rerun advanced integrations
 
+The [spatial diagnosis](SPATIAL_CONVERGENCE.md) has a separate compact dataset. Rebuild
+its geometry, area/IoU comparisons, analytic reference and figure in the basic environment:
+
+```bash
+python -m examples.report_spatial --out logs/rebuilt_spatial
+```
+
 The [four-gap validation campaign](VALIDATION.md) adds explicit target definitions,
 independent MT/MRTD, control-period/delay sweeps and paired articulated experiments.
 Its compact recorded inputs can be rebuilt without MATLAB or a GPU:

@@ -16,6 +16,11 @@ arguments
     options.quiet (1,1) logical = false
     options.prepare_only (1,1) logical = false
     options.align_zero (1,1) logical = false
+    options.align_upright (1,1) logical = false
+    options.target_field (1,1) string {mustBeMember(options.target_field, ...
+        ["distance","width_normalized"])} = "distance"
+    options.frozen_target_file (1,1) string = ""
+    options.grid_stretch_si (3,1) double {mustBeNonnegative,mustBeFinite} = [0;0;0]
     options.method (1,1) string {mustBeMember(options.method,["none","minVWithV0"])} = "none"
     options.mt_scale (1,1) double {mustBePositive,mustBeFinite} = 1
     options.mrtd_scale (1,1) double {mustBePositive,mustBeFinite} = 1
@@ -26,8 +31,13 @@ assert(options.mt_scale<=1 && options.mrtd_scale<=1,'Strength scales must not ex
 assert(options.target_definition~="legacy" || ...
     (options.mt_scale==1 && options.mrtd_scale==1), ...
     'Legacy stored targets are only defined at nominal strength; select an explicit target definition.');
+assert(options.frozen_target_file=="" || options.target_definition~="legacy", ...
+    'A frozen target requires an explicit target definition; legacy would ignore the file.');
 assert(~isfolder(output_dir) && ~isfile(output_dir), 'Refusing to overwrite an HJB run.');
 assert(all(options.resolution >= 3), 'Each grid dimension needs at least three points.');
+assert(options.grid_stretch_si(3)==0,'Torque stretching is not supported.');
+assert(~any(options.grid_stretch_si) || options.prepare_only, ...
+    'Mapped grids require preparation for the coordinate-aware GPU backend.');
 addpath(genpath(fullfile(dependency_root, 'helperOC')));
 addpath(genpath(fullfile(dependency_root, 'ToolboxLS', 'ToolboxLS', 'Kernel')));
 addpath(fullfile(author_root, 'Dynamics', 'DynUtils'));
@@ -56,14 +66,21 @@ if options.exo == "none" && options.target_definition == "legacy"
     target = target_data.problemParams.targetSets;
 else
     pendulum = PaperExoPendulum(model_data.model,options.exo,options.mt_scale,options.mrtd_scale);
-    [target,target_diagnostics] = paper_target_boxes(pendulum);
-    if options.target_definition == "source_entry"
+    if options.frozen_target_file ~= ""
+        frozen = load(options.frozen_target_file,'target','target_diagnostics');
+        target = frozen.target;
+        target_diagnostics = frozen.target_diagnostics;
+        copyfile(options.frozen_target_file,fullfile(output_dir,'frozen_target.mat'));
+    else
+        [target,target_diagnostics] = paper_target_boxes(pendulum);
+    end
+    if options.frozen_target_file == "" && options.target_definition == "source_entry"
         % Explicit overrides in the authors' computeAnkleExoBRS.m entry point.
         % Both velocity widths are changed; these boxes are finite-time goals.
         target.thetaDotAnkRange = 0.01;
         target.thetaDotToeRange = 0.01;
         target.torqueAnkRange = 1;
-    elseif options.target_definition == "common_ankle"
+    elseif options.frozen_target_file == "" && options.target_definition == "common_ankle"
         % An identical SI goal across modes/strengths, for a separate sensitivity
         % experiment. Duplicate the ankle box to preserve the exported schema.
         target.ankleEq = [pi/2;0;0];
@@ -89,6 +106,15 @@ else
     upper = [2.56;options.velocity_buffer_rad_s*pendulum.vscale;pendulum.torqueMax*pendulum.tauscale];
 end
 resolution = options.resolution;
+physical_lower = lower;
+physical_upper = upper;
+if options.align_upright
+    spacing = (upper(1)-lower(1))/(resolution(1)-1);
+    indices = [floor((lower(1)-pi/2)/spacing),ceil((upper(1)-pi/2)/spacing)];
+    lower(1) = pi/2+indices(1)*spacing;
+    upper(1) = pi/2+indices(2)*spacing;
+    resolution(1) = diff(indices)+1;
+end
 if options.exo ~= "none" || options.align_zero
     % Small quiet-standing targets require zero speed/torque to be sampled.
     % Keep uniform spacing, extending each domain by at most one cell per side.
@@ -101,16 +127,41 @@ if options.exo ~= "none" || options.align_zero
         resolution(axis) = diff(indices)+1;
     end
 end
+scale = [1;pendulum.vscale;pendulum.tauscale];
+mapping = cell(3,1);
+for axis = 1:2
+    if options.grid_stretch_si(axis)>0
+        center = [pi/2;0;0];
+        [lower(axis),upper(axis),mapping{axis}] = centered_stretch( ...
+            physical_lower(axis),physical_upper(axis),center(axis), ...
+            options.grid_stretch_si(axis)*scale(axis),options.resolution(axis));
+        resolution(axis) = options.resolution(axis);
+    end
+end
 grid = createGrid(lower, upper, resolution);
+solver_axes = grid.vs;
+jacobian = {1;1;1};
+for axis = 1:2
+    if ~isempty(mapping{axis})
+        p = mapping{axis};
+        jacobian{axis} = p.lambda*cosh(grid.xs{axis})+2*p.correction*grid.xs{axis};
+        assert(all(jacobian{axis}(:)>0),'Grid mapping must be increasing.');
+        grid.xs{axis} = p.center+p.lambda*sinh(grid.xs{axis})+p.correction*grid.xs{axis}.^2;
+        grid.vs{axis} = p.center+p.lambda*sinh(grid.vs{axis})+p.correction*grid.vs{axis}.^2;
+    end
+end
 ankle_width = [target.thetaAnkRange;target.thetaDotAnkRange*pendulum.vscale; ...
     target.torqueAnkRange*pendulum.tauscale];
 toe_width = [target.thetaToeRange;target.thetaDotToeRange*pendulum.vscale; ...
     target.torqueToeRange*pendulum.tauscale];
-scale = [1;pendulum.vscale;pendulum.tauscale];
 ankle = target.ankleEq(:).*scale;
 toe = target.toeEq(:).*scale;
 ankle_value = shapeRectangleByCorners(grid,ankle-ankle_width,ankle+ankle_width);
 toe_value = shapeRectangleByCorners(grid,toe-toe_width,toe+toe_width);
+if options.target_field == "width_normalized"
+    ankle_value = normalized_box(grid.xs,ankle,ankle_width);
+    toe_value = normalized_box(grid.xs,toe,toe_width);
+end
 if options.exo == "none"
     margin = nominal_contact_constraints(grid.xs,pendulum);
 else
@@ -147,6 +198,9 @@ summary = struct('profile',options.profile,'exo',options.exo,'direction',options
     'output_step_s',options.output_step_s,'method',options.method, ...
     'velocity_buffer_rad_s',options.velocity_buffer_rad_s, ...
     'aligned_zero',options.exo ~= "none" || options.align_zero, ...
+    'aligned_upright',options.align_upright,'target_field',options.target_field, ...
+    'frozen_target_file',options.frozen_target_file, ...
+    'grid_stretch_si',options.grid_stretch_si,'grid_mapping',{mapping}, ...
     'matlab_release',version('-release'),'gravity_m_s2',pendulum.g, ...
     'source_model',model_data.model,'target',target, ...
     'mt_scale',options.mt_scale,'mrtd_scale',options.mrtd_scale, ...
@@ -165,14 +219,20 @@ if options.prepare_only
     time_scale_s = pendulum.omega;
     rate_bounds = [pendulum.uMin;pendulum.uMax]*pendulum.rtdscale;
     dx = pendulum.dynamics(0,grid.xs,0,[]);
-    drift_theta = dx{1};
-    drift_velocity = dx{2};
+    drift_theta = dx{1}./jacobian{1};
+    drift_velocity = dx{2}./jacobian{2};
     initial_value = initial;
     obstacle_value = -margin;
     problem_json = jsonencode(struct('summary',summary,'contract',contract));
     save(fullfile(output_dir,'problem.mat'),'theta_rad','velocity_rad_s','human_torque_nm', ...
         'time_to_go_s','state_scale','time_scale_s','rate_bounds','drift_theta', ...
         'drift_velocity','initial_value','obstacle_value','problem_json','-v7.3');
+    if any(options.grid_stretch_si)
+        solver_theta = solver_axes{1};
+        solver_velocity = solver_axes{2};
+        solver_torque = solver_axes{3};
+        save(fullfile(output_dir,'problem.mat'),'solver_theta','solver_velocity','solver_torque','-append');
+    end
 else
     started = tic;
     [value,tau] = HJIPDE_solve(initial,time_s/pendulum.omega,scheme,char(options.method),extra);
@@ -188,4 +248,27 @@ end
 file = fopen(fullfile(output_dir,'summary.json'),'w');
 cleanup = onCleanup(@() fclose(file));
 fprintf(file,'%s\n',jsonencode(summary,PrettyPrint=true));
+end
+
+function value = normalized_box(states,center,width)
+% Same physical box, with equal relative slopes along its unequal half-widths.
+% Retain min(width) as its center depth, in the existing obstacle-value units.
+value = -inf(size(states{1}));
+for axis = 1:3
+    value = max(value,abs(states{axis}-center(axis))/width(axis)-1);
+end
+value = value*min(width);
+end
+
+function [lo,hi,p] = centered_stretch(lower,upper,center,requested_lambda,n)
+% Smooth nonuniform physical grid on a uniform computational lattice.
+% Include both domain endpoints and the equilibrium exactly. A small quadratic
+% correction reconciles the integer cell counts with both physical bounds.
+z = asinh(([lower;upper]-center)/requested_lambda);
+spacing = diff(z)/(n-1);
+negative = min(n-2,max(1,round(-z(1)/spacing)));
+lo = -negative*spacing;
+hi = (n-1-negative)*spacing;
+coeff = [sinh(lo),lo^2;sinh(hi),hi^2]\([lower;upper]-center);
+p = struct('center',center,'lambda',coeff(1),'correction',coeff(2));
 end

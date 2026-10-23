@@ -76,11 +76,12 @@ using the basic environment.
 |---|---|
 | Analytical dynamics · 1,500 states | Maximum acceleration error **1.16e-9 rad/s²** |
 | MATLAB/Python feedback · six seconds | Identical recorded positions and commands |
-| [HJB validation](docs/VALIDATION.md) · 70 solves | Time checks **2/2**; spatial convergence **0/18** at frozen tolerances |
+| [Original HJB study](docs/VALIDATION.md) · 70 solves | Time checks **2/2**; spatial convergence **0/18** at frozen tolerances |
+| [Spatial diagnosis](docs/SPATIAL_CONVERGENCE.md) | Goal/flux corrections tested; spatial acceptance remains open |
 | [Paired model study](docs/VALIDATION.md) · 480 episodes | 159/160 physics-refinement classifications agree; human harm not observed |
 
-The completed spatial and target studies retain differences from the paper's stabilizable
-regions; full reproduction is not established. The articulated model is a sagittal
+Target and flux repairs retain substantial grid sensitivity; full reproduction of the
+paper's regions is not established. The articulated model is a sagittal
 engineering extension. [Results](docs/RESULTS.md) and [paper correspondence](docs/PAPER.md)
 explain the assumptions, disagreements and measured limits.
 

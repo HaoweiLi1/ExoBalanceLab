@@ -1,0 +1,350 @@
+{
+  "geometry": [
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "original",
+      "axis": "theta",
+      "physical_half_width": 0.014480787516215746,
+      "represented_lower": -0.012528360242032828,
+      "represented_upper": 0.014312236022689615,
+      "width_error_percent": 7.32342341648875
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "original",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.007290071469573895,
+      "represented_upper": 0.007290071469573887,
+      "width_error_percent": 27.0992853042611
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "original",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.9999999999999999,
+      "represented_upper": 0.9999999999999999,
+      "width_error_percent": 1.1102230246251565e-14
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "normalized",
+      "axis": "theta",
+      "physical_half_width": 0.014480787516215746,
+      "represented_lower": -0.014480787516215744,
+      "represented_upper": 0.014480787516215746,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "normalized",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.009430584232615039,
+      "represented_upper": 0.009430584232615039,
+      "width_error_percent": 5.69415767384961
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "normalized",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.9944944686380742,
+      "represented_upper": 0.9944944686380743,
+      "width_error_percent": 0.5505531361925664
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "normalized_aligned",
+      "axis": "theta",
+      "physical_half_width": 0.014480787516215746,
+      "represented_lower": -0.014480787516215746,
+      "represented_upper": 0.014480787516215746,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "normalized_aligned",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.009999999999999998,
+      "represented_upper": 0.010000000000000002,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "representation": "normalized_aligned",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -1.0,
+      "represented_upper": 0.9999999999999999,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "original",
+      "axis": "theta",
+      "physical_half_width": 0.014480787516215746,
+      "represented_lower": -0.014165904625413872,
+      "represented_upper": 0.014480787516215843,
+      "width_error_percent": 1.0872436683749598
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "original",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.008176366190127238,
+      "represented_upper": 0.008176366190127238,
+      "width_error_percent": 18.23633809872762
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "original",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -1.0,
+      "represented_upper": 1.0,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "normalized",
+      "axis": "theta",
+      "physical_half_width": 0.014480787516215746,
+      "represented_lower": -0.014480787516215746,
+      "represented_upper": 0.014480787516215746,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "normalized",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.009396425220974804,
+      "represented_upper": 0.009396425220974804,
+      "width_error_percent": 6.035747790251955
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "normalized",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -1.0,
+      "represented_upper": 1.0,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "normalized_aligned",
+      "axis": "theta",
+      "physical_half_width": 0.014480787516215746,
+      "represented_lower": -0.014480787516215744,
+      "represented_upper": 0.014480787516215746,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "normalized_aligned",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.01,
+      "represented_upper": 0.01,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "representation": "normalized_aligned",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -1.0,
+      "represented_upper": 1.0,
+      "width_error_percent": 0.0
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "original",
+      "axis": "theta",
+      "physical_half_width": 0.005,
+      "represented_lower": -0.0030145386078347753,
+      "represented_upper": 0.002498899979208057,
+      "width_error_percent": 44.86561412957168
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "original",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.004766178865343056,
+      "represented_upper": 0.004766178865343057,
+      "width_error_percent": 52.33821134656943
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "original",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.8462368346283339,
+      "represented_upper": 0.8462368346283339,
+      "width_error_percent": 15.376316537166613
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "normalized",
+      "axis": "theta",
+      "physical_half_width": 0.005,
+      "represented_lower": -0.0049999999999999906,
+      "represented_upper": 0.00450958230197923,
+      "width_error_percent": 4.904176980207797
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "normalized",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.00819266170688554,
+      "represented_upper": 0.00819266170688554,
+      "width_error_percent": 18.0733829311446
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "normalized",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.92427853986262,
+      "represented_upper": 0.9242785398626192,
+      "width_error_percent": 7.572146013738035
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "normalized_aligned",
+      "axis": "theta",
+      "physical_half_width": 0.005,
+      "represented_lower": -0.004999999999999976,
+      "represented_upper": 0.004999999999999977,
+      "width_error_percent": 4.662936703425657e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "normalized_aligned",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.00999999999999995,
+      "represented_upper": 0.00999999999999995,
+      "width_error_percent": 4.996003610813204e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "representation": "normalized_aligned",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.9999999999999951,
+      "represented_upper": 0.9999999999999951,
+      "width_error_percent": 4.884981308350689e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "original",
+      "axis": "theta",
+      "physical_half_width": 0.005,
+      "represented_lower": -0.003972914980295009,
+      "represented_upper": 0.004801809506448514,
+      "width_error_percent": 12.252755132564763
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "original",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.007044364675219541,
+      "represented_upper": 0.007044364675219473,
+      "width_error_percent": 29.556353247804935
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "original",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.9999999999999931,
+      "represented_upper": 0.9999999999999931,
+      "width_error_percent": 6.883382752675971e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "normalized",
+      "axis": "theta",
+      "physical_half_width": 0.005,
+      "represented_lower": -0.004999999999999985,
+      "represented_upper": 0.004999999999999984,
+      "width_error_percent": 3.1086244689504383e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "normalized",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.007726984184132782,
+      "represented_upper": 0.007726984184132719,
+      "width_error_percent": 22.7301581586725
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "normalized",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.9999999999999969,
+      "represented_upper": 0.999999999999997,
+      "width_error_percent": 3.1086244689504383e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "normalized_aligned",
+      "axis": "theta",
+      "physical_half_width": 0.005,
+      "represented_lower": -0.004999999999999957,
+      "represented_upper": 0.004999999999999957,
+      "width_error_percent": 8.659739592076221e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "normalized_aligned",
+      "axis": "velocity",
+      "physical_half_width": 0.01,
+      "represented_lower": -0.009999999999999913,
+      "represented_upper": 0.009999999999999913,
+      "width_error_percent": 8.659739592076221e-13
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "representation": "normalized_aligned",
+      "axis": "torque",
+      "physical_half_width": 1.0,
+      "represented_lower": -0.9999999999999912,
+      "represented_upper": 0.9999999999999912,
+      "width_error_percent": 8.770761894538737e-13
+    }
+  ],
+  "quadrature": [
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n151",
+      "native_area": 0.4795934444444445,
+      "common_area": 0.47293983593749994
+    },
+    {
+      "case": "YF_none_forward_source_entry_mt100_mrtd100_n225",
+      "native_area": 0.5213344029017857,
+      "common_area": 0.5176925052083333
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n151",
+      "native_area": 0.3022072222222223,
+      "common_area": 0.29735801562499997
+    },
+    {
+      "case": "OM_none_forward_common_ankle_mt100_mrtd100_n225",
+      "native_area": 0.41077158402423475,
+      "common_area": 0.41008353124999997
+    }
+  ]
+}

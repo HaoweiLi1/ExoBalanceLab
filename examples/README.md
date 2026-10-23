@@ -35,6 +35,10 @@ The [validation guide](../docs/VALIDATION.md) defines targets, tolerances and ex
 | Script | Purpose |
 |---|---|
 | `validation_hjb.py` | Freeze, prepare and solve the target/MT/MRTD/grid/CFL campaign |
+| `report_spatial.py` | Rebuild the compact spatial diagnosis, geometry, analytic reference and figure |
+| `hjb_analytic_reference.py` | Run LF/Godunov against an analytic double-integrator reachable set; JAX environment |
+| `diagnose_spatial.py` | Measure initial goal interpolation and area quadrature from prepared fields |
+| `spatial_convergence.py` | Prepare/solve the full fixed-target matrix; pilot results remain unaccepted |
 | `validation_rollouts.py` | Run complete paired-model and HJB control-period/delay cohorts |
 | `refine_human_contact.py` | Refine every human triplet with an unstable recovery classification |
 | `report_validation.py` | Rebuild area, strength, timing, pairing and energy figures from recorded inputs |

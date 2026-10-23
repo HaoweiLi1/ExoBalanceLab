@@ -1,0 +1,109 @@
+{
+  "profile": "OM",
+  "exo": "none",
+  "direction": "forward",
+  "resolution": [
+    151,
+    151,
+    152
+  ],
+  "requested_resolution": [
+    151,
+    151,
+    151
+  ],
+  "duration_s": 1.4,
+  "output_step_s": 0.01,
+  "method": "none",
+  "velocity_buffer_rad_s": 0.5,
+  "aligned_zero": true,
+  "aligned_upright": true,
+  "target_field": "width_normalized",
+  "frozen_target_file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/validation_v1/hjb/prepared/OM_none_forward_common_ankle_mt100_mrtd100_n225/computed_target.mat",
+  "grid_stretch_si": [
+    0.15,
+    0.2,
+    0
+  ],
+  "grid_mapping": [
+    {
+      "center": 1.5707963267948966,
+      "lambda": 0.1498786798467205,
+      "correction": -0.0010744343361555942
+    },
+    {
+      "center": 0,
+      "lambda": 0.06379165993507496,
+      "correction": -0.0010286185204015084
+    },
+    []
+  ],
+  "matlab_release": "2026b",
+  "gravity_m_s2": 9.8,
+  "source_model": {
+    "m": 74.5,
+    "h": 1.74,
+    "tauMin": -137,
+    "tauMax": 37,
+    "uMin": -681,
+    "uMax": 232
+  },
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "toeEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "thetaAnkRange": 0.005,
+    "thetaDotAnkRange": 0.01,
+    "torqueAnkRange": 1,
+    "thetaToeRange": 0.005,
+    "thetaDotToeRange": 0.01,
+    "torqueToeRange": 1
+  },
+  "mt_scale": 1,
+  "mrtd_scale": 1,
+  "target_definition": "common_ankle",
+  "effective_profile": {
+    "mass_kg": 74.5,
+    "height_m": 1.74,
+    "torque_min_nm": -137,
+    "torque_max_nm": 37,
+    "rate_min_nm_s": -681,
+    "rate_max_nm_s": 232,
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8
+  },
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "ankle_target_nodes": 9,
+  "toe_target_nodes": 9,
+  "initial_target_nodes": 9,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "stage": "solved",
+  "backend": "JAX/ENO3",
+  "device": "cuda:0",
+  "device_model": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "solver_sha256": "93686f54807ff4a466d272da6f27fdbf28655acab874b38768c2a52aaeb089f1",
+  "precision": "float64",
+  "problem_sha256": "fcb8124fcbff333c555d29f1a137bdf437657be015fc80ed6d9c02b15ef6bce9",
+  "save_history": false,
+  "cfl": 0.8,
+  "flux": "godunov",
+  "compilation_s": 1.6892221509478986,
+  "compiled_temporary_bytes": 297217128,
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "hj_reachability": "0.7.0",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0"
+  },
+  "wall_s": 223.91529014799744,
+  "final_reachable_nodes": 446863
+}

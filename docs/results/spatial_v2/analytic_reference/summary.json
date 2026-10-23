@@ -1,0 +1,75 @@
+{
+  "duration_s": 0.5,
+  "position_half_width_m": 0.005,
+  "velocity_half_width_m_s": 0.01,
+  "acceleration_bounds_m_s2": [
+    -1,
+    1
+  ],
+  "resolutions": [
+    101,
+    201,
+    401
+  ],
+  "exact_continuous_area": 0.09853333333333335,
+  "exact_common_grid_area": 0.09856041666666668,
+  "solver_sha256": "5ebdef68f6c82f3a493244fba2e95ed1b9048c61b4009d7e387d1c0e376460d4",
+  "benchmark_sha256": "703a7ab465f91691d60fdda280ac2a84b769d986897f1d9683bed9f309b9070d",
+  "comparison": "Absolute error against an independent analytic set; not the paper's spatial gate.",
+  "cases": [
+    {
+      "resolution": 101,
+      "flux": "lax_friedrichs",
+      "field": "lax_friedrichs_101.npz",
+      "area": 0.070525,
+      "area_error_percent": 28.44490477498996,
+      "iou": 0.7155509522501005,
+      "wall_s": 2.208001217106357
+    },
+    {
+      "resolution": 101,
+      "flux": "godunov",
+      "field": "godunov_101.npz",
+      "area": 0.07273125,
+      "area_error_percent": 26.206430066160785,
+      "iou": 0.7379356993383923,
+      "wall_s": 1.789022363955155
+    },
+    {
+      "resolution": 201,
+      "flux": "lax_friedrichs",
+      "field": "lax_friedrichs_201.npz",
+      "area": 0.08454583333333335,
+      "area_error_percent": 14.219281743431477,
+      "iou": 0.8578071825656852,
+      "wall_s": 8.096301882062107
+    },
+    {
+      "resolution": 201,
+      "flux": "godunov",
+      "field": "godunov_201.npz",
+      "area": 0.08490416666666667,
+      "area_error_percent": 13.855714557483784,
+      "iou": 0.8614428544251622,
+      "wall_s": 6.240732408827171
+    },
+    {
+      "resolution": 401,
+      "flux": "lax_friedrichs",
+      "field": "lax_friedrichs_401.npz",
+      "area": 0.09087500000000001,
+      "area_error_percent": 7.7976706334946835,
+      "iou": 0.9220232936650532,
+      "wall_s": 43.407627339009196
+    },
+    {
+      "resolution": 401,
+      "flux": "godunov",
+      "field": "godunov_401.npz",
+      "area": 0.09092083333333334,
+      "area_error_percent": 7.7511678538967255,
+      "iou": 0.9224883214610328,
+      "wall_s": 36.035404674941674
+    }
+  ]
+}

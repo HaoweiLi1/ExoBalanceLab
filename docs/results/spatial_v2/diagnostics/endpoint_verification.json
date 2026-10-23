@@ -1,0 +1,16 @@
+[
+  {
+    "cfl": 0.8,
+    "full_field_max_abs_error": 0.0,
+    "classification_equal": true,
+    "original_sha256": "fac28411e2ece54d33bc76db0798ddd4280ac2056b1ea53bffe57502cf98a3d8",
+    "complete_interval_sha256": "fac28411e2ece54d33bc76db0798ddd4280ac2056b1ea53bffe57502cf98a3d8"
+  },
+  {
+    "cfl": 0.4,
+    "full_field_max_abs_error": 0.0,
+    "classification_equal": true,
+    "original_sha256": "31cc8daf404114d49a2b9619337181bd17490a20de4bf6a4ae7a7fd4cf684082",
+    "complete_interval_sha256": "31cc8daf404114d49a2b9619337181bd17490a20de4bf6a4ae7a7fd4cf684082"
+  }
+]

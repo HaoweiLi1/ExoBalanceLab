@@ -43,6 +43,13 @@ tests/test_hjb_solver.py` checks independent MATLAB ENO stencils (including tied
 differences), exact linear advection, set/tube semantics and streamed policy interchange.
 These checks are distinct from full numerical convergence and MuJoCo forward validation.
 
+The spatial checks add exact concave Hamiltonian extrema, thin-interval transport,
+mapped physical advection, and frozen-goal MATLAB/Python parity. `test_spatial_diagnostics.py`
+checks the analytic double-integrator bounds against independently optimized acceleration
+sequences and rejects relaxed acceptance thresholds. The numerical reference campaign runs
+separately with `python -m examples.hjb_analytic_reference`; its measured errors remain
+visible in [Spatial convergence](../docs/SPATIAL_CONVERGENCE.md).
+
 `test_hjb_regions.py` checks complete 30-case accounting, signed-velocity area integrals,
 relative changes and rejection of different physical parameters using explicit synthetic
 rectangular fields. The HJB reader tests also compare cached/uncached derivatives exactly

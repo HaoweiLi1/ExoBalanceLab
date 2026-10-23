@@ -119,6 +119,11 @@ thresholds, without selecting a more permissive tolerance after seeing the resul
 [Both internal-time comparisons](results/validation_v1/report/temporal_acceptance.csv) ·
 [SI target audit](results/validation_v1/report/target_audit.json).
 
+The subsequent [spatial diagnosis](SPATIAL_CONVERGENCE.md) isolates thin-goal sampling,
+control-flux dissipation and resolution in all three state directions. It implements
+and measures candidate repairs at the same thresholds. Spatial acceptance remains open;
+these newer runs do not rewrite the historical table above.
+
 ### Goal dependence
 
 The 225-grid OM forward comparison gives the following GC area changes relative to

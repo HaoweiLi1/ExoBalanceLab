@@ -29,12 +29,12 @@ def write(path, value):
     path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n")
 
 
-def table(path, rows):
+def table(path, rows, *, lineterminator="\r\n"):
     if not rows:
         return
     keys = list(dict.fromkeys(k for row in rows for k in row))
     with path.open("w", newline="") as file:
-        writer = csv.DictWriter(file, keys)
+        writer = csv.DictWriter(file, keys, lineterminator=lineterminator)
         writer.writeheader()
         writer.writerows(rows)
 

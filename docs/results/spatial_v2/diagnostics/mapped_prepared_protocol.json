@@ -1,0 +1,12 @@
+{
+  "stretch_si": [
+    0.15,
+    0.2,
+    0
+  ],
+  "resolutions": [
+    151,
+    225
+  ],
+  "purpose": "Resolve the physical terminal goal while retaining the complete original domains, endpoints, dynamics and constraints. Exact positive coordinate Jacobians transform the PDE."
+}

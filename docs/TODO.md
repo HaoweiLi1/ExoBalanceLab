@@ -65,12 +65,18 @@ Execution completion and scientific acceptance are tracked separately.
   assumptions instead of treating its envelope as a contact-constrained HJB region.
 - [x] Finish all 36 additional YF inside/boundary/outside validations and publish the
   complete report with all failures; 18/18 predicted-inside states are accepted.
+- [x] Isolate spatial error using frozen goals, independent box geometry, exact control
+  flux, single-axis refinement and an analytic double-integrator reference; implement
+  and run the candidate repairs in [Spatial convergence](SPATIAL_CONVERGENCE.md).
 
 Scientific acceptance still requires evidence beyond execution:
 
 - [ ] Establish spatial convergence at the frozen thresholds before claiming quantitative
-  agreement with the article's region areas. The measured area errors are 5.60–26.43%;
-  a changed terminal target changes the task.
+  agreement with the article's region areas. Geometry/flux repairs and 337³ refinement
+  retain 6.36% / 10.13% area differences for YF / OM. An accepted pilot must precede a new complete 18-family
+  GC/MT/MRTD comparison; keep the same goals, ≤2% area, ≤1 pp GC effect and ≥0.98 IoU.
+- [ ] Resolve the new Godunov candidate's OM time sensitivity before treating it as an
+  accepted replacement: CFL 0.8→0.4 and 0.4→0.2 fail the unchanged IoU ≥0.995 check.
 - [ ] Establish any stronger delay/coverage guarantee or hardware timing claim. The measured
   control-period and delay failures delimit the current implementation's tested behavior.
 

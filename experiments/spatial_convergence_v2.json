@@ -1,0 +1,66 @@
+{
+  "id": "spatial_convergence_v2",
+  "frozen_acceptance": {
+    "spatial_area_relative_percent": 2.0,
+    "spatial_assistance_effect_pp": 1.0,
+    "common_grid_projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995,
+    "rollout_endpoint_abs": {
+      "angle_rad": 0.001,
+      "velocity_rad_s": 0.01,
+      "torque_nm": 1.0
+    },
+    "rollout_classification_stable": true,
+    "deadline_p99_fraction": 1.0,
+    "interpretation": "Operational acceptance chosen before new outcomes; failures remain failures. These thresholds are not claims from the source paper. Region convergence requires all three spatial criteria for the compared pair. Reaching a terminal box is finite-time reach-avoid evidence, not an invariance proof."
+  },
+  "scope": "Diagnose quadrature, target sampling and LF control dissipation. No physical targets or thresholds change.",
+  "diagnostic_pairs": [
+    {
+      "profile": "YF",
+      "exo": "none",
+      "direction": "forward",
+      "target_definition": "source_entry",
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "resolutions": [
+        151,
+        225
+      ]
+    },
+    {
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "target_definition": "common_ankle",
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "resolutions": [
+        151,
+        225
+      ]
+    }
+  ],
+  "intervention": "Exact concave Godunov control flux; same ENO3, float64, RK3, CFL, prepared fields, grid and horizon.",
+  "next_stage": "If effective, verify all 18 original case families with unchanged criteria; refine grid where necessary. Retain unsuccessful comparisons.",
+  "geometry_intervention": {
+    "target_field": "width_normalized",
+    "align_upright": true,
+    "frozen_physical_targets": true,
+    "description": "Keep the exact MATLAB target parameters, dynamics and constraints; anchor quiet-standing equilibrium on the uniform grid. Compare the same original tolerances."
+  },
+  "godunov_value_floor": "Each RK stage >= min(initial); numerical lower bound for sampled initial costs, not an accuracy bound for the continuous physical goal.",
+  "repair_grids": [
+    [
+      151,
+      151,
+      151
+    ],
+    [
+      225,
+      225,
+      225
+    ]
+  ]
+}
