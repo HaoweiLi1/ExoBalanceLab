@@ -1,0 +1,33 @@
+{
+  "id": "transport_feedback_v1_20261024",
+  "purpose": "Matched MuJoCo feedback validation of the accepted transport solver; no new-paper claim.",
+  "predeclared": true,
+  "compute": "Current computer only",
+  "seed": 240805418,
+  "families": [
+    "OM_none_forward_common_ankle_mt100_mrtd100",
+    "OM_gc_forward_common_ankle_mt100_mrtd100",
+    "YF_none_forward_source_entry_mt100_mrtd100",
+    "YF_gc_forward_source_entry_mt100_mrtd100"
+  ],
+  "solver_resolution": 673,
+  "solver_step_s": 0.01,
+  "horizon_s": 1.4,
+  "policy": "Every native moving-grid Hamiltonian decision, encoded losslessly as -1/0/+1; bounded trilinear state and linear time interpolation. Select a terminal goal from the initial final value and retain it throughout the episode.",
+  "groups": ["inside", "boundary", "outside"],
+  "per_group_per_population": 3,
+  "selection": "Seeded disjoint native-grid states from the no-assistance final value before any rollouts. Inside V<0, outside V>0, boundary among 2000 smallest absolute values. Positive initial velocity; torque/contact admissible and final policy-domain coverage in both modes. Reuse identical initial states in none/GC and both physics steps. GC predictions recorded separately.",
+  "physics_steps_s": [0.0000125, 0.00000625],
+  "control_period_s": 0.001,
+  "command_delay_s": 0,
+  "acceptance_source": "experiments/validation_v1.json",
+  "acceptance": {
+    "rollout_endpoint_abs": {"angle_rad": 0.001, "velocity_rad_s": 0.01, "torque_nm": 1.0},
+    "rollout_classification_stable": true,
+    "deadline_p99_fraction": 1.0
+  },
+  "success": "Reach an original terminal box at 1.4 s with C1/C3-C5 valid throughout, including the final state. Report all predicted-inside successes and failures; never replace an out-of-coverage policy.",
+  "matching": "OM shares one identical physical ankle target across modes. YF source-entry ankle/toe goals retain each plant's frozen geometry; mode comparisons do not imply identical complete target sets.",
+  "video_selection": "First preselected case with completed none/GC fine-step trajectories for each population, in inside/boundary/outside order. Record the selected index and both outcomes; no recovery-based selection.",
+  "scope": "Reduced paper model only. Existing articulated-human videos retain their historical controller provenance. No guarantee transferred to 9 DoF or hardware."
+}

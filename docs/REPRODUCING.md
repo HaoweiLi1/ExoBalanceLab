@@ -65,6 +65,23 @@ the recorded numerical summaries. Rebuilding reports does not perform new integr
 or eliminate the recorded disagreement with the paper. Individual commands are in
 [Results](RESULTS.md).
 
+## Native transport feedback records
+
+The [72-run feedback dataset](results/transport_feedback_v2/README.md) includes all
+outcomes, complete trajectories and unsuccessful diagnostics. Rebuild its report and
+new OM/YF videos without solving again:
+
+```bash
+cp -a docs/results/transport_feedback_v2 logs/feedback_report_copy
+python -m examples.validate_transport_feedback --report-only --out logs/feedback_report_copy
+MUJOCO_GL=egl python -m examples.render_transport_feedback \
+  --source logs/feedback_report_copy --out logs/feedback_video_copy
+```
+
+The [full export/rollout procedure](TRANSPORT_FEEDBACK.md#reproduce) uses four local
+policy tables and the original frozen physics. Report reconstruction preserves the
+three predicted-inside failures and the failed aggregate gate.
+
 ## Rerun advanced integrations
 
 The [transport follow-up](TRANSPORT_CONVERGENCE.md#reproduce) includes independent

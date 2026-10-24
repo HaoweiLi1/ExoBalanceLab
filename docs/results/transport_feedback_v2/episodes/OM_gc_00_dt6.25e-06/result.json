@@ -1,0 +1,103 @@
+{
+  "index": 0,
+  "group": "inside",
+  "state": [
+    1.525072275455611,
+    0.5630959024234692,
+    -107.32126913265307
+  ],
+  "baseline_native_index": 231590857,
+  "value": {
+    "none": -0.0014094322480604387,
+    "gc": -0.0014094526091413743
+  },
+  "profile": "OM",
+  "exo": "gc",
+  "config": {
+    "model": "paper",
+    "profile": "OM",
+    "parameters": "authors",
+    "exo": "gc",
+    "duration_s": 1.4,
+    "timestep_s": 6.25e-06,
+    "control_period_s": 0.001,
+    "lean_rad": -0.04572405133928559,
+    "velocity_rad_s": 0.5630959024234692,
+    "initial_torque_nm": -107.32126913265307,
+    "device_mass_kg": 2.0,
+    "push_n": 0.0,
+    "push_start_s": 1.0,
+    "push_duration_s": 0.15,
+    "human_strength": 1.0,
+    "mt_scale": 1.0,
+    "mrtd_scale": 1.0,
+    "command_delay_s": 0,
+    "human_feedback": "default",
+    "initial_posture": "root"
+  },
+  "policy_sha256": "145a9618dd1e1887d76e3518d99991e71f865e5a037a26df2a4232624b7c8a7b",
+  "predicted_inside": true,
+  "status": "completed",
+  "metrics": {
+    "model": "paper",
+    "profile": "OM",
+    "exo": "gc",
+    "controller": "hjb",
+    "recovered": false,
+    "contact_valid_fraction": 1.0,
+    "max_abs_lean_rad": 0.052585444893525984,
+    "final_lean_rad": 1.7990471563784446e-06,
+    "final_velocity_rad_s": 0.00026327095636699923,
+    "final_human_torque_nm": -0.39255550670013334,
+    "final_exo_torque_nm": -0.0010884660383206064,
+    "human_torque_rms_nm": 60.40995637713905,
+    "control_calls": 1400,
+    "control_p50_us": 204.2578998953104,
+    "control_p99_us": 656.2430388294159,
+    "wall_s": 13.95172831020318,
+    "simulated_s_per_wall_s": 0.1003459907527121,
+    "physics_hz": 160000.0,
+    "control_hz": 1000.0,
+    "command_delay_s": 0,
+    "control_deadline_miss_fraction": 0.0007142857142857143,
+    "initial_state": [
+      -0.04572405133928559,
+      0.5630959024234692
+    ],
+    "human_feedback": "default",
+    "feedback_gain": null,
+    "feedback_reference": null,
+    "feedback_design_timestep_s": null,
+    "max_foot_pitch_rad": 0.0,
+    "max_foot_slide_m": 0.0,
+    "human_clipped_fraction": 0.0,
+    "total_mass_kg": 74.5,
+    "effective_profile": {
+      "name": "OM",
+      "mass_kg": 74.5,
+      "height_m": 1.74,
+      "torque_min_nm": -137.0,
+      "torque_max_nm": 37.0,
+      "rate_min_nm_s": -681.0,
+      "rate_max_nm_s": 232.0,
+      "damping_nm_s": 0.001,
+      "friction": 1.0,
+      "gravity_m_s2": 9.8
+    },
+    "controller_source": {
+      "file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/transport_feedback/policies/OM_gc_forward_common_ankle_mt100_mrtd100/policy.h5",
+      "sha256": "145a9618dd1e1887d76e3518d99991e71f865e5a037a26df2a4232624b7c8a7b"
+    },
+    "scope": "controller-specific rollout; not an HJB stabilizable region"
+  },
+  "final_state": [
+    1.570798125842053,
+    0.00026327095636699923,
+    -0.39255550670013334
+  ],
+  "target_reached": true,
+  "contact_valid": true,
+  "valid_target_reach": true,
+  "saved_interval_s": 0.001,
+  "selected_goal": 0
+}

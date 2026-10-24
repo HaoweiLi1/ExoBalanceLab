@@ -1,0 +1,52 @@
+{
+  "model": "paper",
+  "profile": "OM",
+  "exo": "none",
+  "controller": "hjb",
+  "recovered": false,
+  "contact_valid_fraction": 1.0,
+  "max_abs_lean_rad": 0.04705230428583528,
+  "final_lean_rad": 9.630300899923478e-06,
+  "final_velocity_rad_s": 0.0002576974418336821,
+  "final_human_torque_nm": 0.08185559224086503,
+  "final_exo_torque_nm": 0.0,
+  "human_torque_rms_nm": 68.13353254784565,
+  "control_calls": 1400,
+  "control_p50_us": 189.69958182424307,
+  "control_p99_us": 635.4247056879103,
+  "wall_s": 7.222369602881372,
+  "simulated_s_per_wall_s": 0.19384219819510046,
+  "physics_hz": 80000.0,
+  "control_hz": 1000.0,
+  "command_delay_s": 0,
+  "control_deadline_miss_fraction": 0.0014285714285714286,
+  "initial_state": [
+    -0.04572405133928559,
+    0.5630959024234692
+  ],
+  "human_feedback": "default",
+  "feedback_gain": null,
+  "feedback_reference": null,
+  "feedback_design_timestep_s": null,
+  "max_foot_pitch_rad": 0.0,
+  "max_foot_slide_m": 0.0,
+  "human_clipped_fraction": 0.0,
+  "total_mass_kg": 74.5,
+  "effective_profile": {
+    "name": "OM",
+    "mass_kg": 74.5,
+    "height_m": 1.74,
+    "torque_min_nm": -137.0,
+    "torque_max_nm": 37.0,
+    "rate_min_nm_s": -681.0,
+    "rate_max_nm_s": 232.0,
+    "damping_nm_s": 0.001,
+    "friction": 1.0,
+    "gravity_m_s2": 9.8
+  },
+  "controller_source": {
+    "file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/transport_feedback/policies/OM_none_forward_common_ankle_mt100_mrtd100/policy.h5",
+    "sha256": "724431e96e37f531769dd2eff445839a156fc202b74cc69773352052b73038c6"
+  },
+  "scope": "controller-specific rollout; not an HJB stabilizable region"
+}

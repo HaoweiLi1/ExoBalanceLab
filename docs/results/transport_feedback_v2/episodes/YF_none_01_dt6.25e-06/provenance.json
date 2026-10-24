@@ -1,0 +1,29 @@
+{
+  "mujoco": "3.3.7",
+  "numpy": "2.2.6",
+  "source_sha256": {
+    "__init__.py": "66cc1b610cb899f78098078717a852225219d4e9a05cb171601be883025ab56b",
+    "work_energy.py": "39d695ba55d44bc8cb54547a6d6a74d7dbac5f21d73b4b226afc63b5ddda9475",
+    "hjb_target_geometry.py": "58f05b3ff18213804b34343654579d6ae4fe0af7d5d40a9959ce1d8bc5ae2f71",
+    "hjb_validation.py": "21bfef1642d989cf24090cb590f3ca1fcb4bdb6f486f369e97231b052d4253d8",
+    "reachability.py": "270c40cd7e8f5162f32c0cf238e05082b5ecb625b4f9d12f0dd18058a0f922d8",
+    "hjb_solver.py": "476c6638de6b334d4122716c746324c8068bc0d73f6eb125e9fd5e9021d6cd38",
+    "hjb_comparison.py": "82a8a0f6f567bd176c2f8d199063f2eedbecc57b6a3588da3f08bb132563ef12",
+    "hjb_solver_comparison.py": "214a3fb37c861ee728a2cf62e1686ce0910cca73822924001143784431e3086e",
+    "rendering.py": "9f7cf613048ac5d06f13d1d273a124e08bf3e9aa4d4692d5d9eb706b5685e93b",
+    "models.py": "e4ba5c881eeca53df21412f74566eb291c3b682d9c5ec5ea7d00be32c3fad377",
+    "bridge.py": "e3c4705193d22ec710a85f8643ec12952bb6d5185d3092e9448c5a6abda3c162",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "cli.py": "72c20969bc5e71ff36770544ab7d9ab79a3debed96416733a8ce220d2e127bd7",
+    "validation.py": "f93c155ecfe878a0f2feb9a60b508b2a633d8c6f0fc61b7b2d2360802b95ba21",
+    "__main__.py": "7df609d3fdd959b5c5c046ca0b1bf8d904b4909fb89d21f828847482ec5872d9",
+    "hjb_transport.py": "07a36891a55f069c337eb8596284376e47b9448dd23ab943b1fa91dafc81e456",
+    "hjb_regions.py": "a4767fd4d01d6e451755765d31e5b2b15b7160cdb24a6202d9a28615c198037f",
+    "transport_policy.py": "5b51accd89cdb22c5e58dd102502e5446749d9d7179d98648f0b695bb2093735",
+    "simulation.py": "5648e61b480a95cc1449e7471b581dab4bf0711308101f6f405dc9c981d9fb7b",
+    "sweep.py": "0396288db7c275af8d109e456c924563d9392ac3e01b65f2b7a0d04569503f43"
+  },
+  "model_sha256": "650252692c5c6594d85c21f517982514b760915ce9e1eabd7c54e3d99da08871",
+  "git_commit": "21ee60c0b5caf00cd4efd1211ee0ecbf240092dd",
+  "working_tree_dirty": true
+}

@@ -1,0 +1,16 @@
+{
+  "identical_files": {
+    "selection_OM.json": true,
+    "selection_YF.json": true
+  },
+  "unchanged_acceptance": true,
+  "changed_existing_protocol_fields": [
+    "id",
+    "policy"
+  ],
+  "added_protocol_fields": [
+    "cohort_origin",
+    "parent_protocol",
+    "reader_repair"
+  ]
+}

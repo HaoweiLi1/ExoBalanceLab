@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 from exobalancelab.bridge import MatlabController, Trajectory
 from exobalancelab.paper import PROFILES
-from exobalancelab.reachability import HJBPolicy
+from exobalancelab.reachability import load_policy
 from exobalancelab.simulation import RunConfig, run
 
 
@@ -26,6 +26,7 @@ def main() -> None:
     parser.add_argument("--dt", type=float, default=0.001)
     parser.add_argument("--control-period", type=float, default=0.001)
     parser.add_argument("--lean", type=float, default=-0.03, help="q=theta-pi/2, rad; positive is forward")
+    parser.add_argument("--initial-torque", type=float, default=0, help="initial human ankle torque, Nm")
     parser.add_argument("--velocity", type=float, default=0.15, help="rad/s; positive is forward")
     parser.add_argument("--push", type=float, default=0, help="anterior chest force N, human model only")
     parser.add_argument("--device-mass", type=float, default=2, help="total bilateral mass kg, human only")
@@ -37,7 +38,7 @@ def main() -> None:
     parser.add_argument("--initial-posture", choices=["root", "flat_feet"], default="root")
     parser.add_argument("--trajectory", type=Path, help="CSV or MAT desired human torque samples")
     parser.add_argument("--interpolation", choices=["linear", "zoh"], default="linear")
-    parser.add_argument("--hjb-policy", type=Path, help="exported MATLAB/helperOC value function")
+    parser.add_argument("--hjb-policy", type=Path, help="legacy value history or native transport feedback")
     parser.add_argument("--matlab-function", help="persistent Engine feedback function")
     parser.add_argument("--matlab-directory", type=Path)
     parser.add_argument("--video", action="store_true")
@@ -47,7 +48,7 @@ def main() -> None:
         parser.error("MATLAB needs --matlab-directory and cannot be combined with --trajectory")
     if sum(bool(item) for item in [args.trajectory, args.matlab_function, args.hjb_policy]) > 1:
         parser.error("Choose one of trajectory, MATLAB feedback, or HJB policy")
-    hjb = HJBPolicy(args.hjb_policy) if args.hjb_policy else None
+    hjb = load_policy(args.hjb_policy) if args.hjb_policy else None
     output = args.out or Path("logs") / datetime.now(ZoneInfo("Asia/Singapore")).strftime("%m%d_%H%M%S_%f")
     if output.exists():
         parser.error(f"Output already exists: {output}")
@@ -61,6 +62,7 @@ def main() -> None:
         control_period_s=args.control_period,
         lean_rad=args.lean,
         velocity_rad_s=args.velocity,
+        initial_torque_nm=args.initial_torque,
         device_mass_kg=args.device_mass,
         push_n=args.push,
         human_strength=args.strength,
@@ -82,7 +84,7 @@ def main() -> None:
             if args.matlab_function
             else nullcontext(None)
         )
-        with context as controller:
+        with context as controller, hjb if hjb is not None else nullcontext():
             episode = run(replace(config, exo=mode), trajectory, controller, hjb)
         episode.save(output / mode)
         episodes.append(episode)

@@ -24,6 +24,8 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `simulation` | `run(config, trajectory, matlab, hjb)` | at most one external policy → `Episode` |
 | `simulation` | `Episode.save(directory)` | records → new evidence directory |
 | `reachability` | `HJBPolicy(path, gradient_cache=None)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s; optional disk derivative cache |
+| `reachability` | `load_policy(path)` | Context-managed legacy or moving-grid transport feedback |
+| `transport_policy` | `TransportPolicy(path)`, `.initial_values(state)`, `.rate(...)` | Native decision tables → bounded time-dependent torque rate; fixed initial goal choice |
 | `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
 | `hjb_solver` · optional JAX | `solve(problem, output, save_history=True, platform="gpu", cfl=0.8, flux="lax_friedrichs")` | MATLAB-prepared fields → float64 set/tube solve, policy and projection; optional `godunov` flux |
 | `hjb_transport` · optional JAX | `load_problem(source)`, `solve(source, output, resolution, time_step, projection_only)` | Frozen MAT/JSON problem → float64 split-transport projection, source/input hashes and solve metadata |
@@ -46,7 +48,10 @@ at every declared grid resolution.
 
 The transport backend supports the frozen none/GC finite-time reach-avoid problems.
 It resolves each terminal box separately, unions the resulting values, and exports
-SI angle/velocity projections. It does not export time-dependent feedback histories.
+SI angle/velocity projections. The observer-enabled exporter records every native
+time-dependent decision table without changing the integration operators.
+[Transport feedback](../docs/TRANSPORT_FEEDBACK.md) documents moving-grid interpolation,
+initial goal choice, coverage checks and matched MuJoCo experiments.
 Use the grid/time settings in the [transport protocol](../docs/TRANSPORT_CONVERGENCE.md),
 rather than treating a solver's default resolution as an accuracy guarantee.
 

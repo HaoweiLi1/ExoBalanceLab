@@ -1,0 +1,67 @@
+{
+  "index": 3,
+  "group": "boundary",
+  "state": [
+    1.3978700273688762,
+    1.0438038105867344,
+    -70.12918526785717
+  ],
+  "baseline_native_index": 198138862,
+  "value": {
+    "none": 1.1923795357951513e-06,
+    "gc": 0.0014098773341787016
+  },
+  "profile": "OM",
+  "exo": "none",
+  "config": {
+    "model": "paper",
+    "profile": "OM",
+    "parameters": "authors",
+    "exo": "none",
+    "duration_s": 1.4,
+    "timestep_s": 1.25e-05,
+    "control_period_s": 0.001,
+    "lean_rad": -0.17292629942602034,
+    "velocity_rad_s": 1.0438038105867344,
+    "initial_torque_nm": -70.12918526785717,
+    "device_mass_kg": 2.0,
+    "push_n": 0.0,
+    "push_start_s": 1.0,
+    "push_duration_s": 0.15,
+    "human_strength": 1.0,
+    "mt_scale": 1.0,
+    "mrtd_scale": 1.0,
+    "command_delay_s": 0,
+    "human_feedback": "default",
+    "initial_posture": "root"
+  },
+  "policy_sha256": "724431e96e37f531769dd2eff445839a156fc202b74cc69773352052b73038c6",
+  "predicted_inside": false,
+  "status": "rollout_error",
+  "error": "HJB query out of bounds: velocity_rad_s=-0.195220879835 outside [-0.19493628387, 0.187181118867]",
+  "failed_query": {
+    "theta_rad": 1.5944718789570314,
+    "velocity_rad_s": -0.19522087983461034,
+    "human_torque_nm": -46.44829431692216,
+    "remaining_s": 0.2679999999999998
+  },
+  "policy_bounds": {
+    "theta_rad": [
+      1.5393425440562927,
+      1.606648703836701
+    ],
+    "velocity_rad_s": [
+      -0.1949362838697326,
+      0.1871811188668869
+    ],
+    "human_torque_nm": [
+      -64.17599999999986,
+      37.285714285714285
+    ],
+    "remaining_s": [
+      0.0,
+      1.4
+    ]
+  },
+  "selected_goal": 0
+}

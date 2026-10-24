@@ -1,0 +1,73 @@
+profile,exo,index,group,physics_step_s,predicted_inside,status,valid_reach,target_reached,contact_valid,control_p99_us,error
+OM,gc,0,inside,1.25e-05,True,completed,True,True,True,626.9777892157433,
+OM,gc,0,inside,6.25e-06,True,completed,True,True,True,656.2430388294159,
+OM,gc,1,inside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.77886285808 outside [1.20029354204, 1.77853611912]"
+OM,gc,1,inside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.77887336605 outside [1.20029354204, 1.77853611912]"
+OM,gc,2,inside,1.25e-05,True,completed,True,True,True,687.9903259687126,
+OM,gc,2,inside,6.25e-06,True,completed,True,True,True,704.9212814308703,
+OM,gc,3,boundary,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.76096332824 outside [1.24827895082, 1.76073924412]"
+OM,gc,3,boundary,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.76096927423 outside [1.24827895082, 1.76073924412]"
+OM,gc,4,boundary,1.25e-05,True,completed,True,True,True,603.2820721156895,
+OM,gc,4,boundary,6.25e-06,True,completed,True,True,True,624.6818834915757,
+OM,gc,5,boundary,1.25e-05,True,completed,True,True,True,593.1302602402866,
+OM,gc,5,boundary,6.25e-06,True,completed,True,True,True,617.730412632227,
+OM,gc,6,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80183453648 outside [0.961663705484, 1.80182311251]"
+OM,gc,6,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80183463508 outside [0.961663705484, 1.80182311251]"
+OM,gc,7,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.8029410186 outside [0.792066193393, 1.80182311251]"
+OM,gc,7,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80294510503 outside [0.792066193393, 1.80182311251]"
+OM,gc,8,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.511545014257 outside [-0.508482142857, 2.85647321429]"
+OM,gc,8,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.511541892859 outside [-0.508482142857, 2.85647321429]"
+OM,none,0,inside,1.25e-05,True,completed,True,True,True,635.4247056879103,
+OM,none,0,inside,6.25e-06,True,completed,True,True,True,675.0335730612277,
+OM,none,1,inside,1.25e-05,True,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.127565694369 outside [-0.127404122163, 0.102792371911]"
+OM,none,1,inside,6.25e-06,True,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.127891104677 outside [-0.127404122163, 0.102792371911]"
+OM,none,2,inside,1.25e-05,True,completed,True,True,True,636.5254265256226,
+OM,none,2,inside,6.25e-06,True,completed,True,True,True,670.9739076904953,
+OM,none,3,boundary,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.195220879835 outside [-0.19493628387, 0.187181118867]"
+OM,none,3,boundary,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.195942541741 outside [-0.19493628387, 0.187181118867]"
+OM,none,4,boundary,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.178841886631 outside [-0.177989220486, 0.164290808876]"
+OM,none,4,boundary,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.178790287074 outside [-0.177989220486, 0.164290808876]"
+OM,none,5,boundary,1.25e-05,True,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.206379409862 outside [-0.206350192839, 0.203116651503]"
+OM,none,5,boundary,6.25e-06,True,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.206385006716 outside [-0.206350192839, 0.203116651503]"
+OM,none,6,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80201083271 outside [0.816706279176, 1.80182311251]"
+OM,none,6,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80201154231 outside [0.816706279176, 1.80182311251]"
+OM,none,7,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.8027866091 outside [0.646689183938, 1.80182311251]"
+OM,none,7,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80279161443 outside [0.646689183938, 1.80182311251]"
+OM,none,8,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.510630396426 outside [-0.508482142857, 2.85647321429]"
+OM,none,8,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: velocity_rad_s=-0.510630330889 outside [-0.508482142857, 2.85647321429]"
+YF,gc,0,inside,1.25e-05,True,completed,True,True,True,635.6516759842634,
+YF,gc,0,inside,6.25e-06,True,completed,True,True,True,652.4453172460198,
+YF,gc,1,inside,1.25e-05,True,completed,True,True,True,595.8306719549,
+YF,gc,1,inside,6.25e-06,True,completed,True,True,True,620.9592777304351,
+YF,gc,2,inside,1.25e-05,True,completed,True,True,True,592.5685772672296,
+YF,gc,2,inside,6.25e-06,True,completed,True,True,True,616.2114767357706,
+YF,gc,3,boundary,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80210583798 outside [0.646689183938, 1.80182311251]"
+YF,gc,3,boundary,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80211194889 outside [0.646689183938, 1.80182311251]"
+YF,gc,4,boundary,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80215044724 outside [0.912297677757, 1.80182311251]"
+YF,gc,4,boundary,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80216116922 outside [0.912297677757, 1.80182311251]"
+YF,gc,5,boundary,1.25e-05,True,completed,True,True,True,597.7235222235322,
+YF,gc,5,boundary,6.25e-06,True,completed,True,True,True,624.1563707590103,
+YF,gc,6,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80205756261 outside [0.646689183938, 1.80182311251]"
+YF,gc,6,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80205778151 outside [0.646689183938, 1.80182311251]"
+YF,gc,7,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80324023465 outside [0.646689183938, 1.80182311251]"
+YF,gc,7,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80324233565 outside [0.646689183938, 1.80182311251]"
+YF,gc,8,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80208526423 outside [0.646689183938, 1.80182311251]"
+YF,gc,8,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.8020864908 outside [0.646689183938, 1.80182311251]"
+YF,none,0,inside,1.25e-05,True,completed,True,True,True,588.750906754285,
+YF,none,0,inside,6.25e-06,True,completed,True,True,True,616.3427163846791,
+YF,none,1,inside,1.25e-05,True,completed,True,True,True,573.1047643348574,
+YF,none,1,inside,6.25e-06,True,completed,True,True,True,602.5060405954719,
+YF,none,2,inside,1.25e-05,True,completed,True,True,True,598.2299498282373,
+YF,none,2,inside,6.25e-06,True,completed,True,True,True,598.9947007037699,
+YF,none,3,boundary,1.25e-05,True,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80186774832 outside [1.62316558373, 1.80182311251]"
+YF,none,3,boundary,6.25e-06,True,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80190118871 outside [1.62316558373, 1.80182311251]"
+YF,none,4,boundary,1.25e-05,True,completed,True,True,True,592.936419416219,
+YF,none,4,boundary,6.25e-06,True,completed,True,True,True,642.9597362875937,
+YF,none,5,boundary,1.25e-05,False,completed,False,False,True,599.9924545176326,
+YF,none,5,boundary,6.25e-06,False,completed,False,False,True,656.7238760180771,
+YF,none,6,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80212016422 outside [0.646689183938, 1.80182311251]"
+YF,none,6,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80211988025 outside [0.646689183938, 1.80182311251]"
+YF,none,7,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.8022532746 outside [0.646689183938, 1.80182311251]"
+YF,none,7,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80225531372 outside [0.646689183938, 1.80182311251]"
+YF,none,8,outside,1.25e-05,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80278283187 outside [0.646689183938, 1.80182311251]"
+YF,none,8,outside,6.25e-06,False,rollout_error,,,,,"HJB query out of bounds: theta_rad=1.80278376743 outside [0.646689183938, 1.80182311251]"

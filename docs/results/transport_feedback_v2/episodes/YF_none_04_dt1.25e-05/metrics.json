@@ -1,0 +1,52 @@
+{
+  "model": "paper",
+  "profile": "YF",
+  "exo": "none",
+  "controller": "hjb",
+  "recovered": false,
+  "contact_valid_fraction": 1.0,
+  "max_abs_lean_rad": 0.19031703348571374,
+  "final_lean_rad": 0.18528954048268773,
+  "final_velocity_rad_s": 0.001011462132383178,
+  "final_human_torque_nm": -99.71835560924926,
+  "final_exo_torque_nm": 0.0,
+  "human_torque_rms_nm": 107.13149219240755,
+  "control_calls": 1400,
+  "control_p50_us": 187.2214488685131,
+  "control_p99_us": 592.936419416219,
+  "wall_s": 7.1659458870999515,
+  "simulated_s_per_wall_s": 0.19536848617853267,
+  "physics_hz": 80000.0,
+  "control_hz": 1000.0,
+  "command_delay_s": 0,
+  "control_deadline_miss_fraction": 0.0007142857142857143,
+  "initial_state": [
+    -0.10588727678571441,
+    0.9636858258928569
+  ],
+  "human_feedback": "default",
+  "feedback_gain": null,
+  "feedback_reference": null,
+  "feedback_design_timestep_s": null,
+  "max_foot_pitch_rad": 0.0,
+  "max_foot_slide_m": 0.0,
+  "human_clipped_fraction": 0.0,
+  "total_mass_kg": 59.4,
+  "effective_profile": {
+    "name": "YF",
+    "mass_kg": 59.4,
+    "height_m": 1.653,
+    "torque_min_nm": -130.0,
+    "torque_max_nm": 28.0,
+    "rate_min_nm_s": -608.0,
+    "rate_max_nm_s": 219.0,
+    "damping_nm_s": 0.001,
+    "friction": 1.0,
+    "gravity_m_s2": 9.8
+  },
+  "controller_source": {
+    "file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/transport_feedback/policies/YF_none_forward_source_entry_mt100_mrtd100/policy.h5",
+    "sha256": "531dc71775af0cc65fc3afebf1bbfc998c1580b0e24aaf52b5b359e7d2e7c31a"
+  },
+  "scope": "controller-specific rollout; not an HJB stabilizable region"
+}

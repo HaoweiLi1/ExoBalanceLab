@@ -1,0 +1,103 @@
+{
+  "index": 0,
+  "group": "inside",
+  "state": [
+    1.4116216217566313,
+    0.8885752152423467,
+    -74.75526147959184
+  ],
+  "baseline_native_index": 201741408,
+  "value": {
+    "none": -0.0031103251374236256,
+    "gc": -0.0031105755618869363
+  },
+  "profile": "YF",
+  "exo": "none",
+  "config": {
+    "model": "paper",
+    "profile": "YF",
+    "parameters": "authors",
+    "exo": "none",
+    "duration_s": 1.4,
+    "timestep_s": 1.25e-05,
+    "control_period_s": 0.001,
+    "lean_rad": -0.15917470503826525,
+    "velocity_rad_s": 0.8885752152423467,
+    "initial_torque_nm": -74.75526147959184,
+    "device_mass_kg": 2.0,
+    "push_n": 0.0,
+    "push_start_s": 1.0,
+    "push_duration_s": 0.15,
+    "human_strength": 1.0,
+    "mt_scale": 1.0,
+    "mrtd_scale": 1.0,
+    "command_delay_s": 0,
+    "human_feedback": "default",
+    "initial_posture": "root"
+  },
+  "policy_sha256": "531dc71775af0cc65fc3afebf1bbfc998c1580b0e24aaf52b5b359e7d2e7c31a",
+  "predicted_inside": true,
+  "status": "completed",
+  "metrics": {
+    "model": "paper",
+    "profile": "YF",
+    "exo": "none",
+    "controller": "hjb",
+    "recovered": false,
+    "contact_valid_fraction": 1.0,
+    "max_abs_lean_rad": 0.1879376262007032,
+    "final_lean_rad": 0.1858178237183126,
+    "final_velocity_rad_s": -1.4379110089197735e-05,
+    "final_human_torque_nm": -98.04422661112616,
+    "final_exo_torque_nm": 0.0,
+    "human_torque_rms_nm": 94.3570937716873,
+    "control_calls": 1400,
+    "control_p50_us": 187.05555703490973,
+    "control_p99_us": 588.750906754285,
+    "wall_s": 7.161281694192439,
+    "simulated_s_per_wall_s": 0.1954957310414633,
+    "physics_hz": 80000.0,
+    "control_hz": 1000.0,
+    "command_delay_s": 0,
+    "control_deadline_miss_fraction": 0.0007142857142857143,
+    "initial_state": [
+      -0.15917470503826525,
+      0.8885752152423467
+    ],
+    "human_feedback": "default",
+    "feedback_gain": null,
+    "feedback_reference": null,
+    "feedback_design_timestep_s": null,
+    "max_foot_pitch_rad": 0.0,
+    "max_foot_slide_m": 0.0,
+    "human_clipped_fraction": 0.0,
+    "total_mass_kg": 59.4,
+    "effective_profile": {
+      "name": "YF",
+      "mass_kg": 59.4,
+      "height_m": 1.653,
+      "torque_min_nm": -130.0,
+      "torque_max_nm": 28.0,
+      "rate_min_nm_s": -608.0,
+      "rate_max_nm_s": 219.0,
+      "damping_nm_s": 0.001,
+      "friction": 1.0,
+      "gravity_m_s2": 9.8
+    },
+    "controller_source": {
+      "file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/transport_feedback/policies/YF_none_forward_source_entry_mt100_mrtd100/policy.h5",
+      "sha256": "531dc71775af0cc65fc3afebf1bbfc998c1580b0e24aaf52b5b359e7d2e7c31a"
+    },
+    "scope": "controller-specific rollout; not an HJB stabilizable region"
+  },
+  "final_state": [
+    1.7566141505132091,
+    -1.4379110089197735e-05,
+    -98.04422661112616
+  ],
+  "target_reached": true,
+  "contact_valid": true,
+  "valid_target_reach": true,
+  "saved_interval_s": 0.001,
+  "selected_goal": 1
+}

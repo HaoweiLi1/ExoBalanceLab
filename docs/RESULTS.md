@@ -5,6 +5,22 @@ Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions a
 complete numerical/video snapshots are in [results](results/).
 The [release verification](RELEASE.md) records installation, tests and report rebuilds.
 
+## Native transport feedback
+
+The [new feedback campaign](TRANSPORT_FEEDBACK.md) exports four 673³ time-varying
+policies with **exactly unchanged final projections**, then runs all **72 matched
+MuJoCo experiments**. A moving-grid coordinate error was repaired and the identical
+initial states rerun. **30 runs complete; 28 reach a terminal target with valid constraints.**
+All 15 complete physics-refinement pairs meet the original endpoint/classification
+limits; controller p99 is at most **0.705 ms**.
+
+The full gate remains **15/36**, because 21 pairs have coverage errors. Three different
+predicted-inside cases still fail at both physics steps; six targeted follow-ups did
+not remove those failures. They remain in the public evidence. New
+[OM](media/transport_om.mp4) and [YF](media/transport_yf.mp4) videos use the actual
+fine-step trajectories and identify the selected ankle/toe target. Historical
+articulated-human videos retain their original controllers.
+
 ## Accepted transport refinement
 
 The [transport repair](TRANSPORT_CONVERGENCE.md) completes **38 local GPU solves**
@@ -24,8 +40,8 @@ and refinement checks. The maximum raster-referenced absolute area error is
 
 [All measurements and source snapshots](results/transport_v3/README.md) ·
 [Method, analytic figures and reproduction](TRANSPORT_CONVERGENCE.md).
-These are accepted finite-grid reduced-model projections. The new backend has not
-exported feedback histories or rerun the historical MuJoCo videos. Exact Table II
+These are accepted finite-grid reduced-model projections. The separate
+[native feedback campaign](TRANSPORT_FEEDBACK.md) records actual closed-loop outcomes. Exact Table II
 reproduction and transfer of HJB guarantees to the articulated model remain unestablished.
 
 ## Spatial diagnosis and partial repair

@@ -1,0 +1,26 @@
+{
+  "compute": "Current computer only",
+  "python": "3.11.17",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "h5py": "3.14.0",
+    "scipy": "1.15.3"
+  },
+  "solver_environment": {
+    "python": "3.12.15",
+    "packages": {
+      "jax": "0.12.0.1",
+      "jaxlib": "0.12.0.1",
+      "flax": "0.12.10",
+      "numpy": "2.2.6",
+      "h5py": "3.14.0"
+    }
+  },
+  "cpu": "Intel Core i7-14650HX",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "gpu_memory_mib": 8151,
+  "nvidia_driver": "595.99.02",
+  "openblas_threads": 1
+}

@@ -1,0 +1,11 @@
+{
+  "report_identical": true,
+  "records": 72,
+  "export_projection_exact": {
+    "OM_gc_forward_common_ankle_mt100_mrtd100": true,
+    "YF_gc_forward_source_entry_mt100_mrtd100": true,
+    "OM_none_forward_common_ankle_mt100_mrtd100": true,
+    "YF_none_forward_source_entry_mt100_mrtd100": true
+  },
+  "source_snapshots_verified": true
+}

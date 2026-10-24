@@ -56,3 +56,15 @@ For a single independent-capacity/delay check in the basic environment:
 exobalance run --model paper --mt-scale 0.7 --mrtd-scale 1 \
   --control-period 0.005 --command-delay 0.01 --out logs/independent_mt
 ```
+
+## Native transport feedback
+
+[Export and closed-loop protocol](../docs/TRANSPORT_FEEDBACK.md) connects the accepted
+673³ transport fields to the matching reduced MuJoCo plant.
+
+| Script | Purpose |
+|---|---|
+| `export_transport_policy.py` | Record every moving-grid Hamiltonian decision and require exact agreement with the accepted final projection |
+| `validate_transport_feedback.py` | Freeze shared initial states, run both physics steps and retain every success, miss and coverage error |
+| `render_transport_feedback.py` | Render the predeclared matched trajectories and record video selection and outcomes |
+| `curate_transport_feedback.py` | Package all declared outcomes, compact trajectories and policy provenance, retaining failed runs |

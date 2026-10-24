@@ -1,0 +1,22 @@
+{
+  "model": "paper",
+  "profile": "OM",
+  "parameters": "authors",
+  "exo": "gc",
+  "duration_s": 1.4,
+  "timestep_s": 6.25e-06,
+  "control_period_s": 0.001,
+  "lean_rad": 0.05397500797193899,
+  "velocity_rad_s": 0.2225944674744897,
+  "initial_torque_nm": -2.507214604591855,
+  "device_mass_kg": 2.0,
+  "push_n": 0.0,
+  "push_start_s": 1.0,
+  "push_duration_s": 0.15,
+  "human_strength": 1.0,
+  "mt_scale": 1.0,
+  "mrtd_scale": 1.0,
+  "command_delay_s": 0,
+  "human_feedback": "default",
+  "initial_posture": "root"
+}

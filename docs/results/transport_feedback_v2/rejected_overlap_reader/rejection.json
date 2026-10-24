@@ -1,0 +1,10 @@
+{
+  "status": "stopped_after_confirmed_reader_error",
+  "recorded_outcomes": 15,
+  "planned_outcomes": 72,
+  "reason": "Fixed physical query in both temporal grids rejects valid states in a contracting space-time cell. Replaced by reference-cell interpolation without spatial extrapolation.",
+  "cohort_sha256": {
+    "selection_OM.json": "a05d24417bfef0aeeaa131bdb9e6250ab081e55e609472c2c1727553f70b0094",
+    "selection_YF.json": "f0890fb78ab1bf022bf212b94418264f584978eaf697daa60081fe6254c54b8a"
+  }
+}

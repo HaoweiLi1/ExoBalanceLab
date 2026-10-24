@@ -26,8 +26,8 @@ goal enlargement or switch to float32.
 These are finite-horizon reach-avoid computations for the reduced human model, with
 unchanged C1/C3–C5 constraints and independent MT/MRTD limits. Passing the operational
 criteria does not establish asymptotic convergence, box invariance, exact Table II
-reproduction or transfer to the articulated MuJoCo model. The new backend exports
-convergence fields; earlier feedback policies and rollout outcomes remain historical.
+reproduction or transfer to the articulated MuJoCo model. The [native feedback follow-up](TRANSPORT_FEEDBACK.md) exports time-dependent policies
+and tests their matched MuJoCo execution; earlier policies and outcomes remain historical.
 
 ## What was repaired
 

@@ -1,0 +1,42 @@
+{
+  "query": {
+    "theta_rad": 1.5708004580355939,
+    "velocity_rad_s": 9.849376718486763e-05,
+    "human_torque_nm": 2.2342717417478006,
+    "remaining_s": 0.008999999999999897
+  },
+  "old_bounds": {
+    "theta_rad": [
+      1.5607963267948965,
+      1.5807963267948966
+    ],
+    "velocity_rad_s": [
+      -0.02,
+      0.02
+    ],
+    "human_torque_nm": [
+      -2.0,
+      2.0
+    ],
+    "remaining_s": [
+      0.0,
+      1.4
+    ]
+  },
+  "interpolated_bounds": {
+    "theta_rad": [
+      1.560609911216876,
+      1.5809841375174465
+    ],
+    "velocity_rad_s": [
+      -0.02156214450996736,
+      0.021283115604080482
+    ],
+    "human_torque_nm": [
+      -4.087999999999976,
+      8.12899999999993
+    ]
+  },
+  "inside_current_cell": true,
+  "repaired_rate_nm_s": -118.97945155709445
+}

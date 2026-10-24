@@ -207,3 +207,36 @@ def test_slab_execution_matches_full_volume_operators_at_partial_slabs(kind):
     np.testing.assert_array_equal(actual <= 0, np.asarray(expected) <= 0)
     for a, b in zip(actual_axes, expected_axes):
         np.testing.assert_array_equal(a, b)
+
+
+@jax_only
+def test_history_observer_does_not_change_transport_and_records_every_step():
+    from exobalancelab.hjb_transport import analytic_problem, integrate
+
+    boxes = [(np.array([0.0, 0.0, 0.0]), np.array([1.0, 0.005, 0.01]), 0.005)]
+    captured = []
+
+    def snapshot(time, axes, value):
+        captured.append((time, [np.array(a) for a in axes], np.array(value)))
+
+    args = (analytic_problem(), boxes, (3, 13, 17), 0.03, 0.01)
+    a, expected = integrate(*args)
+    b, actual = integrate(*args, snapshot=snapshot)
+    np.testing.assert_array_equal(actual, expected)
+    np.testing.assert_allclose([c[0] for c in captured], [0, 0.01, 0.02, 0.03], atol=1e-15)
+    for x, y in zip(a, b, strict=True):
+        np.testing.assert_array_equal(x, y)
+    np.testing.assert_array_equal(captured[-1][2], actual)
+    assert not np.array_equal(captured[0][1][2], captured[-1][1][2])
+
+
+@jax_only
+def test_device_feedback_codes_match_native_derivative_signs():
+    from examples.export_transport_policy import device_switching_codes
+    from exobalancelab.transport_policy import switching_codes
+
+    values = np.random.default_rng(240805418).normal(size=(35, 13, 17))
+    values[:, 0, :] = 0
+    values[:, 1, :] = np.arange(17)
+    values[:, 2, :] = -np.arange(17)
+    np.testing.assert_array_equal(device_switching_codes(values), switching_codes(values))

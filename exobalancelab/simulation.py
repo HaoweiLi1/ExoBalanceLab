@@ -246,8 +246,11 @@ def run(
             config.model != "paper"
             or config.duration_s - hjb.horizon_s > TIME_TOLERANCE_S
             or hjb.minimum_horizon_s > TIME_TOLERANCE_S
+            or getattr(hjb, "minimum_duration_s", 0) - config.duration_s > TIME_TOLERANCE_S
         ):
-            raise ValueError("HJB requires the paper model and complete [0,duration] time coverage")
+            raise ValueError(
+                "HJB requires the paper model, a supported duration and complete [0,duration] time coverage"
+            )
     p = PROFILE_SETS[config.parameters][config.profile]
     p = scale_strength(p, config.human_strength * config.mt_scale, config.human_strength * config.mrtd_scale)
     if hjb is not None:

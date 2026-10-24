@@ -1,0 +1,26 @@
+[
+  {
+    "name": "transport_om",
+    "shape": [
+      640,
+      960,
+      3
+    ],
+    "fps": 30.0,
+    "duration_s": 1.4,
+    "frames": 42,
+    "animated": true
+  },
+  {
+    "name": "transport_yf",
+    "shape": [
+      640,
+      960,
+      3
+    ],
+    "fps": 30.0,
+    "duration_s": 1.4,
+    "frames": 42,
+    "animated": true
+  }
+]

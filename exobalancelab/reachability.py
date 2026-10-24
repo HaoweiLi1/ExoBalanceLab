@@ -206,6 +206,15 @@ class HJBPolicy:
         with self.path.open("rb") as source:
             return hashlib.file_digest(source, "sha256").hexdigest()
 
+    def close(self) -> None:
+        """Legacy arrays and optional memory maps follow their normal object lifetime."""
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.close()
+
     def validate_plant(self, profile: Profile, exo: str) -> None:
         """Reject a rollout unless its physical parameters match the exported contract."""
         expected = policy_contract(profile, exo)
@@ -255,3 +264,17 @@ class HJBPolicy:
         if derivative < 0:
             return profile.rate_max_nm_s
         return 0.0
+
+
+def load_policy(path: str | Path) -> HJBPolicy:
+    """Open a legacy value history or a native moving-grid transport policy."""
+    import h5py
+
+    from exobalancelab.transport_policy import FORMAT, TransportPolicy
+
+    if h5py.is_hdf5(path):
+        with h5py.File(path, "r") as source:
+            transport = source.attrs.get("format") == FORMAT
+        if transport:
+            return TransportPolicy(path)
+    return HJBPolicy(path)

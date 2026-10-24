@@ -320,7 +320,7 @@ def initial_value(axes, p, boxes):
     return project(value, axes, p)
 
 
-def integrate(p, boxes, shape, duration, time_step, progress=None):
+def integrate(p, boxes, shape, duration, time_step, progress=None, snapshot=None):
     lower = np.maximum(np.asarray(p.lower), np.min([c - 2 * w for c, w, d in boxes], axis=0))
     upper = np.minimum(np.asarray(p.upper), np.max([c + 2 * w for c, w, d in boxes], axis=0))
     axes = tuple(j.linspace(lo, hi, n) for lo, hi, n in zip(lower, upper, shape))
@@ -356,6 +356,8 @@ def integrate(p, boxes, shape, duration, time_step, progress=None):
     stats = value.devices().pop().memory_stats()
     if stats is not None and stats["bytes_in_use"] + required_workspace > 0.9 * stats["bytes_limit"]:
         raise MemoryError("Insufficient device memory for this float64 resolution")
+    if snapshot is not None:
+        snapshot(0, axes, value)
     for k in range(count):
         for operator, fraction in SPLIT_STAGES:
             slab_dim, flow_dim, _ = layouts[operator]
@@ -378,6 +380,8 @@ def integrate(p, boxes, shape, duration, time_step, progress=None):
             value = j.concatenate(parts, axis=slab_dim) if len(parts) > 1 else parts[0]
             axes = tuple(destination if i == flow_dim else a for i, a in enumerate(axes))
             del parts
+        if snapshot is not None:
+            snapshot((k + 1) * dt, axes, value)
         if progress and (k + 1) % max(1, count // 14) == 0:
             progress((k + 1) * dt)
     value = np.asarray(value)

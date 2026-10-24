@@ -1,0 +1,22 @@
+{
+  "cases": [
+    [
+      "OM",
+      1
+    ],
+    [
+      "OM",
+      5
+    ],
+    [
+      "YF",
+      3
+    ]
+  ],
+  "changes": [
+    "Same bounded-rate interpolation with 0.5 ms control",
+    "Hamiltonian extremum of interpolated unit switching function at original 1 ms control"
+  ],
+  "acceptance": "Diagnostic only; original 1 ms campaign and all criteria retained.",
+  "script_sha256": "c81230436eaf828111b6a95874a90227e3280aafbe87326770dd275d0934a7b2"
+}

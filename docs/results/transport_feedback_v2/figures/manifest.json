@@ -1,0 +1,50 @@
+[
+  {
+    "profile": "OM",
+    "index": 0,
+    "group": "inside",
+    "state": [
+      1.525072275455611,
+      0.5630959024234692,
+      -107.32126913265307
+    ],
+    "valid_reach": [
+      true,
+      true
+    ],
+    "selected_goals": [
+      "ANKLE",
+      "ANKLE"
+    ],
+    "sources": [
+      "episodes/OM_none_00_dt6.25e-06",
+      "episodes/OM_gc_00_dt6.25e-06"
+    ],
+    "physics_step_s": 6.25e-06,
+    "playback_speed": 1.0
+  },
+  {
+    "profile": "YF",
+    "index": 0,
+    "group": "inside",
+    "state": [
+      1.4116216217566313,
+      0.8885752152423467,
+      -74.75526147959184
+    ],
+    "valid_reach": [
+      true,
+      true
+    ],
+    "selected_goals": [
+      "TOE",
+      "TOE"
+    ],
+    "sources": [
+      "episodes/YF_none_00_dt6.25e-06",
+      "episodes/YF_gc_00_dt6.25e-06"
+    ],
+    "physics_step_s": 6.25e-06,
+    "playback_speed": 1.0
+  }
+]

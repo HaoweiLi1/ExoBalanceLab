@@ -78,8 +78,13 @@ Scientific acceptance still requires evidence beyond execution:
 - [x] Resolve the declared OM time-step gate with the repaired transport backend:
   both OM and YF 673³ pilots pass 10→5 ms at ≤0.5% area and ≥0.995 IoU.
   Failed LF/Godunov candidates remain historical evidence.
-- [ ] Export time-dependent histories from the accepted transport backend and validate
-  matched feedback rollouts before attributing existing MuJoCo outcomes to that solver.
+- [x] Export native time-dependent feedback, execute all 72 matched MuJoCo rollouts,
+  repair moving-grid interpolation, and publish new videos and complete failure records
+  in [Transport feedback](TRANSPORT_FEEDBACK.md).
+- [ ] Resolve the three predicted-inside feedback failures (OM/none 01 and 05;
+  YF/none 03) with the same cohort and original limits before claiming set-wide
+  feedback acceptance. The completed pairs pass; the full gate remains 15/36.
+  Halving the control period and unit-switching extraction did not close these cases.
 - [ ] Extend accepted refinement to the other population/assistance cases if pursuing
   exact Table II reproduction; current YF/OM acceptance does not settle source/target discrepancies.
 - [ ] Establish any stronger delay/coverage guarantee or hardware timing claim. The measured

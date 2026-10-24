@@ -22,7 +22,9 @@
 <p align="center">
 The same 80 N chest perturbation, with assistance off, gravity compensation, and PD assistance.<br>
 <a href="docs/media/human.mp4">Full simulation video</a> ·
-<a href="docs/media/paper_constraints.mp4">Contact-constraint comparison</a>
+<a href="docs/media/paper_constraints.mp4">Contact-constraint comparison</a><br>
+New transport feedback: <a href="docs/media/transport_om.mp4">OM</a> ·
+<a href="docs/media/transport_yf.mp4">YF</a> — matched paper model
 </p>
 
 ## 🦿 Overview
@@ -78,6 +80,7 @@ using the basic environment.
 | MATLAB/Python feedback · six seconds | Identical recorded positions and commands |
 | [Independent analytic references](docs/TRANSPORT_CONVERGENCE.md#independent-analytic-checks) · three systems | Maximum area error **1.959%**; all declared checks pass |
 | [Transport validation](docs/TRANSPORT_CONVERGENCE.md) · 38 solves | Spatial **18/18**, time **2/2** pass at unchanged tolerances |
+| [Native feedback](docs/TRANSPORT_FEEDBACK.md) · 72 rollouts | **14/17** predicted-inside cases reach target; three unresolved |
 | [Paired model study](docs/VALIDATION.md) · 480 episodes | 159/160 physics-refinement classifications agree; human harm not observed |
 
 The repaired solver meets the declared numerical criteria for reduced-model YF/OM

@@ -1,0 +1,85 @@
+{
+  "aligned_upright": true,
+  "aligned_zero": true,
+  "ankle_target_nodes": 15,
+  "direction": "forward",
+  "duration_s": 1.4,
+  "effective_profile": {
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8,
+    "height_m": 1.653,
+    "mass_kg": 59.4,
+    "rate_max_nm_s": 219,
+    "rate_min_nm_s": -608,
+    "torque_max_nm": 28,
+    "torque_min_nm": -130
+  },
+  "exo": "none",
+  "frozen_target_file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/validation_v1/hjb/prepared/YF_none_forward_source_entry_mt100_mrtd100_n225/computed_target.mat",
+  "gravity_m_s2": 9.8,
+  "initial_target_nodes": 201,
+  "matlab_release": "2026b",
+  "method": "none",
+  "mrtd_scale": 1,
+  "mt_scale": 1,
+  "output_step_s": 0.01,
+  "profile": "YF",
+  "requested_resolution": [
+    225,
+    225,
+    225
+  ],
+  "resolution": 673,
+  "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+  "source_model": {
+    "h": 1.653,
+    "label": "YF",
+    "m": 59.4,
+    "tauMax": 28,
+    "tauMin": -130,
+    "uMax": 219,
+    "uMin": -608
+  },
+  "stage": "exported",
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "thetaAnkRange": 0.014480787516215746,
+    "thetaDotAnkRange": 0.01,
+    "thetaDotToeRange": 0.01,
+    "thetaToeRange": 0.014486685751929518,
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "torqueAnkRange": 1,
+    "torqueToeRange": 11.068663929248952
+  },
+  "target_definition": "source_entry",
+  "target_field": "width_normalized",
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "toe_target_nodes": 186,
+  "velocity_buffer_rad_s": 0.5,
+  "integration_step_s": 0.01,
+  "sources": {
+    "hjb_transport.py": "07a36891a55f069c337eb8596284376e47b9448dd23ab943b1fa91dafc81e456",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "export_transport_policy.py": "f1b62a68aad87009c4c42dbc7ce688d5322c8e79d275fc846fda656e94f28011",
+    "transport_policy.py": "cf58bf47e4bcaeec643ee0331532f35d66e67798cffb21d10b58e7cb1bea17b4"
+  },
+  "input_sha256": "5f6104684866a0af90cfd15aa4735d201bad63a4c03195f532cb81c304317ead",
+  "policy_format": "exobalance.transport-feedback.v1",
+  "decision_reference_checks": "Full native initial/final fields for each goal",
+  "control_interpolation": "trilinear in state; linear in remaining time",
+  "goal_selection": "minimum final value at episode start, held for that episode",
+  "wall_s": 1410.9535833608825,
+  "policy_sha256": "531dc71775af0cc65fc3afebf1bbfc998c1580b0e24aaf52b5b359e7d2e7c31a",
+  "policy_bytes": 4037684789,
+  "accepted_projection_identical": true,
+  "reference_projection_sha256": "795d640aaaecedf4b4ebddc22afa7c4612cec1e9306b1680b2bc2a008ba0b660"
+}

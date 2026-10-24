@@ -86,3 +86,10 @@ and compares target and contact classifications separately during physics refine
 `test_work_energy.py` checks the SI energy implementation against independent quadrature.
 The full [validation campaign](../docs/VALIDATION.md) runs separately and retains numerical
 disagreements even when these software tests pass.
+
+`test_transport_policy.py` checks native rate decisions, moving-grid/time interpolation,
+held terminal-goal selection, physical contracts and coverage errors.
+`test_transport_feedback.py` checks that endpoint, classification, deadline and coverage
+failures remain failures in the aggregate report. The optional transport observer test
+requires bitwise-identical final fields with and without snapshot recording.
+These unit tests supplement the [actual MuJoCo campaign](../docs/TRANSPORT_FEEDBACK.md).
