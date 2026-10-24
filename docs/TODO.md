@@ -3,8 +3,9 @@
 The goal is a clear, reproducible presentation of existing research motivated by
 Daphna Raz's standing-balance theory. A new paper or independent theoretical contribution
 is not a release requirement. The initial delivery work is verified; the four-gap
-validation phase has been implemented and executed. Spatial convergence remains
-unaccepted at the frozen tolerances. Model extensions remain optional.
+validation phase has been implemented and executed. The subsequent transport repair
+passes all 18 spatial comparisons and both time pilots at the frozen tolerances.
+Model extensions remain optional.
 Completed studies and their
 limitations remain in [Results](RESULTS.md). Acceptance is defined in [the delivery plan](PLAN.md).
 
@@ -71,12 +72,16 @@ Execution completion and scientific acceptance are tracked separately.
 
 Scientific acceptance still requires evidence beyond execution:
 
-- [ ] Establish spatial convergence at the frozen thresholds before claiming quantitative
-  agreement with the article's region areas. Geometry/flux repairs and 337³ refinement
-  retain 6.36% / 10.13% area differences for YF / OM. An accepted pilot must precede a new complete 18-family
-  GC/MT/MRTD comparison; keep the same goals, ≤2% area, ≤1 pp GC effect and ≥0.98 IoU.
-- [ ] Resolve the new Godunov candidate's OM time sensitivity before treating it as an
-  accepted replacement: CFL 0.8→0.4 and 0.4→0.2 fail the unchanged IoU ≥0.995 check.
+- [x] Repair thin-target propagation, pass independent analytic references, and complete
+  all 18 YF/OM GC/MT/MRTD spatial comparisons at the original ≤2% area, ≤1 pp effect
+  and ≥0.98 IoU limits. The [transport campaign](TRANSPORT_CONVERGENCE.md) passes at 561³→673³.
+- [x] Resolve the declared OM time-step gate with the repaired transport backend:
+  both OM and YF 673³ pilots pass 10→5 ms at ≤0.5% area and ≥0.995 IoU.
+  Failed LF/Godunov candidates remain historical evidence.
+- [ ] Export time-dependent histories from the accepted transport backend and validate
+  matched feedback rollouts before attributing existing MuJoCo outcomes to that solver.
+- [ ] Extend accepted refinement to the other population/assistance cases if pursuing
+  exact Table II reproduction; current YF/OM acceptance does not settle source/target discrepancies.
 - [ ] Establish any stronger delay/coverage guarantee or hardware timing claim. The measured
   control-period and delay failures delimit the current implementation's tested behavior.
 

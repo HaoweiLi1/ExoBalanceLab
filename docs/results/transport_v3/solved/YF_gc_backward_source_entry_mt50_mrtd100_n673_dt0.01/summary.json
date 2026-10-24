@@ -1,0 +1,72 @@
+{
+  "profile": "YF",
+  "exo": "gc",
+  "direction": "backward",
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "thetaAnkRange": 0.05024722818662286,
+    "thetaDotAnkRange": 0.01,
+    "thetaDotToeRange": 0.01,
+    "thetaToeRange": 0.014486681235728214,
+    "toeEq": [
+      1.7565206380525957,
+      0,
+      -49.206837186168656
+    ],
+    "torqueAnkRange": 1,
+    "torqueToeRange": 11.068799533660892
+  },
+  "effective_profile": {
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8,
+    "height_m": 1.653,
+    "mass_kg": 59.4,
+    "rate_max_nm_s": 219,
+    "rate_min_nm_s": -608,
+    "torque_max_nm": 14,
+    "torque_min_nm": -65
+  },
+  "mt_scale": 0.5,
+  "mrtd_scale": 1,
+  "target_definition": "source_entry",
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "method": "none",
+  "duration_s": 1.4,
+  "gravity_m_s2": 9.8,
+  "stage": "solved",
+  "backend": "enclosing-grid/Strang/SL-ENO",
+  "precision": "float64",
+  "resolution": [
+    673,
+    673,
+    673
+  ],
+  "requested_time_step_s": 0.01,
+  "time_step_s": 0.01,
+  "integration_steps": 140,
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f"
+  },
+  "input_sha256": "010b5c3b47bdc0a6cdba49cfa4d1fcc226f4c4bf56ff31356fcfc8088161792e",
+  "prepared_sha256": "f7df35b5108bbb10ab7a925a9effc39e6ba4cf99a6e5051813a5639cc794bc1f",
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "numpy": "2.2.6",
+    "flax": "0.12.10"
+  },
+  "device": "cuda:0",
+  "device_kind": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "execution": "global enclosure axes; independently compiled 32-node slabs for every Strang operator",
+  "output_scope": "Convergence projection; no feedback history exported",
+  "independently_resolved_boxes": 2,
+  "wall_s": 1049.5283354630228,
+  "reachable_nodes": 25131001,
+  "projection_sha256": "049d6d85551837524e010b1909ead10eb6190edb38c7516df4175ca10390bee6"
+}

@@ -1,0 +1,15 @@
+{
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "benchmark_transport.py": "eb72ea57040c714654f99d034f6b90b3b438c8d7bbda807243e2dd3dbc5f885d",
+    "hjb_analytic_reference.py": "703a7ab465f91691d60fdda280ac2a84b769d986897f1d9683bed9f309b9070d"
+  },
+  "field": "triple_n449_dt0.01.npz",
+  "sha256": "0f6f6051ad4d589e9f82e1d9f27bb34e50d60c0d4be903596fa10464b3ba6a5c",
+  "resolution": 449,
+  "time_step_s": 0.01,
+  "duration_s": 0.5,
+  "wall_s": 48.12014177092351,
+  "allocator": "bfc"
+}

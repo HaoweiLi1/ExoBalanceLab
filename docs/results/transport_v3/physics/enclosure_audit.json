@@ -1,0 +1,487 @@
+{
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f"
+  },
+  "audit_source_sha256": "496d92a5a52c0c8a79325f7ba96f9edf2bcbeb7740afeded7b2a27f942f0fe45",
+  "scope": "Computational enclosure endpoints only; no value-field convergence claim",
+  "cases": [
+    {
+      "family": "OM_gc_forward_common_ankle_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_common_ankle_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_recomputed_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_recomputed_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_recomputed_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_recomputed_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_common_ankle_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_common_ankle_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_recomputed_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_recomputed_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_recomputed_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_recomputed_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "OM_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_backward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_gc_forward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_backward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd50",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt100_mrtd50",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt50_mrtd100",
+      "goal": "Ank",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.01,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    },
+    {
+      "family": "YF_none_forward_source_entry_mt50_mrtd100",
+      "goal": "Toe",
+      "time_step_s": 0.005,
+      "max_endpoint_error": 0.0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

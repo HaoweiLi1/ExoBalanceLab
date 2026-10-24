@@ -26,6 +26,7 @@ GUI or MATLAB process. Heavy rendering imports happen only when requested.
 | `reachability` | `HJBPolicy(path, gradient_cache=None)`, `HJBPolicy.rate(...)` | SI value grid → human torque rate Nm/s; optional disk derivative cache |
 | `reachability` | `policy_contract(profile,exo)`, `HJBPolicy.validate_plant(profile,exo)` | Exported physical parameters → checked rollout compatibility |
 | `hjb_solver` · optional JAX | `solve(problem, output, save_history=True, platform="gpu", cfl=0.8, flux="lax_friedrichs")` | MATLAB-prepared fields → float64 set/tube solve, policy and projection; optional `godunov` flux |
+| `hjb_transport` · optional JAX | `load_problem(source)`, `solve(source, output, resolution, time_step, projection_only)` | Frozen MAT/JSON problem → float64 split-transport projection, source/input hashes and solve metadata |
 | `hjb_target_geometry` | `box_value(axes, center, widths)`, `prepare(source, output)` | Independent normalized-box construction; explicit prepared-field diagnostic |
 | `reachability` | `PolicyCoverageError.query`, `.bounds` | Failed query and exported bounds in SI units |
 | `rendering` | `comparison_video(episodes, output, fps, width, height, titles)` | synchronized records and optional panel labels → MP4/GIF/poster |
@@ -42,6 +43,12 @@ executable `main()` functions.
 Grid-study protocols require all six assistance/direction pairs by default. A targeted
 follow-up can explicitly list `mode_direction_pairs`; every listed pair must be present
 at every declared grid resolution.
+
+The transport backend supports the frozen none/GC finite-time reach-avoid problems.
+It resolves each terminal box separately, unions the resulting values, and exports
+SI angle/velocity projections. It does not export time-dependent feedback histories.
+Use the grid/time settings in the [transport protocol](../docs/TRANSPORT_CONVERGENCE.md),
+rather than treating a solver's default resolution as an accuracy guarantee.
 
 ## Timing and signs
 

@@ -50,6 +50,20 @@ sequences and rejects relaxed acceptance thresholds. The numerical reference cam
 separately with `python -m examples.hjb_analytic_reference`; its measured errors remain
 visible in [Spatial convergence](../docs/SPATIAL_CONVERGENCE.md).
 
+`test_hjb_transport.py` checks constrained double-integrator and bounded-jerk reference
+formulas against independent linear programs. Its opt-in JAX checks cover complete
+control intervals, continuous enclosure extension, original human dynamics/contact
+constraints, and slab execution against the same full-volume operators. Run both HJB
+test modules in the separate environment, with CPU also available to the legacy tests:
+
+```bash
+JAX_PLATFORMS=cuda,cpu EXOBALANCE_JAX_TEST=1 pytest -q \
+  tests/test_hjb_solver.py tests/test_hjb_transport.py
+```
+
+The larger [transport accuracy and convergence campaign](../docs/TRANSPORT_CONVERGENCE.md)
+runs separately. Software tests do not substitute for those measured reference errors.
+
 `test_hjb_regions.py` checks complete 30-case accounting, signed-velocity area integrals,
 relative changes and rejection of different physical parameters using explicit synthetic
 rectangular fields. The HJB reader tests also compare cached/uncached derivatives exactly

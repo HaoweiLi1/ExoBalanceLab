@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -53,6 +54,30 @@ def main() -> None:
     ]:
         command += ["--run", f"{label}=docs/results/hjb_refinement/{directory}"]
     subprocess.run(command + ["--out", str(output / "time_comparison")], cwd=ROOT, check=True)
+    transport_source = ROOT / "docs/results/transport_v3"
+    transport = output / "transport"
+    shutil.copytree(transport_source, transport)
+    for module, arguments in [
+        (
+            "examples.benchmark_transport",
+            ["--report-only", "--out", str(transport / "analytic_reference")],
+        ),
+        ("examples.transport_convergence", ["report", "--out", str(transport)]),
+        (
+            "examples.plot_transport_convergence",
+            ["--reference", str(transport / "analytic_reference"), "--out", str(transport / "exact.png")],
+        ),
+        (
+            "examples.plot_transport_convergence",
+            ["--report", str(transport / "report/summary.json"), "--out", str(transport / "spatial.png")],
+        ),
+    ]:
+        subprocess.run([sys.executable, "-m", module, *arguments], cwd=ROOT, check=True)
+    for relative in ["analytic_reference/summary.json", "report/summary.json"]:
+        if json.loads((transport / relative).read_text()) != json.loads(
+            (transport_source / relative).read_text()
+        ):
+            raise ValueError("Rebuilt transport results differ from the recorded report: " + relative)
     for name in ["human", "paper_constraints"]:
         episodes = []
         for mode in ["none", "gc", "pd"]:

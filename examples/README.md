@@ -39,6 +39,11 @@ The [validation guide](../docs/VALIDATION.md) defines targets, tolerances and ex
 | `hjb_analytic_reference.py` | Run LF/Godunov against an analytic double-integrator reachable set; JAX environment |
 | `diagnose_spatial.py` | Measure initial goal interpolation and area quadrature from prepared fields |
 | `spatial_convergence.py` | Prepare/solve the full fixed-target matrix; pilot results remain unaccepted |
+| `benchmark_transport.py` | Compare split transport with independent free, constrained and three-state analytic references |
+| `transport_convergence.py` | Gate human-model solves on analytic acceptance; assess all 18 frozen families and both time pilots |
+| `verify_transport_physics.py` | Audit the transport dynamics against MATLAB-prepared fields, or replay the compact sampled audit |
+| `plot_transport_convergence.py` | Plot exact-reference contours or the complete spatial/time acceptance report |
+| `curate_transport.py` | Package a complete accepted campaign with compact fields, physical inputs and source hashes |
 | `validation_rollouts.py` | Run complete paired-model and HJB control-period/delay cohorts |
 | `refine_human_contact.py` | Refine every human triplet with an unstable recovery classification |
 | `report_validation.py` | Rebuild area, strength, timing, pairing and energy figures from recorded inputs |

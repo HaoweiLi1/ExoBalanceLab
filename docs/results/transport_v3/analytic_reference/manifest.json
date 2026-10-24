@@ -1,0 +1,72 @@
+{
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "benchmark_transport.py": "eb72ea57040c714654f99d034f6b90b3b438c8d7bbda807243e2dd3dbc5f885d",
+    "hjb_analytic_reference.py": "703a7ab465f91691d60fdda280ac2a84b769d986897f1d9683bed9f309b9070d"
+  },
+  "acceptance": {
+    "area_relative_percent": 2.0,
+    "projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995
+  },
+  "cases": [
+    {
+      "case": "free",
+      "resolution": 801,
+      "time_step_s": 0.01,
+      "wall_s": 4.557705763028935,
+      "field": "free_n801_dt0.01.npz",
+      "sha256": "cd676aa65556e3d219b4872637e6493728c097ed9503714eb45f8e5747104fb8"
+    },
+    {
+      "case": "free",
+      "resolution": 801,
+      "time_step_s": 0.005,
+      "wall_s": 4.566739125875756,
+      "field": "free_n801_dt0.005.npz",
+      "sha256": "ec60eb0de0ae5ba37b95f00cfdab30a16fbf9e5504aca2aefeb41151413c7f3a"
+    },
+    {
+      "case": "constrained",
+      "resolution": 801,
+      "time_step_s": 0.01,
+      "wall_s": 2.4296808489598334,
+      "field": "constrained_n801_dt0.01.npz",
+      "sha256": "1f491e3abc9b62cf39e93a9ccec0e2b0c2dba35433494e64aefae0a23a8070fa"
+    },
+    {
+      "case": "constrained",
+      "resolution": 801,
+      "time_step_s": 0.005,
+      "wall_s": 4.621717905858532,
+      "field": "constrained_n801_dt0.005.npz",
+      "sha256": "b3aa30b30b2b7bb42957a11dabc2a776d49fb3df847ba83338cc4a13a71e3bf1"
+    },
+    {
+      "case": "triple",
+      "resolution": 561,
+      "time_step_s": 0.01,
+      "wall_s": 80.74111027899198,
+      "field": "triple_n561_dt0.01.npz",
+      "sha256": "e97c2a836614c1dd849a3e7ff78fb35a5b8e65519230774175698a2fd51e3389"
+    },
+    {
+      "case": "triple",
+      "resolution": 673,
+      "time_step_s": 0.01,
+      "wall_s": 136.6832900790032,
+      "field": "triple_n673_dt0.01.npz",
+      "sha256": "addf91871b93948302b2e4ac34e0d550f5ce06fd8050ec345d36b197e615e9f0"
+    },
+    {
+      "case": "triple",
+      "resolution": 673,
+      "time_step_s": 0.005,
+      "wall_s": 252.36690578283742,
+      "field": "triple_n673_dt0.005.npz",
+      "sha256": "9d220350e830e3eeed69ed9eab7a7946d2cbb984d89cff8ea8da7a48ceb1609e"
+    }
+  ]
+}

@@ -121,8 +121,10 @@ thresholds, without selecting a more permissive tolerance after seeing the resul
 
 The subsequent [spatial diagnosis](SPATIAL_CONVERGENCE.md) isolates thin-goal sampling,
 control-flux dissipation and resolution in all three state directions. It implements
-and measures candidate repairs at the same thresholds. Spatial acceptance remains open;
-these newer runs do not rewrite the historical table above.
+and measures candidate repairs at the same thresholds. Those v2 candidates fail.
+The later [transport repair](TRANSPORT_CONVERGENCE.md) passes all **18/18** spatial
+comparisons at 561³→673³ and its **2/2** YF/OM time pilots, retaining the same limits.
+Neither follow-up rewrites the historical table above; their time cohorts are identified separately.
 
 ### Goal dependence
 

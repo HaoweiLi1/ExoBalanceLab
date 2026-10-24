@@ -1,9 +1,15 @@
 # HJB experiments on GPU
 
-This optional backend integrates the fields prepared by the same MATLAB code used for
+The original optional backend integrates the fields prepared by the same MATLAB code used for
 the native experiments. MATLAB supplies the dynamics, target boxes, contact constraints,
 scales and human torque-rate bounds. JAX supplies the numerical integration. Backend
 agreement and spatial convergence are measured separately.
+
+The [transport follow-up](TRANSPORT_CONVERGENCE.md) adds a separate backend for
+thin-target convergence experiments. It uses the same frozen physical inputs and
+acceptance thresholds, with independent analytic checks before human-model solves.
+Its compact JSON inputs can be rerun without MATLAB. It exports final convergence
+fields, while the original backend below supplies historical feedback policies.
 
 ## Environment
 

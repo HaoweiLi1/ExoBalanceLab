@@ -1,0 +1,90 @@
+{
+  "lower": [
+    1.5098588267948965,
+    -2.8564732142857143,
+    -130.49107142857142
+  ],
+  "prepared_sha256": "88b94db836139e6679ad4ce2eac9b51964cf073ceae4bbc958d465b054cd274f",
+  "state_scale": [
+    1.0,
+    0.3114277522925007,
+    0.001861347889355234
+  ],
+  "summary": {
+    "aligned_upright": true,
+    "aligned_zero": true,
+    "ankle_target_nodes": 15,
+    "direction": "backward",
+    "duration_s": 1.4,
+    "effective_profile": {
+      "damping_nm_s": 0.001,
+      "friction": 1,
+      "gravity_m_s2": 9.8,
+      "height_m": 1.653,
+      "mass_kg": 59.4,
+      "rate_max_nm_s": 109.5,
+      "rate_min_nm_s": -304,
+      "torque_max_nm": 28,
+      "torque_min_nm": -130
+    },
+    "exo": "none",
+    "frozen_target_file": "/home/kaidi-2/Documents/ExoBalanceLab/logs/validation_v1/hjb/prepared/YF_none_backward_source_entry_mt100_mrtd50_n225/computed_target.mat",
+    "gravity_m_s2": 9.8,
+    "initial_target_nodes": 183,
+    "matlab_release": "2026b",
+    "method": "none",
+    "mrtd_scale": 0.5,
+    "mt_scale": 1,
+    "output_step_s": 0.01,
+    "profile": "YF",
+    "requested_resolution": [
+      225,
+      225,
+      225
+    ],
+    "resolution": [
+      226,
+      226,
+      226
+    ],
+    "scope": "Source nominal / reconciled assisted HJB; convergence and published-area agreement unverified.",
+    "source_model": {
+      "h": 1.653,
+      "label": "YF",
+      "m": 59.4,
+      "tauMax": 28,
+      "tauMin": -130,
+      "uMax": 219,
+      "uMin": -608
+    },
+    "stage": "prepared",
+    "target": {
+      "ankleEq": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "thetaAnkRange": 0.012307430354495203,
+      "thetaDotAnkRange": 0.01,
+      "thetaDotToeRange": 0.01,
+      "thetaToeRange": 0.012714582086430398,
+      "toeEq": [
+        1.7565889538572326,
+        0,
+        -99.24290810588042
+      ],
+      "torqueAnkRange": 1,
+      "torqueToeRange": 9.714674462155873
+    },
+    "target_definition": "source_entry",
+    "target_field": "width_normalized",
+    "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+    "toe_target_nodes": 168,
+    "velocity_buffer_rad_s": 0.5
+  },
+  "upper": [
+    2.5645463267948965,
+    0.5084821428571429,
+    28.21428571428571
+  ]
+}

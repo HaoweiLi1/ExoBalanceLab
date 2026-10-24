@@ -1,0 +1,205 @@
+{
+  "protocol": "transport_convergence_v3",
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f"
+  },
+  "cases": [
+    {
+      "id": "OM_none_forward_recomputed_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "02b72a178eaae1e016abad699d7cac004e1a0983ca709603df45259958e08f9f",
+      "projection_sha256": "d450a90b3e06e4b4fb6bee10afbe00b4106c9c3c6e6020865bcf961b860bc142"
+    },
+    {
+      "id": "OM_none_forward_recomputed_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "02b72a178eaae1e016abad699d7cac004e1a0983ca709603df45259958e08f9f",
+      "projection_sha256": "708db729a977060915b4247e7e9b13eaa16d59fae5215d5fdd9ee806853620f6"
+    },
+    {
+      "id": "OM_gc_forward_recomputed_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "9c788021ccff7261f46de399b7d699484c2b4066d8c705fc903107abd8dc478e",
+      "projection_sha256": "39a877ae57d919fc46030925fd8936fba7cc68ae709f4880e8ea8368ccb95304"
+    },
+    {
+      "id": "OM_gc_forward_recomputed_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "9c788021ccff7261f46de399b7d699484c2b4066d8c705fc903107abd8dc478e",
+      "projection_sha256": "41bd5899eb8e7d33b5869c87c77eb723d55703ad87d92b53de8344cb64f77cde"
+    },
+    {
+      "id": "OM_none_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "7d4aa4ff85285d38dacf24af5bafd4d799e7c75b00b0ae62bac996bbd79fe9ce",
+      "projection_sha256": "464df1c5f7af7f00305549e68a1ddb7d41b9609b5efa3d8d69e5285cf9b3bca5"
+    },
+    {
+      "id": "OM_none_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "7d4aa4ff85285d38dacf24af5bafd4d799e7c75b00b0ae62bac996bbd79fe9ce",
+      "projection_sha256": "d943ac158d8e7d016aa7dc2faebf1deaace44f237a10972e52960c658e8a6104"
+    },
+    {
+      "id": "OM_gc_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "b9a17653495a35b15d5e1399a53a75ae8d301c025e0ed41c661d4e885f33d3e0",
+      "projection_sha256": "91bfe3a7b29c6673e3f9008b874a66248eb6e09e358f6d99d143e7f690bbb6ad"
+    },
+    {
+      "id": "OM_gc_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "b9a17653495a35b15d5e1399a53a75ae8d301c025e0ed41c661d4e885f33d3e0",
+      "projection_sha256": "20831dfe8547ae5b489dd44ecc2e11618b65dd7041e858a2ed8c4db07ae42165"
+    },
+    {
+      "id": "OM_none_forward_common_ankle_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "698d481684c533e9d35a582d61e6fc5a4fbd444abf2c2301b851c5c111468bd2",
+      "projection_sha256": "4dbb03ab9da427c8ae61a40b660892effdcd9423737478dffa0c0803ac8ee7b4"
+    },
+    {
+      "id": "OM_none_forward_common_ankle_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "698d481684c533e9d35a582d61e6fc5a4fbd444abf2c2301b851c5c111468bd2",
+      "projection_sha256": "6cc7cb0313da5d432b3d5b461cd84db65804865db1c4d2c30894ecdfc8dc98da"
+    },
+    {
+      "id": "OM_none_forward_common_ankle_mt100_mrtd100_n673_dt0.005",
+      "input_sha256": "698d481684c533e9d35a582d61e6fc5a4fbd444abf2c2301b851c5c111468bd2",
+      "projection_sha256": "2ddd87895021cbf9ce92c2c5a16fa00fdf5e40c468284909a2eab4de338fe71b"
+    },
+    {
+      "id": "OM_gc_forward_common_ankle_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "4cd21aff373e9ff8f5372601208c8344554d1b2f8784c9c63c6e41d72994dd2d",
+      "projection_sha256": "910060bc9c9c61e2c713c3dd0a7e489d387afd1f8405920ff44a785f392eb8db"
+    },
+    {
+      "id": "OM_gc_forward_common_ankle_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "4cd21aff373e9ff8f5372601208c8344554d1b2f8784c9c63c6e41d72994dd2d",
+      "projection_sha256": "29331f9f8a90e22c610947cd93b108d7fa6d89646fa388486882b3fa1539d4cf"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "5f6104684866a0af90cfd15aa4735d201bad63a4c03195f532cb81c304317ead",
+      "projection_sha256": "70d784683c6fb5f62bb04904fedaaac124de8c3b3b02c6e57d2cb938a1bb018b"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "5f6104684866a0af90cfd15aa4735d201bad63a4c03195f532cb81c304317ead",
+      "projection_sha256": "795d640aaaecedf4b4ebddc22afa7c4612cec1e9306b1680b2bc2a008ba0b660"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd100_n673_dt0.005",
+      "input_sha256": "5f6104684866a0af90cfd15aa4735d201bad63a4c03195f532cb81c304317ead",
+      "projection_sha256": "5b0e53b6733b18b03f32cffa8d1e9cc6460703b6698a80034f6fb20039a2940d"
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "93f83d1cd2b527500dd8cdb77a440e53bd4c1c85c8162488d596fdcea8592456",
+      "projection_sha256": "e2d2f8010929bdde7df2a16f8a45026cfac39a3d8fb8e2729b631547bec1f5e8"
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "93f83d1cd2b527500dd8cdb77a440e53bd4c1c85c8162488d596fdcea8592456",
+      "projection_sha256": "943d41daf049634fcf997ff861e957eaa1730433a48b07bae2cfa05d8615ce12"
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "78857e979524cb1c520e7f483eba6324e0b5e4c75f403eb6a6a1b9891625241b",
+      "projection_sha256": "5846fa2a85dfbe4de193bd4f9fe81b3813ace99de495f2803085dec8d07e6eba"
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "78857e979524cb1c520e7f483eba6324e0b5e4c75f403eb6a6a1b9891625241b",
+      "projection_sha256": "4f45448e8304e0b174cefce2a1ef522f02e1455292131b3828d21c8e67581c15"
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "input_sha256": "bd7922762ab0fbeadca910faf92919af355c7ae50bfebcc81840a919bead3b61",
+      "projection_sha256": "273485968ee2645af8a736d0e97f834734555e3a9679c5e3e82deb4cf6b1f61a"
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "input_sha256": "bd7922762ab0fbeadca910faf92919af355c7ae50bfebcc81840a919bead3b61",
+      "projection_sha256": "9d0450c5a3d15ecf72bddada6499b4c941b3e81bfb9c65a2cae9aeb06b0e4c35"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "input_sha256": "10a48a3d2a1a00022fb584c42b12c3d65eb795d6ae8f5d8d222368b4a73a2886",
+      "projection_sha256": "9794cd6e55922e59c27d86bb54c2a15eb41ae27cfb8c3d7c04eb2db69facbc3f"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "input_sha256": "10a48a3d2a1a00022fb584c42b12c3d65eb795d6ae8f5d8d222368b4a73a2886",
+      "projection_sha256": "dff1f7b6a04f81b6c4aac36fdbfffc003faf4d2e06e399d8eefdda51d951c85c"
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "input_sha256": "d74f8557c72b64aa3e675e09f25d63b0f502433e9041d13da6d32b136fd1f953",
+      "projection_sha256": "0ad34b31b7fffc1de89daf14b1805d69a5d205dd2730fff7e70b3621af2cb14f"
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "input_sha256": "d74f8557c72b64aa3e675e09f25d63b0f502433e9041d13da6d32b136fd1f953",
+      "projection_sha256": "cd25a92ac799c7f10d431d731b8175650ab853b6801db00ede5db9a54797aaa1"
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "input_sha256": "3d5b345e619b11bbcf90af1c2ccf63842dea3abec12b50c7929368981efeb454",
+      "projection_sha256": "4c968a10e3b3cc88e6b79c0f785989b985cd5c598959163affa862a40caccef0"
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "input_sha256": "3d5b345e619b11bbcf90af1c2ccf63842dea3abec12b50c7929368981efeb454",
+      "projection_sha256": "bb025bb4e3c817525ff703d2450fcd4dc1752e84ba4e7db6c57bb4341a93f469"
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "input_sha256": "010b5c3b47bdc0a6cdba49cfa4d1fcc226f4c4bf56ff31356fcfc8088161792e",
+      "projection_sha256": "91c7ffa0351e3f0179619c02b891fb1ac9912e21bfa12d6f077f4ca63450454e"
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "input_sha256": "010b5c3b47bdc0a6cdba49cfa4d1fcc226f4c4bf56ff31356fcfc8088161792e",
+      "projection_sha256": "049d6d85551837524e010b1909ead10eb6190edb38c7516df4175ca10390bee6"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "input_sha256": "0b66875a78f7d46efe6dc031874f5d94a2b3b4e1fae4cc2d966a737fce4532b4",
+      "projection_sha256": "c0d761ca6327a3d6320f394f68156af96bef1013df83b1d4f2128bfa1779bc82"
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "input_sha256": "0b66875a78f7d46efe6dc031874f5d94a2b3b4e1fae4cc2d966a737fce4532b4",
+      "projection_sha256": "1a53276ab3dc1c814d7525844d4729ac8bff66c509c8db4282ddbb69967ccf18"
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "input_sha256": "30f748483546492678d7bff12e7a0bb6510ca9059d03a76e01c8a8a33d91aa13",
+      "projection_sha256": "1cd481980c3fd6922027a8be45584992abf701af9ea86e5c1cbc391154795fd4"
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "input_sha256": "30f748483546492678d7bff12e7a0bb6510ca9059d03a76e01c8a8a33d91aa13",
+      "projection_sha256": "16d4cae22e872a7211c74965afadba8aacb25e1503242f05811faa7d24cda4ea"
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "input_sha256": "a5bdb6f6af40aedf1d6cab0837594bce0579921fbb4772f14111f3c96c7d7a20",
+      "projection_sha256": "de6ad7c81590d48349f9ad4c40317dd409afbc7c56bc4ec01d69c4dd61dafac4"
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "input_sha256": "a5bdb6f6af40aedf1d6cab0837594bce0579921fbb4772f14111f3c96c7d7a20",
+      "projection_sha256": "60951826923b45c543d990ab41de6ede9fe99aac3feb02d4caa9b9e4439a00de"
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "input_sha256": "74a59136c821174a722c90e1980f604ad44d9d60276b26c0293d80feb4463258",
+      "projection_sha256": "c08a8f0f2cfa735214ed0a103740015752ea9bb85d12c9aff3f2f50ecfa8b721"
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "input_sha256": "74a59136c821174a722c90e1980f604ad44d9d60276b26c0293d80feb4463258",
+      "projection_sha256": "7f827696a6dd3fe618fe000f80ec1aa82ed4279f6565dffbe718a8fc2a08f5bf"
+    }
+  ],
+  "resolutions": [
+    561,
+    673
+  ],
+  "temporal_resolution": 673,
+  "contents": "Compact projections and frozen inputs; no dense 3D fields or feedback histories"
+}

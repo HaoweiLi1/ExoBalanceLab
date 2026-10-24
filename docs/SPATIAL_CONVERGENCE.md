@@ -1,6 +1,8 @@
 # Spatial convergence
 
-**The spatial gate remains open.** This follow-up isolates target representation,
+**Historical v2 result: the spatial gate was not met.** The subsequent
+[transport repair](TRANSPORT_CONVERGENCE.md) passes all 18 spatial comparisons and
+both time pilots at the unchanged thresholds. This retained follow-up isolates target representation,
 quadrature, numerical flux and grid resolution. It implements and runs candidate
 repairs while retaining the physical goals and original error standards. The
 [historical 70-solve campaign](VALIDATION.md) is unchanged.

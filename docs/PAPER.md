@@ -18,12 +18,19 @@ arXiv v3, October 2, 2024. Authors' code:
 | PD, Eq. (16) | Restoring signs from authors' `dynamics.m` | Opposite signs to the printed equation; explicit audit below |
 | Eq. (11), value-gradient torque-rate feedback | `reachability.HJBPolicy`, per-physics-step torque integration and MATLAB exporter | Native/GPU comparisons and 180 preselected OF rollouts across all assistance/direction pairs |
 | Published HJB regions, Figs. 4–6 / Table II | Complete reconciled 30-case comparison, spatial studies and target diagnostic | Primary sign disagreement, spatial sensitivity and target dependence quantified |
+| Reduced-model numerical refinement | Split transport with independently resolved terminal boxes | [18/18 YF/OM spatial comparisons and 2/2 time pilots pass](TRANSPORT_CONVERGENCE.md) at the original thresholds |
 | More realistic embodiment | Independent articulated model | A new engineering experiment; outside the paper's model assumptions |
 
 The subsequent [validation campaign](VALIDATION.md) explicitly separates terminal goals,
 numerical acceptance, independent MT/MRTD, sampled control with delay, and paired human
 feedback assumptions. Its comparisons supplement the historical evidence below; passing
 software checks does not imply convergence or a transferred multibody HJB guarantee.
+
+The later transport campaign additionally passes independent analytic references and
+the full declared YF/OM numerical cohort, including separate MT50/MRTD50 conditions.
+Its accepted projections do not cover the complete five-population Table II study,
+and the backend has not exported new feedback histories for MuJoCo rollouts. The
+historical policies and videos below retain their original solver provenance.
 
 The recovery grid is a **fixed-controller, zero-initial-human-torque slice**. The paper's
 stabilizable region projects over all admissible initial human torques and optimizes
@@ -178,7 +185,7 @@ the reported figures. Record any patch separately from the authors' unchanged so
 4. **Population and recorded spatial studies complete.** All five profiles
    and three modes have solved forward/backward regions at requested 225³ and 1.4 s.
    The [18-case OF study](RESULTS.md#complete-of-spatial-study) retains 5.04%–7.52%
-   native-area changes from 225³ to 301³; spatial convergence is unestablished.
+   native-area changes from 225³ to 301³; OF spatial convergence is unestablished.
    The [six-case OM follow-up](RESULTS.md#targeted-om-spatial-follow-up) retains the GC
    forward sign disagreement at all three grids (−1.35% at 301³ versus Table II's +3.7%).
 5. **Published-area comparison complete, reproduction unaccepted.** All

@@ -1,0 +1,211 @@
+{
+  "scope": "Projected reduced-model regions: spatial and numerical-time refinement",
+  "acceptance": {
+    "spatial_area_relative_percent": 2.0,
+    "spatial_assistance_effect_pp": 1.0,
+    "common_grid_projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995,
+    "rollout_endpoint_abs": {
+      "angle_rad": 0.001,
+      "velocity_rad_s": 0.01,
+      "torque_nm": 1.0
+    },
+    "rollout_classification_stable": true,
+    "deadline_p99_fraction": 1.0,
+    "interpretation": "Operational acceptance chosen before new outcomes; failures remain failures. These thresholds are not claims from the source paper. Region convergence requires all three spatial criteria for the compared pair. Reaching a terminal box is finite-time reach-avoid evidence, not an invariance proof."
+  },
+  "finest_spatial_pair": [
+    561,
+    673
+  ],
+  "spatial": [
+    {
+      "coarse": "OM_none_forward_recomputed_mt100_mrtd100_n561_dt0.01",
+      "fine": "OM_none_forward_recomputed_mt100_mrtd100_n673_dt0.01",
+      "family": "OM_none_forward_recomputed_mt100_mrtd100",
+      "area_error_percent": 0.1195673722933257,
+      "projection_iou": 0.998822663723326,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "OM_gc_forward_recomputed_mt100_mrtd100_n561_dt0.01",
+      "fine": "OM_gc_forward_recomputed_mt100_mrtd100_n673_dt0.01",
+      "family": "OM_gc_forward_recomputed_mt100_mrtd100",
+      "area_error_percent": 0.684140852528448,
+      "projection_iou": 0.9909200968523002,
+      "assistance_effect_change_pp": 0.5643403928607849,
+      "passed": true
+    },
+    {
+      "coarse": "OM_none_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "fine": "OM_none_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "family": "OM_none_forward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.08292665027703866,
+      "projection_iou": 0.9990256815633215,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "OM_gc_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "fine": "OM_gc_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "family": "OM_gc_forward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.4274463076520709,
+      "projection_iou": 0.995734830395713,
+      "assistance_effect_change_pp": 0.34827477791343764,
+      "passed": true
+    },
+    {
+      "coarse": "OM_none_forward_common_ankle_mt100_mrtd100_n561_dt0.01",
+      "fine": "OM_none_forward_common_ankle_mt100_mrtd100_n673_dt0.01",
+      "family": "OM_none_forward_common_ankle_mt100_mrtd100",
+      "area_error_percent": 0.10723318158827665,
+      "projection_iou": 0.9982498843314357,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "OM_gc_forward_common_ankle_mt100_mrtd100_n561_dt0.01",
+      "fine": "OM_gc_forward_common_ankle_mt100_mrtd100_n673_dt0.01",
+      "family": "OM_gc_forward_common_ankle_mt100_mrtd100",
+      "area_error_percent": 0.08680971838223157,
+      "projection_iou": 0.9985498069813518,
+      "assistance_effect_change_pp": 0.02012725944274818,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "fine": "YF_none_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "family": "YF_none_forward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.07375454161958851,
+      "projection_iou": 0.9993180578286961,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_backward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "fine": "YF_none_backward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "family": "YF_none_backward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.00824721209762622,
+      "projection_iou": 0.9994885237516783,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_gc_forward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "fine": "YF_gc_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "family": "YF_gc_forward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.484545789495209,
+      "projection_iou": 0.9937723485431744,
+      "assistance_effect_change_pp": 0.40994206179763015,
+      "passed": true
+    },
+    {
+      "coarse": "YF_gc_backward_source_entry_mt100_mrtd100_n561_dt0.01",
+      "fine": "YF_gc_backward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "family": "YF_gc_backward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.32953234174398793,
+      "projection_iou": 0.995876993166287,
+      "assistance_effect_change_pp": 0.2257338331335781,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_forward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "fine": "YF_none_forward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "family": "YF_none_forward_source_entry_mt50_mrtd100",
+      "area_error_percent": 0.026852846401720826,
+      "projection_iou": 0.9991591928251121,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_backward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "fine": "YF_none_backward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "family": "YF_none_backward_source_entry_mt50_mrtd100",
+      "area_error_percent": 0.029689832476391304,
+      "projection_iou": 0.9985178636434552,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_gc_forward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "fine": "YF_gc_forward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "family": "YF_gc_forward_source_entry_mt50_mrtd100",
+      "area_error_percent": 0.5666268763335337,
+      "projection_iou": 0.9935882325208618,
+      "assistance_effect_change_pp": 0.6427063615640947,
+      "passed": true
+    },
+    {
+      "coarse": "YF_gc_backward_source_entry_mt50_mrtd100_n561_dt0.01",
+      "fine": "YF_gc_backward_source_entry_mt50_mrtd100_n673_dt0.01",
+      "family": "YF_gc_backward_source_entry_mt50_mrtd100",
+      "area_error_percent": 0.2838264866417771,
+      "projection_iou": 0.9961032343155182,
+      "assistance_effect_change_pp": 0.22016397963976608,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_forward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "fine": "YF_none_forward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "family": "YF_none_forward_source_entry_mt100_mrtd50",
+      "area_error_percent": 0.0635076923076843,
+      "projection_iou": 0.9992975964091758,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_backward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "fine": "YF_none_backward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "family": "YF_none_backward_source_entry_mt100_mrtd50",
+      "area_error_percent": 0.0793146920963441,
+      "projection_iou": 0.9993362796043579,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_gc_forward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "fine": "YF_gc_forward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "family": "YF_gc_forward_source_entry_mt100_mrtd50",
+      "area_error_percent": 0.38731318697774675,
+      "projection_iou": 0.9959260302262274,
+      "assistance_effect_change_pp": 0.2958881965254623,
+      "passed": true
+    },
+    {
+      "coarse": "YF_gc_backward_source_entry_mt100_mrtd50_n561_dt0.01",
+      "fine": "YF_gc_backward_source_entry_mt100_mrtd50_n673_dt0.01",
+      "family": "YF_gc_backward_source_entry_mt100_mrtd50",
+      "area_error_percent": 0.4155203144280671,
+      "projection_iou": 0.9958748710897215,
+      "assistance_effect_change_pp": 0.23799433170076512,
+      "passed": true
+    }
+  ],
+  "temporal": [
+    {
+      "coarse": "OM_none_forward_common_ankle_mt100_mrtd100_n673_dt0.01",
+      "fine": "OM_none_forward_common_ankle_mt100_mrtd100_n673_dt0.005",
+      "family": "OM_none_forward_common_ankle_mt100_mrtd100",
+      "area_error_percent": 0.16832183134152096,
+      "projection_iou": 0.9977513200955689,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    },
+    {
+      "coarse": "YF_none_forward_source_entry_mt100_mrtd100_n673_dt0.01",
+      "fine": "YF_none_forward_source_entry_mt100_mrtd100_n673_dt0.005",
+      "family": "YF_none_forward_source_entry_mt100_mrtd100",
+      "area_error_percent": 0.25923613561715847,
+      "projection_iou": 0.996906445471852,
+      "assistance_effect_change_pp": 0.0,
+      "passed": true
+    }
+  ],
+  "spatial_passed": 18,
+  "spatial_total": 18,
+  "temporal_passed": 2,
+  "temporal_total": 2,
+  "accepted": true
+}

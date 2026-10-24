@@ -1,0 +1,72 @@
+{
+  "profile": "YF",
+  "exo": "none",
+  "direction": "forward",
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "thetaAnkRange": 0.014480787516215746,
+    "thetaDotAnkRange": 0.01,
+    "thetaDotToeRange": 0.01,
+    "thetaToeRange": 0.014486685751929518,
+    "toeEq": [
+      1.7565889538572326,
+      0,
+      -99.24290810588042
+    ],
+    "torqueAnkRange": 1,
+    "torqueToeRange": 11.068663929248952
+  },
+  "effective_profile": {
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8,
+    "height_m": 1.653,
+    "mass_kg": 59.4,
+    "rate_max_nm_s": 219,
+    "rate_min_nm_s": -608,
+    "torque_max_nm": 28,
+    "torque_min_nm": -130
+  },
+  "mt_scale": 1,
+  "mrtd_scale": 1,
+  "target_definition": "source_entry",
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "method": "none",
+  "duration_s": 1.4,
+  "gravity_m_s2": 9.8,
+  "stage": "solved",
+  "backend": "enclosing-grid/Strang/SL-ENO",
+  "precision": "float64",
+  "resolution": [
+    561,
+    561,
+    561
+  ],
+  "requested_time_step_s": 0.01,
+  "time_step_s": 0.01,
+  "integration_steps": 140,
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f"
+  },
+  "input_sha256": "5f6104684866a0af90cfd15aa4735d201bad63a4c03195f532cb81c304317ead",
+  "prepared_sha256": "9a2d92f045d2ba7750a52a3d783e8532540ec5b334b86d8bf52b5eabb7eca850",
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "numpy": "2.2.6",
+    "flax": "0.12.10"
+  },
+  "device": "cuda:0",
+  "device_kind": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "execution": "global enclosure axes; independently compiled 32-node slabs for every Strang operator",
+  "output_scope": "Convergence projection; no feedback history exported",
+  "independently_resolved_boxes": 2,
+  "wall_s": 592.2702733760234,
+  "reachable_nodes": 15204589,
+  "projection_sha256": "70d784683c6fb5f62bb04904fedaaac124de8c3b3b02c6e57d2cb938a1bb018b"
+}

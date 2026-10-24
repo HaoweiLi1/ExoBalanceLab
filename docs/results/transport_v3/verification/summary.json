@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-24",
+  "compute": "Current development laptop only; RTX 5060 Laptop GPU, 8 GB",
+  "base_commit": "f21e0445e1cf4c64a4385c6089b07376b53772a1",
+  "sources": {
+    "exobalancelab/hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "exobalancelab/paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "examples/benchmark_transport.py": "eb72ea57040c714654f99d034f6b90b3b438c8d7bbda807243e2dd3dbc5f885d",
+    "examples/hjb_analytic_reference.py": "703a7ab465f91691d60fdda280ac2a84b769d986897f1d9683bed9f309b9070d",
+    "examples/transport_convergence.py": "327602e4fad8edeb2a30785ba30ec60622c257c7993084afdfdda66245e5e07d",
+    "examples/curate_transport.py": "412ac40215a02f750f07f0f0af3ad5d05c0d473647c2475cb848d1bd07ab8414",
+    "examples/verify_transport_physics.py": "019df12bcd2f6d9c63c82b32b80bfbfb88a714312e338eb12889af2d51844320",
+    "examples/plot_transport_convergence.py": "221ca445e5c76e8d6d90d831e88c6b6c142e0d149121d984d720e187ea841c33",
+    "examples/rebuild_results.py": "0db976b0d0be5ebc7707d6da18231898682778c72f00410c22eaf0f5993a31ad",
+    "tests/test_hjb_transport.py": "2a3bd2d2bdd47d25a87bf66d21abd60975da2bf9fcd527dbb9f9d386375bbfd7",
+    "experiments/transport_convergence_v3.json": "02e9f111a3b9a00bc308839a6b76faf61e0da952238da2de3b0ea46c665c3cee",
+    "experiments/validation_v1.json": "34cb7f983ce0676e871ad3ca262baa41e3e8ba4b9f09e1c4a6d388173e623098"
+  },
+  "report_and_audit_rebuild_equal": {
+    "analytic_reference/summary.json": true,
+    "report/summary.json": true,
+    "physics/summary.json": true,
+    "physics/enclosure_audit.json": true,
+    "coarse_reference/summary.json": true,
+    "rejected_halo/comparisons.json": true
+  },
+  "tests": {
+    "basic": {
+      "passed": 91,
+      "skipped": 24,
+      "warnings": 14,
+      "exit_code": 0
+    },
+    "jax": {
+      "passed": 18,
+      "warnings": 14,
+      "exit_code": 0
+    },
+    "transport_cpu": {
+      "passed": 10,
+      "exit_code": 0
+    }
+  },
+  "lint": {
+    "exit_code": 0,
+    "formatted_python_files": 55
+  },
+  "figures_visually_checked": [
+    "exact.png",
+    "spatial.png"
+  ],
+  "scope": "Numerical projections and reconstruction; MATLAB runtime and historical MuJoCo episodes not rerun",
+  "local_documentation_links": {
+    "local_links_checked": 269,
+    "errors": []
+  }
+}

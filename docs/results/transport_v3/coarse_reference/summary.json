@@ -1,0 +1,7 @@
+{
+  "resolution": 449,
+  "time_step_s": 0.01,
+  "area_error_percent": 2.5911797543729187,
+  "projection_iou": 0.9740882024562709,
+  "passed": false
+}

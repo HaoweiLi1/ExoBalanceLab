@@ -8,7 +8,7 @@ have different inputs and purposes:
 |---|---|---|---|
 | Run a demo | Packaged models and explicit initial conditions | Basic environment; graphics driver for video | Current implementation produces a fresh simulated episode |
 | Rebuild a report | Committed projections, outcomes and episode arrays | Basic environment; no MATLAB/GPU solver | Recorded data reproduce the selected tables and figures |
-| Solve HJB again | External author source, dependencies and prepared fields | Licensed MATLAB; optional separate JAX environment | A new numerical solve, requiring its own validation |
+| Solve HJB again | Frozen JSON inputs for transport, or MATLAB-prepared fields for the original backend | Separate JAX environment; MATLAB for new terminal SDP preparations | A new numerical solve, requiring its own validation |
 
 ## Run the basic demonstrations
 
@@ -54,15 +54,24 @@ The helper calls the existing report functions with the included curated protoco
 | `om_grid/` | Six OM follow-up projections | Areas, four grid comparisons, PNG/PDF figures |
 | `target_diagnostic/` | OM reference and changed-target projections | Three areas and target-sensitivity metrics |
 | `time_comparison/` | Three frozen-cohort outcome sets | All 27 outcomes, summary and PNG/PDF matrix |
+| `transport/` | Frozen transport projections and analytic references | All 18 spatial comparisons, two time pilots, exact-reference checks and figures |
 | `human_signals.png`, `paper_constraints_signals.png` | Six complete episode records | Original lean and human/device torque curves |
 
 `--video` adds MP4/GIF/poster files for those same two comparisons. Graphics/library
 versions may change video encoding or typography; compare numerical records rather
 than expecting byte-identical media. Report paths and PDF metadata may also differ.
-Rebuilding these reports neither establishes solver convergence nor eliminates the
-recorded disagreement with the paper. Individual commands are in [Results](RESULTS.md).
+The transport reports are rebuilt in a copy of the curated dataset and checked against
+the recorded numerical summaries. Rebuilding reports does not perform new integration
+or eliminate the recorded disagreement with the paper. Individual commands are in
+[Results](RESULTS.md).
 
 ## Rerun advanced integrations
+
+The [transport follow-up](TRANSPORT_CONVERGENCE.md#reproduce) includes independent
+analytic references, the frozen human-model inputs and a compact MATLAB-sample audit.
+Its report/figure commands use the basic environment. Replaying the physical audit
+needs JAX on the CPU; repeating the numerical integrations uses the separate HJB
+environment. Neither operation needs a MATLAB license or the large preparation files.
 
 The [spatial diagnosis](SPATIAL_CONVERGENCE.md) has a separate compact dataset. Rebuild
 its geometry, area/IoU comparisons, analytic reference and figure in the basic environment:

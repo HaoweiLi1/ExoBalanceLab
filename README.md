@@ -76,13 +76,13 @@ using the basic environment.
 |---|---|
 | Analytical dynamics · 1,500 states | Maximum acceleration error **1.16e-9 rad/s²** |
 | MATLAB/Python feedback · six seconds | Identical recorded positions and commands |
-| [Original HJB study](docs/VALIDATION.md) · 70 solves | Time checks **2/2**; spatial convergence **0/18** at frozen tolerances |
-| [Spatial diagnosis](docs/SPATIAL_CONVERGENCE.md) | Goal/flux corrections tested; spatial acceptance remains open |
+| [Independent analytic references](docs/TRANSPORT_CONVERGENCE.md#independent-analytic-checks) · three systems | Maximum area error **1.959%**; all declared checks pass |
+| [Transport validation](docs/TRANSPORT_CONVERGENCE.md) · 38 solves | Spatial **18/18**, time **2/2** pass at unchanged tolerances |
 | [Paired model study](docs/VALIDATION.md) · 480 episodes | 159/160 physics-refinement classifications agree; human harm not observed |
 
-Target and flux repairs retain substantial grid sensitivity; full reproduction of the
-paper's regions is not established. The articulated model is a sagittal
-engineering extension. [Results](docs/RESULTS.md) and [paper correspondence](docs/PAPER.md)
+The repaired solver meets the declared numerical criteria for reduced-model YF/OM
+regions. Exact reproduction of the paper's Table II remains unestablished; the articulated
+model is a sagittal engineering extension. [Results](docs/RESULTS.md) and [paper correspondence](docs/PAPER.md)
 explain the assumptions, disagreements and measured limits.
 
 ## 📚 Documentation
@@ -96,7 +96,7 @@ explain the assumptions, disagreements and measured limits.
 | [Reproduce the results](docs/REPRODUCING.md) | Basic demos, offline report rebuilds and optional solver requirements |
 | [Validation campaign](docs/VALIDATION.md) | Target/error standards, independent strength, timing and paired human models |
 | [Validation](tests/README.md) · [History](docs/MIGRATION.md) | Tests and integration of the original branches |
-| [Scope and TODO](docs/TODO.md) | Completed work, open numerical acceptance and optional extensions |
+| [Scope and TODO](docs/TODO.md) | Completed work, remaining validation and optional extensions |
 
 ## 📄 Source and citation
 

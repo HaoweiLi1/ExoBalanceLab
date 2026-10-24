@@ -1,0 +1,72 @@
+{
+  "profile": "OM",
+  "exo": "none",
+  "direction": "forward",
+  "target": {
+    "ankleEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "thetaAnkRange": 0.005,
+    "thetaDotAnkRange": 0.01,
+    "thetaDotToeRange": 0.01,
+    "thetaToeRange": 0.005,
+    "toeEq": [
+      1.5707963267948966,
+      0,
+      0
+    ],
+    "torqueAnkRange": 1,
+    "torqueToeRange": 1
+  },
+  "effective_profile": {
+    "damping_nm_s": 0.001,
+    "friction": 1,
+    "gravity_m_s2": 9.8,
+    "height_m": 1.74,
+    "mass_kg": 74.5,
+    "rate_max_nm_s": 232,
+    "rate_min_nm_s": -681,
+    "torque_max_nm": 37,
+    "torque_min_nm": -137
+  },
+  "mt_scale": 1,
+  "mrtd_scale": 1,
+  "target_definition": "common_ankle",
+  "target_semantics": "Finite-horizon terminal goal intersected with C1/C3-C5; box invariance is not asserted.",
+  "method": "none",
+  "duration_s": 1.4,
+  "gravity_m_s2": 9.8,
+  "stage": "solved",
+  "backend": "enclosing-grid/Strang/SL-ENO",
+  "precision": "float64",
+  "resolution": [
+    673,
+    673,
+    673
+  ],
+  "requested_time_step_s": 0.01,
+  "time_step_s": 0.01,
+  "integration_steps": 140,
+  "sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f"
+  },
+  "input_sha256": "698d481684c533e9d35a582d61e6fc5a4fbd444abf2c2301b851c5c111468bd2",
+  "prepared_sha256": "7f328c640bf7751ae9ce80425e528e18de5e5fe5dc5d4882621232beb26e9648",
+  "versions": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "numpy": "2.2.6",
+    "flax": "0.12.10"
+  },
+  "device": "cuda:0",
+  "device_kind": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "execution": "global enclosure axes; independently compiled 32-node slabs for every Strang operator",
+  "output_scope": "Convergence projection; no feedback history exported",
+  "independently_resolved_boxes": 1,
+  "wall_s": 596.9047832100186,
+  "reachable_nodes": 24149013,
+  "projection_sha256": "6cc7cb0313da5d432b3d5b461cd84db65804865db1c4d2c30894ecdfc8dc98da"
+}

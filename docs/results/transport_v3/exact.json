@@ -1,0 +1,28 @@
+{
+  "reference_sources": {
+    "hjb_transport.py": "3ffba7eea92e41a8f1b3d6fc59c3eb1232fbb48a832487162978335c9c0ef00b",
+    "paper.py": "4bbb179830cd809fd1130ed55c9af83c485f55528a9d2328076c92d720843b3f",
+    "benchmark_transport.py": "eb72ea57040c714654f99d034f6b90b3b438c8d7bbda807243e2dd3dbc5f885d",
+    "hjb_analytic_reference.py": "703a7ab465f91691d60fdda280ac2a84b769d986897f1d9683bed9f309b9070d"
+  },
+  "continuous_area_checks": [
+    {
+      "case": "free",
+      "continuous_exact_area": 0.09853333333327832,
+      "quadrature_error_estimate": 3.7083548994254225e-13,
+      "maximum_area_error_percent": 0.5095568335032996
+    },
+    {
+      "case": "constrained",
+      "continuous_exact_area": 0.0734264999999854,
+      "quadrature_error_estimate": 7.04155548173576e-13,
+      "maximum_area_error_percent": 0.36238052109086594
+    },
+    {
+      "case": "triple",
+      "continuous_exact_area": 0.007166666666595777,
+      "quadrature_error_estimate": 7.609761734062924e-13,
+      "maximum_area_error_percent": 1.9767441850768952
+    }
+  ]
+}

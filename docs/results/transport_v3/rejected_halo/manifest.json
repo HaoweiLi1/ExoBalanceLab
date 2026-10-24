@@ -1,0 +1,42 @@
+{
+  "description": "Rejected one-cell initial halo. The physical terminal boxes were unchanged; these refinements still failed.",
+  "acceptance": {
+    "spatial_area_relative_percent": 2.0,
+    "spatial_assistance_effect_pp": 1.0,
+    "common_grid_projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995,
+    "rollout_endpoint_abs": {
+      "angle_rad": 0.001,
+      "velocity_rad_s": 0.01,
+      "torque_nm": 1.0
+    },
+    "rollout_classification_stable": true,
+    "deadline_p99_fraction": 1.0,
+    "interpretation": "Operational acceptance chosen before new outcomes; failures remain failures. These thresholds are not claims from the source paper. Region convergence requires all three spatial criteria for the compared pair. Reaching a terminal box is finite-time reach-avoid evidence, not an invariance proof."
+  },
+  "cases": [
+    "OM_gc_forward_recomputed_mt100_mrtd100_n225_dt0.005",
+    "OM_gc_forward_recomputed_mt100_mrtd100_n337_dt0.005",
+    "OM_none_forward_common_ankle_mt100_mrtd100_n225_dt0.005",
+    "OM_none_forward_common_ankle_mt100_mrtd100_n337_dt0.005",
+    "OM_none_forward_common_ankle_mt100_mrtd100_n337_dt0.0025"
+  ],
+  "comparisons": [
+    {
+      "coarse": "OM_gc_forward_recomputed_mt100_mrtd100_n225_dt0.005",
+      "fine": "OM_gc_forward_recomputed_mt100_mrtd100_n337_dt0.005",
+      "kind": "spatial"
+    },
+    {
+      "coarse": "OM_none_forward_common_ankle_mt100_mrtd100_n225_dt0.005",
+      "fine": "OM_none_forward_common_ankle_mt100_mrtd100_n337_dt0.005",
+      "kind": "spatial"
+    },
+    {
+      "coarse": "OM_none_forward_common_ankle_mt100_mrtd100_n337_dt0.005",
+      "fine": "OM_none_forward_common_ankle_mt100_mrtd100_n337_dt0.0025",
+      "kind": "temporal"
+    }
+  ]
+}

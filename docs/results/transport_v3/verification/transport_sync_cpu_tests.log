@@ -1,0 +1,30 @@
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:64
+  /home/kaidi-2/Documents/ExoBalanceLab/.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+  /home/kaidi-2/Documents/ExoBalanceLab/.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+  /home/kaidi-2/Documents/ExoBalanceLab/.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_mathtext.py:45
+  /home/kaidi-2/Documents/ExoBalanceLab/.conda-hjb-jax/lib/python3.12/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 14 warnings in 12.80s

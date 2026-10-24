@@ -1,0 +1,306 @@
+{
+  "id": "transport_convergence_v3",
+  "acceptance": {
+    "spatial_area_relative_percent": 2.0,
+    "spatial_assistance_effect_pp": 1.0,
+    "common_grid_projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995,
+    "rollout_endpoint_abs": {
+      "angle_rad": 0.001,
+      "velocity_rad_s": 0.01,
+      "torque_nm": 1.0
+    },
+    "rollout_classification_stable": true,
+    "deadline_p99_fraction": 1.0,
+    "interpretation": "Operational acceptance chosen before new outcomes; failures remain failures. These thresholds are not claims from the source paper. Region convergence requires all three spatial criteria for the compared pair. Reaching a terminal box is finite-time reach-avoid evidence, not an invariance proof."
+  },
+  "analytic_acceptance": {
+    "area_relative_percent": 2.0,
+    "projection_iou": 0.98,
+    "temporal_area_relative_percent": 0.5,
+    "temporal_projection_iou": 0.995
+  },
+  "method": "Enclosing physical grids; exact split flows; Strang composition; bounded cubic ENO; continuous positive exterior extension; interval control minimization including interior nodes; stage-wise contact constraints; float64.",
+  "physical_targets": "Frozen source-225 terminal boxes. Each distinct box is resolved on its own grid, then terminal-goal solutions combine by a pointwise minimum on the common final domain.",
+  "initial_enclosure": "Twice each physical goal half-width, separately per goal. This is a computational domain, not a changed terminal target.",
+  "resolution_ladder": [
+    151,
+    225,
+    337,
+    449,
+    561,
+    673,
+    785
+  ],
+  "families": [
+    {
+      "id": "OM_none_forward_recomputed_mt100_mrtd100_n225_cfl0.8",
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "recomputed",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "OM_gc_forward_recomputed_mt100_mrtd100_n225_cfl0.8",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "recomputed",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "OM_none_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "OM_gc_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "OM_none_forward_common_ankle_mt100_mrtd100_n225_cfl0.8",
+      "profile": "OM",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "common_ankle",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "OM_gc_forward_common_ankle_mt100_mrtd100_n225_cfl0.8",
+      "profile": "OM",
+      "exo": "gc",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "common_ankle",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt100_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "none",
+      "direction": "backward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt100_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt100_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "backward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt50_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 0.5,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt50_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "none",
+      "direction": "backward",
+      "resolution": 225,
+      "mt_scale": 0.5,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt50_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 0.5,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt50_mrtd100_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "backward",
+      "resolution": 225,
+      "mt_scale": 0.5,
+      "mrtd_scale": 1,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_none_forward_source_entry_mt100_mrtd50_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "none",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 0.5,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_none_backward_source_entry_mt100_mrtd50_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "none",
+      "direction": "backward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 0.5,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_gc_forward_source_entry_mt100_mrtd50_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "forward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 0.5,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    },
+    {
+      "id": "YF_gc_backward_source_entry_mt100_mrtd50_n225_cfl0.8",
+      "profile": "YF",
+      "exo": "gc",
+      "direction": "backward",
+      "resolution": 225,
+      "mt_scale": 1,
+      "mrtd_scale": 0.5,
+      "target_definition": "source_entry",
+      "cfl": 0.8,
+      "save_history": false
+    }
+  ],
+  "pilots": [
+    "OM_none_forward_common_ankle_mt100_mrtd100",
+    "YF_none_forward_source_entry_mt100_mrtd100"
+  ],
+  "full_acceptance": "All original 18 families must pass area, GC-effect and IoU at a common adjacent refinement pair. Time checks use matched YF and OM pilots; failures are retained.",
+  "time_steps_s": [
+    0.01,
+    0.005,
+    0.0025,
+    0.00125
+  ],
+  "primary_time_step_s": 0.01,
+  "temporal_comparison_steps_s": [
+    0.01,
+    0.005
+  ],
+  "analytic_cases": {
+    "free": [
+      [
+        801,
+        0.01
+      ],
+      [
+        801,
+        0.005
+      ]
+    ],
+    "constrained": [
+      [
+        801,
+        0.01
+      ],
+      [
+        801,
+        0.005
+      ]
+    ],
+    "triple": [
+      [
+        561,
+        0.01
+      ],
+      [
+        673,
+        0.01
+      ],
+      [
+        673,
+        0.005
+      ]
+    ]
+  }
+}

@@ -1,14 +1,36 @@
-# Measured results — October 22–23, 2026
+# Measured results — October 22–24, 2026
 
 MuJoCo experiments use Python 3.11 and MuJoCo 3.3.7; the optional HJB backend uses
 Python 3.12 and JAX, with MATLAB R2026b preparing its fields. Per-run versions and
 complete numerical/video snapshots are in [results](results/).
-The later [release verification](RELEASE.md) checks installation, examples and report rebuilds;
-it does not repeat these numerical campaigns.
+The [release verification](RELEASE.md) records installation, tests and report rebuilds.
+
+## Accepted transport refinement
+
+The [transport repair](TRANSPORT_CONVERGENCE.md) completes **38 local GPU solves**
+with unchanged goals, constraints and acceptance limits. All **18/18 YF/OM spatial
+comparisons** pass at 561³→673³ with a 10 ms step. The worst native-area difference
+is **0.684%** (limit 2%), the largest change in GC's effect is **0.643 percentage
+points** (limit 1), and the minimum projected-set IoU is **0.99092** (limit 0.98).
+Independent MT50 and MRTD50 conditions are included in that complete cohort.
+
+Both 673³ time pilots pass at 10→5 ms: OM/common-ankle gives **0.168% / 0.99775**
+and YF/source-entry **0.259% / 0.99691** for area difference / IoU, against limits
+of 0.5% / 0.995. Three independent analytic systems also pass their absolute-error
+and refinement checks. The maximum raster-referenced absolute area error is
+**1.959%**; a separate continuous-area comparison gives **1.977%**, both below 2%.
+
+![Complete spatial acceptance with unchanged thresholds](results/transport_v3/spatial.png)
+
+[All measurements and source snapshots](results/transport_v3/README.md) ·
+[Method, analytic figures and reproduction](TRANSPORT_CONVERGENCE.md).
+These are accepted finite-grid reduced-model projections. The new backend has not
+exported feedback histories or rerun the historical MuJoCo videos. Exact Table II
+reproduction and transfer of HJB guarantees to the articulated model remain unestablished.
 
 ## Spatial diagnosis and partial repair
 
-The [spatial follow-up](SPATIAL_CONVERGENCE.md) freezes the original goals and tolerances,
+The earlier [spatial follow-up](SPATIAL_CONVERGENCE.md) freezes the original goals and tolerances,
 repairs thin-box representation, adds an exact Godunov control flux, and tests each
 spatial axis independently. A separate double-integrator reference confirms substantial
 transport error even without human/contact physics. The changes improve some comparisons

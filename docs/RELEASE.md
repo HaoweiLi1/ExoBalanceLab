@@ -1,6 +1,6 @@
-# Release verification — October 23, 2026
+# Release verification — October 23–24, 2026
 
-This release completes the research showcase and reproduction workflows in [the delivery
+The October 23 release completed the research showcase and reproduction workflows in [the delivery
 plan](PLAN.md). It adds small replay/report examples and corrects experiment provenance
 when the installed package is called from another directory. Existing physics, controllers
 and numerical campaign records are retained.
@@ -44,5 +44,27 @@ added. See [NOTICE](../NOTICE.md). Tracked files exclude local environments and 
 README claims link to measured evidence, including disagreements and failures.
 
 New controllers, muscle/3D models and stronger scientific validation remain optional
-[TODOs](TODO.md). Full quantitative reproduction of the source paper, spatial convergence
-and physiological validation of the articulated model remain unestablished.
+[TODOs](TODO.md). At that release, full quantitative reproduction of the source paper,
+spatial convergence and physiological validation of the articulated model remained unestablished.
+
+## Numerical follow-up — October 24
+
+The [transport campaign](TRANSPORT_CONVERGENCE.md) closes the declared YF/OM spatial
+and numerical-time gates: **18/18** spatial comparisons and **2/2** time pilots pass
+after 38 local GPU solves, preceded by independent analytic references. Physical
+inputs and original thresholds are unchanged. Failed earlier methods remain archived.
+
+The basic suite passes **91 tests**, with **24 optional checks skipped**; the separate
+JAX suite passes **18 tests** for the same frozen numerical source. Maintained lint
+and formatting pass for 55 Python files. Fourteen third-party Matplotlib/pyparsing
+warnings remain visible. MATLAB runtime tests were not repeated in this follow-up.
+
+The curated projections, analytic references and physical samples support report
+reconstruction without MATLAB or GPU integration. Full Table II reproduction, new
+transport feedback histories, and articulated/hardware guarantees remain outside
+this acceptance. See the [evidence bundle](results/transport_v3/README.md).
+
+All rebuilt analytic/human reports, physical/enclosure audits and retained failed-candidate
+summaries match their recorded JSON values exactly. The combined helper also rebuilds
+the older population, grid, target and timing reports and recorded-state signal plots.
+[Verification record and test logs](results/transport_v3/verification/summary.json).
